@@ -1,0 +1,22 @@
+{
+  "name": "vmix-js-utils",
+  "version": "1.0.0",
+  "description": "Javascript utilities for communicating with the vMix web API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensstigaard/vmix-js-utils.git"
+  },
+  "keywords": [
+    "vMix"
+  ],
+  "author": "Jens Grønhøj Stigaard <jens@stigaard.info>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jensstigaard/vmix-js-utils/issues"
+  },
+  "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme"
+}
