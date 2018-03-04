@@ -1,7 +1,7 @@
 # vMix-js-utils
 Javascript utilities for communicating with vMix web API.
 
-[![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://badge.fury.io/js/vmix-js-utils)
+[![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
 ```
 const { Connection, StateFetcher } = require('vmix-js-utils')
