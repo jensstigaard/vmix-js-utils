@@ -8,10 +8,12 @@ const { Connection, StateFetcher } = require('vmix-js-utils')
 
 const connection = new Connection('localhost', 8088)
 const stateFetcher = new StateFetcher(connection)
+
 stateFetcher.onSuccess(response => {
  // Your logic here!
  // See example to parse the XML correctly
 })
+
 stateFetcher.start()
 ```
 ## Purpose
