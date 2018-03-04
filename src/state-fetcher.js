@@ -2,7 +2,6 @@
  * Created by Jens on 07-07-2017.
  */
 const axios = require('axios')
-const { forEach } = require('lodash')
 
 const Connection = require('./connection')
 
@@ -45,13 +44,13 @@ module.exports = class VmixStateFetcher {
                 .get(this.connection.apiUrl(), this.webcontrollerAjaxRequestHeaders)
                 .then(response => {
                     this.refreshRate = this.defaultRefreshRate
-                    forEach(this.onSuccess, callback => {
+                    this.onSuccess.forEach(callback => {
                         callback(response.data)
                     })
                 })
                 .catch(error_response => {
                     this.increaseRefreshRate()
-                    forEach(this.onError, callback => {
+                    this.onError.forEach(callback => {
                         callback(error_response)
                     })
                 })
