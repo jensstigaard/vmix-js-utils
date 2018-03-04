@@ -1,7 +1,8 @@
+// Using assert library
 const assert = require('assert')
 
-const InputMapper = require('../src/input-mapper')
-const ApiDataParser = require('../src/api-data-parser')
+// Import the modules
+const { ApiDataParser, InputMapper } = require('../index')
 
 let data = `
 <vmix>

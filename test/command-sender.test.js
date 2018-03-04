@@ -1,9 +1,8 @@
 const assert = require('assert')
 const moxios = require('moxios')
 
-const Connection = require('../src/connection')
-const CommandSender = require('../src/command-sender')
-
+// Import the modules
+const { CommandSender, Connection } = require('../index')
 
 describe('command-sender', function () {
 

@@ -1,6 +1,7 @@
 const assert = require('assert')
 
-const Connection = require('../src/connection')
+// Import the modules
+const { Connection } = require('../index')
 
 describe('connection', function () {
     describe('instanciate', function () {
