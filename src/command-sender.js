@@ -1,8 +1,13 @@
 const axios = require('axios')
 const querystring = require("querystring")
 
+const Connection = require('./connection')
+
 module.exports = class CommandSender {
     constructor(connection) {
+        if(!connection || !connection instanceof Connection){
+            throw Error("Need a connection!")
+        }
         this.connection = connection
     }
 
