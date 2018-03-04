@@ -46,8 +46,8 @@ Review index.js for some basic example of how to use the utilities
  - [CommandSender Basic example](../../blob/master/examples/command-sender-basic.js)
  - [StateFetcher Basic example](../../blob/master/examples/state-fetcher-basic.js)
 
-# Author
-Jens Grønhøj Stigaard <jens@stigaard.info> (http://jens.stigaard.info)
+# Authors
+Jens Grønhøj Stigaard - <jens@stigaard.info> (http://jens.stigaard.info)
 
 # Contribution
 You are more than welcome to contribute to the repository!
