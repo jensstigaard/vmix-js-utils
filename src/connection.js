@@ -1,11 +1,20 @@
-const ApiUrlResolver = require("./api-url-resolver")
-
 module.exports = class Connection {
-    constructor(params = {}) {
-        this.host = params.host || 'localhost'
-        this.port = params.port || 8088
+    constructor(host = 'localhost', port = 8088) {
+
+        // Validate host and port
+        if (!host || host.length < 3) {
+            throw new ApiUrlError('Invalid host provided')
+        }
+        if (!port || port < 80 || port > 99999) {
+            throw new ApiUrlError('Invalid port provided')
+        }
+
+        // Set params
+        this.host = host
+        this.port = port
     }
 
+    // Public functions
     webcontrollerUrl() {
         return `http://${this.host}:${this.port}`
     }
@@ -15,6 +24,6 @@ module.exports = class Connection {
             return `http://localhost:${location.port}/data/vmix-data.xml`
         }
 
-        return ApiUrlResolver.resolve(this.host, this.port)
+        return `${this.webcontrollerUrl()}/api`
     }
 }
