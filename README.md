@@ -12,6 +12,7 @@ stateFetcher.onSuccess(response => {
  // Your logic here!
  // See example to parse the XML correctly
 })
+stateFetcher.start()
 ```
 ## Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
