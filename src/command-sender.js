@@ -43,13 +43,13 @@ module.exports = class CommandSender {
         let promise = this.preparePromise(commands)
 
         promise
-            .catch(error => {
-                this.onError && this.onError(error)
-                onError && onError(error)
-            })
             .then(response => {
                 this.onSuccess && this.onSuccess(response)
                 onSuccess && onSuccess(response)
+            })
+            .catch(error => {
+                this.onError && this.onError(error)
+                onError && onError(error)
             })
 
         return promise
