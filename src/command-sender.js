@@ -8,6 +8,7 @@ module.exports = class CommandSender {
         if(!connection || !connection instanceof Connection){
             throw Error("Need a connection!")
         }
+        
         this.connection = connection
     }
 

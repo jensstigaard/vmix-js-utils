@@ -94,6 +94,8 @@ module.exports = class VmixStateFetcher {
             }
 
             this.refreshRate *= 2
+
+            return this
         }
 
         if (startOnInit) {
