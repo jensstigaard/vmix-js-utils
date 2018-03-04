@@ -2,7 +2,7 @@
  * Created by Jens on 07-07-2017.
  */
 const axios = require('axios')
-const {forEach} = require('lodash')
+const { forEach } = require('lodash')
 
 module.exports = class VmixStateFetcher {
     constructor(vMixConnection, refreshRate = 100, startOnInit = false) {
@@ -45,7 +45,6 @@ module.exports = class VmixStateFetcher {
                 .catch(error_response => {
                     this.increaseRefreshRate()
                     forEach(this.callbacksOnError, callback => {
-                        console.log(error_response)
                         callback(error_response)
                     })
                 })
@@ -93,6 +92,10 @@ module.exports = class VmixStateFetcher {
         if (startOnInit) {
             this.start()
         }
+    }
+
+    currentRefreshRate() {
+        return this.refreshRate
     }
 
     start() {
