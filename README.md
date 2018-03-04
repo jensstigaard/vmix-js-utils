@@ -25,7 +25,7 @@ In your code you can then require the utils module in your code as a gathered va
 ```
 const vMixUtils = require('vmix-js-utils')
 
-const connection = new vMixUtils.connection('localhost', 8088)
+const connection = new vMixUtils.Connection('localhost', 8088)
 ```
 Or even simpler, you can choose which modules you use from the package:
 ```
