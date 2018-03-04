@@ -1,8 +1,8 @@
-// Dependencies
-const Connection = require('../src/connection')
-const CommandSender = require('../src/command-sender')
+// Import modules from the package
+// Note: when using npm swap in: 'vmix-js-utils' instead of '../index'
+const { Connection, CommandSender } = require('../index')
 
-// Modules
+// Instanciate objects
 let connection = new Connection('localhost', 8088)
 let commandSender = new CommandSender(connection)
 
@@ -11,8 +11,15 @@ let commandSender = new CommandSender(connection)
 // List of all functions here: 
 // https://www.vmix.com/help20/ShortcutFunctionReference.html
 
+let onSuccess = function (response) {
+    console.log('Performed command', response)
+}
+let onError = function (error) {
+    console.log('Could not perform command', error)
+}
+
 // Perform a simple cut
-commandSender.send({ Function: 'Cut' })
+commandSender.send({ Function: 'Cut' }, onSuccess, onError)
 
 // Perform multiple commands at once:
 // - Set text of field "TitleField"  in title number 1 to the text "Updated text!"

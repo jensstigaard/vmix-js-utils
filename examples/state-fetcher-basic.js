@@ -1,8 +1,6 @@
-// Dependencies
-const Connection = require('../src/connection')
-const StateFetcher = require('../src/state-fetcher')
-const InputMapper = require('../src/input-mapper')
-const ApiDataParser = require('../src/api-data-parser')
+// Import modules from the package
+// Note: when using npm swap in: 'vmix-js-utils' instead of '../index'
+const { ApiDataParser, Connection, InputMapper, StateFetcher } = require('../index')
 
 // Modules
 let connection = new Connection('localhost', 8088)
