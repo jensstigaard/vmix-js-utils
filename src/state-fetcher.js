@@ -41,8 +41,8 @@ module.exports = class VmixStateFetcher {
         }
 
         this.run = function () {
-            //console.log(this.refreshRate)
-            this.httpClient.get(this.connection.apiUrl(), this.webcontrollerAjaxRequestHeaders)
+            this.httpClient
+                .get(this.connection.apiUrl(), this.webcontrollerAjaxRequestHeaders)
                 .then(response => {
                     this.refreshRate = this.defaultRefreshRate
                     forEach(this.onSuccess, callback => {
@@ -87,6 +87,7 @@ module.exports = class VmixStateFetcher {
         this.restart = function () {
             this.refreshRate = this.defaultRefreshRate
         }
+
         this.increaseRefreshRate = function () {
             // Guard
             if (this.refreshRate >= this.refreshRateThreshold) {
