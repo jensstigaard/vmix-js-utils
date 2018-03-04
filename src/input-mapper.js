@@ -15,7 +15,7 @@ module.exports = class InputMapper {
                 let attribute = input.attributes[i]
 
                 // Guard attribute not having name, being a function or nodeValue being a function
-                if(!attribute.name || typeof attribute === 'function' || attribute.nodeValue === 'function' || typeof attribute.name !== 'string') {
+                if (!attribute.name || typeof attribute === 'function' || attribute.nodeValue === 'function' || typeof attribute.name !== 'string') {
                     continue
                 }
 
@@ -26,19 +26,24 @@ module.exports = class InputMapper {
             }
 
             let fields = []
-            for(let i in input.childNodes) {
+            for (let i in input.childNodes) {
                 let entry = input.childNodes[i]
                 if (entry.localName && ['image', 'text'].includes(entry.localName)) {
                     let obj = {} // Build advanced fields of object from its advanced attributes
 
-                    entry.attributes.forEach(attribute => {
-                        obj[attribute.name] = attribute.nodeValue
-                    })
+                    // Map attributes
+                    if (entry.attributes && Array.isArray(entry.attributes)) {
+                        entry.attributes.forEach(attribute => {
+                            obj[attribute.name] = attribute.nodeValue
+                        })
+                    }
+
                     // Append field type
                     obj.type = entry.localName
                     if (entry.childNodes.length) {
                         obj.value = entry.childNodes[0].data
                     }
+                    
                     fields.push(obj)
                 }
             }
