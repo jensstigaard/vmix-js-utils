@@ -8,7 +8,7 @@ let stateFetcher = new StateFetcher(connection)
 
 // Register callback on state fetcher success
 // When data is fetched, what to do with it?
-stateFetcher.registerCallbackOnSuccess(data => {
+stateFetcher.onSuccess(data => {
     // Manipulate data
     let xmlContent = ApiDataParser.parse(data)
     let inputs = InputMapper.extractInputsFromXML(xmlContent)
@@ -18,7 +18,7 @@ stateFetcher.registerCallbackOnSuccess(data => {
     console.log("I did read from the vMix API! Inputs: ", inputs.length)
 })
 
-stateFetcher.registerCallbackOnError(error => {
+stateFetcher.onError(error => {
     console.error(`Error.. Not able to read API data from a vMix web controller.. Trying again in ${stateFetcher.currentRefreshRate()}ms`)
     //console.error(error)
 })
