@@ -4,8 +4,15 @@
 const axios = require('axios')
 const { forEach } = require('lodash')
 
+const Connection = require('./connection')
+
 module.exports = class VmixStateFetcher {
-    constructor(vMixConnection, refreshRate = 100, startOnInit = false) {
+    constructor(connection, refreshRate = 100, startOnInit = false) {
+
+        if (!connection || !connection instanceof Connection) {
+            throw Error("Need a connection!")
+        }
+
         // Callbacks
         this.callbacksOnSuccess = []
         this.callbacksOnError = []
@@ -15,7 +22,7 @@ module.exports = class VmixStateFetcher {
         this.httpClient.defaults.timeout = 1500
 
         // Destination
-        this.connection = vMixConnection
+        this.connection = connection
 
         // Status
         this.active = false
