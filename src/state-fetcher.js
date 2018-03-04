@@ -130,6 +130,7 @@ module.exports = class VmixStateFetcher {
 
         return this
     }
+
     start() {
         if (this.active) {
             return
