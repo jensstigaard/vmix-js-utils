@@ -8,6 +8,16 @@ The modules is as following:
  - CommandSender - Sends commands to the vMix instance ApiDataParser
  - InputMapper - Maps the inputs from the vMix instance state to JSON objects
 
+# Installation and use
+```
+git clone https://github.com/jensstigaard/vmix-js-utils.git
+cd vmix-js-utils
+
+npm install
+npm test
+
+node ./index.js
+```
 # Examples and use
 Review index.js for some basic example of how to use the utilities
 
