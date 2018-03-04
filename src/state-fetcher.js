@@ -5,6 +5,14 @@ const axios = require('axios')
 
 const Connection = require('./connection')
 
+// Specific headers for ajax request to webcontroller
+let webcontrollerAjaxRequestHeaders = {
+    timeout: 500,
+    headers: {
+        common: ''
+    }
+}
+
 module.exports = class VmixStateFetcher {
     constructor(connection, refreshRate = 100, startOnInit = false) {
 
@@ -13,8 +21,10 @@ module.exports = class VmixStateFetcher {
         }
 
         // Callbacks
-        this.onSuccess = []
-        this.onError = []
+        this.callbacks = {
+            onSuccess: [],
+            onError: [],
+        }
 
         // HTTP client
         this.httpClient = axios.create()
@@ -23,41 +33,30 @@ module.exports = class VmixStateFetcher {
         // Destination
         this.connection = connection
 
-        // Status
+        // State
         this.active = false
+
+        // Timestamps
+        this.timestamps = {
+            latestSuccess: null,
+            latestError: null
+        }
 
         // Refresh rate - ms - how long between requests?
         this.defaultRefreshRate = refreshRate < 100 ? 100 : refreshRate
         this.refreshRate = this.defaultRefreshRate
         this.refreshRateThreshold = 10000
 
-        // Specific headers for ajax request to webcontroller
-        this.webcontrollerAjaxRequestHeaders = {
-            timeout: 500,
-            headers: {
-                common: ''
-            }
-        }
-
         this.run = function () {
             this.httpClient
-                .get(this.connection.apiUrl(), this.webcontrollerAjaxRequestHeaders)
-                .then(response => {
-                    this.refreshRate = this.defaultRefreshRate
-                    this.onSuccess.forEach(callback => {
-                        callback(response.data)
-                    })
-                })
-                .catch(error_response => {
-                    this.increaseRefreshRate()
-                    this.onError.forEach(callback => {
-                        callback(error_response)
-                    })
-                })
+                .get(this.connection.apiUrl(), webcontrollerAjaxRequestHeaders)
+                .then(this.registerSuccess)
+                .catch(this.registerError)
 
-            this.runNextTick()
+            return this.runNextTick()
         }
 
+        // Run the "next tick"
         this.runNextTick = function () {
             if (!this.active) {
                 return this
@@ -70,25 +69,36 @@ module.exports = class VmixStateFetcher {
             return this
         }
 
+        // Act upon a success response
+        this.registerSuccess(response => {
+            this.resetRefreshRate()
 
-        this.registerCallbackOnSuccess = function (func) {
-            this.onSuccess.push(func)
+            this.timestamps.latestSuccess = new Date
 
-            return this
-        }
+            // Tap callbacks
+            this.callbacks.onSuccess.forEach(callback => {
+                callback(response.data)
+            })
+        })
 
-        this.registerCallbackOnError = function (func) {
-            this.onError.push(func)
+        // Act upon a faulty response
+        this.registerError(error => {
+            this.increaseRefreshRate()
 
-            return this
-        }
+            this.timestamps.latestError = new Date
 
-        this.restart = function () {
+            // Tap callbacks
+            this.callbacks.onError.forEach(callback => {
+                callback(error)
+            })
+        })
+
+        this.resetRefreshRate = function () {
             this.refreshRate = this.defaultRefreshRate
         }
 
         this.increaseRefreshRate = function () {
-            // Guard
+            // Guard if the threshold is reached
             if (this.refreshRate >= this.refreshRateThreshold) {
                 return
             }
@@ -98,15 +108,28 @@ module.exports = class VmixStateFetcher {
             return this
         }
 
-        if (startOnInit) {
+        if (!!startOnInit) {
             this.start()
         }
     }
 
-    currentRefreshRate() {
-        return this.refreshRate
+    //////////////////////////////////
+    // Public functions 
+    //////////////////////////////////
+
+    // Methods
+
+    onSuccess(func) {
+        this.callbacks.onSuccess.push(func)
+
+        return this
     }
 
+    onError(func) {
+        this.callbacks.onError.push(func)
+
+        return this
+    }
     start() {
         if (this.active) {
             return
@@ -114,5 +137,24 @@ module.exports = class VmixStateFetcher {
 
         this.active = true
         this.run()
+    }
+
+    stop() {
+        this.active = false
+    }
+
+    
+    // Getters
+
+    currentRefreshRate() {
+        return this.refreshRate
+    }
+
+    latestSuccessAt() {
+        return this.latestSuccess
+    }
+
+    latestErrorAt() {
+        return this.latestError
     }
 }
