@@ -8,7 +8,30 @@ The modules is as following:
  - CommandSender - Sends commands to the vMix instance ApiDataParser
  - InputMapper - Maps the inputs from the vMix instance state to JSON objects
 
+The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
+
 # Installation and use
+## As a dependency using npm
+The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your project.
+```
+npm install vmix-js-utils --save
+```
+In your code you can then require the utils module as a gathered variable:
+```
+const vMixUtils = require('vmix-js-utils')
+
+const connection = new vMixUtils.connection('localhost', 8088)
+```
+
+Or even simpler, you can choose which modules you use from the package:
+```
+const { Connection, StateFetcher } = require('vmix-js-utils')
+
+const connection = new Connection('localhost', 8088)
+const stateFetcher = new StateFetcher(connection)
+```
+
+## Standalone project / Fork
 ```
 git clone https://github.com/jensstigaard/vmix-js-utils.git
 cd vmix-js-utils
