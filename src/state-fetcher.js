@@ -57,7 +57,7 @@ module.exports = class VmixStateFetcher {
         }
 
         // Run the "next tick"
-        this.runNextTick = function () {
+        this.runNextTick = () => {
             if (!this.active) {
                 return this
             }
@@ -70,7 +70,7 @@ module.exports = class VmixStateFetcher {
         }
 
         // Act upon a success response
-        this.registerSuccess(response => {
+        this.registerSuccess = (response) => {
             this.resetRefreshRate()
 
             this.timestamps.latestSuccess = new Date
@@ -79,10 +79,10 @@ module.exports = class VmixStateFetcher {
             this.callbacks.onSuccess.forEach(callback => {
                 callback(response.data)
             })
-        })
+        }
 
         // Act upon a faulty response
-        this.registerError(error => {
+        this.registerError = (error) => {
             this.increaseRefreshRate()
 
             this.timestamps.latestError = new Date
@@ -91,13 +91,13 @@ module.exports = class VmixStateFetcher {
             this.callbacks.onError.forEach(callback => {
                 callback(error)
             })
-        })
+        }
 
-        this.resetRefreshRate = function () {
+        this.resetRefreshRate = () => {
             this.refreshRate = this.defaultRefreshRate
         }
 
-        this.increaseRefreshRate = function () {
+        this.increaseRefreshRate = () => {
             // Guard if the threshold is reached
             if (this.refreshRate >= this.refreshRateThreshold) {
                 return
@@ -143,7 +143,7 @@ module.exports = class VmixStateFetcher {
         this.active = false
     }
 
-    
+
     // Getters
 
     currentRefreshRate() {
