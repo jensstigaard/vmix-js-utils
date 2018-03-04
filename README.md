@@ -8,6 +8,10 @@ const { Connection, StateFetcher } = require('vmix-js-utils')
 
 const connection = new Connection('localhost', 8088)
 const stateFetcher = new StateFetcher(connection)
+stateFetcher.onSuccess(response => {
+ // Your logic here!
+ // See example to parse the XML correctly
+})
 ```
 ## Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
