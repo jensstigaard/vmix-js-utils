@@ -3,6 +3,9 @@
   "version": "1.0.4",
   "description": "Javascript utilities for communicating with the vMix web API",
   "main": "index.js",
+  "engines": {
+    "node": ">=5.2.4"
+  },
   "scripts": {
     "test": "mocha"
   },
