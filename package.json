@@ -4,7 +4,7 @@
   "description": "Javascript utilities for communicating with the vMix web API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/jensstigaard/vmix-js-utils/issues"
   },
-  "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme"
+  "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme",
+  "devDependencies": {
+    "mocha": "^5.0.1",
+    "moxios": "^0.4.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5",
+    "querystring": "^0.2.0",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.27"
+  }
 }
