@@ -14,8 +14,8 @@ module.exports = class VmixStateFetcher {
         }
 
         // Callbacks
-        this.callbacksOnSuccess = []
-        this.callbacksOnError = []
+        this.onSuccess = []
+        this.onError = []
 
         // HTTP client
         this.httpClient = axios.create()
@@ -45,13 +45,13 @@ module.exports = class VmixStateFetcher {
             this.httpClient.get(this.connection.apiUrl(), this.webcontrollerAjaxRequestHeaders)
                 .then(response => {
                     this.refreshRate = this.defaultRefreshRate
-                    forEach(this.callbacksOnSuccess, callback => {
+                    forEach(this.onSuccess, callback => {
                         callback(response.data)
                     })
                 })
                 .catch(error_response => {
                     this.increaseRefreshRate()
-                    forEach(this.callbacksOnError, callback => {
+                    forEach(this.onError, callback => {
                         callback(error_response)
                     })
                 })
@@ -73,13 +73,13 @@ module.exports = class VmixStateFetcher {
 
 
         this.registerCallbackOnSuccess = function (func) {
-            this.callbacksOnSuccess.push(func)
+            this.onSuccess.push(func)
 
             return this
         }
 
         this.registerCallbackOnError = function (func) {
-            this.callbacksOnError.push(func)
+            this.onError.push(func)
 
             return this
         }
