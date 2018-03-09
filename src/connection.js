@@ -31,12 +31,6 @@ module.exports = class Connection {
     }
 
     testConnection() {
-        axios.get(this.webcontrollerUrl(), { timeout: 500 })
-            .then(_ => {
-                return true
-            })
-            .catch(_ => {
-                return false
-            })
+        return axios.get(this.webcontrollerUrl(), { timeout: 500 })
     }
 }
