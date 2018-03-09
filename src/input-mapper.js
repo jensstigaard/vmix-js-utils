@@ -1,6 +1,7 @@
 const xpath = require('xpath')
 
 module.exports = class InputMapper {
+    
     static extractInputsFromXML(xmlContent) {
         return xpath.select("//vmix/inputs/input", xmlContent)
     }
