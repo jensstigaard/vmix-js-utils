@@ -15,10 +15,7 @@ let webcontrollerAjaxRequestHeaders = {
 
 module.exports = class VmixStateFetcher {
     constructor(connection, refreshRate = 100, startOnInit = false) {
-
-        if (!connection || !connection instanceof Connection) {
-            throw Error("Need a connection!")
-        }
+        this.setConnection(connection)
 
         // Callbacks
         this.callbacks = {
@@ -30,8 +27,6 @@ module.exports = class VmixStateFetcher {
         this.httpClient = axios.create()
         this.httpClient.defaults.timeout = 1500
 
-        // Destination
-        this.connection = connection
 
         // State
         this.active = false
@@ -118,6 +113,19 @@ module.exports = class VmixStateFetcher {
     //////////////////////////////////
 
     // Methods
+
+
+    /**
+     * Set the vMix connection used to know the endpoint for the vMix instance
+     * @param {Connection} connection 
+     */
+    setConnection(connection) {
+        if (!connection || !connection instanceof Connection) {
+            throw Error("Invalid connection provided!")
+        }
+
+        this.connection = connection
+    }
 
     onSuccess(func) {
         this.callbacks.onSuccess.push(func)

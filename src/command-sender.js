@@ -5,11 +5,7 @@ const Connection = require('./connection')
 
 module.exports = class CommandSender {
     constructor(connection, onSuccess, onError) {
-        if (!connection || !connection instanceof Connection) {
-            throw Error("Need a connection!")
-        }
-
-        this.connection = connection
+        this.setConnection(connection)
 
         this.onError = onError
         this.onSuccess = onSuccess
@@ -36,6 +32,18 @@ module.exports = class CommandSender {
 
             return axios.post(this.connection.apiUrl(), data)
         }
+    }
+
+    /**
+     * Set the vMix connection used to know the endpoint for the vMix instance
+     * @param {Connection} connection 
+     */
+    setConnection(connection) {
+        if (!connection || !connection instanceof Connection) {
+            throw Error("Invalid connection provided!")
+        }
+
+        this.connection = connection
     }
 
     send(commands, onSuccess, onError) {

@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 module.exports = class Connection {
     constructor(host = 'localhost', port = 8088) {
 
@@ -20,10 +22,21 @@ module.exports = class Connection {
     }
 
     apiUrl() {
+        // For testing purposes
         if (this.port === 1) {
             return `http://localhost:${location.port}/data/vmix-data.xml`
         }
 
         return `${this.webcontrollerUrl()}/api`
+    }
+
+    testConnection() {
+        axios.get(this.webcontrollerUrl(), { timeout: 500 })
+            .then(_ => {
+                return true
+            })
+            .catch(_ => {
+                return false
+            })
     }
 }
