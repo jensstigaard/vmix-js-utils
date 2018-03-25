@@ -12,25 +12,29 @@ module.exports = class CommandSender {
 
         // Prepare promise
         this.preparePromise = (commands) => {
+
             // If only one command were coded - send via get request
             if (!Array.isArray(commands)) {
                 let command = commands
 
                 return axios.get(this.connection.apiUrl(), { params: command })
             }
-            // If multiple commands - send via POST request
 
+            // If multiple commands - send via POST request
+            
             // Manipulate commands for being sent in POST request
-            commands = commands.map(command => {
+            let commandsMap = commands.map(command => {
                 return querystring.stringify(command)
             })
 
             let data = {
                 Function: 'ScriptStartDynamic',
-                Value: commands.join("\n\r")
+                Value: commandsMap.join("\n\r")
             }
 
-            return axios.post(this.connection.apiUrl(), data)
+            let dataString = querystring.stringify(data)
+
+            return axios.post(this.connection.apiUrl(), dataString)
         }
     }
 
@@ -47,7 +51,7 @@ module.exports = class CommandSender {
     }
 
     send(commands, onSuccess, onError) {
-
+        
         let promise = this.preparePromise(commands)
 
         promise
@@ -60,6 +64,6 @@ module.exports = class CommandSender {
                 onError && onError(error)
             })
 
-        return promise
+        return promise    
     }
 }
