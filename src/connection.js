@@ -1,5 +1,8 @@
 const axios = require('axios')
 
+// Exceptions
+const ApiUrlError = require('./exceptions/api-url-error')
+
 module.exports = class Connection {
     constructor(host = 'localhost', port = 8088) {
 
