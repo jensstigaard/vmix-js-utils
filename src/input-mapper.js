@@ -33,10 +33,11 @@ module.exports = class InputMapper {
                     let obj = {} // Build advanced fields of object from its advanced attributes
 
                     // Map attributes
-                    if (entry.attributes && Array.isArray(entry.attributes)) {
-                        entry.attributes.forEach(attribute => {
+                    if (entry.attributes && (typeof entry.attributes === 'object' || Array.isArray(entry.attributes))) {
+                        for (let name in entry.attributes) {
+                            let attribute = entry.attributes[name]
                             obj[attribute.name] = attribute.nodeValue
-                        })
+                        }
                     }
 
                     // Append field type
