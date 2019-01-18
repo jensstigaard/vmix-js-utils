@@ -35,7 +35,7 @@ Found here: https://www.npmjs.com/package/vmix-js-utils
 npm install vmix-js-utils --save
 ```
 In your code the simplest way to import the modules is the following:
-```
+```javascript
 const { Connection, StateFetcher } = require('vmix-js-utils')
 
 const connection = new Connection('localhost', 8088)
@@ -43,7 +43,7 @@ const stateFetcher = new StateFetcher(connection)
 stateFetcher.start()
 ```
 You are also able to import all of the modules as a gathered variable, less elegant way:
-```
+```javascript
 const vMixUtils = require('vmix-js-utils')
 
 const connection = new vMixUtils.Connection('localhost', 8088)
