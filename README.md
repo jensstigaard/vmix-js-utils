@@ -3,7 +3,7 @@ Javascript utilities for communicating with vMix web API.
 
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
-```
+```javascript
 const { Connection, StateFetcher } = require('vmix-js-utils')
 
 const connection = new Connection('localhost', 8088)
