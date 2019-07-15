@@ -1,7 +1,7 @@
 {
   "name": "vmix-js-utils",
-  "version": "1.0.13",
-  "description": "Javascript utilities for communicating with the vMix web API",
+  "version": "1.1.0",
+  "description": "Javascript utilities for communicating with the vMix API via TCP or HTTP",
   "main": "index.js",
   "engines": {
     "node": ">=5.2.4"
@@ -16,7 +16,9 @@
     "url": "git+https://github.com/jensstigaard/vmix-js-utils.git"
   },
   "keywords": [
-    "vMix"
+    "vMix",
+    "vMix API",
+    "TCP socket"
   ],
   "author": "Jens Grønhøj Stigaard <jens@stigaard.info>",
   "license": "MIT",
@@ -29,9 +31,9 @@
     "moxios": "^0.4.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "querystring": "^0.2.0",
     "xmldom": "^0.1.27",
-    "xpath": "0.0.27"
+    "xpath": "^0.0.27"
   }
 }
