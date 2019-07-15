@@ -15,6 +15,9 @@ const DEFAULT_TCP_PORT = 8099
 /**
  * vMix Connection via TCP
  * 
+ * vMix TCP API docs
+ * https://www.vmix.com/help22/TCPAPI.html
+ * 
  * Node.js TCP client / server
  * https://gist.github.com/sid24rane/2b10b8f4b2f814bd0851d861d3515a10
  */

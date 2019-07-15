@@ -3,6 +3,13 @@ const axios = require('axios')
 // Exceptions
 const ApiUrlError = require('./exceptions/api-url-error')
 
+/**
+ * Connection for vMix API via HTTP
+ * 
+ * vMix HTTP Web API
+ * 
+ * https://www.vmix.com/help22/DeveloperAPI.html
+ */
 module.exports = class Connection {
     constructor(host = 'localhost', port = 8088) {
 
