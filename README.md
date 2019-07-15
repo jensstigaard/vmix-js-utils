@@ -1,6 +1,7 @@
 # vMix-js-utils
 Javascript utilities for communicating with vMix web API.
 
+[![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
 ```javascript
