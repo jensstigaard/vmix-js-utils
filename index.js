@@ -4,8 +4,6 @@
 module.exports = {
     ApiDataParser: require('./src/api-data-parser'),
 
-    CommandSender: require('./src/command-sender'),
-
     Connection: require('./src/connection-tcp'),
 
     InputMapper: require('./src/input-mapper'),
