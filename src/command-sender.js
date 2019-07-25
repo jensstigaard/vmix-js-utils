@@ -1,45 +1,40 @@
 const axios = require('axios')
 const querystring = require("querystring")
 
-const Connection = require('./connection')
+const Connection = require('./connection-tcp')
 
 module.exports = class CommandSender {
-    constructor(connection, onSuccess, onError) {
+    constructor(connection) {
         this.setConnection(connection)
 
-        this.onError = onError
-        this.onSuccess = onSuccess
 
-        // Prepare promise
-        this.preparePromise = (commands) => {
+        // //////////////////////
+        // Private methods
+        // ////////////////////
 
-            // If only one command were coded - send via get request
-            if (!Array.isArray(commands)) {
-                let command = commands
+        /**
+         * Send single command
+         * @param {Object} command
+         */
+        this.sendSingleCommand = (command) => {
+            // Resolve function name and remove it from object to be injected as querystring
+            const funcName = command.Function
+            delete command.Function
 
-                return axios.get(this.connection.apiUrl(), { params: command })
-            }
-
-            // If multiple commands - send via POST request
-            
-            // Manipulate commands for being sent in POST request
-            let commandsMap = commands.map(command => {
-                return querystring.stringify(command)
-            })
-
-            let data = {
-                Function: 'ScriptStartDynamic',
-                Value: commandsMap.join("\n\r")
-            }
-
-            let dataString = querystring.stringify(data)
-
-            return axios.post(this.connection.apiUrl(), dataString)
+            const cmdString = querystring.stringify(command)
+            this.connection.send(`FUNCTION ${funcName} ${cmdString}`)
         }
+
+        // //////////////////////
+        // Private methods end
+        // ////////////////////
     }
+
+
 
     /**
      * Set the vMix connection used to know the endpoint for the vMix instance
+     *
      * @param {Connection} connection 
      */
     setConnection(connection) {
@@ -50,20 +45,16 @@ module.exports = class CommandSender {
         this.connection = connection
     }
 
-    send(commands, onSuccess, onError) {
-        
-        let promise = this.preparePromise(commands)
+    /**
+     * Send one or multiple commands
+     *
+     * @param {Object|Array} commands
+     */
+    send(commands) {
+        if (!Array.isArray(commands)) {
+            commands = [commands]
+        }
 
-        promise
-            .then(response => {
-                this.onSuccess && this.onSuccess(response)
-                onSuccess && onSuccess(response)
-            })
-            .catch(error => {
-                this.onError && this.onError(error)
-                onError && onError(error)
-            })
-
-        return promise    
+        commands.forEach(this.sendSingleCommand)
     }
 }
