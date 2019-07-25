@@ -1,4 +1,6 @@
-var net = require('net')
+const net = require('net')
+
+const querystring = require("querystring")
 
 // Exceptions
 const ApiUrlError = require('./exceptions/api-url-error')
@@ -189,22 +191,96 @@ module.exports = class vMixConnectionTCP {
                 callback(message)
             })
         }
-    }
 
-    /**
-     * Send message/command(s) to connection
-     * 
-     * @param {String} message 
-     */
-    send(message) {
-        // End message with a new line character
-        // to make sure the message is interpreted by the receiver
-        if (!message.endsWith('\r\n')) {
-            message += '\r\n'
+
+
+        /**
+         * Send message to connection
+         * 
+         * This must be a string of the complete command to execute
+         * 
+         * The available commands are listed under:
+         * https://www.vmix.com/help22/TCPAPI.html 
+         * See "Commands section"
+         * 
+         * @param {String} message 
+         */
+        this.sendSingleMessage = (message) => {
+            // End message with a new line character
+            // to make sure the message is interpreted by the receiver
+            if (!message.endsWith('\r\n')) {
+                message += '\r\n'
+            }
+
+            this.socket.write(message)
         }
 
-        this.socket.write(message)
-        // client.write('Hello, server! Love, Client.')
+
+        /**
+         * Convert a command object to the string to execute
+         * 
+         * @param {Object} command
+         * @returns {String}
+         */
+        this.commandObjectToString = (command) => {
+            // Guard no function for the command set
+            if (!'Function' in command) {
+                throw new Error('Function parameter is missing in the command')
+            }
+
+            // Resolve function name and
+            // remove it from object to be injected as querystring
+            const funcName = command.Function
+            delete command.Function
+
+            const cmdString = querystring.stringify(command)
+            return `FUNCTION ${funcName} ${cmdString}`
+        }
+
+        /**
+         * Stringify commands if necessary
+         * @param {Object|String} command
+         * 
+         * @returns {String}
+         */
+        this.stringifyCommand = command => {
+            if (typeof command === 'object') {
+                return this.commandObjectToString(command)
+            }
+
+            return command
+        }
+
+        // //////////////////////
+        // Private methods end
+        // ////////////////////
+    }
+
+
+
+
+    /**
+     * Send command(s) to connection
+     * 
+     * This must be a string or object,
+     * or a array of strings or objects (or a mix of object or strings) 
+     * 
+     * The available commands are listed under:
+     * https://www.vmix.com/help22/TCPAPI.html 
+     * See "Commands section"
+     * 
+     * @param {Array|Object|String} commands 
+     */
+    send(commands) {
+        if (!Array.isArray(commands)) {
+            commands = [commands]
+        }
+
+        // Stringify each command (if necessary) and send these as 
+        // single messages on TCP socket
+        commands
+            .map(this.stringifyCommand)
+            .forEach(this.sendSingleMessage)
     }
 
     /**
