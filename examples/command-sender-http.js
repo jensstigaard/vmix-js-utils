@@ -9,7 +9,7 @@ let commandSender = new CommandSender(connection)
 // Perform commands
 // You can use any vMix Function here
 // List of all functions here: 
-// https://www.vmix.com/help20/ShortcutFunctionReference.html
+// https://www.vmix.com/help22/ShortcutFunctionReference.html
 
 let onSuccess = function (response) {
     console.log('Performed command', response)
