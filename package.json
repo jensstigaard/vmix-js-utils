@@ -1,6 +1,6 @@
 {
   "name": "vmix-js-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Javascript utilities for communicating with the vMix API via TCP or HTTP",
   "main": "index.js",
   "engines": {
