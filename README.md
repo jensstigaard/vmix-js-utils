@@ -10,18 +10,27 @@ It is possible to implement this yourself if necessary, by analysing the respons
 NOTE: Currently work in progress to implement TCP api. No tests for TCP implemented yet
 
 ```javascript
-const { Connection, StateFetcher } = require('vmix-js-utils')
+const { Connection } = require('vmix-js-utils')
 
-const connection = new Connection('localhost', 8088)
-const stateFetcher = new StateFetcher(connection)
+const connection = new Connection('localhost')
 
-stateFetcher.onSuccess(response => {
+// Listener for xml state data
+connection.on('xmlData', xmlData => {
  // Your logic here!
  // See example to parse the XML correctly
 })
+// Listener for data such as tally
+connection.on('data', data => {
+ // Your logic here!
+})
 
-stateFetcher.start()
+// Ask to get vMix state in XML
+connection.send('XML')
+
+// Ask to get tally info
+connection.send('TALLY')
 ```
+
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
@@ -37,6 +46,7 @@ The modules are coded as classes, meaning that they are constructed with specifi
 The 'Connection' module is the core of the utils, and allows you to establish communication to a vMix instance.
 It let you define which vMix TCP endpoint you want to receive from and send commands to, by passing the IP address to the constructor. You are also able to pass a custom port if it is not using the default port 8099. 
 
+---
 `.send(commands)`
 
 Parameters:
@@ -54,6 +64,25 @@ Use `.on('xmlData', (xmlData) => {})` to receive XML data of the vMix state. See
 
 Use `.on('data', (data) => {})` to receive data from the socket. Will also receive XML responses if no listener for 'xmlData' is registered.
 
+---
+
+## ApiDataParser
+Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
+
+More info will come.
+
+---
+
+## InputMapper
+Maps the inputs from the vMix instance state to JSON objects.
+
+---
+
+# StateFetcher
+Being deprecated.
+Fetches the current state of the vMix instance.
+
+---
 
 ## Installation and use
 ### As a dependency using npm
