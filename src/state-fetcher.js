@@ -6,7 +6,7 @@ const axios = require('axios')
 const Connection = require('./connection')
 
 // Specific headers for ajax request to webcontroller
-let webcontrollerAjaxRequestHeaders = {
+const webcontrollerAjaxRequestHeaders = {
     timeout: 500,
     headers: {
         common: ''
@@ -57,7 +57,7 @@ module.exports = class VmixStateFetcher {
                 return this
             }
 
-            setTimeout(_ => {
+            setTimeout(() => {
                 this.run()
             }, this.refreshRate)
 
@@ -108,6 +108,8 @@ module.exports = class VmixStateFetcher {
         }
     }
 
+
+
     //////////////////////////////////
     // Public functions 
     //////////////////////////////////
@@ -154,7 +156,6 @@ module.exports = class VmixStateFetcher {
 
 
     // Getters
-
     currentRefreshRate() {
         return this.refreshRate
     }
