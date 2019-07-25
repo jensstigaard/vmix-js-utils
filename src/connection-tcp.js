@@ -54,20 +54,27 @@ module.exports = class vMixConnectionTCP {
         // Initialize listener arrays and callback taps
         this.listeners = {
             data: [],
-            // ... plus others!
+            xmlData: []
+            // ... plus the generic ones from the socket!
         }
 
+        // On base listener types
         listenerTypes.forEach(type => {
             this.listeners[type] = []
 
+            // Add socket listenener to tap all
+            // registered callbacks
             this.socket.on(type, (data) => {
-                // Tap all listener callbacks
+                // Get all listeners of this type and
+                // Invoke callback method with data
                 this.listeners[type].forEach(callback => {
                     callback(data)
                 })
             })
         })
 
+        // On data listener
+        // Put data into buffer and try to process data
         this.socket.on('data', (data) => {
             this.buffered += data
             this.processBuffer()
@@ -75,54 +82,117 @@ module.exports = class vMixConnectionTCP {
 
         // Attempt connect
         this.socket.connect(this.port, this.host, () => {
-            // console.log('Connected', this.host, this.port)
             this.isConnected = true
         })
 
+        // Were a onDataCallback passed with constructor?
+        // Add this to listeners for data
         if (onDataCallback && typeof onDataCallback === 'function') {
             this.listeners.data.push(onDataCallback)
         }
 
-        // Process received data
-        // Each command is sent "in its own line", 
-        // and ending with a new line character. 
-        // https://medium.com/@nikolaystoykov/build-custom-protocol-on-top-of-tcp-with-node-js-part-1-fda507d5a262
-        this.processBuffer = () => {
-            let received = this.buffered.split('\r\n')
 
-            // No new lines were found - keep whole buffer
-            if (received.length === 1) {
+        // ///////////////////////
+        // Private methods below
+        // /////////////////////
+
+        /**
+         * Process received data that is currently in the buffer
+         */
+        this.processBuffer = () => {
+
+            // Process buffer if it contains data
+            if (!this.buffered.length) {
                 return
             }
 
-            // While there are found one or more new line characters,
-            // Keep flushing each message out, and reduce the buffer
-            while (received.length > 1) {
-                // Got message. Trim this, and 
-                // emitt the message if there were content
-                const message = received[0].trim()
-                if (message) {
-                    this.emitMessage(message)
-                }
+            // Split on each new line
+            let receivedLines = this.buffered.split('\r\n')
 
-                // Slice buffer and repeat if more complete messages can be found
-                this.buffered = received.slice(1).join('\r\n')
-                received = this.buffered.split('\r\n')
+            // If less than lines lines were found
+            // do not process buffer yet - keep whole buffer
+            if (receivedLines.length < 1) {
+                return
             }
+
+            // We know now that the buffer got at least one complete message!
+            // We now ingest and analyse this first message
+
+            // Trim and then split the first message on spaces
+            const firstMessage = receivedLines[0]
+            const firstMessageParts = firstMessage.trim().split(' ')
+
+            // If not an XML message then
+            // just emit the message without further manipulation
+            if (firstMessageParts[0] !== 'XML') {
+                this.emitMessage(firstMessage)
+                this.buffered = receivedLines.slice(1).join('\r\n')
+
+                // Process more data
+                this.processBuffer()
+                return
+            }
+
+            // We now know the message were a XML message
+
+            // What should the length of the XML data be?
+            // The first message includes the length as the second argument
+            // (e.g. "XML 2534")
+            // The data could potentially be split up in multiple messages
+            // Therefore, we need to check that we have received the complete
+            // message, otherwise we do not emit the message yet!
+            const xmlDataLengthNeeded = parseInt(firstMessageParts[1])
+
+            const dataMessages = receivedLines.slice(1) // Strip out the first message
+            const data = dataMessages.join('\r\n') // Concat all received messages
+
+            // Is the total length of the data "long enough"?
+            if (data.length < xmlDataLengthNeeded) {
+                return
+            }
+
+            const xmlData = data.slice(0, xmlDataLengthNeeded)
+
+            this.emitXmlMessage(xmlData)
+
+            // Pop messages from current buffer data and update buffer
+            this.buffered = data.slice(xmlDataLengthNeeded)
+
+            this.processBuffer()
         }
 
+        /**
+         * Emit generic data message
+         */
         this.emitMessage = (message) => {
-            // console.log('Message are to be emitted', message)
-
             // Tap callback listeners with message
             this.listeners.data.forEach(callback => {
+                callback(message)
+            })
+        }
+
+        /**
+         * Emit XML message
+         */
+        this.emitXmlMessage = (message) => {
+
+            const listeners = this.listeners.xmlData
+
+            // If no xmlData listeners were registered then
+            // fallback to emit the xml message as generic message
+            if (!listeners || !listeners.length) {
+                return this.emitMessage(message)
+            }
+
+            // Tap callback listeners with message
+            listeners.forEach(callback => {
                 callback(message)
             })
         }
     }
 
     /**
-     * Send command to connection
+     * Send message/command(s) to connection
      * 
      * @param {String} message 
      */
@@ -138,13 +208,13 @@ module.exports = class vMixConnectionTCP {
     }
 
     /**
-     * Register listener
+     * Register listener on a specific type
      * 
      * @param {String} type 
      * @param {Function} callback 
      */
     on(type, callback) {
-        const availableListenerTypes = listenerTypes.concat(['data'])
+        const availableListenerTypes = listenerTypes.concat(['data', 'xmlData'])
 
         if (!availableListenerTypes.includes(type)) {
             throw new Error(`Invalid type of listener... ${type}`)
@@ -157,6 +227,9 @@ module.exports = class vMixConnectionTCP {
         this.listeners[type].push(callback)
     }
 
+    /**
+     * AskShutdown and destroy the TCP socket
+     */
     shutdown() {
         // this.socket.destroy(); // kill client after server's response
         this.socket.destroy()
