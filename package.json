@@ -1,6 +1,6 @@
 {
   "name": "vmix-js-utils",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Javascript utilities for communicating with the vMix API via TCP or HTTP",
   "main": "index.js",
   "engines": {
@@ -18,6 +18,8 @@
   "keywords": [
     "vMix",
     "vMix API",
+    "vMix Commands",
+    "vMix State",
     "TCP socket"
   ],
   "author": "Jens Grønhøj Stigaard <jens@stigaard.info>",
