@@ -34,10 +34,10 @@ connection.send('TALLY')
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
- - Connection
- - ApiDataParser - Parses the raw XML data from into parsed and structured XML
- - InputMapper - Maps the inputs from the vMix instance state to JSON objects
- - StateFetcher - Fetches the current state of the vMix instance
+ - [Connection](#connection)
+ - [ApiDataParser](#apidataparser)
+ - [InputMapper](#inputmapper)
+ - [StateFetcher](#statefetcher) - Under deprecation
 
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
@@ -88,38 +88,39 @@ Fetches the current state of the vMix instance.
 ### As a dependency using npm
 The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your project.
 Found here: https://www.npmjs.com/package/vmix-js-utils
+```sh
+npm install vmix-js-utils --save # or 'yarn add vmix-js-utils'
 ```
-npm install vmix-js-utils --save
-```
+
 In your code the simplest way to import the modules is the following:
+
 ```javascript
-const { Connection, StateFetcher } = require('vmix-js-utils')
+const { Connection } = require('vmix-js-utils')
 
 const connection1 = new Connection('localhost')
 const connection2 = new Connection('192.168.1.50')
 
-const conn1cmdSender = new CommandSender(connection1)
-const conn2cmdSender = new CommandSender(connection2)
-
-conn1cmdSender.send({ Function: 'Cut' })
-conn2cmdSender.send({ Function: 'Merge' })
-
+connection1.send({ Function: 'Cut' })
+connection2.send({ Function: 'Merge' })
 ```
+
 You are also able to import all of the modules as a gathered variable, less elegant way:
+
 ```javascript
 const vMixUtils = require('vmix-js-utils')
 
-const connection = new vMixUtils.Connection('localhost')
-const secondConnection = new vMixUtils.Connection('192.168.1.50')
+const connection1 = new vMixUtils.Connection('localhost')
+const connection2 = new vMixUtils.Connection('192.168.1.50')
 
-
-const cmdSender1stConn = new vMixUtils.CommandSender(connection)
-cmdSender1stConn.send({ Function: 'Cut' })
+connection1.send({ Function: 'Cut' })
+connection2.send({ Function: 'Merge' })
 ```
+
 
 ## Standalone project / Fork
 The code can be cloned and tested as needed from the source code.
-```
+
+```sh
 git clone https://github.com/jensstigaard/vmix-js-utils.git
 cd vmix-js-utils
 
@@ -128,6 +129,8 @@ npm test # or 'yarn test'
 
 node ./index.js
 ```
+
+
 # Examples and use
 Review index.js for some basic example of how to use the utilities
  - [Send single command example](../../blob/master/examples/send-single-command.js)
@@ -140,11 +143,14 @@ Legacy:
  - [CommandSenderHTTP example](../../blob/master/examples/command-sender-http.js)
  - [StateFetcher Basic example](../../blob/master/examples/state-fetcher-basic.js)
 
+
 # Authors
 Jens Grønhøj Stigaard - <jens@stigaard.info> (http://jens.stigaard.info)
 
+
 # Contribution
 You are more than welcome to contribute to the repository!
+
 
 # Roadmap
  - TCP command sender: feedback/responses on commands sent
