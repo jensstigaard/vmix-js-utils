@@ -165,7 +165,7 @@ module.exports = class vMixConnectionTCP {
 
 
                 // Pop first message from buffer
-                const sliced = this.buffer.slice(firstMessageLength) // New line is two characters
+                const sliced = this.buffer.slice(firstMessageLength + 2) // New line character is two bytes
                 // console.log('Sliced', sliced.toString())
                 this.buffer = sliced
 
@@ -194,9 +194,12 @@ module.exports = class vMixConnectionTCP {
             // const messages = dataMessages.join('\r\n') // Concat all received messages
 
             // Is the total length of the data "long enough"?
-            if (data.length < bufferLengthNeeded) {
-                console.log('Not enough buffer... Needed: ', bufferLengthNeeded, 'Got: ', data.length)
-                console.log(`"""${data}"""`)
+            // console.log('Buffer length: ', this.buffer.byteLength)
+            // console.log('First message length: ', firstMessageLength)
+            // console.log('Needed from message: ', bufferLengthNeeded)
+            if (this.buffer.byteLength < firstMessageLength + 2 + bufferLengthNeeded) {
+                // console.log('Not enough data in buffer...')
+                // console.log(`"""${data}"""`)
                 return
             }
 
