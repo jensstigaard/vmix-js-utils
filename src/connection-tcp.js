@@ -14,6 +14,8 @@ const listenerTypes = [
 
 const DEFAULT_TCP_PORT = 8099
 
+const NEWLINE_CHAR_LENGTH = 2 // Length in bytes of CRLF (New Line character on Microsoft Windows) "\r\n"
+
 /**
  * vMix Connection via TCP
  * 
@@ -165,7 +167,7 @@ module.exports = class vMixConnectionTCP {
 
 
                 // Pop first message from buffer
-                const sliced = this.buffer.slice(firstMessageLength + 2) // New line character is two bytes
+                const sliced = this.buffer.slice(firstMessageLength + NEWLINE_CHAR_LENGTH) // New line character is two bytes
                 // console.log('Sliced', sliced.toString())
                 this.buffer = sliced
 
@@ -197,7 +199,9 @@ module.exports = class vMixConnectionTCP {
             // console.log('Buffer length: ', this.buffer.byteLength)
             // console.log('First message length: ', firstMessageLength)
             // console.log('Needed from message: ', bufferLengthNeeded)
-            if (this.buffer.byteLength < firstMessageLength + 2 + bufferLengthNeeded) {
+
+            const messageCompleteLength = firstMessageLength + NEWLINE_CHAR_LENGTH + bufferLengthNeeded
+            if (this.buffer.byteLength < messageCompleteLength) {
                 // console.log('Not enough data in buffer...')
                 // console.log(`"""${data}"""`)
                 return
@@ -206,13 +210,13 @@ module.exports = class vMixConnectionTCP {
             // The buffer were "long enough"
             // Exctract the XML data
 
-            const xmlData = this.buffer.slice(firstMessageLength + 2, firstMessageLength + bufferLengthNeeded)
+            const xmlData = this.buffer.slice(firstMessageLength + NEWLINE_CHAR_LENGTH, firstMessageLength + bufferLengthNeeded)
             const xmlDataString = xmlData.toString()
 
             this.emitXmlMessage(xmlDataString)
 
             // Pop message from current buffer data and update buffer
-            this.buffer = this.buffer.slice(firstMessageLength + 2 + bufferLengthNeeded)
+            this.buffer = this.buffer.slice(messageCompleteLength)
 
             this.processBuffer()
         }
