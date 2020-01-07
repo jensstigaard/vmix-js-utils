@@ -212,7 +212,7 @@ module.exports = class vMixConnectionTCP {
             this.emitXmlMessage(xmlDataString)
 
             // Pop message from current buffer data and update buffer
-            this.buffer = this.buffer.slice(firstMessageLength + bufferLengthNeeded + 2)
+            this.buffer = this.buffer.slice(firstMessageLength + 2 + bufferLengthNeeded)
 
             this.processBuffer()
         }
