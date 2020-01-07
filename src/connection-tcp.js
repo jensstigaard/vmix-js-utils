@@ -47,11 +47,11 @@ module.exports = class vMixConnectionTCP {
 
         this.isConnected = false
 
-        this.buffered = ''
+        // Buffer to store byte array of current incoming message
+        this.buffer = Buffer.from([])
 
         // TCP socket
         this.socket = new net.Socket()
-        this.socket.setEncoding('utf8')
 
         // Initialize listener arrays and callback taps
         this.listeners = {
@@ -77,8 +77,8 @@ module.exports = class vMixConnectionTCP {
 
         // On data listener
         // Put data into buffer and try to process data
-        this.socket.on('data', (data) => {
-            this.buffered += data
+        this.socket.on('data', data => {
+            this.buffer = Buffer.concat([this.buffer, data])
             this.processBuffer()
         })
 
@@ -104,31 +104,70 @@ module.exports = class vMixConnectionTCP {
         this.processBuffer = () => {
 
             // Process buffer if it contains data
-            if (!this.buffered.length) {
+            if (!this.buffer.byteLength) {
                 return
             }
+
+            // Parse buffer to string and trim start and end
+            const data = this.buffer.toString()
 
             // Split on each new line
-            let receivedLines = this.buffered.split('\r\n')
+            const receivedLines = data.split('\r\n')
+            // .map(line => line.trim())
+            // .filter(line => line)
 
-            // If less than lines lines were found
+            // If less than two lines were found
             // do not process buffer yet - keep whole buffer
-            if (receivedLines.length < 1) {
+            if (receivedLines.length === 0) {
                 return
             }
+
+            // console.log('Total bytes length:', this.buffer.byteLength)
+            // console.log('Got lines:', receivedLines.length)
+            // console.log(receivedLines[0])
+            // console.log(data.byteLength)
+            // console.log('-----')
+            // return
 
             // We know now that the buffer got at least one complete message!
             // We now ingest and analyse this first message
+            let firstMsg = ''
+            for (let i = 0; i < receivedLines.length; i++) {
+                const line = receivedLines[i]
+                if (line.length) {
+                    firstMsg = line
+                    break
+                }
+            }
+
+            const firstMessage = firstMsg
+
+            if (firstMessage.length === 0) {
+                return
+            }
 
             // Trim and then split the first message on spaces
-            const firstMessage = receivedLines[0]
-            const firstMessageParts = firstMessage.trim().split(' ')
+            const firstMessageParts = firstMessage.split(' ')
+                .map(p => p.trim())
+                .filter(p => p)
+
+            const firstMessageLength = Buffer.from(firstMessage).byteLength
+
+            // console.log('First message length', `"${firstMessage}"`, firstMessageLength, firstMessage.length)
+
+            const messageMethod = firstMessageParts[0]
 
             // If not an XML message then
             // just emit the message without further manipulation
-            if (firstMessageParts[0] !== 'XML') {
+            if (messageMethod !== 'XML') {
+                // console.log('Not an XML message - instead a message of type', messageMethod)
                 this.emitMessage(firstMessage)
-                this.buffered = receivedLines.slice(1).join('\r\n')
+
+
+                // Pop first message from buffer
+                const sliced = this.buffer.slice(firstMessageLength) // New line is two characters
+                // console.log('Sliced', sliced.toString())
+                this.buffer = sliced
 
                 // Process more data
                 this.processBuffer()
@@ -137,28 +176,40 @@ module.exports = class vMixConnectionTCP {
 
             // We now know the message were a XML message
 
-            // What should the length of the XML data be?
+            if (firstMessageParts.length < 2) {
+                console.log('First message did not include how long the XML should be..')
+                return
+            }
+
+            // What should the number of bytes the XML data should be?
             // The first message includes the length as the second argument
             // (e.g. "XML 2534")
             // The data could potentially be split up in multiple messages
             // Therefore, we need to check that we have received the complete
             // message, otherwise we do not emit the message yet!
-            const xmlDataLengthNeeded = parseInt(firstMessageParts[1])
+            const bufferLengthNeeded = parseInt(firstMessageParts[1])
+            // console.log('Buffer Length needed', bufferLengthNeeded)
 
-            const dataMessages = receivedLines.slice(1) // Strip out the first message
-            const data = dataMessages.join('\r\n') // Concat all received messages
+            // const dataMessages = data.slice(1) // Strip out the first message
+            // const messages = dataMessages.join('\r\n') // Concat all received messages
 
             // Is the total length of the data "long enough"?
-            if (data.length < xmlDataLengthNeeded) {
+            if (data.length < bufferLengthNeeded) {
+                console.log('Not enough buffer... Needed: ', bufferLengthNeeded, 'Got: ', data.length)
+                console.log(`"""${data}"""`)
                 return
             }
 
-            const xmlData = data.slice(0, xmlDataLengthNeeded)
+            // The buffer were "long enough"
+            // Exctract the XML data
 
-            this.emitXmlMessage(xmlData)
+            const xmlData = this.buffer.slice(firstMessageLength + 2, firstMessageLength + bufferLengthNeeded)
+            const xmlDataString = xmlData.toString()
 
-            // Pop messages from current buffer data and update buffer
-            this.buffered = data.slice(xmlDataLengthNeeded)
+            this.emitXmlMessage(xmlDataString)
+
+            // Pop message from current buffer data and update buffer
+            this.buffer = this.buffer.slice(firstMessageLength + bufferLengthNeeded + 2)
 
             this.processBuffer()
         }
