@@ -12,7 +12,7 @@ export default {
 		description: 'Switch off Audio Plugin for Audio Bus A',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -22,7 +22,7 @@ export default {
 		description: 'Switch on Audio Plugin for Audio Bus A',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -32,7 +32,7 @@ export default {
 		description: 'Toggle on/off Audio Plugin for Audio Bus A',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -42,7 +42,7 @@ export default {
 		description: 'Show Audio Plugin Editor for plugin on Audio Bus A',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -59,7 +59,7 @@ export default {
 		description: 'Switch off Audio Plugin for Audio Bus B',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -69,7 +69,7 @@ export default {
 		description: 'Switch on Audio Plugin for Audio Bus B',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -79,7 +79,7 @@ export default {
 		description: 'Toggle on/off Audio Plugin for Audio Bus B',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -89,7 +89,7 @@ export default {
 		description: 'Show Audio Plugin Editor for plugin on Audio Bus B',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -101,7 +101,7 @@ export default {
 		description: 'Toggle on/off Audio on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -111,7 +111,7 @@ export default {
 		description: 'Switch off Audio on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -121,7 +121,7 @@ export default {
 		description: 'Switch on Audio on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -132,10 +132,10 @@ export default {
 		parameters: {
 			Value: [ // Composite - separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Bus'
 				}, {
-					type: Number,
+					type: 'number',
 					description: 'PluginNumber - Plugin Number starting from 1'
 				}
 			]
@@ -147,10 +147,10 @@ export default {
 		parameters: {
 			Value: [ // Composite - separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Bus'
 				}, {
-					type: Number,
+					type: 'number',
 					description: 'PluginNumber - Plugin Number starting from 1'
 				}
 			]
@@ -162,10 +162,10 @@ export default {
 		parameters: {
 			Value: [ // Composite - separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Bus'
 				}, {
-					type: Number,
+					type: 'number',
 					description: 'PluginNumber - Plugin Number starting from 1'
 				}
 			]
@@ -177,10 +177,10 @@ export default {
 		parameters: {
 			Value: [ // Composite - separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Bus'
 				}, {
-					type: Number,
+					type: 'number',
 					description: 'PluginNumber - Plugin Number starting from 1'
 				}
 			]
@@ -191,7 +191,7 @@ export default {
 		description: 'Toggle on/off whether audio from Bus X is mixed on Master',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -201,7 +201,7 @@ export default {
 		description: 'Switch off whether audio from Bus X is mixed on Master',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -211,7 +211,7 @@ export default {
 		description: 'Switch on whether audio from Bus X is mixed on Master',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -221,7 +221,7 @@ export default {
 		description: 'Toggle on/off solo on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -231,7 +231,7 @@ export default {
 		description: 'Switch off solo on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}
@@ -241,7 +241,7 @@ export default {
 		description: 'Switch on solo on Bus X',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus name'
 			}
 		}

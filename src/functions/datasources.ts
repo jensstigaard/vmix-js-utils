@@ -5,11 +5,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name Name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 			]
@@ -21,11 +21,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 			]
@@ -37,11 +37,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 			]
@@ -53,11 +53,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 			]
@@ -69,11 +69,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 			]
@@ -85,15 +85,15 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: String,
+					type: 'string',
 					description: 'Data source name'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Table name'
 				},
 				{
-					type: Number,
+					type: 'number',
 					description: 'Row Index starting from 0'
 				},
 			]

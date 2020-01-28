@@ -5,28 +5,28 @@ export default {
 	Audio: {
 		description: 'Toggle Audio Mute On/Off for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AudioAuto: {
 		description: 'Toggle AudioAuto (Audio Follow Video) On/Off for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AudioAutoOff: {
 		description: 'Switch AudioAuto (Audio Follow Video) Off for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AudioAutoOn: {
 		description: 'Switch AudioAuto (Audio Follow Video) On for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -34,9 +34,9 @@ export default {
 	AudioBus: {
 		description: 'Toggle on/off Audio Bus(ses) for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Busses to toggle. ' + audioBussesDesc
 			}
 		}
@@ -45,9 +45,9 @@ export default {
 	AudioBusOff: {
 		description: 'Switch off Audio Bus(ses) for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Busses to switch off. ' + audioBussesDesc
 			}
 		}
@@ -56,9 +56,9 @@ export default {
 	AudioBusOn: {
 		description: 'Switch on Audio Bus(ses) for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Busses to switch on. ' + audioBussesDesc
 			}
 		}
@@ -72,23 +72,23 @@ export default {
 	AudioOff: {
 		description: 'Switch Audio off for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AudioOn: {
 		description: 'Switch Audio on for an Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AudioPluginOff: {
 		description: 'Switch off Audio Plugin for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -97,9 +97,9 @@ export default {
 	AudioPluginOn: {
 		description: 'Switch on Audio Plugin for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -108,9 +108,9 @@ export default {
 	AudioPluginOnOff: {
 		description: 'Toggle on/off Audio Plugin for an Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -119,9 +119,9 @@ export default {
 	AudioPluginShow: {
 		description: 'Show Audio Plugin Editor',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Plugin Number starting from 1'
 			}
 		}

@@ -9,7 +9,7 @@ export default {
 		description: 'Switch off Audio Plugin on Master',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -19,7 +19,7 @@ export default {
 		description: 'Switch on Audio Plugin on Master',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -29,7 +29,7 @@ export default {
 		description: 'Switch on/off Audio Plugin on Master',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}
@@ -39,7 +39,7 @@ export default {
 		description: 'Show Audio Plugin on Master',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Plugin Number starting from 1'
 			}
 		}

@@ -4,7 +4,7 @@ export default {
 		description: 'Start script',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Script name'
 			}
 		}
@@ -14,7 +14,7 @@ export default {
 		description: 'Start a dynamic script using code specified as the Value.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Code to execute'
 			}
 		}
@@ -24,7 +24,7 @@ export default {
 		description: 'Stop script',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Script name'
 			}
 		}

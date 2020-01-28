@@ -4,7 +4,7 @@ export default {
 	ActiveInput: {
 		description: 'Send to Output the selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -24,11 +24,11 @@ export default {
 		parameters: {
 			Value: [ // Composite value
 				{
-					type: String,
+					type: 'string',
 					description: 'Type'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Filename'
 				},
 			]
@@ -38,133 +38,133 @@ export default {
 	AutoPauseOff: {
 		description: 'Auto Pause off for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPauseOn: {
 		description: 'Auto Pause on for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayFirst: {
 		description: 'Toggle automatically playing first item in a List with Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayFirstOff: {
 		description: 'Switch off automatically playing first item in a List with Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayFirstOn: {
 		description: 'Switch on automatically playing first item in a List with Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayNext: {
 		description: 'Toggle automatically playing next item in a List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayNextOff: {
 		description: 'Switch Off automatically playing next item in a List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayNextOn: {
 		description: 'Switch On automatically playing next item in a List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayOff: {
 		description: 'Switch Off automatically playing on transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoPlayOn: {
 		description: 'Switch On automatically playing on transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoRestartOff: {
 		description: 'Switch Off automatically restarting on transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	AutoRestartOn: {
 		description: 'Switch On automatically restarting on transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	ColourCorrectionAuto: {
 		description: 'Perform Basic Auto Colour Correction for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	ColourCorrectionReset: {
 		description: 'Reset Colour Correction for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	DeinterlaceOff: {
 		description: 'Switch off deinterlacing for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	DeinterlaceOn: {
 		description: 'Switch on deinterlacing for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	InputPreviewHide: {
 		description: 'Hides large preview of input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	InputPreviewShow: {
 		description: 'Shows large preview of input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	InputPreviewShowHide: {
 		description: 'Toggles large preview of input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -172,11 +172,11 @@ export default {
 		description: 'Add Filename to List',
 		parameters: {
 			Input: {
-				type: String,
+				type: 'string',
 				description: 'List Input'
 			},
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Filename to be added to list'
 			}
 		}
@@ -186,11 +186,11 @@ export default {
 		description: 'Export List as M3U',
 		parameters: {
 			Input: {
-				type: String,
+				type: 'string',
 				description: 'List Input'
 			},
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Filename of exported file'
 			}
 		}
@@ -199,7 +199,7 @@ export default {
 	ListPlayOut: {
 		description: 'Play out list input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -207,11 +207,11 @@ export default {
 		description: 'Remove from List by Index',
 		parameters: {
 			Input: {
-				type: String,
+				type: 'string',
 				description: 'List Input'
 			},
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index starting from 1'
 			}
 		}
@@ -220,100 +220,100 @@ export default {
 	ListRemoveAll: {
 		description: 'Remove all items from List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	ListShowHide: {
 		description: 'Toggle show/hide list',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	ListShuffle: {
 		description: 'Toggle Shuffle (randomize) List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	LivePlayPause: {
 		description: 'Toggle Live/Pause of Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	LoopOff: {
 		description: 'Switch off looping of Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	LoopOn: {
 		description: 'Switch on looping of Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MarkIn: {
 		description: 'Mark in on current position for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MarkOut: {
 		description: 'Mark out on current position for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MarkReset: {
 		description: 'Reset Mark in and out for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MarkResetIn: {
 		description: 'Reset Mark in for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MarkResetOut: {
 		description: 'Reset Mark out for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MirrorOff: {
 		description: 'Switch off mirror for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MirrorOn: {
 		description: 'Switch on mirror for Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	MoveInput: {
 		description: 'Move Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'New input number starting from 1'
 			}
 		}
@@ -322,42 +322,42 @@ export default {
 	NextItem: {
 		description: 'Move to next item in List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	NextPicture: {
 		description: 'Move to Next Picture for Photo and PowerPoint Inputs',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Pause: {
 		description: 'Pause input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Play: {
 		description: 'Play input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PlayPause: {
 		description: 'Toggle play/pause for input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PreviewInput: {
 		description: 'Send selected input to Preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -368,44 +368,44 @@ export default {
 	PreviousItem: {
 		description: 'Move to previous item in List',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PreviousPicture: {
 		description: 'Move to Previous Picture for Photo and PowerPoint Inputs',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	RemoveInput: {
 		description: 'Remove input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	ResetInput: {
 		description: 'Reset input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Restart: {
 		description: 'Restart input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	SaveVideoDelay: {
 		description: 'Save video clip from Video Delay',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Duration: {
-				type: Number,
+				type: 'number',
 				description: 'In milliseconds'
 			}
 		}
@@ -415,7 +415,7 @@ export default {
 		description: 'Select category of inputs',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Name of caregory'
 			}
 		}
@@ -424,9 +424,9 @@ export default {
 	SelectIndex: {
 		description: 'Photos,List: Selects item in List according to Value starting from number 1. Virtual Set: Zooms to selected preset using the current speed settings',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index of item'
 			}
 		}
@@ -435,9 +435,9 @@ export default {
 	SetAlpha: {
 		description: 'Set Input transparency',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Alpha between 0 and 255. 0 is transparent. 255 is opaque.'
 			}
 		}
@@ -446,9 +446,9 @@ export default {
 	SetCCGainB: {
 		description: 'Change Gain B level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0 and 2. 1 is original value.'
 			}
 		}
@@ -457,9 +457,9 @@ export default {
 	SetCCGainG: {
 		description: 'Change Gain G level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0 and 2. 1 is original value.'
 			}
 		}
@@ -468,9 +468,9 @@ export default {
 	SetCCGainR: {
 		description: 'Change Gain R level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0 and 2. 1 is original value.'
 			}
 		}
@@ -479,9 +479,9 @@ export default {
 	SetCCGainRGB: {
 		description: 'Change Gain RGB level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0 and 2. 1 is original value.'
 			}
 		}
@@ -490,9 +490,9 @@ export default {
 	SetCCGammaB: {
 		description: 'Change Gamma B level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -501,9 +501,9 @@ export default {
 	SetCCGammaG: {
 		description: 'Change Gamma G level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -512,9 +512,9 @@ export default {
 	SetCCGammaR: {
 		description: 'Change Gamma R level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -523,9 +523,9 @@ export default {
 	SetCCGammaRGB: {
 		description: 'Change Gamma RGB level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -534,9 +534,9 @@ export default {
 	SetCCHue: {
 		description: 'Change Hue level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -545,9 +545,9 @@ export default {
 	SetCCLiftB: {
 		description: 'Change Lift B level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -556,9 +556,9 @@ export default {
 	SetCCLiftG: {
 		description: 'Change Lift G level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -567,9 +567,9 @@ export default {
 	SetCCLiftR: {
 		description: 'Change Lift R level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -578,9 +578,9 @@ export default {
 	SetCCLiftRGB: {
 		description: 'Change Lift RGB level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value.'
 			}
 		}
@@ -589,9 +589,9 @@ export default {
 	SetCCSaturation: {
 		description: 'Change Saturation level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -1 and 1. 0 is original value. -1 is greyscale. 1 is very saturated.'
 			}
 		}
@@ -600,9 +600,9 @@ export default {
 	SetInputName: {
 		description: 'Set the Display Name of the Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'New display name'
 			}
 		}
@@ -611,9 +611,9 @@ export default {
 	SetPanX: {
 		description: 'Change current PanX value of Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -2 to 2. 0=centered, -2=100% to left, 2=100% to right'
 			}
 		}
@@ -622,9 +622,9 @@ export default {
 	SetPanY: {
 		description: 'Change current PanY value of Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between -2 to 2. 0=centered, -2=100% to bottom, 2=100% to top'
 			}
 		}
@@ -633,9 +633,9 @@ export default {
 	SetPictureEffect: {
 		description: 'Set transition effect for Photos and PowerPoint Inputs.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Transition name. (Fade, Zoom, etc)'
 			}
 		}
@@ -644,9 +644,9 @@ export default {
 	SetPictureEffectDuration: {
 		description: 'Set duration of transition effect for Photos and PowerPoint Inputs.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -655,9 +655,9 @@ export default {
 	SetPictureTransition: {
 		description: 'Set transition time between Photos and PowerPoint slides.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in seconds between entries'
 			}
 		}
@@ -666,9 +666,9 @@ export default {
 	SetPosition: {
 		description: 'Set Position of selected Input',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value in Milliseconds'
 			}
 		}
@@ -677,9 +677,9 @@ export default {
 	SetRate: {
 		description: 'Set Playback speed/rate for Videos and Video Delays',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0.1 and 4. 0.5=50%, 1=100%, 2=200%, 4=400%'
 			}
 		}
@@ -688,9 +688,9 @@ export default {
 	SetRateSlowMotion: {
 		description: 'Set Slow Motion speed for Instant Replay',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0.1 and 1.0. 0.1=10%, 0.5=50%, 1=100%'
 			}
 		}
@@ -699,9 +699,9 @@ export default {
 	SetZoom: {
 		description: 'Change current Zoom level of Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Value between 0 and 5.0. 1=100%, 0.5=50%, 2=200%'
 			}
 		}
@@ -710,23 +710,23 @@ export default {
 	SharpenOff: {
 		description: 'Switch off sharpen for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	SharpenOn: {
 		description: 'Switch on sharpen for Input.',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	VideoCallAudioSource: {
 		description: 'Select audio source to route to Video Call (to let the caller receive the selected audio). Including mix-minus.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Bus Valid values: Master,Headphones,BusA,BusB,BusC,BusD,BusE,BusF,BusG'
 			}
 		}
@@ -735,9 +735,9 @@ export default {
 	VideoCallVideoSource: {
 		description: 'Select video source to route to Video Call (to let the caller receive the selected video).',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Valid values: Output1,Output2,Output3,Output4'
 			}
 		}
@@ -746,9 +746,9 @@ export default {
 	VideoDelayStartRecording: {
 		description: 'Start Video Delay Recording',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Duration: {
-				type: Number,
+				type: 'number',
 				description: 'Delay in milliseconds'
 			}
 		}
@@ -757,9 +757,9 @@ export default {
 	VideoDelayStartStopRecording: {
 		description: 'Toggle start/stop Video Delay Recording',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Duration: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -768,9 +768,9 @@ export default {
 	VideoDelayStopRecording: {
 		description: 'Stop Video Delay Recording',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Duration: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -779,10 +779,10 @@ export default {
 	WaitForCompletion: {
 		description: 'Wait for a Video Input to reach the end of playback.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 
 			Duration: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}

@@ -3,51 +3,51 @@ export default {
 	BrowserBack: {
 		description: 'Go back one page for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserForward: {
 		description: 'Go forward one page for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserKeyboardDisabled: {
 		description: 'Disable keyboard for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserKeyboardEnabled: {
 		description: 'Enable keyboard for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserMouseDisabled: {
 		description: 'Disable mouse interaction for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserMouseEnabled: {
 		description: 'Enable mouse interaction for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	BrowserNavigate: {
 		description: 'Navigate browser input to specific URL',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: URL,
+				type: 'url',
 				description: 'URL to navigate to'
 			}
 		}
@@ -56,7 +56,7 @@ export default {
 	BrowserReload: {
 		description: 'Reload page for browser input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	}
 }

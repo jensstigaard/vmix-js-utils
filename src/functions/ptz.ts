@@ -2,23 +2,23 @@ export default {
 	PTZCreateVirtualInput: {
 		description: 'Creates a PTZ Virtual Input with the current Position',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZFocusAuto: {
 		description: 'Turn on auto focus for PTZ camera',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZFocusFar: {
 		description: 'Move focus farer away with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -27,16 +27,16 @@ export default {
 	PTZFocusManual: {
 		description: 'Turn on manual focus for PTZ camera (disables auto focus)',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZFocusNear: {
 		description: 'Move focus nearer with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -45,23 +45,23 @@ export default {
 	PTZFocusStop: {
 		description: 'Stop focus movement for PTZ camera',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZHome: {
 		description: 'Go to home position for PTZ camera',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZMoveDown: {
 		description: 'Move down with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -70,9 +70,9 @@ export default {
 	PTZMoveDownLeft: {
 		description: 'Move down+left with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -81,9 +81,9 @@ export default {
 	PTZMoveDownRight: {
 		description: 'Move down+right with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -92,9 +92,9 @@ export default {
 	PTZMoveLeft: {
 		description: 'Move left with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -103,9 +103,9 @@ export default {
 	PTZMoveRight: {
 		description: 'Move right with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -114,23 +114,23 @@ export default {
 	PTZMoveStop: {
 		description: 'Stop all movement for PTZ camera',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZMoveToVirtualInputPosition: {
 		description: 'Moves to the Position of the PTZ Virtual Input without selecting it into Preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PTZMoveToVirtualInputPositionByIndex: {
 		description: 'Moves to the Position of the PTZ Virtual Input associated with this Input.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index 0-100. Index is first Input found starting from 0'
 			}
 		}
@@ -139,9 +139,9 @@ export default {
 	PTZMoveUp: {
 		description: 'Move up with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -150,9 +150,9 @@ export default {
 	PTZMoveUpLeft: {
 		description: 'Move up+left with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -161,9 +161,9 @@ export default {
 	PTZMoveUpRight: {
 		description: 'Move up+right with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -172,7 +172,7 @@ export default {
 	PTZUpdateVirtualInput: {
 		description: 'Updates selected PTZ Virtual Input with current Position',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -180,9 +180,9 @@ export default {
 	PTZZoomIn: {
 		description: 'Zoom in with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -191,9 +191,9 @@ export default {
 	PTZZoomOut: {
 		description: 'Zoom out with speed for PTZ camera',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0 - 1.0'
 			}
 		}
@@ -202,7 +202,7 @@ export default {
 	PTZZoomStop: {
 		description: 'Stop zoom for PTZ camera',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	}
 }

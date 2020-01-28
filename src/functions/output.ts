@@ -10,11 +10,11 @@ export default {
 		description: 'Change what is displayed on Output 2.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: String,
+				type: 'string',
 				optional: true
 			},
 		}
@@ -23,11 +23,11 @@ export default {
 		description: 'Change what is displayed on Output 3.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: String,
+				type: 'string',
 				optional: true
 			},
 		}
@@ -36,11 +36,11 @@ export default {
 		description: 'Change what is displayed on Output 4.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: String,
+				type: 'string',
 				optional: true
 			},
 		}
@@ -49,11 +49,11 @@ export default {
 		description: 'Change what is displayed on the Fullscreen output.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: String,
+				type: 'string',
 				optional: true
 			},
 		}
@@ -62,11 +62,11 @@ export default {
 		description: 'Change what is displayed on the Fullscreen2 output.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: String,
+				type: 'string',
 				optional: true
 			},
 		}
@@ -76,7 +76,7 @@ export default {
 		description: 'Create a snapshot image of the current Output. Optional Value specifies save Filename, otherwise a save file window will appear. Filename can specify date, for example mysnapshot {0:dd MMM yyyy}.jpg',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				optional: true
 			}
 		}
@@ -85,9 +85,9 @@ export default {
 	SnapshotInput: {
 		description: 'Create a snapshot image of the selected Input. Optional Value specifies save Filename, otherwise a save file window will appear. Filename can specify date, for example mysnapshot {0:dd MMM yyyy}.jpg',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				optional: true
 			}
 		}
@@ -109,7 +109,7 @@ export default {
 		description: 'Toggle start/stop streaming (of one specific or all configured streams).',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				optional: true,
 				description: 'Optional stream number starting from 0. Leave blank to control all streams.'
 			}
@@ -120,7 +120,7 @@ export default {
 		description: 'Start streaming (of one specific or all configured streams).',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				optional: true,
 				description: 'Optional stream number starting from 0. Leave blank to control all streams.'
 			}
@@ -135,7 +135,7 @@ export default {
 		description: 'Stop streaming (of one specific or all configured streams).',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				optional: true,
 				description: 'Optional stream number starting from 0. Leave blank to control all streams.'
 			}
@@ -146,7 +146,7 @@ export default {
 		description: 'Set Key on Custom RTMP Stream.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Optional stream number starting from 0 at start followed by comma, e.g. 0,mystreamkey.'
 			}
 		}
@@ -156,7 +156,7 @@ export default {
 		description: 'Set Password on Custom RTMP Stream.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Optional stream number starting from 0 at start followed by comma, e.g 0,password'
 			}
 		}
@@ -166,7 +166,7 @@ export default {
 		description: 'Set URL on Custom RTMP Stream.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Optional stream number starting from 0 at start followed by comma, e.g 0,rtmp://myurl/'
 			}
 		}
@@ -176,7 +176,7 @@ export default {
 		description: 'Set Username on Custom RTMP Stream.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Optional stream number starting from 0 at start followed by comma, e.g 0,username'
 			}
 		}
@@ -186,7 +186,7 @@ export default {
 		description: 'Write current recording duration to log file with optional tag text Value.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Tag Text'
 			}
 		}

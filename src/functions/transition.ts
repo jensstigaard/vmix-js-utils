@@ -2,7 +2,7 @@ export default {
 	CutDirect: {
 		description: 'Cuts the input directly to Output without changing Preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -11,7 +11,7 @@ export default {
 	QuickPlay: {
 		description: 'Quick Play an Input to Output',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -19,7 +19,7 @@ export default {
 		description: 'Set Master Fader T-Bar, 255 will cut to Preview',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Fader between 0 to 255'
 			}
 		}
@@ -29,7 +29,7 @@ export default {
 		description: 'Change Transition Duration for Button 1',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -39,7 +39,7 @@ export default {
 		description: 'Change Transition Duration for Button 2',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -49,7 +49,7 @@ export default {
 		description: 'Change Transition Duration for Button 3',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -59,7 +59,7 @@ export default {
 		description: 'Change Transition Duration for Button 4',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Duration in milliseconds'
 			}
 		}
@@ -69,7 +69,7 @@ export default {
 		description: 'Change Transition for Button 1',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Transition name'
 			}
 		}
@@ -79,7 +79,7 @@ export default {
 		description: 'Change Transition for Button 2',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Transition name'
 			}
 		}
@@ -89,7 +89,7 @@ export default {
 		description: 'Change Transition for Button 3',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Transition name'
 			}
 		}
@@ -99,7 +99,7 @@ export default {
 		description: 'Change Transition for Button 4',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Transition name'
 			}
 		}
@@ -108,42 +108,42 @@ export default {
 	Stinger1: {
 		description: 'Perform Stinger 1 transition to given Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Stinger2: {
 		description: 'Perform Stinger 2 transition to given Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Transition1: {
 		description: 'Clicks the first Transition button in the main vMix window - transitions to what is in preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Transition2: {
 		description: 'Clicks the second Transition button in the main vMix window - transitions to what is in preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Transition3: {
 		description: 'Clicks the third Transition button in the main vMix window - transitions to what is in preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	Transition4: {
 		description: 'Clicks the fourth Transition button in the main vMix window - transitions to what is in preview',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	}
 }

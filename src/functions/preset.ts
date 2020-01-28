@@ -8,7 +8,7 @@ export default {
 		description: 'Load preset from the specified Filename.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Filename'
 			}
 		}
@@ -18,7 +18,7 @@ export default {
 		description: 'Save preset to the specified Filename.',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Filename'
 			}
 		}

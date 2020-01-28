@@ -3,9 +3,9 @@ export default {
 	NDICommand: {
 		description: 'Send specified command to NDI source.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Command to send'
 			}
 		}
@@ -14,9 +14,9 @@ export default {
 	NDISelectSourceByIndex: {
 		description: 'Select NDI source by Index.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index 0-100'
 			}
 		}
@@ -25,9 +25,9 @@ export default {
 	NDISelectSourceByName: {
 		description: 'Select NDI source by Name.',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Name of source'
 			}
 		}
@@ -36,14 +36,14 @@ export default {
 	NDIStartRecording: {
 		description: 'Start recording of NDI source input (raw NDI recording)',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	NDIStopRecording: {
 		description: 'Stop recording of NDI source input (raw NDI recording)',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	}
 }

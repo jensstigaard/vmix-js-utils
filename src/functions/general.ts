@@ -6,14 +6,14 @@ export default {
 	KeyPress: {
 		description: 'Force key press. To activate shortcuts.',
 		parameters: {
-			Value: String
+			Value: 'string'
 		}
 	},
 
 	SendKeys: {
 		description: 'Send keys to active window',
 		parameters: {
-			Value: String
+			Value: 'string'
 		}
 	}
 }

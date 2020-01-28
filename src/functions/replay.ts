@@ -16,7 +16,7 @@ export default {
 		description: 'Change replay playback speed',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed in percentage'
 			}
 		}
@@ -26,7 +26,7 @@ export default {
 		description: 'Copy last replay event to event list',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event list 0-7'
 			}
 		}
@@ -36,7 +36,7 @@ export default {
 		description: 'Copy selected replay event to event list',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event list 0-7'
 			}
 		}
@@ -46,7 +46,7 @@ export default {
 		description: 'Export last replay event to specific folder',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Folder'
 			}
 		}
@@ -56,7 +56,7 @@ export default {
 		description: 'Replay fast backwards',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 1-30x'
 			}
 		}
@@ -66,7 +66,7 @@ export default {
 		description: 'Replay fast forward',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 1-30x'
 			}
 		}
@@ -76,7 +76,7 @@ export default {
 		description: 'Replay jump frames',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Frames'
 			}
 		}
@@ -88,7 +88,7 @@ export default {
 		description: 'Replay turn off speficied camera angle for last event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -98,7 +98,7 @@ export default {
 		description: 'Replay turn on speficied camera angle for last event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -108,7 +108,7 @@ export default {
 		description: 'Replay turn on only speficied camera angle for last event (turns off all other angles for event)',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -124,7 +124,7 @@ export default {
 		description: 'Replay: Mark In/Out based on number of seconds and current timestamp selected in replay module (from live/non live mode)',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Seconds'
 			}
 		}
@@ -134,7 +134,7 @@ export default {
 		description: 'Replay: Mark In/Out based on number of seconds back from right now',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Seconds'
 			}
 		}
@@ -144,7 +144,7 @@ export default {
 		description: 'Replay: Mark In/Out based on number of seconds back from current selected timestamp of recorded session',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Seconds'
 			}
 		}
@@ -159,7 +159,7 @@ export default {
 		description: 'Replay: Move Last replay event to other event list',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event list 0-7'
 			}
 		}
@@ -169,7 +169,7 @@ export default {
 		description: 'Replay: Move selected replay event to other event list',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event list 0-7'
 			}
 		}
@@ -182,7 +182,7 @@ export default {
 		description: 'Replay: Move In-point for selected event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Number of frames relative. Negative number = previous in time. Positive number = Forward in time'
 			}
 		}
@@ -192,7 +192,7 @@ export default {
 		description: 'Replay: Move Out-point for selected event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Number of frames relative. Negative number = previous in time. Positive number = Forward in time'
 			}
 		}
@@ -210,7 +210,7 @@ export default {
 		description: 'Replay: Play Event by ID',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event number: 0-1000'
 			}
 		}
@@ -220,7 +220,7 @@ export default {
 		description: 'Replay: Play Events by ID (do NOT automatically transition to output)',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'List of Events each with number 0-1000'
 			}
 		}
@@ -230,7 +230,7 @@ export default {
 		description: 'Replay: Play Events by ID (automatically transition to output)',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'List of Events each with number 0-1000'
 			}
 		}
@@ -240,7 +240,7 @@ export default {
 		description: 'Replay: Play Event by ID',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Event number: 0-1000'
 			}
 		}
@@ -265,7 +265,7 @@ export default {
 		description: 'Replay: Turn off desired camera angle for selected event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -275,7 +275,7 @@ export default {
 		description: 'Replay: Turn on desired camera angle for selected event',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -285,7 +285,7 @@ export default {
 		description: 'Replay: Turn on only desired camera angle for selected event (turns off all other angles for event)',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Camera angle 1-4'
 			}
 		}
@@ -313,7 +313,7 @@ export default {
 		description: 'Replay: Set text for last event',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Text'
 			}
 		}
@@ -324,11 +324,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: Number,
+					type: 'number',
 					description: 'Camera'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Text'
 				}
 			]
@@ -339,7 +339,7 @@ export default {
 		description: 'Replay: Set text for selected event',
 		parameters: {
 			Value: {
-				type: String,
+				type: 'string',
 				description: 'Text'
 			}
 		}
@@ -350,11 +350,11 @@ export default {
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
-					type: Number,
+					type: 'number',
 					description: 'Camera'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Text'
 				}
 			]
@@ -365,7 +365,7 @@ export default {
 		description: 'Replay: See SetRateSlowMotion',
 		parameters: {
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Speed 0.0-1.0'
 			},
 		}

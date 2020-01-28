@@ -5,14 +5,14 @@ export default {
 	MoveMultiViewOverlay: {
 		description: 'Move Overlay in Input MultiView according to Value parameter. Example: 1,2 moves Overlay1 to Overlay2',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: [ // Composite - separated by ","
 				{
-					type: Number,
+					type: 'number',
 					description: 'FromIndex - starting by 1'
 				},
 				{
-					type: Number,
+					type: 'number',
 					description: 'ToIndex - starting by 1'
 				},
 			],
@@ -22,9 +22,9 @@ export default {
 	MultiViewOverlay: {
 		description: 'Toggle On/Off MultiView Overlay For Input At Index',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index starting from 1'
 			}
 		}
@@ -33,9 +33,9 @@ export default {
 	MultiViewOverlayOff: {
 		description: 'Switch Off MultiView Overlay For Input At Index',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index starting from 1'
 			}
 		}
@@ -44,9 +44,9 @@ export default {
 	MultiViewOverlayOn: {
 		description: 'Switch On MultiView Overlay For Input At Index',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: {
-				type: Number,
+				type: 'number',
 				description: 'Index starting from 1'
 			}
 		}
@@ -59,14 +59,14 @@ export default {
 	OverlayInput1: {
 		description: 'Toggle Overlay1 On/Off with selected Input using configured Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	OverlayInput1In: {
 		description: 'Transition In to Overlay1 with selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -81,14 +81,14 @@ export default {
 	OverlayInput2: {
 		description: 'Toggle Overlay2 On/Off with selected Input using configured Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	OverlayInput2In: {
 		description: 'Transition In to Overlay2 with selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -103,14 +103,14 @@ export default {
 	OverlayInput3: {
 		description: 'Toggle Overlay3 On/Off with selected Input using configured Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	OverlayInput3In: {
 		description: 'Transition In to Overlay3 with selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -125,14 +125,14 @@ export default {
 	OverlayInput4: {
 		description: 'Toggle Overlay4 On/Off with selected Input using configured Transition',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	OverlayInput4In: {
 		description: 'Transition In to Overlay4 with selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
@@ -147,42 +147,42 @@ export default {
 	PreviewOverlayInput1: {
 		description: 'Preview Overlay1 using the selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PreviewOverlayInput2: {
 		description: 'Preview Overlay2 using the selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PreviewOverlayInput3: {
 		description: 'Preview Overlay3 using the selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	PreviewOverlayInput4: {
 		description: 'Preview Overlay4 using the selected Input',
 		parameters: {
-			Input: 'Input'
+			Input: 'input'
 		}
 	},
 
 	SetMultiViewOverlay: {
 		description: 'Change Overlay in Input MultiView according to Value parameter. Example: 1,2 changes Overlay1 to Input2',
 		parameters: {
-			Input: 'Input',
+			Input: 'input',
 			Value: [ // Composite - separated by ","
 				{
-					type: Number,
+					type: 'number',
 					description: 'Overlay number (1 to 4)'
 				},
 				{
-					type: String,
+					type: 'string',
 					description: 'Input to set as layer'
 				},
 			],

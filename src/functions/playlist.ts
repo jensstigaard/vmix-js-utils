@@ -5,7 +5,7 @@ export default {
 	SelectPlayList: {
 		description: 'Open PlayList with Name matching Value',
 		parameters: {
-			Value: String
+			Value: 'string'
 		}
 	},
 
