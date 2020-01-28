@@ -1,14 +1,13 @@
 {
   "name": "vmix-js-utils",
-  "version": "2.0.2",
-  "description": "Javascript utilities for communicating with the vMix API via TCP or HTTP",
-  "main": "index.js",
-  "engines": {
-    "node": ">=5.2.4"
-  },
+  "version": "3.0.0",
+  "description": "vMix utilities for JavaScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "tsc"
   },
   "repository": {
     "private": false,
@@ -17,25 +16,27 @@
   },
   "keywords": [
     "vMix",
-    "vMix API",
+    "vMix Live Video Switching software",
+    "vMix API functions",
     "vMix Commands",
-    "vMix State",
-    "TCP socket"
+    "vMix State"
   ],
   "author": "Jens Grønhøj Stigaard <jens@stigaard.info>",
   "license": "MIT",
+  "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme",
   "bugs": {
     "url": "https://github.com/jensstigaard/vmix-js-utils/issues"
   },
-  "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme",
   "devDependencies": {
-    "mocha": "^5.0.1",
-    "moxios": "^0.4.0"
+    "@types/xmldom": "^0.1.29",
+    "mocha": "^7.0.1",
+    "moxios": "^0.4.0",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.19.2",
     "querystring": "^0.2.0",
-    "xmldom": "^0.1.27",
+    "xmldom": "^0.2.1",
     "xpath": "^0.0.27"
   }
 }

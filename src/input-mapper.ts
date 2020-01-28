@@ -1,15 +1,15 @@
-const xpath = require('xpath')
+import xpath from 'xpath'
 
-module.exports = class InputMapper {
-    
-    static extractInputsFromXML(xmlContent) {
+export default class InputMapper {
+
+    static extractInputsFromXML(xmlContent: Node) {
         return xpath.select("//vmix/inputs/input", xmlContent)
     }
 
-    static mapInputs(xmlInputs, wantedAttributes = '*') {
+    static mapInputs(xmlInputs: any[], wantedAttributes = '*') {
         // Map all data from raw input
-        var xmlInputsMapped = xmlInputs.map(input => {
-            var output = {}
+        var xmlInputsMapped = xmlInputs.map((input: any) => {
+            const output: any = {}
 
             // Map all base attributes of input
             for (let i in input.attributes) {
@@ -30,7 +30,7 @@ module.exports = class InputMapper {
             for (let i in input.childNodes) {
                 let entry = input.childNodes[i]
                 if (entry.localName && ['image', 'text'].includes(entry.localName)) {
-                    let obj = {} // Build advanced fields of object from its advanced attributes
+                    const obj: any = {} // Build advanced fields of object from its advanced attributes
 
                     // Map attributes
                     if (entry.attributes && (typeof entry.attributes === 'object' || Array.isArray(entry.attributes))) {
@@ -45,7 +45,7 @@ module.exports = class InputMapper {
                     if (entry.childNodes.length) {
                         obj.value = entry.childNodes[0].data
                     }
-                    
+
                     fields.push(obj)
                 }
             }
@@ -54,8 +54,8 @@ module.exports = class InputMapper {
             return output
         })
         // Make a dictionary
-        let inputsDictionary = {}
-        xmlInputsMapped.forEach((input, i) => {
+        let inputsDictionary: any = {}
+        xmlInputsMapped.forEach((input: any) => {
             inputsDictionary[input.key] = input
         })
 
