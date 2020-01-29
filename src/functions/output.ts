@@ -14,7 +14,8 @@ export default {
 				description: 'Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID'
 			},
 			Input: {
-				type: 'string',
+				type: 'input',
+				description: 'When the Value parameter is Inout, the Input parameter must be set to a valid Input number, name or UUID',
 				optional: true
 			},
 		}
