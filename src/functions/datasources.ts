@@ -98,12 +98,5 @@ export default {
 				},
 			]
 		}
-	},
-
-	GENERIC: {
-		description: '',
-		parameters: {
-
-		}
 	}
 }

@@ -786,13 +786,5 @@ export default {
 				description: 'Duration in milliseconds'
 			}
 		}
-	},
-
-
-	GENERIC: {
-		description: '',
-		parameters: {
-
-		}
-	},
+	}
 }

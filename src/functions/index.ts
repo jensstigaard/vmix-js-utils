@@ -1,37 +1,37 @@
-import general from './general'
+import General from './general'
 
-import audio from './audio/index'
-import transition from './transition'
-import output from './output'
-import title from './title'
-import input from './input'
-import overlay from './overlay'
-import playlist from './playlist'
-import scripting from './scripting'
-import replay from './replay'
-import ndi from './ndi'
-import ptz from './ptz'
-import preset from './preset'
-import datasources from './datasources'
-import browser from './browser'
+import Audio from './audio/index'
+import Transition from './transition'
+import Output from './output'
+import Title from './title'
+import Input from './input'
+import Overlay from './overlay'
+import Playlist from './playlist'
+import Scripting from './scripting'
+import Replay from './replay'
+import NDI from './ndi'
+import PTZ from './ptz'
+import Preset from './preset'
+import DataSources from './datasources'
+import Browser from './browser'
 
 // All functions broken up in categories
 // Respecting the order of the vMix documentation
 // See https://www.vmix.com/help23/ShortcutFunctionReference.html
 export default {
-	...general,
-	...audio,
-	...transition,
-	...output,
-	...title,
-	...input,
-	...overlay,
-	...playlist,
-	...scripting,
-	...replay,
-	...ndi,
-	...ptz,
-	...preset,
-	...datasources,
-	...browser
+	General,
+	Audio,
+	Transition,
+	Output,
+	Title,
+	Input,
+	Overlay,
+	Playlist,
+	Scripting,
+	Replay,
+	NDI,
+	PTZ,
+	Preset,
+	DataSources,
+	Browser
 }
