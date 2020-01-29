@@ -72,7 +72,7 @@ function parseFunctionParameters(
 	params: { [key: string]: IntermediateVmixFunctionParameter }
 ): { [key: string]: VmixFunctionParameter } {
 	const parameters: { [key: string]: VmixFunctionParameter } = {}
-	
+
 	Object.entries(params).forEach(([paramKey, parameterValue]) => {
 		parameters[paramKey] = parseFunctionParameter(paramKey, parameterValue)
 	})
@@ -117,6 +117,9 @@ function parseFunctionParameter(paramKey: string, value: IntermediateVmixFunctio
 		if ('description' in value) {
 			parameter.description = value.description || ''
 		}
+		if ('optional' in value) {
+			parameter.optional = value.optional || false
+		}
 	}
 
 	if (!validParameterTypes.includes(parameter.type)) {
@@ -128,14 +131,30 @@ function parseFunctionParameter(paramKey: string, value: IntermediateVmixFunctio
 
 // 
 export default class FunctionList {
-	private static _functions: VmixFunctionDefinition[] = []
+	protected _functions: VmixFunctionDefinition[] = []
 
+	constructor() {
+		this._functions = parseFunctions(functionsIntermediateList)
+	}
 
-	static all(): VmixFunctionDefinition[] {
-		if (!FunctionList._functions.length) {
-			FunctionList._functions = parseFunctions(functionsIntermediateList)
+	/**
+	 * Returns complete list of functions in the vMix API
+	 */
+	all = (): VmixFunctionDefinition[] => {
+		return this._functions
+	}
+
+	/**
+	 * Get function by function name
+	 */
+	get = (functionName: string): VmixFunctionDefinition => {
+		const func = this._functions
+			.find(f => f.function === functionName)
+
+		if (!func) {
+			throw new Error(`Function not found with name '${functionName}'`)
 		}
 
-		return FunctionList._functions
+		return func
 	}
 }
