@@ -1,0 +1,4925 @@
+[
+	{
+		"function": "ActivatorRefresh",
+		"description": "Refresh all activator device lights and controls",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "CallManagerShowHide",
+		"description": "Toggle show/hide of vMix call manager",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "KeyPress",
+		"description": "Force key press. To activate shortcuts.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SendKeys",
+		"description": "Send keys to active window",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Audio",
+		"description": "Toggle Audio Mute On/Off for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioAuto",
+		"description": "Toggle AudioAuto (Audio Follow Video) On/Off for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioAutoOff",
+		"description": "Switch AudioAuto (Audio Follow Video) Off for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioAutoOn",
+		"description": "Switch AudioAuto (Audio Follow Video) On for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioBus",
+		"description": "Toggle on/off Audio Bus(ses) for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Busses to toggle. Valid bus names M,A,B,C,D,E,F,G - Value can be mixed, e.g. MAB - to toggle MAB busses",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioBusOff",
+		"description": "Switch off Audio Bus(ses) for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Busses to switch off. Valid bus names M,A,B,C,D,E,F,G - Value can be mixed, e.g. MAB - to toggle MAB busses",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioBusOn",
+		"description": "Switch on Audio Bus(ses) for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Busses to switch on. Valid bus names M,A,B,C,D,E,F,G - Value can be mixed, e.g. MAB - to toggle MAB busses",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioMixerShowHide",
+		"description": "Toggle show/hide of Audio Mixer panel",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "AudioOff",
+		"description": "Switch Audio off for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioOn",
+		"description": "Switch Audio on for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioPluginOff",
+		"description": "Switch off Audio Plugin for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioPluginOn",
+		"description": "Switch on Audio Plugin for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioPluginOnOff",
+		"description": "Toggle on/off Audio Plugin for an Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AudioPluginShow",
+		"description": "Show Audio Plugin Editor",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusAAudio",
+		"description": "Toggle on/off Audio on Bus A",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioOff",
+		"description": "Switch off Audio on Bus A",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioOn",
+		"description": "Switch on Audio on Bus A",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioPluginOff",
+		"description": "Switch off Audio Plugin for Audio Bus A",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioPluginOn",
+		"description": "Switch on Audio Plugin for Audio Bus A",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioPluginOnOff",
+		"description": "Toggle on/off Audio Plugin for Audio Bus A",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusAAudioPluginShow",
+		"description": "Show Audio Plugin Editor for plugin on Audio Bus A",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusBAudio",
+		"description": "Toggle on/off Audio on Bus B",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioOff",
+		"description": "Switch off Audio on Bus B",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioOn",
+		"description": "Switch on Audio on Bus B",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioPluginOff",
+		"description": "Switch off Audio Plugin for Audio Bus B",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioPluginOn",
+		"description": "Switch on Audio Plugin for Audio Bus B",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioPluginOnOff",
+		"description": "Toggle on/off Audio Plugin for Audio Bus B",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusBAudioPluginShow",
+		"description": "Show Audio Plugin Editor for plugin on Audio Bus B",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudio",
+		"description": "Toggle on/off Audio on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioOff",
+		"description": "Switch off Audio on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioOn",
+		"description": "Switch on Audio on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioPluginOff",
+		"description": "Switch off Audio Plugin for Audio Bus X",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Bus",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "PluginNumber - Plugin Number starting from 1",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioPluginOn",
+		"description": "Switch on Audio Plugin for Audio Bus X",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Bus",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "PluginNumber - Plugin Number starting from 1",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioPluginOnOff",
+		"description": "Toggle on/off Audio Plugin for Audio Bus X",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Bus",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "PluginNumber - Plugin Number starting from 1",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXAudioPluginShow",
+		"description": "Show Audio Plugin Editor for plugin on Audio Bus X",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Bus",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "PluginNumber - Plugin Number starting from 1",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSendToMaster",
+		"description": "Toggle on/off whether audio from Bus X is mixed on Master",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSendToMasterOff",
+		"description": "Switch off whether audio from Bus X is mixed on Master",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSendToMasterOn",
+		"description": "Switch on whether audio from Bus X is mixed on Master",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSolo",
+		"description": "Toggle on/off solo on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSoloOff",
+		"description": "Switch off solo on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BusXSoloOn",
+		"description": "Switch on solo on Bus X",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Bus name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MasterAudio",
+		"description": "Toggle on/off Master audio",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioOff",
+		"description": "Toggle off Master audio",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioOn",
+		"description": "Toggle on Master audio",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioPluginOff",
+		"description": "Switch off Audio Plugin on Master",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioPluginOn",
+		"description": "Switch on Audio Plugin on Master",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioPluginOnOff",
+		"description": "Switch on/off Audio Plugin on Master",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MasterAudioPluginShow",
+		"description": "Show Audio Plugin on Master",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Plugin Number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBalance",
+		"description": "Set balance for input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Balance between -1 to 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusAVolume",
+		"description": "Set volume for Bus A",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusBVolume",
+		"description": "Set volume for Bus B",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusCVolume",
+		"description": "Set volume for Bus C",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusDVolume",
+		"description": "Set volume for Bus D",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusEVolume",
+		"description": "Set volume for Bus E",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusFVolume",
+		"description": "Set volume for Bus F",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetBusGVolume",
+		"description": "Set volume for Bus G",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetGain",
+		"description": "Set gain for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Gain (unit in dB) between 0 to 24",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetGainChannel1",
+		"description": "Set gain on channel 1 for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Gain (unit in dB) between 0 to 24",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetGainChannel2",
+		"description": "Set gain on channel 2 for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Gain (unit in dB) between 0 to 24",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetHeadphonesVolume",
+		"description": "Set volume for Headphones",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetMasterVolume",
+		"description": "Set volume for Master",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetVolume",
+		"description": "Set volume for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetVolumeChannel1",
+		"description": "Set volume on channel 1 for Input. When using SeparateMono on an Audio Input, this can be used to set channel volumes independently.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetVolumeChannel2",
+		"description": "Set volume on channel 2 for Input. When using SeparateMono on an Audio Input, this can be used to set channel volumes independently.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Volume between 0 to 100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetVolumeChannelMixer",
+		"description": "Set Volume of an Input's sub channel",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "Channel between 1 to 16",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "Volume between 0 to 100",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetVolumeFade",
+		"description": "Set volume gradually over x milliseconds.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "Volume between 0 to 100",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "Duration in milliseconds",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Solo",
+		"description": "Toggle on/off solo (to headphones) of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SoloOff",
+		"description": "Toggle off solo (to headphones) of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SoloOn",
+		"description": "Toggle on solo (to headphones) of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "CutDirect",
+		"description": "Cuts the input directly to Output without changing Preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "FadeToBlack",
+		"description": "Toggle FadeToBlack On/Off",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "QuickPlay",
+		"description": "Quick Play an Input to Output",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetFader",
+		"description": "Set Master Fader T-Bar, 255 will cut to Preview",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Fader between 0 to 255",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionDuration1",
+		"description": "Change Transition Duration for Button 1",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionDuration2",
+		"description": "Change Transition Duration for Button 2",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionDuration3",
+		"description": "Change Transition Duration for Button 3",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionDuration4",
+		"description": "Change Transition Duration for Button 4",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionEffect1",
+		"description": "Change Transition for Button 1",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Transition name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionEffect2",
+		"description": "Change Transition for Button 2",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Transition name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionEffect3",
+		"description": "Change Transition for Button 3",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Transition name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTransitionEffect4",
+		"description": "Change Transition for Button 4",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Transition name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Stinger1",
+		"description": "Perform Stinger 1 transition to given Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Stinger2",
+		"description": "Perform Stinger 2 transition to given Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Transition1",
+		"description": "Clicks the first Transition button in the main vMix window - transitions to what is in preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Transition2",
+		"description": "Clicks the second Transition button in the main vMix window - transitions to what is in preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Transition3",
+		"description": "Clicks the third Transition button in the main vMix window - transitions to what is in preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Transition4",
+		"description": "Clicks the fourth Transition button in the main vMix window - transitions to what is in preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Fullscreen",
+		"description": "Toggle on/off fullscreen",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "FullscreenOff",
+		"description": "Switch off fullscreen",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "FullscreenOn",
+		"description": "Switch on fullscreen",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "SetOutput2",
+		"description": "Change what is displayed on Output 2.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": false
+			},
+			"Input": {
+				"type": "input",
+				"description": "When the Value parameter is Inout, the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetOutput3",
+		"description": "Change what is displayed on Output 3.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": false
+			},
+			"Input": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetOutput4",
+		"description": "Change what is displayed on Output 4.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": false
+			},
+			"Input": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetOutputFullscreen",
+		"description": "Change what is displayed on the Fullscreen output.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": false
+			},
+			"Input": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetOutputFullscreen2",
+		"description": "Change what is displayed on the Fullscreen2 output.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Can be set to one of the following values: Output, Preview, MultiView, Input. When the value is Input, also the Input parameter must be set to a valid Input number, name or UUID",
+				"optional": false
+			},
+			"Input": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Snapshot",
+		"description": "Create a snapshot image of the current Output. Optional Value specifies save Filename, otherwise a save file window will appear. Filename can specify date, for example mysnapshot {0:dd MMM yyyy}.jpg",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SnapshotInput",
+		"description": "Create a snapshot image of the selected Input. Optional Value specifies save Filename, otherwise a save file window will appear. Filename can specify date, for example mysnapshot {0:dd MMM yyyy}.jpg",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StartExternal",
+		"description": "Start external output",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartMultiCorder",
+		"description": "Start MultiCorder",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartRecording",
+		"description": "Start recording",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartStopExternal",
+		"description": "Toggle start/stop external output",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartStopMultiCorder",
+		"description": "Toggle start/stop MultiCorder",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartStopRecording",
+		"description": "Toggle start/stop recording",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StartStopStreaming",
+		"description": "Toggle start/stop streaming (of one specific or all configured streams).",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Optional stream number starting from 0. Leave blank to control all streams.",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StartStreaming",
+		"description": "Start streaming (of one specific or all configured streams).",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Optional stream number starting from 0. Leave blank to control all streams.",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StopExternal",
+		"description": "Stop external output",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StopMultiCorder",
+		"description": "Stop MultiCorder",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StopRecording",
+		"description": "Stop recording",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StopStreaming",
+		"description": "Stop streaming (of one specific or all configured streams).",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Optional stream number starting from 0. Leave blank to control all streams.",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StreamingSetKey",
+		"description": "Set Key on Custom RTMP Stream.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Optional stream number starting from 0 at start followed by comma, e.g. 0,mystreamkey.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StreamingSetPassword",
+		"description": "Set Password on Custom RTMP Stream.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Optional stream number starting from 0 at start followed by comma, e.g 0,password",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StreamingSetURL",
+		"description": "Set URL on Custom RTMP Stream.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Optional stream number starting from 0 at start followed by comma, e.g 0,rtmp://myurl/",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StreamingSetUsername",
+		"description": "Set Username on Custom RTMP Stream.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Optional stream number starting from 0 at start followed by comma, e.g 0,username",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "WriteDurationToRecordingLog",
+		"description": "Write current recording duration to log file with optional tag text Value.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Tag Text",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AdjustCountdown",
+		"description": "Seconds to add or subtract from current Countdown time",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Value in seconds - Enter negative number to subtract",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ChangeCountdown",
+		"description": "Change countdown time. SelectedIndex or SelectedName parameters can be used to select Text Field",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"SelectName": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"Value": {
+				"type": "string",
+				"description": "Value as hh:mm:ss (00:00:00)",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NextTitlePreset",
+		"description": "Next Title Preset on Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PauseCountdown",
+		"description": "Pause or Resume Countdown. If complete, it restarts from beginning. SelectedIndex or SelectedName parameters can be used to select Text Field",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"SelectName": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PauseRender",
+		"description": "Pause render of Title input. Remember to fire ResumeRender after making multiple updates",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviousTitlePreset",
+		"description": "Previous Title Preset on Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ResumeRender",
+		"description": "Resume render of Title input after making multiple updates.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SelectTitlePreset",
+		"description": "Select Title Preset on Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Preset Index starting at 0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCountdown",
+		"description": "Set countdown duration",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Duration as hh:mm:ss (e.g. 00:00:00)",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetImage",
+		"description": "Change Image in Title according to Filename or empty to clear. SelectedIndex or SelectedValue can be used to select image.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"Value": {
+				"type": "string",
+				"description": "Can use both file:// and https:// addresses.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetImageVisible",
+		"description": "Toggle Image Visibility in Title. SelectedIndex or SelectedValue can be used to select image.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetImageVisibleOff",
+		"description": "Hide Image in Title. SelectedIndex or SelectedValue can be used to select image.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetImageVisibleOn",
+		"description": "Show Image in Title. SelectedIndex or SelectedValue can be used to select image.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetText",
+		"description": "Change Text in Title according to Value parameter. SelectedIndex or SelectName can be used to select image.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedName": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"Value": {
+				"type": "string",
+				"description": "Value for the text field",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTextColour",
+		"description": "Change Colour of Text in Title in HTML format",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectName": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"Value": {
+				"type": "string",
+				"description": "HTML format (#xxxxxx or #xxxxxxxx), remember to urlencode. E.g. %2333FFFFFF for transparant white",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTextVisible",
+		"description": "Toggle on/off Text Visibility in Title",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTextVisibleOff",
+		"description": "Switch off Text Visibility in Title",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTextVisibleOn",
+		"description": "Switch on Text Visibility in Title",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetTickerSpeed",
+		"description": "Change Ticker Speed.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"SelectedIndex": {
+				"type": "number",
+				"description": "",
+				"optional": true
+			},
+			"SelectedValue": {
+				"type": "string",
+				"description": "",
+				"optional": true
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed between 0 to 1000",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StartCountdown",
+		"description": "Start Countdown",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StopCountdown",
+		"description": "Stop Countdown",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SuspendCountdown",
+		"description": "Suspend Countdown - does not restart countdown on completion - stays 00.00.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "TitleBeginAnimation",
+		"description": "Title begin animation",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Animation name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ActiveInput",
+		"description": "Send to Output the selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AddInput",
+		"description": "Create a new Input based on information provided in Value. \n\t\tExamples of types:\n\t\tVideo|c:path\to\u000bideo.avi\n\t\tImage|c:path\toimage.jpg\t\t\t\t\n\t\tPhotos|c:path\to\folder\n\t\tXaml|c:path\to\title.xaml\n\t\tVideoList|c:path\toplaylist.m3u\n\t\tColour|HTMLColor\n\t\tAudioFile|c:path\toaudio.wav\n\t\tFlash|c:path\to\flash.swf\n\t\tPowerPoint|c:path\topowerpoint.pptx\n\t\t",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Type",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Filename",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPauseOff",
+		"description": "Auto Pause off for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPauseOn",
+		"description": "Auto Pause on for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayFirst",
+		"description": "Toggle automatically playing first item in a List with Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayFirstOff",
+		"description": "Switch off automatically playing first item in a List with Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayFirstOn",
+		"description": "Switch on automatically playing first item in a List with Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayNext",
+		"description": "Toggle automatically playing next item in a List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayNextOff",
+		"description": "Switch Off automatically playing next item in a List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayNextOn",
+		"description": "Switch On automatically playing next item in a List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayOff",
+		"description": "Switch Off automatically playing on transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoPlayOn",
+		"description": "Switch On automatically playing on transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoRestartOff",
+		"description": "Switch Off automatically restarting on transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "AutoRestartOn",
+		"description": "Switch On automatically restarting on transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ColourCorrectionAuto",
+		"description": "Perform Basic Auto Colour Correction for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ColourCorrectionReset",
+		"description": "Reset Colour Correction for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DeinterlaceOff",
+		"description": "Switch off deinterlacing for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DeinterlaceOn",
+		"description": "Switch on deinterlacing for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "InputPreviewHide",
+		"description": "Hides large preview of input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "InputPreviewShow",
+		"description": "Shows large preview of input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "InputPreviewShowHide",
+		"description": "Toggles large preview of input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListAdd",
+		"description": "Add Filename to List",
+		"parameters": {
+			"Input": {
+				"type": "string",
+				"description": "List Input",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Filename to be added to list",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListExport",
+		"description": "Export List as M3U",
+		"parameters": {
+			"Input": {
+				"type": "string",
+				"description": "List Input",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Filename of exported file",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListPlayOut",
+		"description": "Play out list input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListRemove",
+		"description": "Remove from List by Index",
+		"parameters": {
+			"Input": {
+				"type": "string",
+				"description": "List Input",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListRemoveAll",
+		"description": "Remove all items from List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListShowHide",
+		"description": "Toggle show/hide list",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ListShuffle",
+		"description": "Toggle Shuffle (randomize) List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "LivePlayPause",
+		"description": "Toggle Live/Pause of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "LoopOff",
+		"description": "Switch off looping of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "LoopOn",
+		"description": "Switch on looping of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MarkIn",
+		"description": "Mark in on current position for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MarkOut",
+		"description": "Mark out on current position for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MarkReset",
+		"description": "Reset Mark in and out for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MarkResetIn",
+		"description": "Reset Mark in for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MarkResetOut",
+		"description": "Reset Mark out for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MirrorOff",
+		"description": "Switch off mirror for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MirrorOn",
+		"description": "Switch on mirror for Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MoveInput",
+		"description": "Move Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "New input number starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NextItem",
+		"description": "Move to next item in List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NextPicture",
+		"description": "Move to Next Picture for Photo and PowerPoint Inputs",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Pause",
+		"description": "Pause input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Play",
+		"description": "Play input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PlayPause",
+		"description": "Toggle play/pause for input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviewInput",
+		"description": "Send selected input to Preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviewInputNext",
+		"description": "Send the next Input to Preview",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "PreviewInputPrevious",
+		"description": "Send the previous Input to Preview",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "PreviousItem",
+		"description": "Move to previous item in List",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviousPicture",
+		"description": "Move to Previous Picture for Photo and PowerPoint Inputs",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "RemoveInput",
+		"description": "Remove input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ResetInput",
+		"description": "Reset input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "Restart",
+		"description": "Restart input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SaveVideoDelay",
+		"description": "Save video clip from Video Delay",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Duration": {
+				"type": "number",
+				"description": "In milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SelectCategory",
+		"description": "Select category of inputs",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Name of caregory",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SelectIndex",
+		"description": "Photos,List: Selects item in List according to Value starting from number 1. Virtual Set: Zooms to selected preset using the current speed settings",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index of item",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetAlpha",
+		"description": "Set Input transparency",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Alpha between 0 and 255. 0 is transparent. 255 is opaque.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGainB",
+		"description": "Change Gain B level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0 and 2. 1 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGainG",
+		"description": "Change Gain G level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0 and 2. 1 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGainR",
+		"description": "Change Gain R level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0 and 2. 1 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGainRGB",
+		"description": "Change Gain RGB level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0 and 2. 1 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGammaB",
+		"description": "Change Gamma B level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGammaG",
+		"description": "Change Gamma G level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGammaR",
+		"description": "Change Gamma R level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCGammaRGB",
+		"description": "Change Gamma RGB level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCHue",
+		"description": "Change Hue level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCLiftB",
+		"description": "Change Lift B level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCLiftG",
+		"description": "Change Lift G level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCLiftR",
+		"description": "Change Lift R level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCLiftRGB",
+		"description": "Change Lift RGB level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetCCSaturation",
+		"description": "Change Saturation level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -1 and 1. 0 is original value. -1 is greyscale. 1 is very saturated.",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetInputName",
+		"description": "Set the Display Name of the Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "New display name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPanX",
+		"description": "Change current PanX value of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -2 to 2. 0=centered, -2=100% to left, 2=100% to right",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPanY",
+		"description": "Change current PanY value of Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between -2 to 2. 0=centered, -2=100% to bottom, 2=100% to top",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPictureEffect",
+		"description": "Set transition effect for Photos and PowerPoint Inputs.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Transition name. (Fade, Zoom, etc)",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPictureEffectDuration",
+		"description": "Set duration of transition effect for Photos and PowerPoint Inputs.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPictureTransition",
+		"description": "Set transition time between Photos and PowerPoint slides.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Duration in seconds between entries",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetPosition",
+		"description": "Set Position of selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value in Milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetRate",
+		"description": "Set Playback speed/rate for Videos and Video Delays",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0.1 and 4. 0.5=50%, 1=100%, 2=200%, 4=400%",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetRateSlowMotion",
+		"description": "Set Slow Motion speed for Instant Replay",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0.1 and 1.0. 0.1=10%, 0.5=50%, 1=100%",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetZoom",
+		"description": "Change current Zoom level of Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Value between 0 and 5.0. 1=100%, 0.5=50%, 2=200%",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SharpenOff",
+		"description": "Switch off sharpen for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SharpenOn",
+		"description": "Switch on sharpen for Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "VideoCallAudioSource",
+		"description": "Select audio source to route to Video Call (to let the caller receive the selected audio). Including mix-minus.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Bus Valid values: Master,Headphones,BusA,BusB,BusC,BusD,BusE,BusF,BusG",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "VideoCallVideoSource",
+		"description": "Select video source to route to Video Call (to let the caller receive the selected video).",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Valid values: Output1,Output2,Output3,Output4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "VideoDelayStartRecording",
+		"description": "Start Video Delay Recording",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Duration": {
+				"type": "number",
+				"description": "Delay in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "VideoDelayStartStopRecording",
+		"description": "Toggle start/stop Video Delay Recording",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Duration": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "VideoDelayStopRecording",
+		"description": "Stop Video Delay Recording",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Duration": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "WaitForCompletion",
+		"description": "Wait for a Video Input to reach the end of playback.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Duration": {
+				"type": "number",
+				"description": "Duration in milliseconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "GENERIC",
+		"description": "",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "MoveMultiViewOverlay",
+		"description": "Move Overlay in Input MultiView according to Value parameter. Example: 1,2 moves Overlay1 to Overlay2",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "FromIndex - starting by 1",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "ToIndex - starting by 1",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MultiViewOverlay",
+		"description": "Toggle On/Off MultiView Overlay For Input At Index",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MultiViewOverlayOff",
+		"description": "Switch Off MultiView Overlay For Input At Index",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "MultiViewOverlayOn",
+		"description": "Switch On MultiView Overlay For Input At Index",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index starting from 1",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput1",
+		"description": "Toggle Overlay1 On/Off with selected Input using configured Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput1In",
+		"description": "Transition In to Overlay1 with selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput1Off",
+		"description": "Immediately switch Overlay1 Off (Cut)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput1Out",
+		"description": "Transition Out Overlay1",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput1Zoom",
+		"description": "Zooms PIP Overlay 1 to fill Fullscreen and vice versa",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput2",
+		"description": "Toggle Overlay2 On/Off with selected Input using configured Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput2In",
+		"description": "Transition In to Overlay2 with selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput2Off",
+		"description": "Immediately switch Overlay2 Off (Cut)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput2Out",
+		"description": "Transition Out Overlay2",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput2Zoom",
+		"description": "Zooms PIP Overlay 2 to fill Fullscreen and vice versa",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput3",
+		"description": "Toggle Overlay3 On/Off with selected Input using configured Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput3In",
+		"description": "Transition In to Overlay3 with selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput3Off",
+		"description": "Immediately switch Overlay3 Off (Cut)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput3Out",
+		"description": "Transition Out Overlay3",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput3Zoom",
+		"description": "Zooms PIP Overlay 3 to fill Fullscreen and vice versa",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput4",
+		"description": "Toggle Overlay4 On/Off with selected Input using configured Transition",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput4In",
+		"description": "Transition In to Overlay4 with selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput4Off",
+		"description": "Immediately switch Overlay4 Off (Cut)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput4Out",
+		"description": "Transition Out Overlay4",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInput4Zoom",
+		"description": "Zooms PIP Overlay 4 to fill Fullscreen and vice versa",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OverlayInputAllOff",
+		"description": "Immediately switch all Overlays Off",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "PreviewOverlayInput1",
+		"description": "Preview Overlay1 using the selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviewOverlayInput2",
+		"description": "Preview Overlay2 using the selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviewOverlayInput3",
+		"description": "Preview Overlay3 using the selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PreviewOverlayInput4",
+		"description": "Preview Overlay4 using the selected Input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SetMultiViewOverlay",
+		"description": "Change Overlay in Input MultiView according to Value parameter. Example: 1,2 changes Overlay1 to Input2",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "Overlay number (1 to 4)",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Input to set as layer",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NextPlayListEntry",
+		"description": "Move to Next Item in a running PlayList",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "PreviousPlayListEntry",
+		"description": "Move to Previous Item in a running PlayList",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "SelectPlayList",
+		"description": "Open PlayList with Name matching Value",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "StartPlayList",
+		"description": "Start Playlist",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "StopPlayList",
+		"description": "Stop Playlist",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ScriptStart",
+		"description": "Start script",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Script name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ScriptStartDynamic",
+		"description": "Start a dynamic script using code specified as the Value.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Code to execute",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ScriptStop",
+		"description": "Stop script",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Script name",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ScriptStopAll",
+		"description": "Stop all scripts currently executing",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ScriptStopDynamic",
+		"description": "Stop all dynamic scripts currently executing",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayACamera1",
+		"description": "Set Replay A input to camera 1",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayACamera2",
+		"description": "Set Replay A input to camera 2",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayACamera3",
+		"description": "Set Replay A input to camera 3",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayACamera4",
+		"description": "Set Replay A input to camera 4",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayBCamera1",
+		"description": "Set Replay B input to camera 1",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayBCamera2",
+		"description": "Set Replay B input to camera 2",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayBCamera3",
+		"description": "Set Replay B input to camera 3",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayBCamera4",
+		"description": "Set Replay B input to camera 4",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayChangeDirection",
+		"description": "Switch replay direction - forward/reverse",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayChangeSpeed",
+		"description": "Change replay playback speed",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Speed in percentage",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayCopyLastEvent",
+		"description": "Copy last replay event to event list",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event list 0-7",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayCopySelectedEvent",
+		"description": "Copy selected replay event to event list",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event list 0-7",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayExportLastEvent",
+		"description": "Export last replay event to specific folder",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Folder",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayFastBackward",
+		"description": "Replay fast backwards",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Speed 1-30x",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayFastForward",
+		"description": "Replay fast forward",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Speed 1-30x",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayJumpFrames",
+		"description": "Replay jump frames",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Frames",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayJumpToNow",
+		"description": "Replay jump to now",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayLastEventCameraOff",
+		"description": "Replay turn off speficied camera angle for last event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayLastEventCameraOn",
+		"description": "Replay turn on speficied camera angle for last event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayLastEventSingleCameraOn",
+		"description": "Replay turn on only speficied camera angle for last event (turns off all other angles for event)",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayLive",
+		"description": "Replay: Turn on replay live mode - replay window showing live sources and new replays are created in repect to now timestamp",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayLiveToggle",
+		"description": "Replay: Toggle on/off replay live mode - toggles whether replay window is showing live sources and new replays are created in repect to now timestamp",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkCancel",
+		"description": "Replay: Cancel marking of event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkIn",
+		"description": "Replay: Mark In for new replay event in respect to current timestamp selected in replay module (from live/non live mode)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInLive",
+		"description": "Replay: Mark In for new replay event in respect to live",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInOut",
+		"description": "Replay: Mark In/Out based on number of seconds and current timestamp selected in replay module (from live/non live mode)",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Seconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInOutLive",
+		"description": "Replay: Mark In/Out based on number of seconds back from right now",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Seconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInOutRecorded",
+		"description": "Replay: Mark In/Out based on number of seconds back from current selected timestamp of recorded session",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Seconds",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInRecorded",
+		"description": "Replay: Mark In based on currently selected timestamp of recorded session",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkInRecordedNow",
+		"description": "Replay: Mark In based on currently selected timestamp of now timestamp in recorded session",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMarkOut",
+		"description": "Replay: Mark Out based on currently selected timestamp of recorded session",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveLastEvent",
+		"description": "Replay: Move Last replay event to other event list",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event list 0-7",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveSelectedEvent",
+		"description": "Replay: Move selected replay event to other event list",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event list 0-7",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveSelectedEventDown",
+		"description": "Replay: Move to select next event (down)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveSelectedEventUp",
+		"description": "Replay: Move to select previous event (up)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveSelectedInPoint",
+		"description": "Replay: Move In-point for selected event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Number of frames relative. Negative number = previous in time. Positive number = Forward in time",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayMoveSelectedOutPoint",
+		"description": "Replay: Move Out-point for selected event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Number of frames relative. Negative number = previous in time. Positive number = Forward in time",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayPause",
+		"description": "Replay: Pause playback",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlay",
+		"description": "Replay: Resume playback",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayAllEvents",
+		"description": "Replay: Play all events in active list (do NOT automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayAllEventsToOutput",
+		"description": "Replay: Play all events in active list (automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayBackward",
+		"description": "Replay: Reverse playback of replay",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayEvent",
+		"description": "Replay: Play Event by ID",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event number: 0-1000",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayEventsByID",
+		"description": "Replay: Play Events by ID (do NOT automatically transition to output)",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "List of Events each with number 0-1000",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayEventsByIDToOutput",
+		"description": "Replay: Play Events by ID (automatically transition to output)",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "List of Events each with number 0-1000",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayEventToOutput",
+		"description": "Replay: Play Event by ID",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Event number: 0-1000",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayForward",
+		"description": "Replay: Forward Playback of replay inputs",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayLastEvent",
+		"description": "Replay: Playback of last event (do NOT automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayLastEventToOutput",
+		"description": "Replay: Playback of last event (automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayNext",
+		"description": "Replay: Play Next event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayPause",
+		"description": "Replay: Resume or pause playback of replay input",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlayPrevious",
+		"description": "Replay: Play Previous event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlaySelectedEvent",
+		"description": "Replay: Play selected event (do NOT automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayPlaySelectedEventToOutput",
+		"description": "Replay: Play selected event (automatically transition to output)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayRecorded",
+		"description": "Replay: Set in Recorded mode (non live)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectedEventCameraOff",
+		"description": "Replay: Turn off desired camera angle for selected event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectedEventCameraOn",
+		"description": "Replay: Turn on desired camera angle for selected event",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectedEventSingleCameraOn",
+		"description": "Replay: Turn on only desired camera angle for selected event (turns off all other angles for event)",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Camera angle 1-4",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents1",
+		"description": "Replay: Select events category 1",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents2",
+		"description": "Replay: Select events category 2",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents3",
+		"description": "Replay: Select events category 3",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents4",
+		"description": "Replay: Select events category 4",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents5",
+		"description": "Replay: Select events category 5",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents6",
+		"description": "Replay: Select events category 6",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents7",
+		"description": "Replay: Select events category 7",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectEvents8",
+		"description": "Replay: Select events category 8",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectFirstEvent",
+		"description": "Replay: Select first event (oldest - in top) of active list/category",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectLastEvent",
+		"description": "Replay: Select Last event (newest - in bottom) of active list/category",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectNextEvent",
+		"description": "Replay: Select next event (newer)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySelectPreviousEvent",
+		"description": "Replay: Select previos event (older)",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetDirectionBackward",
+		"description": "Replay: Set direction backwards - Reverse playback",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetDirectionForward",
+		"description": "Replay: Set direction backwards - Forward (normal) playback",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetLastEventText",
+		"description": "Replay: Set text for last event",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Text",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetLastEventTextCamera",
+		"description": "Replay: Changes the text of last event of the specified angle (1-4). Example: 3,angle3text",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "Camera",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Text",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetSelectedEventText",
+		"description": "Replay: Set text for selected event",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Text",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetSelectedEventTextCamera",
+		"description": "Replay: Changes the text of the selected event of the specified angle (1-4). Example: 3,angle3text",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "number",
+						"description": "Camera",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Text",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplaySetSpeed",
+		"description": "Replay: See SetRateSlowMotion",
+		"parameters": {
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0-1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "ReplayShowHide",
+		"description": "Replay: Show/hide replay window",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayStartRecording",
+		"description": "Replay: Start recording of replay session",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayStopEvents",
+		"description": "Replay: Stop events playback",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayStopRecording",
+		"description": "Replay: Stop recording of replay session",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleLastEventCamera1",
+		"description": "Replay: Toggle Camera angle 1 for Last event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleLastEventCamera2",
+		"description": "Replay: Toggle Camera angle 1 for Last event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleLastEventCamera3",
+		"description": "Replay: Toggle Camera angle 1 for Last event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleLastEventCamera4",
+		"description": "Replay: Toggle Camera angle 1 for Last event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleSelectedEventCamera1",
+		"description": "Replay: Toggle Camera angle 1 for Selected event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleSelectedEventCamera2",
+		"description": "Replay: Toggle Camera angle 2 for Selected event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleSelectedEventCamera3",
+		"description": "Replay: Toggle Camera angle 3 for Selected event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayToggleSelectedEventCamera4",
+		"description": "Replay: Toggle Camera angle 4 for Selected event",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayUpdateSelectedInPoint",
+		"description": "Replay: Update In point of Selected Event to current Position.",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "ReplayUpdateSelectedOutPoint",
+		"description": "Replay: Update Mark Out point of Selected Event to current Position.",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "NDICommand",
+		"description": "Send specified command to NDI source.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Command to send",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NDISelectSourceByIndex",
+		"description": "Select NDI source by Index.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index 0-100",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NDISelectSourceByName",
+		"description": "Select NDI source by Name.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "string",
+				"description": "Name of source",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NDIStartRecording",
+		"description": "Start recording of NDI source input (raw NDI recording)",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "NDIStopRecording",
+		"description": "Stop recording of NDI source input (raw NDI recording)",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZCreateVirtualInput",
+		"description": "Creates a PTZ Virtual Input with the current Position",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZFocusAuto",
+		"description": "Turn on auto focus for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZFocusFar",
+		"description": "Move focus farer away with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZFocusManual",
+		"description": "Turn on manual focus for PTZ camera (disables auto focus)",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZFocusNear",
+		"description": "Move focus nearer with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZFocusStop",
+		"description": "Stop focus movement for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZHome",
+		"description": "Go to home position for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveDown",
+		"description": "Move down with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveDownLeft",
+		"description": "Move down+left with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveDownRight",
+		"description": "Move down+right with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveLeft",
+		"description": "Move left with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveRight",
+		"description": "Move right with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveStop",
+		"description": "Stop all movement for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveToVirtualInputPosition",
+		"description": "Moves to the Position of the PTZ Virtual Input without selecting it into Preview",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveToVirtualInputPositionByIndex",
+		"description": "Moves to the Position of the PTZ Virtual Input associated with this Input.",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Index 0-100. Index is first Input found starting from 0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveUp",
+		"description": "Move up with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveUpLeft",
+		"description": "Move up+left with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZMoveUpRight",
+		"description": "Move up+right with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZUpdateVirtualInput",
+		"description": "Updates selected PTZ Virtual Input with current Position",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZZoomIn",
+		"description": "Zoom in with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZZoomOut",
+		"description": "Zoom out with speed for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "number",
+				"description": "Speed 0.0 - 1.0",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "PTZZoomStop",
+		"description": "Stop zoom for PTZ camera",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "LastPreset",
+		"description": "Load the last preset.",
+		"parameters": {},
+		"examples": []
+	},
+	{
+		"function": "OpenPreset",
+		"description": "Load preset from the specified Filename.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Filename",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "SavePreset",
+		"description": "Save preset to the specified Filename.",
+		"parameters": {
+			"Value": {
+				"type": "string",
+				"description": "Filename",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourceAutoNextOff",
+		"description": "Turn off auto next for data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name Name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourceAutoNextOn",
+		"description": "Turn on auto next for data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourceAutoNextOnOff",
+		"description": "Toggle on/off auto next for data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourceNextRow",
+		"description": "Select next row of data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourcePreviousRow",
+		"description": "Select previous row of data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "DataSourceSelectRow",
+		"description": "Select row by row index of data source",
+		"parameters": {
+			"Value": {
+				"composites": [
+					{
+						"type": "string",
+						"description": "Data source name",
+						"optional": false
+					},
+					{
+						"type": "string",
+						"description": "Table name",
+						"optional": false
+					},
+					{
+						"type": "number",
+						"description": "Row Index starting from 0",
+						"optional": false
+					}
+				]
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserBack",
+		"description": "Go back one page for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserForward",
+		"description": "Go forward one page for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserKeyboardDisabled",
+		"description": "Disable keyboard for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserKeyboardEnabled",
+		"description": "Enable keyboard for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserMouseDisabled",
+		"description": "Disable mouse interaction for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserMouseEnabled",
+		"description": "Enable mouse interaction for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserNavigate",
+		"description": "Navigate browser input to specific URL",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			},
+			"Value": {
+				"type": "url",
+				"description": "URL to navigate to",
+				"optional": false
+			}
+		},
+		"examples": []
+	},
+	{
+		"function": "BrowserReload",
+		"description": "Reload page for browser input",
+		"parameters": {
+			"Input": {
+				"type": "input",
+				"description": "",
+				"optional": false
+			}
+		},
+		"examples": []
+	}
+]
