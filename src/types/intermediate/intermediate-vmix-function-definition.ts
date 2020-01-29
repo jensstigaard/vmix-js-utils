@@ -8,6 +8,7 @@ type FunctionParameterType = string
 type FunctionParameterValue = {
 	type: FunctionParameterType
 	description?: string
+	optional?: boolean
 }
 
 // Function parameter can be a description, a function parameter value or array of these
