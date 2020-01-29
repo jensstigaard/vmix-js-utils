@@ -4,6 +4,8 @@ vMix API utility for Javascript.
 [![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
+**Note**: NodeJS utility for communicating with vMix is branched out in its own package - [node-vmix](https://github.com/jensstigaard/node-vmix). 
+
 ```javascript
 const { FunctionList } = require('vmix-js-utils')
 
@@ -12,7 +14,6 @@ const { FunctionList } = require('vmix-js-utils')
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
- - [Connection](#connection)
  - [ApiDataParser](#apidataparser)
  - [InputMapper](#inputmapper)
  - [StateFetcher](#statefetcher) - Under deprecation
