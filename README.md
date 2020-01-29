@@ -4,7 +4,9 @@ vMix API utility for Javascript.
 [![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
-**Note**: NodeJS utility for communicating with vMix is branched out in its own package - [node-vmix](https://github.com/jensstigaard/node-vmix). 
+**OBS OBS OBS** Note that the NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. 
+
+---
 
 ```javascript
 const { FunctionList } = require('vmix-js-utils')
