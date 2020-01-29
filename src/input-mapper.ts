@@ -2,11 +2,20 @@ import xpath from 'xpath'
 
 export default class InputMapper {
 
+    /**
+     * Extract inputs XML from full XML document using XPath
+     * @param {Node} xmlContent
+     */
     static extractInputsFromXML(xmlContent: Node) {
         return xpath.select("//vmix/inputs/input", xmlContent)
     }
 
-    static mapInputs(xmlInputs: any[], wantedAttributes = '*') {
+    /**
+     * Map inputs
+     * @param xmlInputs
+     * @param wantedAttributes
+     */
+    static mapInputs(xmlInputs: any[], wantedAttributes: string = '*') {
         // Map all data from raw input
         var xmlInputsMapped = xmlInputs.map((input: any) => {
             const output: any = {}
