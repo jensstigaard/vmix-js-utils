@@ -1,21 +1,29 @@
 # vMix-js-utils
-vMix API utility for Javascript.
 
 [![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
-**OBS OBS OBS** Note that the NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. 
+vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
+- API function list
+- XML data parser
+- Input mapper
+
+You can either import the package as a NPM package, download the source here from Github, or use the script from a library CDN such as [jsdelivr.com](https://www.jsdelivr.com/package/npm/vmix-js-utils).
+
+## OBS - NodeJS utility for vMix
+**Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. This package is only for NodeJS applications.
 
 ---
-
+Simple use
 ```javascript
-const { FunctionList } = require('vmix-js-utils')
+import { FunctionList, ApiDataParser, InputMapper } from 'vmix-js-utils'
 
 ```
 
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
+ - [FunctionList](#functionlist)
  - [ApiDataParser](#apidataparser)
  - [InputMapper](#inputmapper)
  - [StateFetcher](#statefetcher) - Under deprecation
@@ -23,6 +31,9 @@ The modules is as following:
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Description of modules
+
+## FunctionList
+`.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
 
 ## ApiDataParser
 Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
@@ -86,6 +97,8 @@ npm test # or 'yarn test'
 
 # Examples and use
 *Work in progress.*
+- [Function list (all)](./examples/function-list-all.js)
+- [Function list (get single)](./examples/function-list-get.js)
 
 
 # Authors
