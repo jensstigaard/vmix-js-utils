@@ -1,12 +1,11 @@
+//
+import { VmixFunctionParameterType } from './../vmix-function-definition'
+
 // Function description type - can only be a string
 type FunctionDescriptionDefinition = string
 
-// Function Parameter type
-type FunctionParameterType = string
-
-
 type FunctionParameterValue = {
-	type: FunctionParameterType
+	type: VmixFunctionParameterType
 	description?: string
 	optional?: boolean
 }
