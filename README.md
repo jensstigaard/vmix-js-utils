@@ -110,5 +110,6 @@ You are more than welcome to contribute to the repository!
 
 
 # Roadmap
+ - More examples
  - More tests
  - Perhaps more functionality
