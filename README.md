@@ -60,21 +60,30 @@ const vMixUtils = require('vmix-js-utils')
 
 
 ## Standalone project / Fork
+The source code is written in TypeScript, and ported to javascript (including types for TypeScript support) to allow it to be used as a npm package.
+
 The code can be cloned and tested as needed from the source code.
 
 ```sh
 git clone https://github.com/jensstigaard/vmix-js-utils.git
 cd vmix-js-utils
-
+```
+Install dependencies
+```sh
 npm install # or 'yarn'
+```
+Compile TypeScript source code to JavaScript code
+```sh
+npm build # or 'yarn build'
+```
+Run tests
+```sh
 npm test # or 'yarn test'
 ```
 
 
 # Examples and use
-Review index.js for some basic example of how to use the utilities
- - [Send single command example](../../blob/master/examples/send-single-command.js)
-
+*Work in progress.*
 
 
 # Authors
