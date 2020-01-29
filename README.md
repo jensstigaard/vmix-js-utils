@@ -68,8 +68,6 @@ cd vmix-js-utils
 
 npm install # or 'yarn'
 npm test # or 'yarn test'
-
-node ./index.js
 ```
 
 
