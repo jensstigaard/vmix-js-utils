@@ -9,6 +9,7 @@ export enum TALLY_STATE {
 export type TallySummary = {
 	preview: number
 	program: number
+	numberOfInputs: number
 	// overlays: {
 	// 	1: number | null
 	// 	2: number | null

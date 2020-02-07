@@ -35,17 +35,27 @@ export default class TcpTally {
 	static extractSummary(tallyString: string): TallySummary {
 		const inputs = mapInputs(tallyString)
 
+		const numberOfInputs = inputs.length
+
 		const programIndex: number = inputs.findIndex(state => state === TALLY_STATE.PROGRAM)
 		let previewIndex: number = inputs.findIndex(state => state === TALLY_STATE.PREVIEW)
+
+		if (programIndex >= numberOfInputs) {
+			throw new Error(`Invalid program index... ${programIndex} of ${numberOfInputs} inputs`)
+		}
 
 		// If there were no preview input found
 		if (previewIndex === -1) {
 			previewIndex = programIndex
+		} else if (previewIndex >= numberOfInputs) {
+			throw new Error(`Invalid program index... ${previewIndex} of ${numberOfInputs} inputs`)
 		}
 
 		return {
 			program: programIndex + 1,
-			preview: previewIndex + 1
+			preview: previewIndex + 1,
+
+			numberOfInputs
 		}
 	}
 
