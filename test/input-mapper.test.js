@@ -2,9 +2,9 @@
 const assert = require('assert')
 
 // Import the modules
-const { ApiDataParser, InputMapper } = require('../dist/index').default
+const { ApiDataParser, InputMapper } = require('../dist/index')
 
-let data = `
+const data = `
 <vmix>
 <version>20.0.0.55</version>
 <edition>Pro</edition>
@@ -45,16 +45,48 @@ let data = `
 
 describe('input-mapper', function () {
     it('should have 2 inputs from the sample data', function () {
-        let xmlContent = ApiDataParser.parse(data)
-        let inputs = InputMapper.extractInputsFromXML(xmlContent)
+        const xmlContent = ApiDataParser.parse(data)
+        const inputs = InputMapper.extractInputsFromXML(xmlContent)
 
         // Manipulate to wanted format
-        let inputsMap = InputMapper.mapInputs(inputs)
-        let inputsList = Object.values(inputsMap)
+        const inputsMap = InputMapper.mapInputs(inputs)
+        const inputsList = Object.values(inputsMap)
 
         // Assert the inputs were found
-        assert.equal(inputsList.length, 2, 'Did not find inputs')
-        assert.equal(inputsMap['69aa648d-3984-41bf-bd62-7255edff9a6d'].type, 'Blank')
-        assert.equal(inputsMap['69aa648d-3984-41bf-bd62-7255edff9a6d'].state, 'Paused')
+        assert.equal(inputsList.length, 2, 'Did not See expected number of inputs')
+    })
+
+    it('should have 2 default inputs from the sample data which is both blank', function () {
+
+        const xmlContent = ApiDataParser.parse(data)
+        const inputs = InputMapper.extractInputsFromXML(xmlContent)
+
+        // Manipulate to wanted format
+        const inputsMap = InputMapper.mapInputs(inputs)
+        const inputsList = Object.values(inputsMap)
+
+        // Assert the inputs were found
+        assert.equal(inputsList[0].type, 'Blank')
+        assert.equal(inputsList[1].type, 'Blank')
+    })
+
+    // it('should have input 1 as active preview', function () {
+
+    //     const xmlContent = ApiDataParser.parse(data)
+
+    //     const preview = InputMapper.extractPreviewFromXML(xmlContent)
+
+    //     // Assert the preview input number
+    //     assert.equal(preview, 1)
+    // })
+
+    it('should have input 2 as active program', function () {
+
+        const xmlContent = ApiDataParser.parse(data)
+
+        const program = InputMapper.extractProgramFromXML(xmlContent)
+
+        // Assert the program input number
+        assert.equal(program, 2)
     })
 })
