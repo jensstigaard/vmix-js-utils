@@ -41,14 +41,14 @@ export default class TcpTally {
 		let previewIndex: number = inputs.findIndex(state => state === TALLY_STATE.PREVIEW)
 
 		if (programIndex >= numberOfInputs) {
-			throw new Error(`Invalid program index... ${programIndex} of ${numberOfInputs} inputs`)
+			throw new Error(`Invalid input index for program... ${programIndex} of ${numberOfInputs} inputs`)
 		}
 
 		// If there were no preview input found
 		if (previewIndex === -1) {
 			previewIndex = programIndex
 		} else if (previewIndex >= numberOfInputs) {
-			throw new Error(`Invalid program index... ${previewIndex} of ${numberOfInputs} inputs`)
+			throw new Error(`Invalid input index for preview... ${previewIndex} of ${numberOfInputs} inputs`)
 		}
 
 		return {
