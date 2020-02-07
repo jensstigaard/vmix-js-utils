@@ -1,14 +1,23 @@
 // Examples can be found in the /examples folder
 
-import ApiDataParser from './api-data-parser'
-import InputMapper from './input-mapper'
-import FunctionList from './function-list'
+import ApiDataParser from './modules/api-data-parser'
+import InputMapper from './modules/input-mapper'
+import FunctionList from './modules/function-list'
+import TcpTally from './modules/tcp-tally'
+
 
 // Exposing the util classes - used by npm
+export {
+    ApiDataParser,
+    InputMapper,
+    FunctionList,
+    TcpTally
+}
 export default {
     ApiDataParser,
     InputMapper,
-    FunctionList
+    FunctionList,
+    TcpTally
 
     // StateFetcher: require('./src/state-fetcher'),
 }

@@ -1,4 +1,8 @@
-import xpath from 'xpath'
+// Imports
+import xpath, { SelectedValue } from 'xpath'
+
+// Types
+import { TallySummary } from './../types/tcp'
 
 export default class InputMapper {
 
@@ -6,7 +10,7 @@ export default class InputMapper {
      * Extract inputs XML from full XML document using XPath
      * @param {Node} xmlContent
      */
-    static extractInputsFromXML(xmlContent: Node) {
+    static extractInputsFromXML(xmlContent: Node): SelectedValue[] {
         return xpath.select("//vmix/inputs/input", xmlContent)
     }
 
@@ -15,7 +19,8 @@ export default class InputMapper {
      * @param xmlInputs
      * @param wantedAttributes
      */
-    static mapInputs(xmlInputs: any[], wantedAttributes: string = '*') {
+    static mapInputs(xmlInputs: SelectedValue[], wantedAttributes: string = '*') {
+
         // Map all data from raw input
         var xmlInputsMapped = xmlInputs.map((input: any) => {
             const output: any = {}
@@ -69,5 +74,50 @@ export default class InputMapper {
         })
 
         return inputsDictionary
+    }
+
+    static mapTallyInfo(xmlContent: Node): TallySummary {
+        const inputInProgram: number = this.extractProgramFromXML(xmlContent)
+        const inputInPreview: number = this.extractPreviewFromXML(xmlContent)
+
+        return {
+            program: inputInProgram,
+            preview: inputInPreview,
+        }
+    }
+
+
+    /**
+     * Extract active in prgoram XML from full XML document using XPath
+     * @param {Node} xmlContent
+     */
+    static extractProgramFromXML(xmlContent: Node): number {
+        const value: SelectedValue = xpath.select("//vmix/active", xmlContent, true)
+
+        if (!value) {
+            throw new Error('Could not find active program...')
+        }
+
+        // Cast to node
+        const node: Node = value as Node
+
+        return Number(node.lastChild!.nodeValue)
+    }
+
+    /**
+     * Extract preview XML from full XML document using XPath
+     * @param {Node} xmlContent
+     */
+    static extractPreviewFromXML(xmlContent: Node): number {
+        const value: SelectedValue = xpath.select("//vmix/preview", xmlContent, true)
+
+        if (!value) {
+            throw new Error('Could not find preview program...')
+        }
+
+        // Cast to node
+        const node: Node = value as Node
+
+        return Number(node.lastChild!.nodeValue)
     }
 }
