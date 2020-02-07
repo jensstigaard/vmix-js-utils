@@ -19,7 +19,7 @@ export default class InputMapper {
      * @param xmlInputs
      * @param wantedAttributes
      */
-    static mapInputs(xmlInputs: SelectedValue[], wantedAttributes: string = '*') {
+    static mapInputs(xmlInputs: SelectedValue[], wantedAttributes: string | string[] = '*') {
 
         // Map all data from raw input
         var xmlInputsMapped = xmlInputs.map((input: any) => {
@@ -35,7 +35,11 @@ export default class InputMapper {
                 }
 
                 // Only add the attribute to the output object if it is wanted
-                if (wantedAttributes === '*' || wantedAttributes.includes(attribute.name)) {
+                if (
+                    attribute.name === 'key'
+                    || wantedAttributes === '*'
+                    || wantedAttributes.includes(attribute.name)
+                ) {
                     output[attribute.name] = attribute.nodeValue
                 }
             }
