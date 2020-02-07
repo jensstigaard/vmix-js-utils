@@ -70,15 +70,14 @@ describe('input-mapper', function () {
         assert.equal(inputsList[1].type, 'Blank')
     })
 
-    // it('should have input 1 as active preview', function () {
+    it('should have input 1 as active preview', function () {
+        const xmlContent = ApiDataParser.parse(data)
 
-    //     const xmlContent = ApiDataParser.parse(data)
+        const preview = InputMapper.extractPreviewFromXML(xmlContent)
 
-    //     const preview = InputMapper.extractPreviewFromXML(xmlContent)
-
-    //     // Assert the preview input number
-    //     assert.equal(preview, 1)
-    // })
+        // Assert the preview input number
+        assert.equal(preview, 1)
+    })
 
     it('should have input 2 as active program', function () {
 
