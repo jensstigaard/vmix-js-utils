@@ -81,6 +81,12 @@ export default class InputMapper {
         const inputInPreview: number = this.extractPreviewFromXML(xmlContent)
 
         const numberOfInputs = InputMapper.extractInputsFromXML(xmlContent).length
+        if (inputInPreview > numberOfInputs) {
+            throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
+        }
+        if (inputInProgram > numberOfInputs) {
+            throw new Error(`Invalid program input number... ${inputInProgram} of ${numberOfInputs} inputs`)
+        }
 
         return {
             program: inputInProgram,
