@@ -80,9 +80,13 @@ export default class InputMapper {
         const inputInProgram: number = this.extractProgramFromXML(xmlContent)
         const inputInPreview: number = this.extractPreviewFromXML(xmlContent)
 
+        const numberOfInputs = InputMapper.extractInputsFromXML(xmlContent).length
+
         return {
             program: inputInProgram,
             preview: inputInPreview,
+
+            numberOfInputs
         }
     }
 
