@@ -11,8 +11,10 @@ function tallyStateMapperSingleInput(state: string): TALLY_STATE {
 			return TALLY_STATE.PROGRAM
 		case '2':
 			return TALLY_STATE.PREVIEW
-		default:
+		case '0':
 			return TALLY_STATE.IDLE
+		default:
+			throw new Error(`Invalid tally string inputted... '${state}'`)
 	}
 }
 
@@ -33,27 +35,22 @@ export default class TcpTally {
 	 * @param tallyString - From TCP message: E.g. TALLY OK 00102 (input 3 in program and 5 in preview)
 	 */
 	static extractSummary(tallyString: string): TallySummary {
-		const inputs = mapInputs(tallyString)
+		const inputs = Object.entries(mapInputs(tallyString))
 
 		const numberOfInputs = inputs.length
 
-		const programIndex: number = inputs.findIndex(state => state === TALLY_STATE.PROGRAM)
-		let previewIndex: number = inputs.findIndex(state => state === TALLY_STATE.PREVIEW)
+		const inputsInProgram = inputs.filter(([_, state]) => (state === TALLY_STATE.PROGRAM))
+		const inputsInPreview = inputs.filter(([_, state]) => (state === TALLY_STATE.PREVIEW))
 
-		if (programIndex >= numberOfInputs) {
-			throw new Error(`Invalid input index for program... ${programIndex} of ${numberOfInputs} inputs`)
-		}
 
-		// If there were no preview input found
-		if (previewIndex === -1) {
-			previewIndex = programIndex
-		} else if (previewIndex >= numberOfInputs) {
-			throw new Error(`Invalid input index for preview... ${previewIndex} of ${numberOfInputs} inputs`)
+		// If there were no preview input found - use input in program
+		if (inputsInPreview.length === 0 && inputsInProgram.length === 1) {
+			inputsInPreview[0] = inputsInProgram[0]
 		}
 
 		return {
-			program: programIndex + 1,
-			preview: previewIndex + 1,
+			program: inputsInProgram.map(([index, _]) => Number(index) + 1),
+			preview: inputsInPreview.map(([index, _]) => Number(index) + 1),
 
 			numberOfInputs
 		}

@@ -93,8 +93,8 @@ export default class InputMapper {
         }
 
         return {
-            program: inputInProgram,
-            preview: inputInPreview,
+            program: [inputInProgram],
+            preview: [inputInPreview],
 
             numberOfInputs
         }

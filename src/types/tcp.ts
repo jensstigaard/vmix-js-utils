@@ -1,14 +1,14 @@
 
 export enum TALLY_STATE {
 	IDLE,
-	PREVIEW,
-	PROGRAM
+	PROGRAM,
+	PREVIEW
 }
 
 
 export type TallySummary = {
-	preview: number
-	program: number
+	preview: number[]
+	program: number[]
 	numberOfInputs: number
 	// overlays: {
 	// 	1: number | null
