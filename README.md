@@ -4,13 +4,13 @@
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
-- API function list
+- API Function list
 - TCP Tally parser
 - XML API Data parser
 - XML Input mapper
 - XML Overlay Channels
 
-You can either import the package as a NPM package, download the source here from Github, or use the script from a library CDN such as [jsdelivr.com](https://www.jsdelivr.com/package/npm/vmix-js-utils).
+It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
 ## OBS - NodeJS utility for vMix
 **Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. This package is only for NodeJS applications.
