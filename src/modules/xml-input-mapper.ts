@@ -2,9 +2,9 @@
 import xpath, { SelectedValue } from 'xpath'
 
 // Types
-import { TallySummary } from './../types/tcp'
+import { TallySummary } from '../types/tcp'
 
-export default class InputMapper {
+export default class XmlInputMapper {
 
     /**
      * Extract inputs XML from full XML document using XPath
@@ -27,7 +27,7 @@ export default class InputMapper {
 
             // Map all base attributes of input
             for (let i in input.attributes) {
-                let attribute = input.attributes[i]
+                const attribute = input.attributes[i]
 
                 // Guard attribute not having name, being a function or nodeValue being a function
                 if (!attribute.name || typeof attribute === 'function' || attribute.nodeValue === 'function' || typeof attribute.name !== 'string') {
@@ -84,7 +84,7 @@ export default class InputMapper {
         const inputInProgram: number = this.extractProgramFromXML(xmlContent)
         const inputInPreview: number = this.extractPreviewFromXML(xmlContent)
 
-        const numberOfInputs = InputMapper.extractInputsFromXML(xmlContent).length
+        const numberOfInputs = XmlInputMapper.extractInputsFromXML(xmlContent).length
         if (inputInPreview > numberOfInputs) {
             throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
         }

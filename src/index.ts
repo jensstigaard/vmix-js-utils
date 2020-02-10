@@ -1,23 +1,26 @@
 // Examples can be found in the /examples folder
 
-import ApiDataParser from './modules/api-data-parser'
-import InputMapper from './modules/input-mapper'
 import FunctionList from './modules/function-list'
 import TcpTally from './modules/tcp-tally'
+import XmlApiDataParser from './modules/xml-api-data-parser'
+import XmlInputMapper from './modules/xml-input-mapper'
+import XmlOverlayChannels from './modules/xml-overlay-channels'
 
 
 // Exposing the util classes - used by npm
 export {
-    ApiDataParser,
-    InputMapper,
     FunctionList,
-    TcpTally
+    TcpTally,
+    XmlApiDataParser,
+    XmlInputMapper,
+    XmlOverlayChannels
 }
 export default {
-    ApiDataParser,
-    InputMapper,
     FunctionList,
-    TcpTally
+    TcpTally,
+    XmlApiDataParser,
+    XmlInputMapper,
+    XmlOverlayChannels
 
     // StateFetcher: require('./src/state-fetcher'),
 }

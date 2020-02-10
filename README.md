@@ -24,8 +24,10 @@ import { FunctionList, ApiDataParser, InputMapper } from 'vmix-js-utils'
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
  - [FunctionList](#functionlist)
- - [ApiDataParser](#apidataparser)
- - [InputMapper](#inputmapper)
+ - [TcpTally](#tcptally)
+ - [XmlApiDataParser](#xmlapidataparser)
+ - [XmlInputMapper](#xmlinputmapper)
+ - [XmlOverlayChannels](#xml-overlay-channels)
  - [StateFetcher](#statefetcher) - Under deprecation
 
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
@@ -34,22 +36,54 @@ The modules are coded as classes, meaning that they are constructed with specifi
 
 ## FunctionList
 `.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
+`.category(category: string)` - Returns a list of available functions in a given category from the vMix API. **Format: JSON**
+`.get(function: string)` - Returns a single function with a given name from the vMix API. **Format: JSON**
 
-## ApiDataParser
+---
+
+## TcpTally
+Interprets the tally info from the TCP service.
+`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
+`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: **
+
+---
+
+## XmlApiDataParser
 Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
+All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
 
-More info will come.
+`XmlApiDataParser.parse(xmlContent)` *(static)*: Parse raw XML string content to XML DOM object.
 
 ---
 
-## InputMapper
+## XmlInputMapper
 Maps the inputs from the vMix instance state to JSON objects.
+`XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
+`XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
+`XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
 
 ---
 
 
-## Installation and use
-### As a dependency using npm
+## XmlOverlayChannels
+`XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. **Format:**
+```javascript
+{ // Overlay channels
+	1: { inputNumber: Number|null, inPreview: Boolean },
+	2: { inputNumber: Number|null, inPreview: Boolean },
+	3: { inputNumber: Number|null, inPreview: Boolean },
+	4: { inputNumber: Number|null, inPreview: Boolean },
+	5: { inputNumber: Number|null, inPreview: Boolean },
+	6: { inputNumber: Number|null, inPreview: Boolean },
+}
+```
+
+---
+
+
+# Installation and use
+
+## As a dependency using npm
 The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your frontend project.
 Found here: https://www.npmjs.com/package/vmix-js-utils
 ```sh
@@ -72,7 +106,7 @@ const vMixUtils = require('vmix-js-utils')
 ```
 
 
-## Standalone project / Fork
+# Standalone project / Fork
 The source code is written in TypeScript, and ported to javascript (including types for TypeScript support) to allow it to be used as a npm package.
 
 The code can be cloned and tested as needed from the source code.
