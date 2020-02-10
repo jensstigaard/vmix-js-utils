@@ -5,8 +5,10 @@
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
 - API function list
-- XML data parser
-- Input mapper
+- TCP Tally parser
+- XML API Data parser
+- XML Input mapper
+- XML Overlay Channels
 
 You can either import the package as a NPM package, download the source here from Github, or use the script from a library CDN such as [jsdelivr.com](https://www.jsdelivr.com/package/npm/vmix-js-utils).
 
