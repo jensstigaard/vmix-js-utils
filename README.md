@@ -9,6 +9,7 @@ vMix API utility for Javascript can be used in either front or backend applicati
 - XML API Data parser
 - XML Input mapper
 - XML Overlay Channels
+- XML Transitions Setup
 
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
@@ -25,32 +26,33 @@ import { FunctionList, ApiDataParser, InputMapper } from 'vmix-js-utils'
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
 The modules is as following:
- - [FunctionList](#functionlist)
- - [TcpTally](#tcptally)
- - [XmlApiDataParser](#xmlapidataparser)
- - [XmlInputMapper](#xmlinputmapper)
+ - [FunctionList](#function-list)
+ - [TcpTally](#tcp-tally)
+ - [XmlApiDataParser](#xml-api-data-parser)
+ - [XmlInputMapper](#xml-input-mapper)
  - [XmlOverlayChannels](#xml-overlay-channels)
+ - [XmlTransitions](#xml-transitions)
  - [StateFetcher](#statefetcher) - Under deprecation
 
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Description of modules
 
-## FunctionList
+## Function List
 `.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
 `.category(category: string)` - Returns a list of available functions in a given category from the vMix API. **Format: JSON**
 `.get(function: string)` - Returns a single function with a given name from the vMix API. **Format: JSON**
 
 ---
 
-## TcpTally
+## Tcp Tally
 Interprets the tally info from the TCP service.
 `TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
 `TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: **
 
 ---
 
-## XmlApiDataParser
+## Xml Api Data Parser
 Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
 All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
 
@@ -58,7 +60,7 @@ All full XML responses from the API needs to be used to convert the content to a
 
 ---
 
-## XmlInputMapper
+## Xml Input Mapper
 Maps the inputs from the vMix instance state to JSON objects.
 `XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
 `XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
@@ -67,7 +69,7 @@ Maps the inputs from the vMix instance state to JSON objects.
 ---
 
 
-## XmlOverlayChannels
+## Xml Overlay Channels
 `XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. **Format:**
 ```javascript
 { // Overlay channels
@@ -77,6 +79,18 @@ Maps the inputs from the vMix instance state to JSON objects.
 	4: { inputNumber: Number|null, inPreview: Boolean },
 	5: { inputNumber: Number|null, inPreview: Boolean },
 	6: { inputNumber: Number|null, inPreview: Boolean },
+}
+```
+
+---
+## Xml Transitions
+`XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. **Format:**
+```javascript
+{ // Transitions
+	1: { effect: String, duration: Number },
+	2: { effect: String, duration: Number },
+	3: { effect: String, duration: Number },
+	4: { effect: String, duration: Number },
 }
 ```
 
