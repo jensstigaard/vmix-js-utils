@@ -1,4 +1,4 @@
-const { FunctionList } = require('../dist/index').default
+const { FunctionList } = require('../../dist/index').default
 
 const list = new FunctionList()
 
