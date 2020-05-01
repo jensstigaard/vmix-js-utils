@@ -49,6 +49,7 @@ Interprets the tally info from the TCP service.
 `TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. 
 **Format:**
 ```javascript
+// Tally info summary
 {
 	program: Number[],
 	preview: Number[],
@@ -96,7 +97,8 @@ Maps the inputs from the vMix instance state to JSON objects.
 `XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. 
 **Format:**
 ```javascript
-{ // Overlay channels
+// Overlay channels
+{
 	1: { inputNumber: Number|null, inPreview: Boolean },
 	2: { inputNumber: Number|null, inPreview: Boolean },
 	3: { inputNumber: Number|null, inPreview: Boolean },
@@ -112,7 +114,8 @@ Maps the inputs from the vMix instance state to JSON objects.
 `XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. 
 **Format:**
 ```javascript
-{ // Transitions
+// Transitions
+{
 	1: { effect: String, duration: Number },
 	2: { effect: String, duration: Number },
 	3: { effect: String, duration: Number },
@@ -144,7 +147,7 @@ You are also able to import all of the modules as a gathered variable, less eleg
 ```javascript
 const vMixUtils = require('vmix-js-utils')
 
-
+// ...
 ```
 
 
@@ -171,10 +174,18 @@ npm test # or 'yarn test'
 ```
 
 
-# Examples and use
+# Examples
+
 *Work in progress.*
-- [Function list (all)](./examples/function-list-all.js)
-- [Function list (get single)](./examples/function-list-get.js)
+
+### XML Input mapper
+- [XML input mapper (all attributes)](./examples/xml-input-mapper.js)
+- [XML input mapper (attribute selection)](./examples/xml-input-mapper-selective.js)
+
+### Function list
+- [All](./examples/function-list/all.js)
+- [Get category](./examples/function-list/category.js)
+- [Get single function](./examples/function-list/get.js)
 
 
 # Authors
