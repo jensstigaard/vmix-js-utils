@@ -165,6 +165,7 @@ export default {
 	// They are present inside vMix under Transition category when setting up a shortcut
 
 	Fade: {
+		description: 'Fade transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -172,6 +173,7 @@ export default {
 	},
 
 	Zoom: {
+		description: 'Zoom transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -179,6 +181,7 @@ export default {
 	},
 
 	Wipe: {
+		description: 'Wipe transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -186,6 +189,7 @@ export default {
 	},
 
 	Slide: {
+		description: 'Slide transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -193,6 +197,7 @@ export default {
 	},
 
 	Fly: {
+		description: 'Fly transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -200,6 +205,7 @@ export default {
 	},
 
 	CrossZoom: {
+		description: 'CrossZoom transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -207,6 +213,7 @@ export default {
 	},
 
 	FlyRotate: {
+		description: 'FlyRotate transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -214,6 +221,7 @@ export default {
 	},
 
 	Cube: {
+		description: 'Cube transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -221,6 +229,7 @@ export default {
 	},
 
 	CubeZoom: {
+		description: 'CubeZoom transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -228,6 +237,7 @@ export default {
 	},
 
 	VerticalWipe: {
+		description: 'VerticalWipe transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -235,6 +245,7 @@ export default {
 	},
 
 	VerticalSlide: {
+		description: 'VerticalSlide transition',
 		parameters: {
 			Input: 'input',
 			Duraion: 'number'
@@ -242,6 +253,7 @@ export default {
 	},
 
 	Merge: {
+		description: 'Merge transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -249,6 +261,7 @@ export default {
 	},
 
 	WipeReverse: {
+		description: 'WipeReverse transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -256,6 +269,7 @@ export default {
 	},
 
 	SlideReverse: {
+		description: 'SlideReverse transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -263,12 +277,14 @@ export default {
 	},
 
 	VerticalWipeReverse: {
+		description: 'VerticalWipeReverse transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
 		}
 	},
 	VerticalSlideReverse: {
+		description: 'VerticalSlideReverse transition',
 		parameters: {
 			Input: 'input',
 			Duration: 'number'
@@ -276,6 +292,7 @@ export default {
 	},
 
 	Cut: {
+		description: 'Cut transition',
 		parameters: {
 			Input: 'input',
 		}

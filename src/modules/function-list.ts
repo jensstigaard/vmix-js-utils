@@ -33,6 +33,35 @@ export default class FunctionList {
 		this._functions = Object.values(functions)
 	}
 
+	/**
+	 * Returns complete list of functions in the vMix API
+	 */
+	all = (): VmixFunctionDefinition[] => {
+		return this._functions
+	}
+
+	/**
+	 * Returns list of functions in specific category
+	 * Works case insentitive
+	 */
+	inCategory = (category: string) => {
+		return this.all()
+			.filter(f => f.category.toLowerCase() === category.toLowerCase())
+	}
+
+	/**
+	 * Get function by function name
+	 */
+	get = (functionName: string): VmixFunctionDefinition => {
+		const func = this._functions
+			.find(f => f.function.toLowerCase() === functionName.toLowerCase())
+
+		if (!func) {
+			throw new Error(`Function not found with name '${functionName}'`)
+		}
+
+		return func
+	}
 
 	/**
 	 * 
@@ -159,35 +188,5 @@ export default class FunctionList {
 		}
 
 		return parameter
-	}
-
-	/**
-	 * Returns complete list of functions in the vMix API
-	 */
-	all = (): VmixFunctionDefinition[] => {
-		return this._functions
-	}
-
-	/**
-	 * Returns list of functions in specific category
-	 * Works case insentitive
-	 */
-	inCategory = (category: string) => {
-		return this.all()
-			.filter(f => f.category.toLowerCase() === category.toLowerCase())
-	}
-
-	/**
-	 * Get function by function name
-	 */
-	get = (functionName: string): VmixFunctionDefinition => {
-		const func = this._functions
-			.find(f => f.function === functionName)
-
-		if (!func) {
-			throw new Error(`Function not found with name '${functionName}'`)
-		}
-
-		return func
 	}
 }
