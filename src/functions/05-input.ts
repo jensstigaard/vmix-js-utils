@@ -168,11 +168,51 @@ export default {
 		}
 	},
 
+	// New in vMix 24
+	LayerOff: {
+		description: 'Turn off layer for input',
+		parameters: {
+			Input: {
+				type: 'input'
+			},
+			Value: {
+				type: 'number',
+				description: 'Layer number 1-10'
+			}
+		}
+	},
+
+	LayerOn: {
+		description: 'Turn on layer for input',
+		parameters: {
+			Input: {
+				type: 'input'
+			},
+			Value: {
+				type: 'number',
+				description: 'Layer number 1-10'
+			}
+		}
+	},
+
+	LayerOnOff: {
+		description: 'Toggle layer for input',
+		parameters: {
+			Input: {
+				type: 'input'
+			},
+			Value: {
+				type: 'number',
+				description: 'Layer number 1-10'
+			}
+		}
+	},
+
 	ListAdd: {
 		description: 'Add Filename to List',
 		parameters: {
 			Input: {
-				type: 'string',
+				type: 'input',
 				description: 'List Input'
 			},
 			Value: {
@@ -186,7 +226,7 @@ export default {
 		description: 'Export List as M3U',
 		parameters: {
 			Input: {
-				type: 'string',
+				type: 'input',
 				description: 'List Input'
 			},
 			Value: {
@@ -207,7 +247,7 @@ export default {
 		description: 'Remove from List by Index',
 		parameters: {
 			Input: {
-				type: 'string',
+				type: 'input',
 				description: 'List Input'
 			},
 			Value: {

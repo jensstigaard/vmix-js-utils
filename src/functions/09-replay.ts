@@ -4,11 +4,28 @@ export default {
 	ReplayACamera2: 'Set Replay A input to camera 2',
 	ReplayACamera3: 'Set Replay A input to camera 3',
 	ReplayACamera4: 'Set Replay A input to camera 4',
+	ReplayACamera5: 'Set Replay A input to camera 5',
+	ReplayACamera6: 'Set Replay A input to camera 6',
+	ReplayACamera7: 'Set Replay A input to camera 7',
+	ReplayACamera8: 'Set Replay A input to camera 8',
 
 	ReplayBCamera1: 'Set Replay B input to camera 1',
 	ReplayBCamera2: 'Set Replay B input to camera 2',
 	ReplayBCamera3: 'Set Replay B input to camera 3',
 	ReplayBCamera4: 'Set Replay B input to camera 4',
+	ReplayBCamera5: 'Set Replay B input to camera 5',
+	ReplayBCamera6: 'Set Replay B input to camera 6',
+	ReplayBCamera7: 'Set Replay B input to camera 7',
+	ReplayBCamera8: 'Set Replay B input to camera 8',
+
+	ReplayCamera1: 'Set Current Replay playout to camera 1',
+	ReplayCamera2: 'Set Current Replay playout to camera 2',
+	ReplayCamera3: 'Set Current Replay playout to camera 3',
+	ReplayCamera4: 'Set Current Replay playout to camera 4',
+	ReplayCamera5: 'Set Current Replay playout to camera 5',
+	ReplayCamera6: 'Set Current Replay playout to camera 6',
+	ReplayCamera7: 'Set Current Replay playout to camera 7',
+	ReplayCamera8: 'Set Current Replay playout to camera 8',
 
 	ReplayChangeDirection: 'Switch replay direction - forward/reverse',
 
@@ -27,7 +44,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Event list 0-7'
+				description: 'Event list 0-19'
 			}
 		}
 	},
@@ -37,10 +54,16 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Event list 0-7'
+				description: 'Event list 0-19'
 			}
 		}
 	},
+
+	ReplayDeleteLastEvent: 'Delete last replay event',
+	ReplayDeleteSelectedEvent: 'Delete selected replay event',
+
+	ReplayDuplicateLastEvent: 'Duplicate last replay event',
+	ReplayDuplicateSelectedEvent: 'Duplicate selected replay event',
 
 	ReplayExportLastEvent: {
 		description: 'Export last replay event to specific folder',
@@ -89,7 +112,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -99,7 +122,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -109,7 +132,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -160,7 +183,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Event list 0-7'
+				description: 'Event list 0-19'
 			}
 		}
 	},
@@ -170,13 +193,13 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Event list 0-7'
+				description: 'Event list 0-19'
 			}
 		}
 	},
 
-	ReplayMoveSelectedEventDown: 'Replay: Move to select next event (down)',
-	ReplayMoveSelectedEventUp: 'Replay: Move to select previous event (up)',
+	ReplayMoveSelectedEventDown: 'Replay: Move selected event down in list',
+	ReplayMoveSelectedEventUp: 'Replay: Move selected previous event up in list',
 
 	ReplayMoveSelectedInPoint: {
 		description: 'Replay: Move In-point for selected event',
@@ -266,7 +289,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -276,7 +299,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -286,7 +309,7 @@ export default {
 		parameters: {
 			Value: {
 				type: 'number',
-				description: 'Camera angle 1-4'
+				description: 'Camera angle 1-8'
 			}
 		}
 	},
@@ -303,8 +326,18 @@ export default {
 	ReplaySelectFirstEvent: 'Replay: Select first event (oldest - in top) of active list/category',
 	ReplaySelectLastEvent: 'Replay: Select Last event (newest - in bottom) of active list/category',
 
-	ReplaySelectNextEvent: 'Replay: Select next event (newer)',
-	ReplaySelectPreviousEvent: 'Replay: Select previos event (older)',
+	ReplaySelectNextEvent: 'Replay: Select next event in list (down)',
+	ReplaySelectPreviousEvent: 'Replay: Select previous event in list (up)',
+
+	ReplaySetAudioSource: {
+		description: 'Replay: Set audio source',
+		parameters: {
+			Value: {
+				type: 'string',
+				description: 'Name as per dropdown box in IR module configuration window. Values: Master, Follow, Camera1, Camera2, ..., Camera8'
+			}
+		}
+	},
 
 	ReplaySetDirectionBackward: 'Replay: Set direction backwards - Reverse playback',
 	ReplaySetDirectionForward: 'Replay: Set direction backwards - Forward (normal) playback',
@@ -320,7 +353,7 @@ export default {
 	},
 
 	ReplaySetLastEventTextCamera: {
-		description: 'Replay: Changes the text of last event of the specified angle (1-4). Example: 3,angle3text',
+		description: 'Replay: Changes the text of last event of the specified angle (1-8). Example: 3,angle3text',
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
@@ -346,7 +379,7 @@ export default {
 	},
 
 	ReplaySetSelectedEventTextCamera: {
-		description: 'Replay: Changes the text of the selected event of the specified angle (1-4). Example: 3,angle3text',
+		description: 'Replay: Changes the text of the selected event of the specified angle (1-8). Example: 3,angle3text',
 		parameters: {
 			Value: [ // Composite separated by ","
 				{
@@ -380,15 +413,34 @@ export default {
 	ReplayStopRecording: 'Replay: Stop recording of replay session',
 
 	ReplayToggleLastEventCamera1: 'Replay: Toggle Camera angle 1 for Last event',
-	ReplayToggleLastEventCamera2: 'Replay: Toggle Camera angle 1 for Last event',
-	ReplayToggleLastEventCamera3: 'Replay: Toggle Camera angle 1 for Last event',
-	ReplayToggleLastEventCamera4: 'Replay: Toggle Camera angle 1 for Last event',
+	ReplayToggleLastEventCamera2: 'Replay: Toggle Camera angle 2 for Last event',
+	ReplayToggleLastEventCamera3: 'Replay: Toggle Camera angle 3 for Last event',
+	ReplayToggleLastEventCamera4: 'Replay: Toggle Camera angle 4 for Last event',
+	ReplayToggleLastEventCamera5: 'Replay: Toggle Camera angle 5 for Last event',
+	ReplayToggleLastEventCamera6: 'Replay: Toggle Camera angle 6 for Last event',
+	ReplayToggleLastEventCamera7: 'Replay: Toggle Camera angle 7 for Last event',
+	ReplayToggleLastEventCamera8: 'Replay: Toggle Camera angle 8 for Last event',
 
 	ReplayToggleSelectedEventCamera1: 'Replay: Toggle Camera angle 1 for Selected event',
 	ReplayToggleSelectedEventCamera2: 'Replay: Toggle Camera angle 2 for Selected event',
 	ReplayToggleSelectedEventCamera3: 'Replay: Toggle Camera angle 3 for Selected event',
 	ReplayToggleSelectedEventCamera4: 'Replay: Toggle Camera angle 4 for Selected event',
+	ReplayToggleSelectedEventCamera5: 'Replay: Toggle Camera angle 5 for Selected event',
+	ReplayToggleSelectedEventCamera6: 'Replay: Toggle Camera angle 6 for Selected event',
+	ReplayToggleSelectedEventCamera7: 'Replay: Toggle Camera angle 7 for Selected event',
+	ReplayToggleSelectedEventCamera8: 'Replay: Toggle Camera angle 8 for Selected event',
 
 	ReplayUpdateSelectedInPoint: 'Replay: Update In point of Selected Event to current Position.',
 	ReplayUpdateSelectedOutPoint: 'Replay: Update Mark Out point of Selected Event to current Position.',
+
+	// New in vMix 24
+	ReplayUpdateSelectedSpeed: {
+		description: 'Replay: Update speed of Selected Event.',
+		parameters: {
+			Value: {
+				type: 'number',
+				description: 'Speed 0.0-1.0'
+			},
+		}
+	}
 }
