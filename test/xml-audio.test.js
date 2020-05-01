@@ -36,7 +36,7 @@ const data = `
 <multiCorder>False</multiCorder>
 <fullscreen>False</fullscreen>
 <audio>
-<master volume="100" muted="False" meterF1="0" meterF2="0" headphonesVolume="100"/>
+<master volume="100" muted="False" meterF1="0.01" meterF2="0.02" headphonesVolume="100"/>
 <busA volume="100" muted="False" meterF1="0" meterF2="0"/>
 <busB volume="100" muted="False" meterF1="0" meterF2="0"/>
 </audio>
@@ -48,9 +48,12 @@ describe('xml-audio', function () {
         const xmlContent = XmlApiDataParser.parse(data)
         const masterBus = XmlAudio.master(xmlContent)
 
+        // console.log(masterBus)
+
         // Assert the master bus were found and has volume 100
         assert.equal(masterBus.volume, 100, 'Did not see expected volume')
         assert.equal(masterBus.muted, false, 'Did not see expected muted state')
+        assert.equal(masterBus.headphonesVolume, 100, 'Did not see expected headphones volume')
     })
 
     it('should have three busses in total including master bus from the sample data', function () {
