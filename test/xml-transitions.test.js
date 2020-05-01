@@ -48,7 +48,7 @@ describe('xml-overlay-channels', function () {
         const xmlContent = XmlApiDataParser.parse(data)
         const transitions = XmlTransitions.extract(xmlContent)
 
-        console.log(transitions)
+        // console.log(transitions)
 
         assert.equal(typeof transitions, 'object')
         assert.equal(typeof transitions['1'], 'object')
