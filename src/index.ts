@@ -3,6 +3,7 @@
 import FunctionList from './modules/function-list'
 import TcpTally from './modules/tcp-tally'
 import XmlApiDataParser from './modules/xml-api-data-parser'
+import XmlAudio from './modules/xml-audio'
 import XmlInputMapper from './modules/xml-input-mapper'
 import XmlOverlayChannels from './modules/xml-overlay-channels'
 import XmlTransitions from './modules/xml-transitions'
@@ -13,6 +14,7 @@ export {
     FunctionList,
     TcpTally,
     XmlApiDataParser,
+    XmlAudio,
     XmlInputMapper,
     XmlOverlayChannels,
     XmlTransitions
@@ -21,6 +23,7 @@ export default {
     FunctionList,
     TcpTally,
     XmlApiDataParser,
+    XmlAudio,
     XmlInputMapper,
     XmlOverlayChannels,
     XmlTransitions
