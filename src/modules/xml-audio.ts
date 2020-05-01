@@ -11,8 +11,9 @@ function mapSingleAudioChannel(entry: Element): AudioBus {
 	// Map all base attributes of input
 	const name: string = entry.nodeName
 
+	// Guard bus name - must be master or busA-busH
 	if (name !== 'master' && !name.startsWith('bus')) {
-		throw new Error(`Unknown type of audio bus.. ${name}`)
+		throw new Error(`Unknown name of audio bus.. ${name}`)
 	}
 
 	const abbr = name === 'master' ? 'M' : name.replace('bus', '')
@@ -35,12 +36,7 @@ function mapSingleAudioChannel(entry: Element): AudioBus {
 	return { name, abbr, muted, volume }
 }
 
-export default class XmlOverlayChannels {
-	static master(xmlContent: Node): AudioBus {
-		const masterAudioXMLelement: Element = xpath.select('//vmix/audio/master', xmlContent, true) as Element
-
-		return mapSingleAudioChannel(masterAudioXMLelement)!
-	}
+export default class XmlAudio {
 
 	static all(xmlContent: Node): { [key: string]: AudioBus } {
 		const audioBussesXml: Element[] = xpath.select('//vmix/audio/*', xmlContent) as Element[]
@@ -56,5 +52,27 @@ export default class XmlOverlayChannels {
 			audioBusses,
 			(bus: AudioBus) => bus.name
 		) as { [key: string]: AudioBus }
+	}
+
+	static busses(xmlContent: Node): { [key: string]: AudioBus } {
+		const audioBussesXml: Element[] = xpath.select(`//vmix/audio/*[starts-with(local-name(),'bus')]`, xmlContent) as Element[]
+
+		// console.log(audioBussesXml)
+		// return
+
+		const audioBusses = audioBussesXml.map(mapSingleAudioChannel)
+
+		// console.log(audioBusses)
+
+		return _.keyBy(
+			audioBusses,
+			(bus: AudioBus) => bus.name
+		) as { [key: string]: AudioBus }
+	}
+
+	static master(xmlContent: Node): AudioBus {
+		const masterAudioXMLelement: Element = xpath.select('//vmix/audio/master', xmlContent, true) as Element
+
+		return mapSingleAudioChannel(masterAudioXMLelement)!
 	}
 }

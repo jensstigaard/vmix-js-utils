@@ -53,7 +53,7 @@ describe('xml-audio', function () {
         assert.equal(masterBus.muted, false, 'Did not see expected muted state')
     })
 
-    it('should have three busses in total from the sample data', function () {
+    it('should have three busses in total including master bus from the sample data', function () {
         const xmlContent = XmlApiDataParser.parse(data)
         const audioBussesDict = XmlAudio.all(xmlContent)
 
@@ -61,5 +61,15 @@ describe('xml-audio', function () {
 
         // Assert the master bus were found and has volume 100
         assert.equal(audioBussesList.length, 3, 'Did not see expected number of audio busses')
+    })
+
+    it('should have two audio busses besides the master audio from the sample data', function () {
+        const xmlContent = XmlApiDataParser.parse(data)
+        const audioBussesDict = XmlAudio.busses(xmlContent)
+
+        const audioBussesList = Object.values(audioBussesDict)
+
+        // Assert the master bus were found and has volume 100
+        assert.equal(audioBussesList.length, 2, 'Did not see expected number of audio busses')
     })
 })

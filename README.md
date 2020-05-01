@@ -7,6 +7,7 @@ vMix API utility for Javascript can be used in either front or backend applicati
  - [FunctionList](#function-list)
  - [TcpTally](#tcp-tally)
  - [XmlApiDataParser](#xml-api-data-parser)
+ - [XmlAudio](#xml-audio)
  - [XmlInputMapper](#xml-input-mapper)
  - [XmlOverlayChannels](#xml-overlay-channels)
  - [XmlTransitions](#xml-transitions)
@@ -65,6 +66,17 @@ Parses the raw XML data from vMix into parsed and structured XML that can be mor
 All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
 
 `XmlApiDataParser.parse(xmlContent)` *(static)*: Parse raw XML string content to XML DOM object.
+
+---
+
+## Xml Audio
+Audio info from master and busses from the vMix instance state.
+
+`XmlAudio.all(xmlContent)` *(static)*: Extract info for all audio channels (master + busses) from XML content.
+
+`XmlAudio.busses(xmlContent)` *(static)*: Extract all audioBusses from XML content.
+
+`XmlAudio.master(xmlContent)` *(static)*: Extract audio master channel info from XML content.
 
 ---
 
