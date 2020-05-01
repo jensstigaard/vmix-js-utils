@@ -7,7 +7,9 @@
   "private": false,
   "scripts": {
     "test": "mocha",
-    "build": "tsc"
+    "build": "tsc",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "private": false,
@@ -32,7 +34,8 @@
     "lodash": "^4.17.15",
     "querystring": "^0.2.0",
     "xmldom": "^0.2.1",
-    "xpath": "^0.0.27"
+    "xpath": "^0.0.27",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
@@ -40,5 +43,6 @@
     "mocha": "^7.0.1",
     "moxios": "^0.4.0",
     "typescript": "^3.7.5"
-  }
+  },
+  "snyk": true
 }
