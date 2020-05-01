@@ -1,10 +1,8 @@
 // Imports
 import xpath, { SelectedValue } from 'xpath'
 
-type OverlayChannel = {
-	inputNumber: number | null
-	inPreview: boolean
-}
+// Types
+import { OverlayChannel } from '../types/overlay-channel'
 
 export default class XmlOverlayChannels {
 	static extract(xmlContent: Node): { [key: number]: OverlayChannel } {

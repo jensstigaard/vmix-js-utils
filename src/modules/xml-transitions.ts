@@ -1,10 +1,8 @@
 // Imports
 import xpath, { SelectedValue } from 'xpath'
 
-type Transition = {
-	effect: string
-	duration: number
-}
+// Types
+import { Transition } from '../types/transition'
 
 export default class XmlTransitions {
 	static extract(xmlContent: Node): { [key: number]: Transition } {
