@@ -32,18 +32,20 @@ The modules are coded as classes, meaning that they are constructed with specifi
 # Description of modules
 
 ## Function List
-`.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
+`.all()` - Returns a complete list of available functions in the vMix API.
 
-`.category(category: string)` - Returns a list of available functions in a given category from the vMix API. **Format: JSON**
+`.category(category: string)` - Returns a list of available functions in a given category from the vMix API.
 
-`.get(function: string)` - Returns a single function with a given name from the vMix API. **Format: JSON**
+`.get(function: string)` - Returns a single function with a given name from the vMix API.
+
+See examples or tests for more info.
 
 ---
 
 ## Tcp Tally
 Interprets the tally info from the TCP service.
 
-`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
+`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format:**
 ```javascript
 {
 	program: Number[],
@@ -51,8 +53,7 @@ Interprets the tally info from the TCP service.
 	numberOfInputs: Number
 }
 ```
-`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Output example: **
-
+`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: Number[]**
 ---
 
 ## Xml Api Data Parser
