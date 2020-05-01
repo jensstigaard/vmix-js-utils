@@ -739,6 +739,34 @@
   },
   {
     "category": "Replay",
+    "function": "ReplayACamera5",
+    "description": "Set Replay A input to camera 5",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayACamera6",
+    "description": "Set Replay A input to camera 6",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayACamera7",
+    "description": "Set Replay A input to camera 7",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayACamera8",
+    "description": "Set Replay A input to camera 8",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
     "function": "ReplayBCamera1",
     "description": "Set Replay B input to camera 1",
     "parameters": {},
@@ -762,6 +790,90 @@
     "category": "Replay",
     "function": "ReplayBCamera4",
     "description": "Set Replay B input to camera 4",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayBCamera5",
+    "description": "Set Replay B input to camera 5",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayBCamera6",
+    "description": "Set Replay B input to camera 6",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayBCamera7",
+    "description": "Set Replay B input to camera 7",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayBCamera8",
+    "description": "Set Replay B input to camera 8",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera1",
+    "description": "Set Current Replay playout to camera 1",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera2",
+    "description": "Set Current Replay playout to camera 2",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera3",
+    "description": "Set Current Replay playout to camera 3",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera4",
+    "description": "Set Current Replay playout to camera 4",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera5",
+    "description": "Set Current Replay playout to camera 5",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera6",
+    "description": "Set Current Replay playout to camera 6",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera7",
+    "description": "Set Current Replay playout to camera 7",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayCamera8",
+    "description": "Set Current Replay playout to camera 8",
     "parameters": {},
     "examples": []
   },
@@ -792,7 +904,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Event list 0-7",
+        "description": "Event list 0-19",
         "optional": false
       }
     },
@@ -805,10 +917,38 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Event list 0-7",
+        "description": "Event list 0-19",
         "optional": false
       }
     },
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayDeleteLastEvent",
+    "description": "Delete last replay event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayDeleteSelectedEvent",
+    "description": "Delete selected replay event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayDuplicateLastEvent",
+    "description": "Duplicate last replay event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayDuplicateSelectedEvent",
+    "description": "Duplicate selected replay event",
+    "parameters": {},
     "examples": []
   },
   {
@@ -877,7 +1017,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -890,7 +1030,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -903,7 +1043,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -1011,7 +1151,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Event list 0-7",
+        "description": "Event list 0-19",
         "optional": false
       }
     },
@@ -1024,7 +1164,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Event list 0-7",
+        "description": "Event list 0-19",
         "optional": false
       }
     },
@@ -1033,14 +1173,14 @@
   {
     "category": "Replay",
     "function": "ReplayMoveSelectedEventDown",
-    "description": "Replay: Move to select next event (down)",
+    "description": "Replay: Move selected event down in list",
     "parameters": {},
     "examples": []
   },
   {
     "category": "Replay",
     "function": "ReplayMoveSelectedEventUp",
-    "description": "Replay: Move to select previous event (up)",
+    "description": "Replay: Move selected previous event up in list",
     "parameters": {},
     "examples": []
   },
@@ -1227,7 +1367,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -1240,7 +1380,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -1253,7 +1393,7 @@
     "parameters": {
       "Value": {
         "type": "number",
-        "description": "Camera angle 1-4",
+        "description": "Camera angle 1-8",
         "optional": false
       }
     },
@@ -1332,15 +1472,28 @@
   {
     "category": "Replay",
     "function": "ReplaySelectNextEvent",
-    "description": "Replay: Select next event (newer)",
+    "description": "Replay: Select next event in list (down)",
     "parameters": {},
     "examples": []
   },
   {
     "category": "Replay",
     "function": "ReplaySelectPreviousEvent",
-    "description": "Replay: Select previos event (older)",
+    "description": "Replay: Select previous event in list (up)",
     "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplaySetAudioSource",
+    "description": "Replay: Set audio source",
+    "parameters": {
+      "Value": {
+        "type": "string",
+        "description": "Name as per dropdown box in IR module configuration window. Values: Master, Follow, Camera1, Camera2, ..., Camera8",
+        "optional": false
+      }
+    },
     "examples": []
   },
   {
@@ -1373,7 +1526,7 @@
   {
     "category": "Replay",
     "function": "ReplaySetLastEventTextCamera",
-    "description": "Replay: Changes the text of last event of the specified angle (1-4). Example: 3,angle3text",
+    "description": "Replay: Changes the text of last event of the specified angle (1-8). Example: 3,angle3text",
     "parameters": {
       "Value": {
         "composites": [
@@ -1408,7 +1561,7 @@
   {
     "category": "Replay",
     "function": "ReplaySetSelectedEventTextCamera",
-    "description": "Replay: Changes the text of the selected event of the specified angle (1-4). Example: 3,angle3text",
+    "description": "Replay: Changes the text of the selected event of the specified angle (1-8). Example: 3,angle3text",
     "parameters": {
       "Value": {
         "composites": [
@@ -1478,21 +1631,49 @@
   {
     "category": "Replay",
     "function": "ReplayToggleLastEventCamera2",
-    "description": "Replay: Toggle Camera angle 1 for Last event",
+    "description": "Replay: Toggle Camera angle 2 for Last event",
     "parameters": {},
     "examples": []
   },
   {
     "category": "Replay",
     "function": "ReplayToggleLastEventCamera3",
-    "description": "Replay: Toggle Camera angle 1 for Last event",
+    "description": "Replay: Toggle Camera angle 3 for Last event",
     "parameters": {},
     "examples": []
   },
   {
     "category": "Replay",
     "function": "ReplayToggleLastEventCamera4",
-    "description": "Replay: Toggle Camera angle 1 for Last event",
+    "description": "Replay: Toggle Camera angle 4 for Last event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleLastEventCamera5",
+    "description": "Replay: Toggle Camera angle 5 for Last event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleLastEventCamera6",
+    "description": "Replay: Toggle Camera angle 6 for Last event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleLastEventCamera7",
+    "description": "Replay: Toggle Camera angle 7 for Last event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleLastEventCamera8",
+    "description": "Replay: Toggle Camera angle 8 for Last event",
     "parameters": {},
     "examples": []
   },
@@ -1526,6 +1707,34 @@
   },
   {
     "category": "Replay",
+    "function": "ReplayToggleSelectedEventCamera5",
+    "description": "Replay: Toggle Camera angle 5 for Selected event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleSelectedEventCamera6",
+    "description": "Replay: Toggle Camera angle 6 for Selected event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleSelectedEventCamera7",
+    "description": "Replay: Toggle Camera angle 7 for Selected event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayToggleSelectedEventCamera8",
+    "description": "Replay: Toggle Camera angle 8 for Selected event",
+    "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
     "function": "ReplayUpdateSelectedInPoint",
     "description": "Replay: Update In point of Selected Event to current Position.",
     "parameters": {},
@@ -1536,6 +1745,19 @@
     "function": "ReplayUpdateSelectedOutPoint",
     "description": "Replay: Update Mark Out point of Selected Event to current Position.",
     "parameters": {},
+    "examples": []
+  },
+  {
+    "category": "Replay",
+    "function": "ReplayUpdateSelectedSpeed",
+    "description": "Replay: Update speed of Selected Event.",
+    "parameters": {
+      "Value": {
+        "type": "number",
+        "description": "Speed 0.0-1.0",
+        "optional": false
+      }
+    },
     "examples": []
   },
   {
@@ -2271,11 +2493,65 @@
   },
   {
     "category": "Input",
+    "function": "LayerOff",
+    "description": "Turn off layer for input",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Value": {
+        "type": "number",
+        "description": "Layer number 1-10",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Input",
+    "function": "LayerOn",
+    "description": "Turn on layer for input",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Value": {
+        "type": "number",
+        "description": "Layer number 1-10",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Input",
+    "function": "LayerOnOff",
+    "description": "Toggle layer for input",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Value": {
+        "type": "number",
+        "description": "Layer number 1-10",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Input",
     "function": "ListAdd",
     "description": "Add Filename to List",
     "parameters": {
       "Input": {
-        "type": "string",
+        "type": "input",
         "description": "List Input",
         "optional": false
       },
@@ -2293,7 +2569,7 @@
     "description": "Export List as M3U",
     "parameters": {
       "Input": {
-        "type": "string",
+        "type": "input",
         "description": "List Input",
         "optional": false
       },
@@ -2324,7 +2600,7 @@
     "description": "Remove from List by Index",
     "parameters": {
       "Input": {
-        "type": "string",
+        "type": "input",
         "description": "List Input",
         "optional": false
       },
@@ -4259,6 +4535,32 @@
   },
   {
     "category": "Transition",
+    "function": "Stinger3",
+    "description": "Perform Stinger 3 transition to given Input",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Stinger4",
+    "description": "Perform Stinger 4 transition to given Input",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
     "function": "Transition1",
     "description": "Clicks the first Transition button in the main vMix window - transitions to what is in preview",
     "parameters": {
@@ -4300,6 +4602,307 @@
     "category": "Transition",
     "function": "Transition4",
     "description": "Clicks the fourth Transition button in the main vMix window - transitions to what is in preview",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Fade",
+    "description": "Fade transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Zoom",
+    "description": "Zoom transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Wipe",
+    "description": "Wipe transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Slide",
+    "description": "Slide transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Fly",
+    "description": "Fly transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "CrossZoom",
+    "description": "CrossZoom transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "FlyRotate",
+    "description": "FlyRotate transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Cube",
+    "description": "Cube transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "CubeZoom",
+    "description": "CubeZoom transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "VerticalWipe",
+    "description": "VerticalWipe transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "VerticalSlide",
+    "description": "VerticalSlide transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duraion": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Merge",
+    "description": "Merge transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "WipeReverse",
+    "description": "WipeReverse transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "SlideReverse",
+    "description": "SlideReverse transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "VerticalWipeReverse",
+    "description": "VerticalWipeReverse transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "VerticalSlideReverse",
+    "description": "VerticalSlideReverse transition",
+    "parameters": {
+      "Input": {
+        "type": "input",
+        "description": "",
+        "optional": false
+      },
+      "Duration": {
+        "type": "number",
+        "description": "",
+        "optional": false
+      }
+    },
+    "examples": []
+  },
+  {
+    "category": "Transition",
+    "function": "Cut",
+    "description": "Cut transition",
     "parameters": {
       "Input": {
         "type": "input",
