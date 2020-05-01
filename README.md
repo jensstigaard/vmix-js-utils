@@ -45,7 +45,8 @@ See examples or tests for more info.
 ## Tcp Tally
 Interprets the tally info from the TCP service.
 
-`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format:**
+`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. 
+**Format:**
 ```javascript
 {
 	program: Number[],
@@ -54,7 +55,8 @@ Interprets the tally info from the TCP service.
 }
 ```
 
-`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: Number[]**
+`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. 
+**Format: Number[]**
 ---
 
 ## Xml Api Data Parser
@@ -69,14 +71,17 @@ All full XML responses from the API needs to be used to convert the content to a
 Maps the inputs from the vMix instance state to JSON objects.
 
 `XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
-`XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
-`XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
+
+`XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
+
+`XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
 
 ---
 
 
 ## Xml Overlay Channels
-`XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. **Format:**
+`XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. 
+**Format:**
 ```javascript
 { // Overlay channels
 	1: { inputNumber: Number|null, inPreview: Boolean },
@@ -89,8 +94,10 @@ Maps the inputs from the vMix instance state to JSON objects.
 ```
 
 ---
+
 ## Xml Transitions
-`XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. **Format:**
+`XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. 
+**Format:**
 ```javascript
 { // Transitions
 	1: { effect: String, duration: Number },
