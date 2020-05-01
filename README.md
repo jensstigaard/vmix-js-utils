@@ -47,6 +47,7 @@ The modules are coded as classes, meaning that they are constructed with specifi
 
 ## Tcp Tally
 Interprets the tally info from the TCP service.
+
 `TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
 `TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: **
 
@@ -62,6 +63,7 @@ All full XML responses from the API needs to be used to convert the content to a
 
 ## Xml Input Mapper
 Maps the inputs from the vMix instance state to JSON objects.
+
 `XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
 `XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
 `XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
