@@ -53,6 +53,7 @@ Interprets the tally info from the TCP service.
 	numberOfInputs: Number
 }
 ```
+
 `TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: Number[]**
 ---
 
