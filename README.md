@@ -57,6 +57,7 @@ Interprets the tally info from the TCP service.
 
 `TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. 
 **Format: Number[]**
+
 ---
 
 ## Xml Api Data Parser
