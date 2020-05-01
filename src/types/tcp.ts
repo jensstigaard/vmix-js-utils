@@ -1,14 +1,16 @@
 
+// Tally state
+// Values mapping values read from vMix API
 export enum TALLY_STATE {
-	IDLE,
-	PROGRAM,
-	PREVIEW
+	IDLE, // 0
+	PROGRAM, // 1
+	PREVIEW // 2
 }
 
 
 export type TallySummary = {
-	preview: number[]
-	program: number[]
+	preview: number[] // One or more inputs can be in preview
+	program: number[] // One or more inputs can be in program
 	numberOfInputs: number
 	// overlays: {
 	// 	1: number | null
