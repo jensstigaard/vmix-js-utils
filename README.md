@@ -40,7 +40,9 @@ The modules are coded as classes, meaning that they are constructed with specifi
 
 ## Function List
 `.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
+
 `.category(category: string)` - Returns a list of available functions in a given category from the vMix API. **Format: JSON**
+
 `.get(function: string)` - Returns a single function with a given name from the vMix API. **Format: JSON**
 
 ---
