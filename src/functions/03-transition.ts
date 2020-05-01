@@ -119,6 +119,20 @@ export default {
 		}
 	},
 
+	Stinger3: {
+		description: 'Perform Stinger 3 transition to given Input',
+		parameters: {
+			Input: 'input'
+		}
+	},
+
+	Stinger4: {
+		description: 'Perform Stinger 4 transition to given Input',
+		parameters: {
+			Input: 'input'
+		}
+	},
+
 	Transition1: {
 		description: 'Clicks the first Transition button in the main vMix window - transitions to what is in preview',
 		parameters: {
@@ -145,5 +159,125 @@ export default {
 		parameters: {
 			Input: 'input'
 		}
-	}
+	},
+
+	// These transition functions are somehow not mentioned in the vMix help documentation.
+	// They are present inside vMix under Transition category when setting up a shortcut
+
+	Fade: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	Zoom: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	Wipe: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	Slide: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	Fly: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	CrossZoom: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	FlyRotate: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	Cube: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	CubeZoom: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	VerticalWipe: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	VerticalSlide: {
+		parameters: {
+			Input: 'input',
+			Duraion: 'number'
+		}
+	},
+
+	Merge: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	WipeReverse: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	SlideReverse: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	VerticalWipeReverse: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+	VerticalSlideReverse: {
+		parameters: {
+			Input: 'input',
+			Duration: 'number'
+		}
+	},
+
+	Cut: {
+		parameters: {
+			Input: 'input',
+		}
+	},
 }

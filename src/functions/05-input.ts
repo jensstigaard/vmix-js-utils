@@ -1,4 +1,4 @@
-import { Input } from './../types/input'
+import { Input } from '../types/input'
 
 export default {
 	ActiveInput: {
