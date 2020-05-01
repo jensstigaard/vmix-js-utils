@@ -106,14 +106,11 @@ export default class XmlInputMapper {
      * @param {Node} xmlContent
      */
     static extractProgramFromXML(xmlContent: Node): number {
-        const value: SelectedValue = xpath.select("//vmix/active", xmlContent, true)
+        const node: Node = xpath.select("//vmix/active", xmlContent, true) as Node
 
-        if (!value) {
+        if (!node) {
             throw new Error('Could not find active program...')
         }
-
-        // Cast to node
-        const node: Node = value as Node
 
         return Number(node.lastChild!.nodeValue)
     }
@@ -123,14 +120,11 @@ export default class XmlInputMapper {
      * @param {Node} xmlContent
      */
     static extractPreviewFromXML(xmlContent: Node): number {
-        const value: SelectedValue = xpath.select("//vmix/preview", xmlContent, true)
+        const node: Node = xpath.select("//vmix/preview", xmlContent, true) as Node
 
-        if (!value) {
+        if (!node) {
             throw new Error('Could not find preview program...')
         }
-
-        // Cast to node
-        const node: Node = value as Node
 
         return Number(node.lastChild!.nodeValue)
     }
