@@ -44,7 +44,14 @@ The modules are coded as classes, meaning that they are constructed with specifi
 Interprets the tally info from the TCP service.
 
 `TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
-`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: **
+```javascript
+{
+	program: Number[],
+	preview: Number[],
+	numberOfInputs: Number
+}
+```
+`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Output example: **
 
 ---
 
