@@ -34,9 +34,9 @@ export default class XmlInputMapper {
                     continue
                 }
 
-                // Only add the attribute to the output object if it is wanted
+                // Only add the attribute to the output object if it is mandatory or desired by user
                 if (
-                    attribute.name === 'key'
+                    ['key', 'type'].includes(attribute.name)
                     || wantedAttributes === '*'
                     || wantedAttributes.includes(attribute.name)
                 ) {
@@ -44,30 +44,41 @@ export default class XmlInputMapper {
                 }
             }
 
-            let fields = []
-            for (let i in input.childNodes) {
-                let entry = input.childNodes[i]
-                if (entry.localName && ['image', 'text'].includes(entry.localName)) {
-                    const obj: any = {} // Build advanced fields of object from its advanced attributes
+            if (
+                ['GT', 'Xaml'].includes(output.type)
+                &&
+                (
+                    wantedAttributes === '*'
+                    ||
+                    wantedAttributes.includes('fields')
+                )
+            ) {
+                const fields = []
+                for (let i in input.childNodes) {
+                    const entry = input.childNodes[i]
+                    if (entry.localName && ['image', 'text'].includes(entry.localName)) {
+                        const obj: any = {
+                            type: entry.localName,
+                            value: entry.firstChild ? entry.firstChild.nodeValue.trim() : null
+                        } // Build advanced fields of object from its advanced attributes
 
-                    // Map attributes
-                    if (entry.attributes && (typeof entry.attributes === 'object' || Array.isArray(entry.attributes))) {
-                        for (let name in entry.attributes) {
-                            let attribute = entry.attributes[name]
-                            obj[attribute.name] = attribute.nodeValue
+                        // Map attributes
+                        if (
+                            entry.attributes &&
+                            (typeof entry.attributes === 'object' || Array.isArray(entry.attributes))) {
+                            for (let name in entry.attributes) {
+                                let attribute = entry.attributes[name]
+                                if (attribute.localName === 'name') {
+                                    obj[attribute.name] = attribute.nodeValue
+                                }
+                            }
                         }
-                    }
 
-                    // Append field type
-                    obj.type = entry.localName
-                    if (entry.childNodes.length) {
-                        obj.value = entry.childNodes[0].data
+                        fields.push(obj)
                     }
-
-                    fields.push(obj)
                 }
+                output.fields = fields
             }
-            output.fields = fields
 
             return output
         })
