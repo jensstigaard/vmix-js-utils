@@ -7,7 +7,7 @@ const { FunctionList } = require('../dist/index')
 const functionList = new FunctionList()
 
 describe('function-list', function () {
-    it('should have 200 functions in total', function () {
+    it('should have a large number of functions in total', function () {
         const allFunctions = functionList.all()
         assert.equal(allFunctions.length, 456, 'Did not see expected number of functions')
     })
@@ -15,7 +15,8 @@ describe('function-list', function () {
     it('should have a function called Cut', function () {
         const cutFunction = functionList.get('cut')
 
-        console.log(cutFunction.parameters.Input)
+        // console.log(cutFunction)
+        // console.log(cutFunction.parameters.Input)
 
         assert.equal(cutFunction.description, 'Cut transition', 'Did not see expected description')
         // Parameter
