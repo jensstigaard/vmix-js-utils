@@ -15,73 +15,129 @@ export default class XmlInputMapper {
     }
 
     /**
+     * Map input
+     *
+     * @param input
+     * @param wantedAttributes 
+     */
+    static mapInput(input: Element, wantedAttributes: string | string[] = '*') {
+        const output: { [key: string]: any } = {}
+
+        // Map all base attributes of input
+        for (let attrName in input.attributes) {
+            const attr: Attr = input.attributes[attrName]
+
+            // Guard attribute not having name, being a function or nodeValue being a function
+            if (!attr.name
+                || typeof attr.name !== 'string'
+                || typeof attr === 'function'
+                || attr.nodeValue === 'function'
+            ) {
+                continue
+            }
+
+            // Only add the attribute to the output object if it is mandatory or desired by user
+            if (
+                ['key', 'type'].includes(attr.name)
+                || wantedAttributes === '*'
+                || wantedAttributes.includes(attr.name)
+            ) {
+                output[attr.name] = attr.value
+            }
+        }
+
+        switch (output.type) {
+            // If input is a title
+            case 'GT':
+            case 'Xaml':
+
+                // Guard - Attach fields only if "field" attributes is desired
+                if (wantedAttributes !== '*' && !wantedAttributes.includes('fields')) {
+                    break
+                }
+
+                output.fields = []
+                // A regular .forEach doesn't work on this somehow...
+                for (let i in input.childNodes) {
+                    const titleEl: Element = input.childNodes[i] as Element
+
+                    // Guard child node does not have node name and the node is not of correct type
+                    if (!titleEl.nodeName || !['image', 'text'].includes(titleEl.nodeName)) {
+                        continue
+                    }
+
+                    const nameAttr = titleEl.attributes.getNamedItem('name')
+                    // Guard child node does not have a name attribute
+                    if (!nameAttr) {
+                        continue
+                    }
+
+                    // Build fields of object from its attributes
+                    const titleField: { [key: string]: any } = {
+                        type: titleEl.nodeName,
+                        name: nameAttr.nodeValue,
+                        value: (titleEl as Node).textContent?.trim()
+                    }
+
+                    output.fields.push(titleField)
+                }
+
+                break
+            case 'Replay':
+                // Replay input - extract child node info
+                const replayChildNode = input.childNodes[1]! as Element
+
+                output.replay = {}
+                for (const attrName in replayChildNode.attributes) {
+                    const attr: Attr = replayChildNode.attributes[attrName]
+
+                    // Guard attribute not having name, being a function or nodeValue being a function
+                    if (!attr.name
+                        || typeof attr.name !== 'string'
+                        || typeof attr === 'function'
+                        || attr.nodeValue === 'function'
+                    ) {
+                        continue
+                    }
+
+                    // console.log('ADD REPLAY ATTR', attr.name, attr.value)
+                    output.replay[attr.name] = attr.value
+                }
+
+                // A regular .forEach doesn't work on this somehow...
+                for (const i in replayChildNode.childNodes) {
+                    const replayEl: Node = replayChildNode.childNodes[i]
+
+                    // Guard entry does not have node name and the node is not of correct type
+                    if (
+                        !replayEl.nodeName
+                        || !['timecode', 'timecodeA', 'timecodeB'].includes(replayEl.nodeName)
+                    ) {
+                        continue
+                    }
+                    // console.log('REPLAY CHILD NODE', replayEl.nodeName, replayEl.textContent)
+
+                    output.replay[replayEl.nodeName] = replayEl.textContent?.trim()
+                }
+                break
+            default:
+                break
+        }
+
+        return output
+    }
+
+
+    /**
      * Map inputs
+     *
      * @param xmlInputs
      * @param wantedAttributes
      */
-    static mapInputs(xmlInputs: SelectedValue[], wantedAttributes: string | string[] = '*') {
+    static mapInputs(xmlInputs: Element[], wantedAttributes: string | string[] = '*') {
 
         // Map all data from raw input
-        var xmlInputsMapped = xmlInputs.map((input: any) => {
-            const output: any = {}
-
-            // Map all base attributes of input
-            for (let i in input.attributes) {
-                const attribute = input.attributes[i]
-
-                // Guard attribute not having name, being a function or nodeValue being a function
-                if (!attribute.name || typeof attribute === 'function' || attribute.nodeValue === 'function' || typeof attribute.name !== 'string') {
-                    continue
-                }
-
-                // Only add the attribute to the output object if it is mandatory or desired by user
-                if (
-                    ['key', 'type'].includes(attribute.name)
-                    || wantedAttributes === '*'
-                    || wantedAttributes.includes(attribute.name)
-                ) {
-                    output[attribute.name] = attribute.nodeValue
-                }
-            }
-
-            if (
-                ['GT', 'Xaml'].includes(output.type)
-                &&
-                (
-                    wantedAttributes === '*'
-                    ||
-                    wantedAttributes.includes('fields')
-                )
-            ) {
-                const fields = []
-                for (let i in input.childNodes) {
-                    const entry = input.childNodes[i]
-                    if (entry.localName && ['image', 'text'].includes(entry.localName)) {
-                        const obj: any = {
-                            type: entry.localName,
-                            value: entry.firstChild ? entry.firstChild.nodeValue.trim() : null
-                        } // Build advanced fields of object from its advanced attributes
-
-                        // Map attributes
-                        if (
-                            entry.attributes &&
-                            (typeof entry.attributes === 'object' || Array.isArray(entry.attributes))) {
-                            for (let name in entry.attributes) {
-                                let attribute = entry.attributes[name]
-                                if (attribute.localName === 'name') {
-                                    obj[attribute.name] = attribute.nodeValue
-                                }
-                            }
-                        }
-
-                        fields.push(obj)
-                    }
-                }
-                output.fields = fields
-            }
-
-            return output
-        })
+        var xmlInputsMapped = xmlInputs.map(input => XmlInputMapper.mapInput(input, wantedAttributes))
         // Make a dictionary
         let inputsDictionary: any = {}
         xmlInputsMapped.forEach((input: any) => {
