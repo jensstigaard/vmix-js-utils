@@ -1,49 +1,38 @@
 // Imports
-import xpath, { SelectedValue } from 'xpath'
+import xpath from 'xpath'
+import _ from 'lodash'
 
 // Types
 import { OverlayChannel } from '../types/overlay-channel'
 
 export default class XmlOverlayChannels {
 	static extract(xmlContent: Node): { [key: number]: OverlayChannel } {
-		const overlayChannelNodesFound: SelectedValue[] = xpath.select("//vmix/overlays/overlay", xmlContent)
+		const overlayChannelNodesFound: Element[] = xpath.select("//vmix/overlays/overlay", xmlContent) as Element[]
 
-		const overlayChannels: { [key: number]: OverlayChannel } = {
-			1: { inputNumber: null, inPreview: false },
-			2: { inputNumber: null, inPreview: false },
-			3: { inputNumber: null, inPreview: false },
-			4: { inputNumber: null, inPreview: false },
-			5: { inputNumber: null, inPreview: false },
-			6: { inputNumber: null, inPreview: false }
-		}
+		return _.keyBy(
+			overlayChannelNodesFound.map((overlayNode: Element) => {
+				const overlayChannelNumberAttr = overlayNode.attributes.getNamedItem('number')
+				const previewAttr = overlayNode.attributes.getNamedItem('preview')
 
-		overlayChannelNodesFound.forEach((overlay: any) => {
-			// Map all base attributes of input
-			const attributes = Object.values(overlay.attributes as Attr[])
+				// No overlay channel number found
+				if (!overlayChannelNumberAttr) {
+					throw new Error('Invalid channel number')
+				}
 
-			const overlayChannelNumber = attributes.find((attr: Attr) => attr.name === 'number')
+				const channelNumber: number = Number(overlayChannelNumberAttr.nodeValue)
 
-			// No overlay channel number found
-			if (!overlayChannelNumber) {
-				return
-			}
+				// // Guard channel number
+				// if (channelNumber < 1 || channelNumber > 8) {
+				// 	throw new Error('Invalid channel number')
+				// }
 
-			const channel: number = Number(overlayChannelNumber.nodeValue)
-
-			if (!(channel in overlayChannels)) {
-				return
-			}
-
-			overlayChannels[channel].inputNumber = overlay.childNodes.length ? overlay.childNodes[0].data : null || null
-			overlayChannels[channel].inPreview = false
-
-			const isInPreviewAttribute = attributes.find((attr: Attr) => attr.name === 'preview')
-
-			if (isInPreviewAttribute && isInPreviewAttribute.nodeValue === 'True') {
-				overlayChannels[channel].inPreview = true
-			}
-		})
-
-		return overlayChannels
+				return {
+					channelNumber,
+					inputNumber: overlayNode.textContent ? Number(overlayNode.textContent) : null,
+					inPreview: previewAttr?.nodeValue === 'True'
+				}
+			}),
+			'channelNumber'
+		)
 	}
 }
