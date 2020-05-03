@@ -5,11 +5,11 @@ import xpath from 'xpath'
 // Types
 import { AudioBus, MasterAudioBus } from '../types/audio-bus'
 
-// Map single audio channel info from XML
-function mapSingleAudioChannel(entry: Element): AudioBus | MasterAudioBus {
+// Map single audio bus info from XML
+function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 
 	// Map all base attributes of input
-	const name: string = entry.nodeName
+	const name: string = audioBusNode.nodeName
 
 	// Guard bus name - must be master or busA-busH
 	if (name !== 'master' && !name.startsWith('bus')) {
@@ -18,13 +18,11 @@ function mapSingleAudioChannel(entry: Element): AudioBus | MasterAudioBus {
 
 	const abbr = name === 'master' ? 'M' : name.replace('bus', '')
 
-	const attributesList = Object.values(entry.attributes)
-
 	// Extract attributes
-	const volumeAttr = attributesList.find((attr: Attr) => attr.name === 'volume')
-	const mutedAttr = attributesList.find((attr: Attr) => attr.name === 'muted')
-	const meterF1attr = attributesList.find((attr: Attr) => attr.name === 'meterF1')
-	const meterF2attr = attributesList.find((attr: Attr) => attr.name === 'meterF2')
+	const volumeAttr = audioBusNode.attributes.getNamedItem('volume')
+	const mutedAttr = audioBusNode.attributes.getNamedItem('muted')
+	const meterF1attr = audioBusNode.attributes.getNamedItem('meterF1')
+	const meterF2attr = audioBusNode.attributes.getNamedItem('meterF2')
 
 	// Guard missing attributes
 	if (!volumeAttr || !mutedAttr || !meterF1attr || !meterF2attr) {
@@ -41,12 +39,15 @@ function mapSingleAudioChannel(entry: Element): AudioBus | MasterAudioBus {
 		meterF2: Number(meterF2attr.nodeValue)
 	}
 
-	const headphonesVolumeAttr = attributesList.find((attr: Attr) => attr.name === 'headphonesVolume')
+	// For master bus only - Append headphones volume
+	if (name === 'master') {
+		const headphonesVolumeAttr = audioBusNode.attributes.getNamedItem('headphonesVolume')
 
-	if (headphonesVolumeAttr) {
-		return {
-			...bus,
-			headphonesVolume: Number(headphonesVolumeAttr.nodeValue)
+		if (headphonesVolumeAttr) {
+			return {
+				...bus,
+				headphonesVolume: Number(headphonesVolumeAttr.nodeValue)
+			}
 		}
 	}
 
@@ -56,13 +57,16 @@ function mapSingleAudioChannel(entry: Element): AudioBus | MasterAudioBus {
 
 export default class XmlAudio {
 
+	/**
+	 * All busses
+	 * @param xmlContent
+	 */
 	static all(xmlContent: Node): { [key: string]: AudioBus } {
 		const audioBussesXml: Element[] = xpath.select('//vmix/audio/*', xmlContent) as Element[]
 
 		// console.log(audioBussesXml)
-		// return
 
-		const audioBusses = audioBussesXml.map(mapSingleAudioChannel)
+		const audioBusses = audioBussesXml.map(mapSingleAudioBus)
 
 		// console.log(audioBusses)
 
@@ -72,13 +76,20 @@ export default class XmlAudio {
 		)
 	}
 
+	/**
+	 * Busses (excluding master)
+	 *
+	 * @param xmlContent
+	 */
 	static busses(xmlContent: Node): { [key: string]: AudioBus } {
-		const audioBussesXml: Element[] = xpath.select(`//vmix/audio/*[starts-with(local-name(),'bus')]`, xmlContent) as Element[]
+		const audioBussesXml: Element[] = xpath.select(
+			`//vmix/audio/*[starts-with(local-name(),'bus')]`,
+			xmlContent
+		) as Element[]
 
 		// console.log(audioBussesXml)
-		// return
 
-		const audioBusses = audioBussesXml.map(mapSingleAudioChannel)
+		const audioBusses = audioBussesXml.map(mapSingleAudioBus)
 
 		// console.log(audioBusses)
 
@@ -88,9 +99,13 @@ export default class XmlAudio {
 		) as { [key: string]: AudioBus }
 	}
 
+	/**
+	 * Audio master bus
+	 * @param xmlContent
+	 */
 	static master(xmlContent: Node): MasterAudioBus {
 		const masterAudioXMLelement: Element = xpath.select('//vmix/audio/master', xmlContent, true) as Element
 
-		return mapSingleAudioChannel(masterAudioXMLelement)! as MasterAudioBus
+		return mapSingleAudioBus(masterAudioXMLelement)! as MasterAudioBus
 	}
 }
