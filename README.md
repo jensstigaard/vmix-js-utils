@@ -10,7 +10,6 @@ vMix API utility for Javascript can be used in either front or backend applicati
  - [XmlInputMapper](#xml-input-mapper)
  - [XmlOverlayChannels](#xml-overlay-channels)
  - [XmlTransitions](#xml-transitions)
- - [StateFetcher](#statefetcher) - Under deprecation
 
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
@@ -20,7 +19,7 @@ It is recommended to import the package as a NPM package. Alternatively you can 
 ---
 Simple use
 ```javascript
-import { FunctionList, ApiDataParser, InputMapper } from 'vmix-js-utils'
+import { ApiDataParser, InputMapper } from 'vmix-js-utils'
 
 ```
 
