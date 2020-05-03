@@ -96,8 +96,8 @@ file:///C:/Program Files (x86)/vMix/titles/Social/blank.png
 </audio>
 </vmix>
 `
-const xmlContent = XmlApiDataParser.parse(data)
-const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
+const xmlDocument = XmlApiDataParser.parse(data)
+const inputs = XmlInputMapper.extractInputsFromXML(xmlDocument)
 
 // Manipulate to wanted format
 const inputsMap = XmlInputMapper.mapInputs(inputs)
@@ -119,14 +119,14 @@ describe('xml-input-mapper', function () {
     })
 
     it('should have input 1 as active preview', function () {
-        const preview = XmlInputMapper.extractPreviewFromXML(xmlContent)
+        const preview = XmlInputMapper.extractPreviewFromXML(xmlDocument)
 
         // Assert the preview input number
         assert.equal(preview, 1)
     })
 
     it('should have input 2 as active program', function () {
-        const program = XmlInputMapper.extractProgramFromXML(xmlContent)
+        const program = XmlInputMapper.extractProgramFromXML(xmlDocument)
 
         // Assert the program input number
         assert.equal(program, 2)

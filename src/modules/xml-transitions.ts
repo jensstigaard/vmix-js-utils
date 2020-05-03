@@ -6,8 +6,8 @@ import _ from 'lodash'
 import { Transition } from '../types/transition'
 
 export default class XmlTransitions {
-	static extract(xmlContent: Node): { [key: number]: Transition } {
-		const transitionNodesFound: Element[] = xpath.select("//vmix/transitions/transition", xmlContent) as Element[]
+	static extract(xmlDocument: Document): { [key: number]: Transition } {
+		const transitionNodesFound: Element[] = xpath.select("//vmix/transitions/transition", xmlDocument) as Element[]
 
 		if (transitionNodesFound.length !== 4) {
 			throw new Error('Did not find all four defined transitions...')

@@ -59,10 +59,10 @@ export default class XmlAudio {
 
 	/**
 	 * All busses
-	 * @param xmlContent
+	 * @param xmlDocument
 	 */
-	static all(xmlContent: Node): { [key: string]: AudioBus } {
-		const audioBussesXml: Element[] = xpath.select('//vmix/audio/*', xmlContent) as Element[]
+	static all(xmlDocument: Document): { [key: string]: AudioBus } {
+		const audioBussesXml: Element[] = xpath.select('//vmix/audio/*', xmlDocument) as Element[]
 
 		// console.log(audioBussesXml)
 
@@ -79,12 +79,12 @@ export default class XmlAudio {
 	/**
 	 * Busses (excluding master)
 	 *
-	 * @param xmlContent
+	 * @param xmlDocument
 	 */
-	static busses(xmlContent: Node): { [key: string]: AudioBus } {
+	static busses(xmlDocument: Document): { [key: string]: AudioBus } {
 		const audioBussesXml: Element[] = xpath.select(
 			`//vmix/audio/*[starts-with(local-name(),'bus')]`,
-			xmlContent
+			xmlDocument
 		) as Element[]
 
 		// console.log(audioBussesXml)
@@ -101,10 +101,10 @@ export default class XmlAudio {
 
 	/**
 	 * Audio master bus
-	 * @param xmlContent
+	 * @param xmlDocument
 	 */
-	static master(xmlContent: Node): MasterAudioBus {
-		const masterAudioXMLelement: Element = xpath.select('//vmix/audio/master', xmlContent, true) as Element
+	static master(xmlDocument: Document): MasterAudioBus {
+		const masterAudioXMLelement: Element = xpath.select('//vmix/audio/master', xmlDocument, true) as Element
 
 		return mapSingleAudioBus(masterAudioXMLelement)! as MasterAudioBus
 	}

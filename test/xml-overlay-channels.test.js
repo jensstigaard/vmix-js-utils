@@ -42,8 +42,8 @@ const data = `
 </audio>
 </vmix>
 `
-const xmlContent = XmlApiDataParser.parse(data)
-const overlays = XmlOverlayChannels.extract(xmlContent)
+const xmlDocument = XmlApiDataParser.parse(data)
+const overlays = XmlOverlayChannels.extract(xmlDocument)
 
 describe('xml-overlay-channels', function () {
     it('should have 6 channels - 4 regular channels and 2 stinger channels', function () {

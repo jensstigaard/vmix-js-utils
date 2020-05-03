@@ -52,8 +52,8 @@ const data = `
 </vmix>
 `
 
-const xmlContent = XmlApiDataParser.parse(data)
-const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
+const xmlDocument = XmlApiDataParser.parse(data)
+const inputs = XmlInputMapper.extractInputsFromXML(xmlDocument)
 
 // Manipulate to wanted format
 const inputsMap = XmlInputMapper.mapInputs(inputs)

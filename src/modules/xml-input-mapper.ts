@@ -8,10 +8,10 @@ export default class XmlInputMapper {
 
     /**
      * Extract inputs XML from full XML document using XPath
-     * @param {Node} xmlContent
+     * @param {Node} xmlDocument
      */
-    static extractInputsFromXML(xmlContent: Node): SelectedValue[] {
-        return xpath.select("//vmix/inputs/input", xmlContent)
+    static extractInputsFromXML(xmlDocument: Document): SelectedValue[] {
+        return xpath.select("//vmix/inputs/input", xmlDocument)
     }
 
     /**
@@ -147,11 +147,11 @@ export default class XmlInputMapper {
         return inputsDictionary
     }
 
-    static mapTallyInfo(xmlContent: Node): TallySummary {
-        const inputInProgram: number = this.extractProgramFromXML(xmlContent)
-        const inputInPreview: number = this.extractPreviewFromXML(xmlContent)
+    static mapTallyInfo(xmlDocument: Document): TallySummary {
+        const inputInProgram: number = this.extractProgramFromXML(xmlDocument)
+        const inputInPreview: number = this.extractPreviewFromXML(xmlDocument)
 
-        const numberOfInputs = XmlInputMapper.extractInputsFromXML(xmlContent).length
+        const numberOfInputs = XmlInputMapper.extractInputsFromXML(xmlDocument).length
         if (inputInPreview > numberOfInputs) {
             throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
         }
@@ -170,10 +170,10 @@ export default class XmlInputMapper {
 
     /**
      * Extract active in prgoram XML from full XML document using XPath
-     * @param {Node} xmlContent
+     * @param {Node} xmlDocument
      */
-    static extractProgramFromXML(xmlContent: Node): number {
-        const node: Node = xpath.select("//vmix/active", xmlContent, true) as Node
+    static extractProgramFromXML(xmlDocument: Document): number {
+        const node: Node = xpath.select("//vmix/active", xmlDocument, true) as Node
 
         if (!node) {
             throw new Error('Could not find active program...')
@@ -184,10 +184,10 @@ export default class XmlInputMapper {
 
     /**
      * Extract preview XML from full XML document using XPath
-     * @param {Node} xmlContent
+     * @param {Node} xmlDocument
      */
-    static extractPreviewFromXML(xmlContent: Node): number {
-        const node: Node = xpath.select("//vmix/preview", xmlContent, true) as Node
+    static extractPreviewFromXML(xmlDocument: Document): number {
+        const node: Node = xpath.select("//vmix/preview", xmlDocument, true) as Node
 
         if (!node) {
             throw new Error('Could not find preview program...')

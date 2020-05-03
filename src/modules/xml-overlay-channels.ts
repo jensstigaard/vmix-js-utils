@@ -6,8 +6,8 @@ import _ from 'lodash'
 import { OverlayChannel } from '../types/overlay-channel'
 
 export default class XmlOverlayChannels {
-	static extract(xmlContent: Node): { [key: number]: OverlayChannel } {
-		const overlayChannelNodesFound: Element[] = xpath.select("//vmix/overlays/overlay", xmlContent) as Element[]
+	static extract(xmlDocument: Document): { [key: number]: OverlayChannel } {
+		const overlayChannelNodesFound: Element[] = xpath.select("//vmix/overlays/overlay", xmlDocument) as Element[]
 
 		return _.keyBy(
 			overlayChannelNodesFound.map((overlayNode: Element) => {
