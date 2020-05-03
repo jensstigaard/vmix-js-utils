@@ -4,7 +4,6 @@
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
- - [FunctionList](#function-list)
  - [TcpTally](#tcp-tally)
  - [XmlApiDataParser](#xml-api-data-parser)
  - [XmlAudio](#xml-audio)
@@ -32,16 +31,6 @@ The modules are coded as classes, meaning that they are constructed with specifi
 
 # Description of modules
 
-## Function List
-`.all()` - Returns a complete list of available functions in the vMix API.
-
-`.category(category: string)` - Returns a list of available functions in a given category from the vMix API.
-
-`.get(function: string)` - Returns a single function with a given name from the vMix API.
-
-See examples or tests for more info.
-
----
 
 ## Tcp Tally
 Interprets the tally info from the TCP service.
@@ -206,11 +195,6 @@ npm test # or 'yarn test'
 ### XML Input mapper
 - [XML input mapper (all attributes)](./examples/xml-input-mapper.js)
 - [XML input mapper (attribute selection)](./examples/xml-input-mapper-selective.js)
-
-### Function list
-- [All](./examples/function-list/all.js)
-- [Get category](./examples/function-list/category.js)
-- [Get single function](./examples/function-list/get.js)
 
 
 # Authors
