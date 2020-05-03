@@ -4,6 +4,7 @@ import FunctionList from './modules/function-list'
 import TcpTally from './modules/tcp-tally'
 import XmlApiDataParser from './modules/xml-api-data-parser'
 import XmlAudio from './modules/xml-audio'
+import XmlGeneralState from './modules/xml-general-state'
 import XmlInputMapper from './modules/xml-input-mapper'
 import XmlOverlayChannels from './modules/xml-overlay-channels'
 import XmlTransitions from './modules/xml-transitions'
@@ -15,6 +16,7 @@ export {
     TcpTally,
     XmlApiDataParser,
     XmlAudio,
+    XmlGeneralState,
     XmlInputMapper,
     XmlOverlayChannels,
     XmlTransitions
@@ -24,9 +26,8 @@ export default {
     TcpTally,
     XmlApiDataParser,
     XmlAudio,
+    XmlGeneralState,
     XmlInputMapper,
     XmlOverlayChannels,
     XmlTransitions
-
-    // StateFetcher: require('./src/state-fetcher'),
 }
