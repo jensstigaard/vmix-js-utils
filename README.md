@@ -151,8 +151,9 @@ npm install vmix-js-utils --save # or 'yarn add vmix-js-utils'
 In your code the simplest way to import the modules is the following:
 
 ```javascript
-const { FunctionList } = require('vmix-js-utils')
+const { XmlApiDataParser, XmlGeneralState } = require('vmix-js-utils')
 
+// ...
 ```
 
 You are also able to import all of the modules as a gathered variable, less elegant way:
