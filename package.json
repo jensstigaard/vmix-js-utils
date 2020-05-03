@@ -1,13 +1,14 @@
 {
   "name": "vmix-js-utils",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "vMix utilities for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
     "build": "tsc",
-    "build-n-test": "yarn build && yarn test",
+    "build-test": "yarn build && yarn test",
+    "prepublish": "rm -r ./dist/* && yarn build",
     "test": "mocha"
   },
   "repository": {
