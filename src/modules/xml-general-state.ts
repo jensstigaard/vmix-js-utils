@@ -9,12 +9,12 @@ import xpath from 'xpath'
 export default class XmlState {
 	_data: Node
 
-	constructor(xmlContent: Node) {
-		this._data = xmlContent
+	constructor(xmlDocument: Document) {
+		this._data = xmlDocument
 	}
 
-	update = (xmlContent: Node): void => {
-		this._data = xmlContent
+	update = (xmlDocument: Document): void => {
+		this._data = xmlDocument
 	}
 
 	softwareVersion(): string {

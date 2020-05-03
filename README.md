@@ -66,35 +66,60 @@ Interprets the tally info from the TCP service.
 Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
 All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
 
-`XmlApiDataParser.parse(xmlContent)` *(static)*: Parse raw XML string content to XML DOM object.
+`XmlApiDataParser.parse(xmlStringRaw)` *(static)*: Parse raw XML string content to XML document.
 
 ---
 
 ## Xml Audio
 Audio info from master and busses from the vMix instance state.
 
-`XmlAudio.all(xmlContent)` *(static)*: Extract info for all audio channels (master + busses) from XML content.
+`XmlAudio.all(xmlDocument)` *(static)*: Extract info for all audio channels (master + busses) from XML content.
 
-`XmlAudio.busses(xmlContent)` *(static)*: Extract all audioBusses from XML content.
+`XmlAudio.busses(xmlDocument)` *(static)*: Extract all audioBusses from XML content.
 
-`XmlAudio.master(xmlContent)` *(static)*: Extract audio master channel info from XML content.
+`XmlAudio.master(xmlDocument)` *(static)*: Extract audio master channel info from XML content.
+
+---
+
+## Xml General State
+Get general state info from the vMix instance.
+
+Constructor inputting complete xmlDocument from vMix API
+```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
+
+Update with new data
+```.update(xmlDocument)```
+
+`.softwareVersion()` - `string` - Software version of vMix instance
+
+`.softwareEdition()` - `string` - Software edition of vMix instance
+
+`.recording()` - `boolean` - Is vMix instance recording?
+
+`.multiCoder()` - `boolean` - Is multiCorder module recording in vMix instance
+
+`.playList()` - `boolean` - Is playlist module active in vMix instance
+
+`.fullscreen()` - `boolean` - Is fullscreen active in vMix instance
 
 ---
 
 ## Xml Input Mapper
 Maps the inputs from the vMix instance state to JSON objects.
 
-`XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
+`XmlInputMapper.extractInputsFromXML(xmlDocument)` *(static)*: Extract all inputs from raw XML data using XPath.
 
-`XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
+`XmlInputMapper.mapInput(xmlDocument, wantedAttributes?)` *(static)*: Map single input from XML content to JSON object.
 
-`XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
+`XmlInputMapper.mapInputs(xmlDocument, wantedAttributes?)` *(static)*: Map all inputs from XML content to JSON objects.
+
+`XmlInputMapper.mapTallyInfo(xmlDocument, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
 
 ---
 
 
 ## Xml Overlay Channels
-`XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. 
+`XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
 **Format:**
 ```javascript
 // Overlay channels
@@ -111,7 +136,7 @@ Maps the inputs from the vMix instance state to JSON objects.
 ---
 
 ## Xml Transitions
-`XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. 
+`XmlTransitions.extract(xmlDocument)` *(static)* - Returns a object of transitions state read from XML data. 
 **Format:**
 ```javascript
 // Transitions

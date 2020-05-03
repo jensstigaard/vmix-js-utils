@@ -32,8 +32,8 @@ const data = `
 </audio>
 </vmix>
 `
-const xmlContent = XmlApiDataParser.parse(data)
-const vMixGeneralState = new XmlGeneralState(xmlContent)
+const xmlDocument = XmlApiDataParser.parse(data)
+const vMixGeneralState = new XmlGeneralState(xmlDocument)
 
 describe('xml-general-state', function () {
     it('should have software version number', function () {
