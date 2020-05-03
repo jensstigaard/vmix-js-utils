@@ -43,9 +43,10 @@ const data = `
 </vmix>
 `
 
+const xmlContent = XmlApiDataParser.parse(data)
+
 describe('xml-audio', function () {
     it('should have a master bus from the sample data', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
         const masterBus = XmlAudio.master(xmlContent)
 
         // console.log(masterBus)
@@ -57,7 +58,7 @@ describe('xml-audio', function () {
     })
 
     it('should have three busses in total including master bus from the sample data', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
+
         const audioBussesDict = XmlAudio.all(xmlContent)
 
         const audioBussesList = Object.values(audioBussesDict)
@@ -67,9 +68,8 @@ describe('xml-audio', function () {
     })
 
     it('should have two audio busses besides the master audio from the sample data', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const audioBussesDict = XmlAudio.busses(xmlContent)
 
+        const audioBussesDict = XmlAudio.busses(xmlContent)
         const audioBussesList = Object.values(audioBussesDict)
 
         // Assert the master bus were found and has volume 100

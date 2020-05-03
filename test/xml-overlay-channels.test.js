@@ -42,11 +42,11 @@ const data = `
 </audio>
 </vmix>
 `
+const xmlContent = XmlApiDataParser.parse(data)
+const overlays = XmlOverlayChannels.extract(xmlContent)
 
 describe('xml-overlay-channels', function () {
     it('should have 6 channels - 4 regular channels and 2 stinger channels', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const overlays = XmlOverlayChannels.extract(xmlContent)
 
         assert.equal(typeof overlays, 'object')
         assert.equal(typeof overlays['1'], 'object')
@@ -61,9 +61,6 @@ describe('xml-overlay-channels', function () {
     })
 
     it('should have input 1 in overlay channel 2 in preview mode', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const overlays = XmlOverlayChannels.extract(xmlContent)
-
         assert.equal(typeof overlays, 'object')
         assert.equal(typeof overlays['2'], 'object')
 

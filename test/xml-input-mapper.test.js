@@ -96,16 +96,15 @@ file:///C:/Program Files (x86)/vMix/titles/Social/blank.png
 </audio>
 </vmix>
 `
+const xmlContent = XmlApiDataParser.parse(data)
+const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
+
+// Manipulate to wanted format
+const inputsMap = XmlInputMapper.mapInputs(inputs)
+const inputsList = Object.values(inputsMap)
 
 describe('xml-input-mapper', function () {
     it('should have 5 inputs from the sample data', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
-
-        // Manipulate to wanted format
-        const inputsMap = XmlInputMapper.mapInputs(inputs)
-        const inputsList = Object.values(inputsMap)
-
         // console.log(inputsList)
 
         // Assert the inputs were found
@@ -114,21 +113,12 @@ describe('xml-input-mapper', function () {
 
     it('should have 2 default inputs from the sample data which is both blank', function () {
 
-        const xmlContent = XmlApiDataParser.parse(data)
-        const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
-
-        // Manipulate to wanted format
-        const inputsMap = XmlInputMapper.mapInputs(inputs)
-        const inputsList = Object.values(inputsMap)
-
         // Assert the inputs were found
         assert.equal(inputsList[0].type, 'Blank')
         assert.equal(inputsList[1].type, 'Blank')
     })
 
     it('should have input 1 as active preview', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-
         const preview = XmlInputMapper.extractPreviewFromXML(xmlContent)
 
         // Assert the preview input number
@@ -136,9 +126,6 @@ describe('xml-input-mapper', function () {
     })
 
     it('should have input 2 as active program', function () {
-
-        const xmlContent = XmlApiDataParser.parse(data)
-
         const program = XmlInputMapper.extractProgramFromXML(xmlContent)
 
         // Assert the program input number
@@ -146,13 +133,6 @@ describe('xml-input-mapper', function () {
     })
 
     it('should have a GT title on input 3 with title fields extracted', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
-
-        // Manipulate to wanted format
-        const inputsMap = XmlInputMapper.mapInputs(inputs)
-        const inputsList = Object.values(inputsMap)
-
         const titleInput = inputsList[2]
 
         // console.log(titleInput)
@@ -166,13 +146,6 @@ describe('xml-input-mapper', function () {
     })
 
     it('should have a Xaml title on input 5 with title fields extracted', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
-
-        // Manipulate to wanted format
-        const inputsMap = XmlInputMapper.mapInputs(inputs)
-        const inputsList = Object.values(inputsMap)
-
         const titleInput = inputsList[4]
 
         // console.log(titleInput)

@@ -52,15 +52,15 @@ const data = `
 </vmix>
 `
 
+const xmlContent = XmlApiDataParser.parse(data)
+const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
+
+// Manipulate to wanted format
+const inputsMap = XmlInputMapper.mapInputs(inputs)
+const inputsList = Object.values(inputsMap)
+
 describe('xml-replay', function () {
     it('should have a replay input and replay preview from the sample data', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const inputs = XmlInputMapper.extractInputsFromXML(xmlContent)
-
-        // Manipulate to wanted format
-        const inputsMap = XmlInputMapper.mapInputs(inputs)
-        const inputsList = Object.values(inputsMap)
-
         const replayInput = inputsList.find(input => input.type === 'Replay')
         const replayPreviewInput = inputsList.find(input => input.type === 'ReplayPreview')
 

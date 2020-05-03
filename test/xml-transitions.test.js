@@ -43,11 +43,11 @@ const data = `
 </vmix>
 `
 
+const xmlContent = XmlApiDataParser.parse(data)
+const transitions = XmlTransitions.extract(xmlContent)
+
 describe('xml-overlay-channels', function () {
     it('should have 4 transitions', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const transitions = XmlTransitions.extract(xmlContent)
-
         // console.log(transitions)
 
         assert.equal(typeof transitions, 'object')
