@@ -6,8 +6,9 @@
   "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
-    "test": "mocha",
-    "build": "tsc"
+    "build": "tsc",
+    "build-n-test": "yarn build && yarn test",
+    "test": "mocha"
   },
   "repository": {
     "private": false,
