@@ -2,7 +2,7 @@
 const assert = require('assert')
 
 // Import the modules
-const { XmlApiDataParser, XmlOverlayChannels } = require('../dist/index')
+const { XmlApiDataParser, XmlTransitions } = require('../dist/index')
 
 const data = `
 <vmix>
@@ -43,32 +43,21 @@ const data = `
 </vmix>
 `
 
+const xmlDocument = XmlApiDataParser.parse(data)
+const transitions = XmlTransitions.extract(xmlDocument)
+
 describe('xml-overlay-channels', function () {
-    it('should have 6 channels - 4 regular channels and 2 stinger channels', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const overlays = XmlOverlayChannels.extract(xmlContent)
+    it('should have 4 transitions', function () {
+        // console.log(transitions)
 
-        assert.equal(typeof overlays, 'object')
-        assert.equal(typeof overlays['1'], 'object')
-        assert.equal(typeof overlays['2'], 'object')
-        assert.equal(typeof overlays['3'], 'object')
-        assert.equal(typeof overlays['4'], 'object')
-        assert.equal(typeof overlays['5'], 'object')
-        assert.equal(typeof overlays['6'], 'object')
+        assert.equal(typeof transitions, 'object')
+        assert.equal(typeof transitions['1'], 'object')
+        assert.equal(typeof transitions['2'], 'object')
+        assert.equal(typeof transitions['3'], 'object')
+        assert.equal(typeof transitions['4'], 'object')
 
-        assert.equal(overlays['1'].inputNumber, null)
-        assert.equal(overlays['1'].inPreview, false)
-    })
-
-    it('should have input 1 in overlay channel 2 in preview mode', function () {
-        const xmlContent = XmlApiDataParser.parse(data)
-        const overlays = XmlOverlayChannels.extract(xmlContent)
-
-        assert.equal(typeof overlays, 'object')
-        assert.equal(typeof overlays['2'], 'object')
-
-        assert.equal(overlays['2'].inputNumber, 1)
-        assert.equal(overlays['2'].inPreview, true)
+        assert.equal(transitions['1'].effect, 'Fade')
+        assert.equal(transitions['1'].duration, 500)
     })
 
 })

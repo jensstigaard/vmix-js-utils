@@ -1,52 +1,45 @@
 // Imports
-import xpath, { SelectedValue } from 'xpath'
+import xpath from 'xpath'
+import _ from 'lodash'
 
-type Transition = {
-	effect: string
-	duration: number
-}
+// Types
+import { Transition } from '../types/transition'
 
 export default class XmlTransitions {
-	static extract(xmlContent: Node): { [key: number]: Transition } {
-		const transitionNodesFound: SelectedValue[] = xpath.select("//vmix/transitions/transition", xmlContent)
+	static extract(xmlDocument: Document): { [key: number]: Transition } {
+		const transitionNodesFound: Element[] = xpath.select("//vmix/transitions/transition", xmlDocument) as Element[]
 
-		// if (transitionNodesFound.length !== 4) {
-		// 	throw new Error('Did not find all four transitions...')
-		// }
-
-		const transitions: { [key: number]: Transition } = {
-			1: { effect: '', duration: 0 },
-			2: { effect: '', duration: 0 },
-			3: { effect: '', duration: 0 },
-			4: { effect: '', duration: 0 }
+		if (transitionNodesFound.length !== 4) {
+			throw new Error('Did not find all four defined transitions...')
 		}
 
-		transitionNodesFound.forEach((entry: any) => {
-			// Map all base attributes of input
-			const attributesList = Object.values(entry.attributes as Attr[])
+		return _.keyBy(
+			transitionNodesFound.map((transitionNode: Element) => {
 
-			const transitionNumberAttr = attributesList.find((attr: Attr) => attr.name === 'number')
-			const effectAttr = attributesList.find((attr: Attr) => attr.name === 'effect')
-			const durationAttr = attributesList.find((attr: Attr) => attr.name === 'duration')
+				const transitionNumberAttr = transitionNode.attributes.getNamedItem('number')
+				const effectAttr = transitionNode.attributes.getNamedItem('effect')
+				const durationAttr = transitionNode.attributes.getNamedItem('duration')
 
-			// No attribute found
-			if (!transitionNumberAttr || !effectAttr || !durationAttr) {
-				return
-			}
+				// Guard attributes not found
+				if (!transitionNumberAttr || !effectAttr || !durationAttr) {
+					throw new Error('Necessary attributes not found in transition')
+				}
 
-			const transitionNumber: number = Number(transitionNumberAttr.nodeValue)
+				const transitionNumber: number = Number(transitionNumberAttr.nodeValue)
 
-			if (!(transitionNumber in transitions)) {
-				return
-			}
+				if (!([1, 2, 3, 4].includes(transitionNumber))) {
+					throw new Error('Transition number not valid...')
+				}
 
-			const effect: string = String(effectAttr.nodeValue)
-			const duration: number = Number(durationAttr.nodeValue)
+				// console.log(transitionNumber)
 
-			transitions[transitionNumber].effect = effect
-			transitions[transitionNumber].duration = duration
-		})
-
-		return transitions
+				return {
+					number: transitionNumber,
+					effect: String(effectAttr.nodeValue),
+					duration: Number(durationAttr.nodeValue)
+				}
+			}),
+			'number'
+		)
 	}
 }

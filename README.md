@@ -4,12 +4,12 @@
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
-- API Function list
-- TCP Tally parser
-- XML API Data parser
-- XML Input mapper
-- XML Overlay Channels
-- XML Transitions Setup
+ - [TcpTally](#tcp-tally)
+ - [XmlApiDataParser](#xml-api-data-parser)
+ - [XmlAudio](#xml-audio)
+ - [XmlInputMapper](#xml-input-mapper)
+ - [XmlOverlayChannels](#xml-overlay-channels)
+ - [XmlTransitions](#xml-transitions)
 
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
@@ -19,36 +19,34 @@ It is recommended to import the package as a NPM package. Alternatively you can 
 ---
 Simple use
 ```javascript
-import { FunctionList, ApiDataParser, InputMapper } from 'vmix-js-utils'
+import { ApiDataParser, InputMapper } from 'vmix-js-utils'
 
 ```
 
 # Purpose
 The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
-The modules is as following:
- - [FunctionList](#function-list)
- - [TcpTally](#tcp-tally)
- - [XmlApiDataParser](#xml-api-data-parser)
- - [XmlInputMapper](#xml-input-mapper)
- - [XmlOverlayChannels](#xml-overlay-channels)
- - [XmlTransitions](#xml-transitions)
- - [StateFetcher](#statefetcher) - Under deprecation
 
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Description of modules
 
-## Function List
-`.all()` - Returns a complete list of available functions in the vMix API. **Format: JSON**
-`.category(category: string)` - Returns a list of available functions in a given category from the vMix API. **Format: JSON**
-`.get(function: string)` - Returns a single function with a given name from the vMix API. **Format: JSON**
-
----
 
 ## Tcp Tally
 Interprets the tally info from the TCP service.
-`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. **Format: **
-`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. **Format: **
+
+`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. 
+**Format:**
+```javascript
+// Tally info summary
+{
+	program: Number[],
+	preview: Number[],
+	numberOfInputs: Number
+}
+```
+
+`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. 
+**Format: Number[]**
 
 ---
 
@@ -56,23 +54,64 @@ Interprets the tally info from the TCP service.
 Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
 All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
 
-`XmlApiDataParser.parse(xmlContent)` *(static)*: Parse raw XML string content to XML DOM object.
+`XmlApiDataParser.parse(xmlStringRaw)` *(static)*: Parse raw XML string content to XML document.
+
+---
+
+## Xml Audio
+Audio info from master and busses from the vMix instance state.
+
+`XmlAudio.all(xmlDocument)` *(static)*: Extract info for all audio channels (master + busses) from XML content.
+
+`XmlAudio.busses(xmlDocument)` *(static)*: Extract all audioBusses from XML content.
+
+`XmlAudio.master(xmlDocument)` *(static)*: Extract audio master channel info from XML content.
+
+---
+
+## Xml General State
+Get general state info from the vMix instance.
+
+Constructor inputting complete xmlDocument from vMix API
+```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
+
+Update with new data
+```.update(xmlDocument)```
+
+`.softwareVersion()` - `string` - Software version of vMix instance
+
+`.softwareEdition()` - `string` - Software edition of vMix instance
+
+`.recording()` - `boolean` - Is vMix instance recording?
+
+`.multiCoder()` - `boolean` - Is multiCorder module recording in vMix instance
+
+`.playList()` - `boolean` - Is playlist module active in vMix instance
+
+`.fullscreen()` - `boolean` - Is fullscreen active in vMix instance
 
 ---
 
 ## Xml Input Mapper
 Maps the inputs from the vMix instance state to JSON objects.
-`XmlInputMapper.extractInputsFromXML(xmlContent)` *(static)*: Extract all inputs from raw XML data using XPath.
-`XmlInputMapper.mapInputs(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
-`XmlInputMapper.mapTallyInfo(xmlContent, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects. **Format:**
+
+`XmlInputMapper.extractInputsFromXML(xmlDocument)` *(static)*: Extract all inputs from raw XML data using XPath.
+
+`XmlInputMapper.mapInput(xmlDocument, wantedAttributes?)` *(static)*: Map single input from XML content to JSON object.
+
+`XmlInputMapper.mapInputs(xmlDocument, wantedAttributes?)` *(static)*: Map all inputs from XML content to JSON objects.
+
+`XmlInputMapper.mapTallyInfo(xmlDocument, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
 
 ---
 
 
 ## Xml Overlay Channels
-`XmlOverlayChannels.extract(xmlContent)` *(static)* - Returns a object of overlay channels state read from XML data. **Format:**
+`XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
+**Format:**
 ```javascript
-{ // Overlay channels
+// Overlay channels
+{
 	1: { inputNumber: Number|null, inPreview: Boolean },
 	2: { inputNumber: Number|null, inPreview: Boolean },
 	3: { inputNumber: Number|null, inPreview: Boolean },
@@ -83,10 +122,13 @@ Maps the inputs from the vMix instance state to JSON objects.
 ```
 
 ---
+
 ## Xml Transitions
-`XmlTransitions.extract(xmlContent)` *(static)* - Returns a object of transitions state read from XML data. **Format:**
+`XmlTransitions.extract(xmlDocument)` *(static)* - Returns a object of transitions state read from XML data. 
+**Format:**
 ```javascript
-{ // Transitions
+// Transitions
+{
 	1: { effect: String, duration: Number },
 	2: { effect: String, duration: Number },
 	3: { effect: String, duration: Number },
@@ -109,8 +151,9 @@ npm install vmix-js-utils --save # or 'yarn add vmix-js-utils'
 In your code the simplest way to import the modules is the following:
 
 ```javascript
-const { FunctionList } = require('vmix-js-utils')
+const { XmlApiDataParser, XmlGeneralState } = require('vmix-js-utils')
 
+// ...
 ```
 
 You are also able to import all of the modules as a gathered variable, less elegant way:
@@ -118,7 +161,7 @@ You are also able to import all of the modules as a gathered variable, less eleg
 ```javascript
 const vMixUtils = require('vmix-js-utils')
 
-
+// ...
 ```
 
 
@@ -145,10 +188,13 @@ npm test # or 'yarn test'
 ```
 
 
-# Examples and use
+# Examples
+
 *Work in progress.*
-- [Function list (all)](./examples/function-list-all.js)
-- [Function list (get single)](./examples/function-list-get.js)
+
+### XML Input mapper
+- [XML input mapper (all attributes)](./examples/xml-input-mapper.js)
+- [XML input mapper (attribute selection)](./examples/xml-input-mapper-selective.js)
 
 
 # Authors
