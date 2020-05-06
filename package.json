@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "build-test": "yarn build && yarn test",
-    "prepublish": "npm run snyk-protect && rm -r ./dist/* && yarn build",
+    "prepublish": "npm run snyk-protect && rm -irf ./dist/* && yarn build",
     "snyk-protect": "snyk protect",
     "test": "mocha"
   },
