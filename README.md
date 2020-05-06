@@ -77,6 +77,7 @@ Constructor inputting complete xmlDocument from vMix API
 ```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
 
 Update with new data
+
 ```.update(xmlDocument)```
 
 `.softwareVersion()` - `string` - Software version of vMix instance
@@ -108,7 +109,9 @@ Maps the inputs from the vMix instance state to JSON objects.
 
 
 ## Xml Overlay Channels State
-`XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
+`XmlOverlayChannels.extract(xmlDocument)` *(static)* - 
+Returns a object of overlay channels state read from XML data. 
+
 **Format:**
 ```javascript
 // Overlay channels state
