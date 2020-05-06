@@ -2,11 +2,13 @@
 
 [![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
+[![npm downloads](https://img.shields.io/npm/dm/vmix-js-utils)](https://www.npmjs.com/package/vmix-js-utils)
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
+ - [AudioUtility](#audio-utility)
  - [TcpTally](#tcp-tally)
  - [XmlApiDataParser](#xml-api-data-parser)
- - [XmlAudio](#xml-audio)
+ - [XmlAudio](#xml-audio) (Master audio + busses)
  - [XmlInputMapper](#xml-input-mapper)
  - [XmlOverlayChannels](#xml-overlay-channels)
  - [XmlTransitions](#xml-transitions)
@@ -29,6 +31,14 @@ The utilities consists of several modules. Each can be used on its own, but usua
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Description of modules
+
+## Audio Utility
+Audio utility class to convert audio amplitude/volume/volumebar values.
+```javascript
+const volumeValue = 50 // value fetched from API
+
+AudioUtility.fromVolume(volumeValue).volumeBar() // Convert into volumeBar value (% - used in UI)
+```
 
 
 ## Tcp Tally
@@ -73,9 +83,12 @@ Audio info from master and busses from the vMix instance state.
 Get general state info from the vMix instance.
 
 Constructor inputting complete xmlDocument from vMix API
-```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
+```javascript
+const vMixGeneralState = new vMixGeneralState(xmlDocument)
+```
 
 Update with new data
+
 ```.update(xmlDocument)```
 
 `.softwareVersion()` - `string` - Software version of vMix instance
@@ -106,11 +119,13 @@ Maps the inputs from the vMix instance state to JSON objects.
 ---
 
 
-## Xml Overlay Channels
-`XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
+## Xml Overlay Channels State
+`XmlOverlayChannels.extract(xmlDocument)` *(static)* - 
+Returns a object of overlay channels state read from XML data. 
+
 **Format:**
 ```javascript
-// Overlay channels
+// Overlay channels state
 {
 	1: { inputNumber: Number|null, inPreview: Boolean },
 	2: { inputNumber: Number|null, inPreview: Boolean },
