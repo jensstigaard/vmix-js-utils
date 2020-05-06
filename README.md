@@ -107,11 +107,11 @@ Maps the inputs from the vMix instance state to JSON objects.
 ---
 
 
-## Xml Overlay Channels
+## Xml Overlay Channels State
 `XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
 **Format:**
 ```javascript
-// Overlay channels
+// Overlay channels state
 {
 	1: { inputNumber: Number|null, inPreview: Boolean },
 	2: { inputNumber: Number|null, inPreview: Boolean },
