@@ -1,7 +1,17 @@
 export default class AudioUtility {
+	/**
+	 * Based on info from
+	 * https://www.vmix.com/knowledgebase/article.aspx/144/vmix-api-audio-levels
+	 */
 
-	_amplitudeValue: number = 0
+	// Value to hold internally in class
+	protected _amplitudeValue: number = 0
 
+	/**
+	 * 
+	 * @param fromType
+	 * @param value
+	 */
 	constructor(fromType: 'amplitude' | 'meterF' | 'volume' | 'volumeBar', value: number) {
 		switch (fromType) {
 			case 'amplitude':
