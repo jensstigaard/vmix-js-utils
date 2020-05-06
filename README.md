@@ -74,6 +74,7 @@ Audio info from master and busses from the vMix instance state.
 Get general state info from the vMix instance.
 
 Constructor inputting complete xmlDocument from vMix API
+
 ```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
 
 Update with new data
