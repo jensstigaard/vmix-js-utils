@@ -16,7 +16,7 @@ vMix API utility for Javascript can be used in either front or backend applicati
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
 ## OBS - NodeJS utility for vMix
-**Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. This package is only for NodeJS applications.
+**Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. The node-vmix package is only for NodeJS applications, used for easy connection to vMix instances.
 
 ---
 Simple use
