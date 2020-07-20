@@ -4,6 +4,8 @@
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vmix-js-utils)](https://www.npmjs.com/package/vmix-js-utils)
 
+[![NPM Badge](https://nodei.co/npm/vmix-js-utils.png)](https://npmjs.com/package/vmix-js-utils)
+
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
  - [AudioUtility](#audio-utility)
  - [TcpTally](#tcp-tally)
