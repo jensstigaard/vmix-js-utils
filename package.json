@@ -31,7 +31,7 @@
     "url": "https://github.com/jensstigaard/vmix-js-utils/issues"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "querystring": "^0.2.0",
     "xmldom": "^0.3.0",
     "xpath": "^0.0.27"
