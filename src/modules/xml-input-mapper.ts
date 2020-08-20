@@ -24,7 +24,7 @@ export default class XmlInputMapper {
         const output: { [key: string]: any } = {}
 
         // Map all base attributes of input
-        for (let attrName in input.attributes) {
+        for (const attrName in input.attributes) {
             const attr: Attr = input.attributes[attrName]
 
             // Guard attribute not having name, being a function or nodeValue being a function
@@ -58,15 +58,15 @@ export default class XmlInputMapper {
 
                 output.fields = []
                 // A regular .forEach doesn't work on this somehow...
-                for (let i in input.childNodes) {
-                    const titleEl: Element = input.childNodes[i] as Element
+                for (const i in input.childNodes) {
+                    const titleFieldEl: Element = input.childNodes[i] as Element
 
                     // Guard child node does not have node name and the node is not of correct type
-                    if (!titleEl.nodeName || !['image', 'text'].includes(titleEl.nodeName)) {
+                    if (!titleFieldEl.nodeName || !['image', 'text'].includes(titleFieldEl.nodeName)) {
                         continue
                     }
 
-                    const nameAttr = titleEl.attributes.getNamedItem('name')
+                    const nameAttr = titleFieldEl.attributes.getNamedItem('name')
                     // Guard child node does not have a name attribute
                     if (!nameAttr) {
                         continue
@@ -74,9 +74,9 @@ export default class XmlInputMapper {
 
                     // Build fields of object from its attributes
                     const titleField: { [key: string]: any } = {
-                        type: titleEl.nodeName,
+                        type: titleFieldEl.nodeName,
                         name: nameAttr.nodeValue,
-                        value: (titleEl as Node).textContent?.trim()
+                        value: (titleFieldEl as Node).textContent?.trim()
                     }
 
                     output.fields.push(titleField)
@@ -138,8 +138,9 @@ export default class XmlInputMapper {
 
         // Map all data from raw input
         var xmlInputsMapped = xmlInputs.map(input => XmlInputMapper.mapInput(input, wantedAttributes))
-        // Make a dictionary
-        let inputsDictionary: any = {}
+
+        // Make a dictionary and populate it
+        const inputsDictionary: any = {}
         xmlInputsMapped.forEach((input: any) => {
             inputsDictionary[input.key] = input
         })
