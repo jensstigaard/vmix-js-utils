@@ -10,8 +10,8 @@ export default class XmlInputMapper {
      * Extract inputs XML from full XML document using XPath
      * @param {Node} xmlDocument
      */
-    static extractInputsFromXML(xmlDocument: Document): SelectedValue[] {
-        return xpath.select("//vmix/inputs/input", xmlDocument)
+    static extractInputsFromXML(xmlDocument: Document): Element[] {
+        return xpath.select("//vmix/inputs/input", xmlDocument) as Element[]
     }
 
     /**

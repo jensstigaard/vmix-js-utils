@@ -2,11 +2,15 @@
 
 [![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
+[![npm downloads](https://img.shields.io/npm/dm/vmix-js-utils)](https://www.npmjs.com/package/vmix-js-utils)
+
+[![NPM Badge](https://nodei.co/npm/vmix-js-utils.png)](https://npmjs.com/package/vmix-js-utils)
 
 vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
+ - [AudioUtility](#audio-utility)
  - [TcpTally](#tcp-tally)
  - [XmlApiDataParser](#xml-api-data-parser)
- - [XmlAudio](#xml-audio)
+ - [XmlAudio](#xml-audio) (Master audio + busses)
  - [XmlInputMapper](#xml-input-mapper)
  - [XmlOverlayChannels](#xml-overlay-channels)
  - [XmlTransitions](#xml-transitions)
@@ -14,7 +18,7 @@ vMix API utility for Javascript can be used in either front or backend applicati
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
 ## OBS - NodeJS utility for vMix
-**Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. This package is only for NodeJS applications.
+**Note**: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See [node-vmix](https://github.com/jensstigaard/node-vmix) for more info. The node-vmix package is only for NodeJS applications, used for easy connection to vMix instances.
 
 ---
 Simple use
@@ -29,6 +33,14 @@ The utilities consists of several modules. Each can be used on its own, but usua
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Description of modules
+
+## Audio Utility
+Audio utility class to convert audio amplitude/volume/volumebar values.
+```javascript
+const volumeValue = 50 // value fetched from API
+
+AudioUtility.fromVolume(volumeValue).volumeBar() // Convert into volumeBar value (% - used in UI)
+```
 
 
 ## Tcp Tally
@@ -73,9 +85,12 @@ Audio info from master and busses from the vMix instance state.
 Get general state info from the vMix instance.
 
 Constructor inputting complete xmlDocument from vMix API
-```const vMixGeneralState = new vMixGeneralState(xmlDocument)```
+```javascript
+const vMixGeneralState = new vMixGeneralState(xmlDocument)
+```
 
 Update with new data
+
 ```.update(xmlDocument)```
 
 `.softwareVersion()` - `string` - Software version of vMix instance
@@ -106,11 +121,13 @@ Maps the inputs from the vMix instance state to JSON objects.
 ---
 
 
-## Xml Overlay Channels
-`XmlOverlayChannels.extract(xmlDocument)` *(static)* - Returns a object of overlay channels state read from XML data. 
+## Xml Overlay Channels State
+`XmlOverlayChannels.extract(xmlDocument)` *(static)* - 
+Returns a object of overlay channels state read from XML data. 
+
 **Format:**
 ```javascript
-// Overlay channels
+// Overlay channels state
 {
 	1: { inputNumber: Number|null, inPreview: Boolean },
 	2: { inputNumber: Number|null, inPreview: Boolean },
