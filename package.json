@@ -41,9 +41,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.168",
     "@types/xmldom": "^0.1.30",
-    "axios": "^0.21.1",
     "mocha": "^8.3.0",
-    "moxios": "^0.4.0",
     "snyk": "^1.460.0",
     "typescript": "^4.2.2"
   },
