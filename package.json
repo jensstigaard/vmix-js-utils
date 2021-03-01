@@ -4,7 +4,6 @@
   "description": "vMix utilities for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "build-test": "yarn build && yarn test",
