@@ -8,7 +8,7 @@ export default class AudioUtility {
 	protected _amplitudeValue: number = 0
 
 	/**
-	 * 
+	 * Audio utility class
 	 * @param fromType
 	 * @param value
 	 */
@@ -36,8 +36,10 @@ export default class AudioUtility {
 			case 'volumeBar':
 				this._amplitudeValue = Math.pow(value / 100, 4)
 				break
-
+			default:
+				throw new Error(`Invalid input - Unknown conversion 'from type': ${fromType}`)
 		}
+
 	}
 
 	/**
