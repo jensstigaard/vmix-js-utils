@@ -23,20 +23,27 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 	const mutedAttr = audioBusNode.attributes.getNamedItem('muted')
 	const meterF1attr = audioBusNode.attributes.getNamedItem('meterF1')
 	const meterF2attr = audioBusNode.attributes.getNamedItem('meterF2')
+	// Optional attributes
+	const customName = audioBusNode.attributes.getNamedItem('name')
 
 	// Guard missing attributes
 	if (!volumeAttr || !mutedAttr || !meterF1attr || !meterF2attr) {
-		throw new Error(`Audio bus did not contain necessary attributes`)
+		throw new Error(`Audio bus ${abbr} did not contain necessary attributes`)
 	}
 
-	// Parsed info
+	// Parse audio bus info into class object
 	const bus = {
 		name,
 		abbr,
 		muted: String(mutedAttr.nodeValue) === 'True',
 		volume: Number(volumeAttr.nodeValue),
 		meterF1: Number(meterF1attr.nodeValue),
-		meterF2: Number(meterF2attr.nodeValue)
+		meterF2: Number(meterF2attr.nodeValue),
+	} as AudioBus
+
+	// Parse custom audio bus name
+	if (customName && customName.nodeValue && customName.nodeValue.length > 0) {
+		bus.customName = customName.nodeValue
 	}
 
 	// For master bus only - Append headphones volume
@@ -47,10 +54,9 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 			return {
 				...bus,
 				headphonesVolume: Number(headphonesVolumeAttr.nodeValue)
-			}
+			} as MasterAudioBus
 		}
 	}
-
 
 	return bus
 }
