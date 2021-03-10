@@ -6,6 +6,7 @@ const {
     AudioUtility
 } = require('../dist/index')
 
+// Known values to test
 const table = [
     {
         volume: 6.25,
@@ -28,13 +29,13 @@ const table = [
 describe('audio-utility', function () {
     it('can convert volume values to volumeBar values', function () {
         table.forEach((entry) => {
-            assert.equal(AudioUtility.fromVolume(entry.volume).volumeBar(), entry.volumeBar)
+            assert.strictEqual(AudioUtility.fromVolume(entry.volume).volumeBar(), entry.volumeBar)
         })
     })
 
     it('can convert volumeBar values to volume values', function () {
         table.forEach((entry) => {
-            assert.equal(AudioUtility.fromVolumeBar(entry.volumeBar).volume(), entry.volume)
+            assert.strictEqual(AudioUtility.fromVolumeBar(entry.volumeBar).volume(), entry.volume)
         })
     })
 

@@ -1,10 +1,4 @@
-// Using assert library
-const assert = require('assert')
 
-// Import the modules
-const { XmlApiDataParser, XmlOverlayChannels } = require('../dist/index')
-
-const data = `
 <vmix>
 <version>20.0.0.55</version>
 <edition>Pro</edition>
@@ -41,31 +35,3 @@ const data = `
 <busB volume="100" muted="False" meterF1="0" meterF2="0"/>
 </audio>
 </vmix>
-`
-const xmlDocument = XmlApiDataParser.parse(data)
-const overlays = XmlOverlayChannels.extract(xmlDocument)
-
-describe('xml-overlay-channels', function () {
-    it('should have 6 channels - 4 regular channels and 2 stinger channels', function () {
-
-        assert.equal(typeof overlays, 'object')
-        assert.equal(typeof overlays['1'], 'object')
-        assert.equal(typeof overlays['2'], 'object')
-        assert.equal(typeof overlays['3'], 'object')
-        assert.equal(typeof overlays['4'], 'object')
-        assert.equal(typeof overlays['5'], 'object')
-        assert.equal(typeof overlays['6'], 'object')
-
-        assert.equal(overlays['1'].inputNumber, null)
-        assert.equal(overlays['1'].inPreview, false)
-    })
-
-    it('should have input 1 in overlay channel 2 in preview mode', function () {
-        assert.equal(typeof overlays, 'object')
-        assert.equal(typeof overlays['2'], 'object')
-
-        assert.equal(overlays['2'].inputNumber, 1)
-        assert.equal(overlays['2'].inPreview, true)
-    })
-
-})

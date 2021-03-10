@@ -1,0 +1,12 @@
+
+<vmix>
+<version>24.0.0.22</version>
+<edition>Pro</edition>
+<fadeToBlack>False</fadeToBlack>
+<recording>False</recording>
+<external>False</external>
+<streaming>False</streaming>
+<playList>False</playList>
+<multiCorder>False</multiCorder>
+<fullscreen>False</fullscreen>
+</vmix>

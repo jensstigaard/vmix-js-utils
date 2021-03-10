@@ -3,9 +3,13 @@ import _ from 'lodash'
 import xpath from 'xpath'
 
 // Types
-import { AudioBus, MasterAudioBus } from '../types/audio-bus'
+import { AudioBus, MasterAudioBus } from '../../types/audio-bus'
 
-// Map single audio bus info from XML
+/**
+ * Helper function: Map single audio bus info from XML
+ * @param audioBusNode
+ * @returns 
+ */
 function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 
 	// Map all base attributes of input
@@ -61,10 +65,14 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 	return bus
 }
 
-export default class XmlAudio {
+/**
+ * Audio busses class
+ */
+export default class AudioBusses {
 
 	/**
-	 * All busses
+	 * Extract info for all audio channels (master + busses) from XML document
+	 * 
 	 * @param xmlDocument
 	 */
 	static all(xmlDocument: Document): { [key: string]: AudioBus } {
@@ -83,7 +91,7 @@ export default class XmlAudio {
 	}
 
 	/**
-	 * Busses (excluding master)
+	 * Extract all audio-busses from XML document (excluding master)
 	 *
 	 * @param xmlDocument
 	 */
@@ -106,7 +114,7 @@ export default class XmlAudio {
 	}
 
 	/**
-	 * Audio master bus
+	 * Extract master audio bus info from XML document
 	 * @param xmlDocument
 	 */
 	static master(xmlDocument: Document): MasterAudioBus {

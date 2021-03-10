@@ -1,0 +1,10 @@
+
+<vmix>
+<version>20.0.0.55</version>
+<edition>Pro</edition>
+<audio>
+<master volume="100" muted="False" meterF1="0.01" meterF2="0.02" headphonesVolume="100"/>
+<busA volume="100" muted="False" meterF1="0" meterF2="0"/>
+<busB volume="100" muted="False" meterF1="0" meterF2="0"/>
+</audio>
+</vmix>

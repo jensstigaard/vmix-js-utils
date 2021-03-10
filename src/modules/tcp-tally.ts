@@ -3,7 +3,10 @@ import { TALLY_STATE, TallySummary } from "../types/tcp"
 
 /**
  * Map integer (wrapped as string) to tally state enum
- * @param state 
+ * 
+ * Returns state for single input based on data from TCP tally response
+ * 
+ * @param {string} state 
  */
 function tallyStateMapperSingleInput(state: string): TALLY_STATE {
 	switch (state) {
@@ -19,29 +22,27 @@ function tallyStateMapperSingleInput(state: string): TALLY_STATE {
 }
 
 /**
- * Map inputs to tally state array
+ * Interprets the tally info from the TCP service of a vMix instance.
  * 
- * @param tallyString
+ * E.g. "TALLY OK 001020" reads:
+ *  - input no. 3 in program
+ *  - input no. 5 in preview
+ *  - all other inputs is idle
  */
-function mapInputs(tallyString: string): TALLY_STATE[] {
-	return tallyString
-		.split('') // Split to single characters/number - e.g. from 00102 to ['0', '0', '1', '0', '2']
-		.map(tallyStateMapperSingleInput)
-}
-
 export default class TcpTally {
 	/**
+	 * Extract summary from TCP message
 	 * 
-	 * @param tallyString - From TCP message: E.g. TALLY OK 00102 (input 3 in program and 5 in preview)
+	 * @param {string} tallyString
+	 * @returns {TallySummary}
 	 */
 	static extractSummary(tallyString: string): TallySummary {
-		const inputs = Object.entries(mapInputs(tallyString))
+		const inputs = Object.entries(TcpTally.extractInputs(tallyString))
 
 		const numberOfInputs = inputs.length
 
 		const inputsInProgram = inputs.filter(([_, state]) => (state === TALLY_STATE.PROGRAM))
 		const inputsInPreview = inputs.filter(([_, state]) => (state === TALLY_STATE.PREVIEW))
-
 
 		// If there were no preview input found - use input in program
 		if (inputsInPreview.length === 0 && inputsInProgram.length === 1) {
@@ -58,10 +59,14 @@ export default class TcpTally {
 
 
 	/**
+	 * Extract inputs from TCP message
 	 * 
-	 * @param tallyString - From TCP message: E.g. TALLY OK 00102 (input 3 in program and 5 in preview)
+	 * E.g. "TALLY OK 00102" reads input 3 in program and 5 in preview
+	 * @param tallyString - 
 	 */
 	static extractInputs(tallyString: string): TALLY_STATE[] {
-		return mapInputs(tallyString)
+		return tallyString
+			.split('') // Split to single characters/number - e.g. from 00102 to ['0', '0', '1', '0', '2']
+			.map(tallyStateMapperSingleInput)
 	}
 }

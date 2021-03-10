@@ -2,10 +2,9 @@
 const assert = require('assert')
 
 // Import the modules
-const {
-    TcpTally
-} = require('../dist/index')
+const { TcpTally } = require('../dist/index')
 
+// Known data to test
 const data = '00010002'
 
 describe('tcp-tally', function () {
@@ -13,21 +12,21 @@ describe('tcp-tally', function () {
         const tallySummary = TcpTally.extractSummary(data)
 
         // Assert the inputs were found
-        assert.equal(tallySummary.numberOfInputs, 8)
+        assert.strictEqual(tallySummary.numberOfInputs, 8)
     })
 
     it('should have a input in program from the sample data', function () {
         const tallySummary = TcpTally.extractSummary(data)
 
         // Assert the program input were found
-        assert.equal(tallySummary.program.length, 1)
+        assert.strictEqual(tallySummary.program.length, 1)
     })
 
     it('should have a input in preview from the sample data', function () {
         const tallySummary = TcpTally.extractSummary(data)
 
         // Assert the program input were found
-        assert.equal(tallySummary.preview.length, 1)
+        assert.strictEqual(tallySummary.preview.length, 1)
     })
 
     it('can have multiple inputs in program duration a transition', function () {
@@ -37,8 +36,8 @@ describe('tcp-tally', function () {
 
 
         // Assert the tally summary
-        assert.equal(tallySummary.program.length, 2)
-        assert.equal(tallySummary.preview.length, 0)
+        assert.strictEqual(tallySummary.program.length, 2)
+        assert.strictEqual(tallySummary.preview.length, 0)
     })
 
     it('can read preview input from program if program and preview is the same', function () {
@@ -47,8 +46,8 @@ describe('tcp-tally', function () {
         const tallySummary = TcpTally.extractSummary(data)
 
         // Assert the tally
-        assert.equal(tallySummary.program.length, 1)
-        assert.equal(tallySummary.preview.length, 1)
+        assert.strictEqual(tallySummary.program.length, 1)
+        assert.strictEqual(tallySummary.preview.length, 1)
     })
 
     it('cannot contain any characters besides number 0, 1 or 2', function () {

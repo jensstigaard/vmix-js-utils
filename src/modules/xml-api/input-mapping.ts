@@ -1,14 +1,21 @@
+
 // Imports
-import xpath, { SelectedValue } from 'xpath'
+import xpath from 'xpath'
 
 // Types
-import { TallySummary } from '../types/tcp'
+import { Input as InputType } from '../../types/input'
+import { TallySummary } from '../../types/tcp'
 
-export default class XmlInputMapper {
+/**
+ * XML API Input mapping
+ */
+export default class InputMapping {
 
     /**
      * Extract inputs XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * 
+     * @param {Document} xmlDocument
+     * @returns {Element[]}
      */
     static extractInputsFromXML(xmlDocument: Document): Element[] {
         return xpath.select("//vmix/inputs/input", xmlDocument) as Element[]
@@ -17,10 +24,11 @@ export default class XmlInputMapper {
     /**
      * Map input
      *
-     * @param input
-     * @param wantedAttributes 
+     * @param {Element} input
+     * @param {string | string[]} wantedAttributes
+     * @returns {InputType} 
      */
-    static mapInput(input: Element, wantedAttributes: string | string[] = '*') {
+    static mapInput(input: Element, wantedAttributes: string | string[] = '*'): InputType {
         const output: { [key: string]: any } = {}
 
         // Map all base attributes of input
@@ -134,10 +142,10 @@ export default class XmlInputMapper {
      * @param xmlInputs
      * @param wantedAttributes
      */
-    static mapInputs(xmlInputs: Element[], wantedAttributes: string | string[] = '*') {
+    static mapInputs(xmlInputs: Element[], wantedAttributes: string | string[] = '*'): InputType[] {
 
         // Map all data from raw input
-        var xmlInputsMapped = xmlInputs.map(input => XmlInputMapper.mapInput(input, wantedAttributes))
+        var xmlInputsMapped = xmlInputs.map(input => InputMapping.mapInput(input, wantedAttributes))
 
         // Make a dictionary and populate it
         const inputsDictionary: any = {}
@@ -148,11 +156,17 @@ export default class XmlInputMapper {
         return inputsDictionary
     }
 
+    /**
+     * Map tally info
+     * 
+     * @param {Document} xmlDocument
+     * @returns {TallySummary}
+     */
     static mapTallyInfo(xmlDocument: Document): TallySummary {
-        const inputInProgram: number = this.extractProgramFromXML(xmlDocument)
-        const inputInPreview: number = this.extractPreviewFromXML(xmlDocument)
+        const inputInProgram: number = this.extractProgramInputNumber(xmlDocument)
+        const inputInPreview: number = this.extractPreviewInputNumber(xmlDocument)
 
-        const numberOfInputs = XmlInputMapper.extractInputsFromXML(xmlDocument).length
+        const numberOfInputs = InputMapping.extractInputsFromXML(xmlDocument).length
         if (inputInPreview > numberOfInputs) {
             throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
         }
@@ -170,10 +184,10 @@ export default class XmlInputMapper {
 
 
     /**
-     * Extract active in prgoram XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * Extract active program input number from full XML document using XPath
+     * @param {Document} xmlDocument
      */
-    static extractProgramFromXML(xmlDocument: Document): number {
+    static extractProgramInputNumber(xmlDocument: Document): number {
         const node: Node = xpath.select("//vmix/active", xmlDocument, true) as Node
 
         if (!node) {
@@ -184,10 +198,10 @@ export default class XmlInputMapper {
     }
 
     /**
-     * Extract preview XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * Extract preview input number from full XML document using XPath
+     * @param {Document} xmlDocument
      */
-    static extractPreviewFromXML(xmlDocument: Document): number {
+    static extractPreviewInputNumber(xmlDocument: Document): number {
         const node: Node = xpath.select("//vmix/preview", xmlDocument, true) as Node
 
         if (!node) {

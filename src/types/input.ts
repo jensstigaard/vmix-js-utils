@@ -4,10 +4,18 @@ export type Input = {
 	type?: InputType
 	title?: string
 	shortTitle?: string
+
+	/**
+	 * Playback related  attributes
+	 */
 	state?: InputState
 	position?: number
 	duration?: number
 	loop?: boolean
+
+	/**
+	 * Audio related attributes
+	 */
 	muted?: boolean
 	volume?: number
 	balance?: number
@@ -25,16 +33,23 @@ export type Input = {
 	list?: string[]
 }
 
-export type InputType = 'AudioFile'
-	| 'Audio'
+/**
+ * Input type
+ */
+export type InputType = 'Audio'
+	| 'AudioFile'
+	| 'Blank'
 	| 'Browser'
 	| 'Colour'
 	| 'GT'
 	| 'Xaml'
 	| 'Video'
 	| 'VideoList'
-	| string
+	| string // Allow arbitary string value to allow non-listed input types
 
+/**
+ * Input state
+ */
 export type InputState = 'Paused'
 	| 'Running'
-	| string // Arbitary value
+	| string // Allow arbitary string value to allow non-listed input state
