@@ -1,5 +1,5 @@
 
-const { XmlApiDataParser, XmlInputMapper } = require('../dist/index').default
+const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
 // XML API data from vmix
 // This is just an example
@@ -16,11 +16,11 @@ const data = `
 `
 
 
-const xmlDocument = XmlApiDataParser.parse(data)
-const inputs = XmlInputMapper.extractInputsFromXML(xmlDocument)
+const xmlDocument = vMixXmlApi.DataParser.parse(data)
+const inputs = vMixXmlApi.InputMapping.extractInputsFromXML(xmlDocument)
 
 // Manipulate to wanted format
-const inputsMap = XmlInputMapper.mapInputs(inputs, ['title', 'state'])
+const inputsMap = vMixXmlApi.InputMapping.mapInputs(inputs, ['title', 'state'])
 const inputsList = Object.values(inputsMap)
 
 console.log('Number of inputs in vMix')
