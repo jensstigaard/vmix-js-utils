@@ -49,7 +49,6 @@ In your code the simplest way to import the modules is the following:
 
 ```javascript
 const { DataParser, GeneralState } = require('vmix-js-utils/xml-api')
-
 // ...
 ```
 
@@ -57,7 +56,6 @@ You are also able to import all of the modules as a gathered variable, less eleg
 
 ```javascript
 const vMixUtils = require('vmix-js-utils')
-
 // ...
 ```
 
@@ -71,14 +69,17 @@ The code can be cloned and tested as needed from the source code.
 git clone https://github.com/jensstigaard/vmix-js-utils.git
 cd vmix-js-utils
 ```
+
 Install dependencies
 ```sh
 npm install # or 'yarn'
 ```
+
 Compile TypeScript source code to JavaScript code
 ```sh
 npm build # or 'yarn build'
 ```
+
 Run tests
 ```sh
 npm test # or 'yarn test'
@@ -89,9 +90,10 @@ npm test # or 'yarn test'
 
 *Work in progress.*
 
-### XML Input mapper
-- [XML input mapper (all attributes)](./examples/xml-input-mapper.js)
-- [XML input mapper (attribute selection)](./examples/xml-input-mapper-selective.js)
+## XML API
+### Input mapping
+- [All attributes](./examples/xml-api/input-mapping.js)
+- [Selected attributes](./examples/xml-api/input-mapping-selective.js)
 
 
 # Authors
