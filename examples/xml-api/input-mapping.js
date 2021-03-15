@@ -1,5 +1,5 @@
 
-const { XmlApi: vMixXmlApi } = require('../dist/index')
+const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
 // XML API data from vmix
 // This is just an example
