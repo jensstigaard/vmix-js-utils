@@ -15,13 +15,3 @@ export {
 	OverlayChannels,
 	Transitions
 }
-
-// Default export all submodules
-export default {
-	AudioBusses,
-	DataParser,
-	GeneralState,
-	InputMapping,
-	OverlayChannels,
-	Transitions
-}
