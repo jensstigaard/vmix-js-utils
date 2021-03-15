@@ -16,7 +16,8 @@ It is recommended to import the package as a NPM package. Alternatively you can 
 ---
 Simple use
 ```javascript
-import { DataParser, InputMapping } from 'vmix-js-utils/xml-api'
+// Import XML API functionality
+import { DataParser, InputMapping } from 'vmix-js-utils/modules/xml-api'
 ```
 
 # Purpose
@@ -41,14 +42,16 @@ npm install vmix-js-utils --save
 In your code the simplest way to import the modules is the following:
 
 ```javascript
-const { DataParser, GeneralState } = require('vmix-js-utils/xml-api')
+const { DataParser, GeneralState } = require('vmix-js-utils/modules/xml-api')
 // ...
 ```
 
 You are also able to import all of the modules as a gathered variable, less elegant way:
 
 ```javascript
+// Import all vMix utils
 const vMixUtils = require('vmix-js-utils')
+// Import XML API functions
 const { DataParser, GeneralState } = vMixUtils.XmlApi
 // ...
 ```
