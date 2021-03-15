@@ -6,14 +6,7 @@
 
 [![NPM Badge](https://nodei.co/npm/vmix-js-utils.png)](https://npmjs.com/package/vmix-js-utils)
 
-vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
- - [AudioUtility](#audio-utility)
- - [TcpTally](#tcp-tally)
- - [XmlApiDataParser](#xml-api-data-parser)
- - [XmlAudio](#xml-audio) (Master audio + busses)
- - [XmlInputMapper](#xml-input-mapper)
- - [XmlOverlayChannels](#xml-overlay-channels)
- - [XmlTransitions](#xml-transitions)
+vMix API utility for Javascript can be used in either front or backend applications.
 
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
