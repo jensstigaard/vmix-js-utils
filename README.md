@@ -1,6 +1,6 @@
 # vMix-js-utils
 
-[![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
+[![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://github.com/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vmix-js-utils)](https://www.npmjs.com/package/vmix-js-utils)
 
