@@ -32,7 +32,7 @@ The utilities consists of several modules. Each can be used on its own, but usua
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Documentation
-Please read the [Documentation](../docs/index.html).
+Please read the documentation under: https://jensstigaard.github.io/vmix-js-utils/.
 
 
 # Installation and use
@@ -56,6 +56,7 @@ You are also able to import all of the modules as a gathered variable, less eleg
 
 ```javascript
 const vMixUtils = require('vmix-js-utils')
+const { DataParser, GeneralState } = vMixUtils.XmlApi
 // ...
 ```
 
