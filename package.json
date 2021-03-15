@@ -9,6 +9,7 @@
     "build-test": "yarn build && yarn test",
     "clean": "rm -ifr ./dist",
     "clean-build": "yarn clean && yarn build",
+    "docs": "yarn typedoc",
     "prepublish": "yarn run snyk-protect && yarn clean && yarn build",
     "snyk-protect": "snyk protect",
     "test": "mocha --recursive"
