@@ -1,0 +1,15 @@
+
+<vmix>
+<version>24.0.0.51</version>
+<edition>Pro</edition>
+<dynamic>
+	<input1>1</input1>
+	<input2/>
+	<input3/>
+	<input4/>
+	<value1/>
+	<value2/>
+	<value3/>
+	<value4/>
+</dynamic>
+</vmix>
