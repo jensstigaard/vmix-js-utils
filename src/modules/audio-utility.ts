@@ -1,16 +1,20 @@
+/**
+ * Audio utility helper class
+ *
+ * Based on info from
+ * https://www.vmix.com/knowledgebase/article.aspx/144/vmix-api-audio-levels
+ */
 export default class AudioUtility {
-	/**
-	 * Based on info from
-	 * https://www.vmix.com/knowledgebase/article.aspx/144/vmix-api-audio-levels
-	 */
 
-	// Value to hold internally in class
+	/**
+	 * Value to hold internally in class
+	 */
 	protected _amplitudeValue: number = 0
 
 	/**
-	 * 
+	 * Audio utility class
 	 * @param fromType
-	 * @param value
+	 * @param {number} value
 	 */
 	constructor(fromType: 'amplitude' | 'meterF' | 'volume' | 'volumeBar', value: number) {
 		switch (fromType) {
@@ -36,46 +40,71 @@ export default class AudioUtility {
 			case 'volumeBar':
 				this._amplitudeValue = Math.pow(value / 100, 4)
 				break
-
+			default:
+				throw new Error(`Invalid input - Unknown conversion 'from type': ${fromType}`)
 		}
+
 	}
 
 	/**
-	 * Smart-constructors
+	 * Smart-constructor: from Amplitude
 	 **/
 	static fromAmplitude(value: number) {
 		return new AudioUtility('amplitude', value)
 	}
 
+	/**
+	 * Smart-constructor: from Meter F
+	 **/
 	static fromMeterF(value: number) {
 		return new AudioUtility('meterF', value)
 	}
 
+	/**
+	 * Smart-constructor: from Volume
+	 **/
 	static fromVolume(value: number) {
 		return new AudioUtility('volume', value)
 	}
 
+	/**
+	 * Smart-constructor: from Volume bar
+	 **/
 	static fromVolumeBar(value: number) {
 		return new AudioUtility('volumeBar', value)
 	}
 
-	/**
-	 * Smart-constructors END
-	 **/
+	// Smart-constructors END
+
 
 
 	/**
 	 * Methods for fetching value in a specific format
 	 **/
 
+	/**
+	 * Return amplitude
+	 * Value is between 0.0 and 1.0
+	 * 
+	 * @returns {number}
+	 */
 	amplitude(): number {
 		return this._amplitudeValue
 	}
 
+	/**
+	 * Return volume value (in dB)
+	 * @returns {number}
+	 */
 	volume(): number {
 		return Math.round(this._amplitudeValue * 100 * 100) / 100
 	}
 
+	/**
+	 * Return volume bar
+	 * Value is in percentage (between 0% and 100%)
+	 * @returns {number}
+	 */
 	volumeBar(): number {
 		return Math.round(
 			Math.pow(this._amplitudeValue, 0.25) * 100

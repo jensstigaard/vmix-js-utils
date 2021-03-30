@@ -1,0 +1,209 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>vmix-js-utils</title>
+	<meta name="description" content="Documentation for vmix-js-utils">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">vmix-js-utils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>vmix-js-utils</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#vmix-js-utils" id="vmix-js-utils" style="color: inherit; text-decoration: none;">
+					<h1>vMix-js-utils</h1>
+				</a>
+				<p><a href="https://github.com/jensstigaard/vmix-js-utils"><img src="https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg" alt="package json version"></a>
+					<a href="https://www.npmjs.com/package/vmix-js-utils"><img src="https://badge.fury.io/js/vmix-js-utils.svg" alt="npm version"></a>
+				<a href="https://www.npmjs.com/package/vmix-js-utils"><img src="https://img.shields.io/npm/dm/vmix-js-utils" alt="npm downloads"></a></p>
+				<p><a href="https://npmjs.com/package/vmix-js-utils"><img src="https://nodei.co/npm/vmix-js-utils.png" alt="NPM Badge"></a></p>
+				<p>vMix API utility for Javascript can be used in either front or backend applications.</p>
+				<p>It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.</p>
+				<a href="#obs---nodejs-utility-for-vmix" id="obs---nodejs-utility-for-vmix" style="color: inherit; text-decoration: none;">
+					<h2>OBS - NodeJS utility for vMix</h2>
+				</a>
+				<p><strong>Note</strong>: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See <a href="https://github.com/jensstigaard/node-vmix">node-vmix</a> for more info. The node-vmix package is only for NodeJS applications, used for easy connection to vMix instances.</p>
+				<hr>
+				<p>Simple use</p>
+				<pre><code class="language-javascript"><span style="color: #008000">// Import XML API functionality</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DataParser</span><span style="color: #000000">, </span><span style="color: #001080">InputMapping</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;vmix-js-utils/modules/xml-api&#039;</span>
+</code></pre>
+				<a href="#purpose" id="purpose" style="color: inherit; text-decoration: none;">
+					<h1>Purpose</h1>
+				</a>
+				<p>The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.</p>
+				<p>The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. </p>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h1>Documentation</h1>
+				</a>
+				<p>Please read the documentation under: <a href="https://jensstigaard.github.io/vmix-js-utils/">https://jensstigaard.github.io/vmix-js-utils/</a>.</p>
+				<a href="#installation-and-use" id="installation-and-use" style="color: inherit; text-decoration: none;">
+					<h1>Installation and use</h1>
+				</a>
+				<a href="#as-a-dependency-using-npm" id="as-a-dependency-using-npm" style="color: inherit; text-decoration: none;">
+					<h2>As a dependency using npm</h2>
+				</a>
+				<p>The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your frontend project.
+				Found here: <a href="https://www.npmjs.com/package/vmix-js-utils">https://www.npmjs.com/package/vmix-js-utils</a></p>
+				<pre><code class="language-sh"><span style="color: #000000">npm install vmix-js-utils --save</span>
+<span style="color: #008000"># or &#039;yarn add vmix-js-utils -d&#039;</span>
+</code></pre>
+				<p>In your code the simplest way to import the modules is the following:</p>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">DataParser</span><span style="color: #000000">, </span><span style="color: #0070C1">GeneralState</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;vmix-js-utils/modules/xml-api&#039;</span><span style="color: #000000">)</span>
+<span style="color: #008000">// ...</span>
+</code></pre>
+				<p>You are also able to import all of the modules as a gathered variable, less elegant way:</p>
+				<pre><code class="language-javascript"><span style="color: #008000">// Import all vMix utils</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">vMixUtils</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;vmix-js-utils&#039;</span><span style="color: #000000">)</span>
+<span style="color: #008000">// Import XML API functions</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">DataParser</span><span style="color: #000000">, </span><span style="color: #0070C1">GeneralState</span><span style="color: #000000"> } = </span><span style="color: #001080">vMixUtils</span><span style="color: #000000">.</span><span style="color: #001080">XmlApi</span>
+<span style="color: #008000">// ...</span>
+</code></pre>
+				<a href="#standalone-project--fork" id="standalone-project--fork" style="color: inherit; text-decoration: none;">
+					<h1>Standalone project / Fork</h1>
+				</a>
+				<p>The source code is written in TypeScript, and ported to javascript (including types for TypeScript support) to allow it to be used as a npm package.</p>
+				<p>The code can be cloned and tested as needed from the source code.</p>
+				<pre><code class="language-sh"><span style="color: #000000">git clone https://github.com/jensstigaard/vmix-js-utils.git</span>
+<span style="color: #795E26">cd</span><span style="color: #000000"> vmix-js-utils</span>
+</code></pre>
+				<p>Install dependencies</p>
+				<pre><code class="language-sh"><span style="color: #000000">npm install </span><span style="color: #008000"># or &#039;yarn&#039;</span>
+</code></pre>
+				<p>Compile TypeScript source code to JavaScript code</p>
+				<pre><code class="language-sh"><span style="color: #000000">npm build </span><span style="color: #008000"># or &#039;yarn build&#039;</span>
+</code></pre>
+				<p>Run tests</p>
+				<pre><code class="language-sh"><span style="color: #000000">npm </span><span style="color: #795E26">test</span><span style="color: #000000"> </span><span style="color: #008000"># or &#039;yarn test&#039;</span>
+</code></pre>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h1>Examples</h1>
+				</a>
+				<p><em>Work in progress.</em></p>
+				<a href="#xml-api" id="xml-api" style="color: inherit; text-decoration: none;">
+					<h2>XML API</h2>
+				</a>
+				<a href="#input-mapping" id="input-mapping" style="color: inherit; text-decoration: none;">
+					<h3>Input mapping</h3>
+				</a>
+				<ul>
+					<li><a href="./examples/xml-api/input-mapping.js">All attributes</a></li>
+					<li><a href="./examples/xml-api/input-mapping-selective.js">Selected attributes</a></li>
+				</ul>
+				<a href="#authors" id="authors" style="color: inherit; text-decoration: none;">
+					<h1>Authors</h1>
+				</a>
+				<p>Jens Grønhøj Stigaard - <a href="mailto:jens@stigaard.info">jens@stigaard.info</a> (<a href="http://jens.stigaard.info">http://jens.stigaard.info</a>)</p>
+				<a href="#contribution" id="contribution" style="color: inherit; text-decoration: none;">
+					<h1>Contribution</h1>
+				</a>
+				<p>You are more than welcome to contribute to the repository!</p>
+				<a href="#roadmap" id="roadmap" style="color: inherit; text-decoration: none;">
+					<h1>Roadmap</h1>
+				</a>
+				<ul>
+					<li>More examples</li>
+					<li>More tests</li>
+					<li>Perhaps more functionality</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/xmlapi.html">Xml<wbr>Api</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/audioutility.html" class="tsd-kind-icon">Audio<wbr>Utility</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/tcptally.html" class="tsd-kind-icon">Tcp<wbr>Tally</a>
+					</li>
+					<li class=" tsd-kind-property">
+						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

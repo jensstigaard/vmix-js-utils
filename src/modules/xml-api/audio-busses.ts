@@ -3,9 +3,13 @@ import _ from 'lodash'
 import xpath from 'xpath'
 
 // Types
-import { AudioBus, MasterAudioBus } from '../types/audio-bus'
+import { AudioBus, MasterAudioBus } from '../../types/audio-bus'
 
-// Map single audio bus info from XML
+/**
+ * Helper function: Map single audio bus info from XML
+ * @param audioBusNode
+ * @returns 
+ */
 function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 
 	// Map all base attributes of input
@@ -23,20 +27,27 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 	const mutedAttr = audioBusNode.attributes.getNamedItem('muted')
 	const meterF1attr = audioBusNode.attributes.getNamedItem('meterF1')
 	const meterF2attr = audioBusNode.attributes.getNamedItem('meterF2')
+	// Optional attributes
+	const customName = audioBusNode.attributes.getNamedItem('name')
 
 	// Guard missing attributes
 	if (!volumeAttr || !mutedAttr || !meterF1attr || !meterF2attr) {
-		throw new Error(`Audio bus did not contain necessary attributes`)
+		throw new Error(`Audio bus ${abbr} did not contain necessary attributes`)
 	}
 
-	// Parsed info
+	// Parse audio bus info into class object
 	const bus = {
 		name,
 		abbr,
 		muted: String(mutedAttr.nodeValue) === 'True',
 		volume: Number(volumeAttr.nodeValue),
 		meterF1: Number(meterF1attr.nodeValue),
-		meterF2: Number(meterF2attr.nodeValue)
+		meterF2: Number(meterF2attr.nodeValue),
+	} as AudioBus
+
+	// Parse custom audio bus name
+	if (customName && customName.nodeValue && customName.nodeValue.length > 0) {
+		bus.customName = customName.nodeValue
 	}
 
 	// For master bus only - Append headphones volume
@@ -47,18 +58,21 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 			return {
 				...bus,
 				headphonesVolume: Number(headphonesVolumeAttr.nodeValue)
-			}
+			} as MasterAudioBus
 		}
 	}
-
 
 	return bus
 }
 
-export default class XmlAudio {
+/**
+ * Audio busses class
+ */
+export default class AudioBusses {
 
 	/**
-	 * All busses
+	 * Extract info for all audio channels (master + busses) from XML document
+	 * 
 	 * @param xmlDocument
 	 */
 	static all(xmlDocument: Document): { [key: string]: AudioBus } {
@@ -77,7 +91,7 @@ export default class XmlAudio {
 	}
 
 	/**
-	 * Busses (excluding master)
+	 * Extract all audio-busses from XML document (excluding master)
 	 *
 	 * @param xmlDocument
 	 */
@@ -100,7 +114,7 @@ export default class XmlAudio {
 	}
 
 	/**
-	 * Audio master bus
+	 * Extract master audio bus info from XML document
 	 * @param xmlDocument
 	 */
 	static master(xmlDocument: Document): MasterAudioBus {

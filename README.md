@@ -1,19 +1,12 @@
 # vMix-js-utils
 
-[![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://www.github/jensstigaard/vmix-js-utils)
+[![package json version](https://img.shields.io/github/package-json/v/jensstigaard/vmix-js-utils.svg)](https://github.com/jensstigaard/vmix-js-utils)
 [![npm version](https://badge.fury.io/js/vmix-js-utils.svg)](https://www.npmjs.com/package/vmix-js-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vmix-js-utils)](https://www.npmjs.com/package/vmix-js-utils)
 
 [![NPM Badge](https://nodei.co/npm/vmix-js-utils.png)](https://npmjs.com/package/vmix-js-utils)
 
-vMix API utility for Javascript can be used in either front or backend applications and includes the following modules:
- - [AudioUtility](#audio-utility)
- - [TcpTally](#tcp-tally)
- - [XmlApiDataParser](#xml-api-data-parser)
- - [XmlAudio](#xml-audio) (Master audio + busses)
- - [XmlInputMapper](#xml-input-mapper)
- - [XmlOverlayChannels](#xml-overlay-channels)
- - [XmlTransitions](#xml-transitions)
+vMix API utility for Javascript can be used in either front or backend applications.
 
 It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.
 
@@ -23,8 +16,8 @@ It is recommended to import the package as a NPM package. Alternatively you can 
 ---
 Simple use
 ```javascript
-import { ApiDataParser, InputMapper } from 'vmix-js-utils'
-
+// Import XML API functionality
+import { DataParser, InputMapping } from 'vmix-js-utils/modules/xml-api'
 ```
 
 # Purpose
@@ -32,128 +25,8 @@ The utilities consists of several modules. Each can be used on its own, but usua
 
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
-# Description of modules
-
-## Audio Utility
-Audio utility class to convert audio amplitude/volume/volumebar values.
-```javascript
-const volumeValue = 50 // value fetched from API
-
-AudioUtility.fromVolume(volumeValue).volumeBar() // Convert into volumeBar value (% - used in UI)
-```
-
-
-## Tcp Tally
-Interprets the tally info from the TCP service.
-
-`TcpTally.extractSummary(tallyString: string)` *(static)*: Extract summary of tally info. 
-**Format:**
-```javascript
-// Tally info summary
-{
-	program: Number[],
-	preview: Number[],
-	numberOfInputs: Number
-}
-```
-
-`TcpTally.extractInputs(tallyString: string)` *(static)*: Extract (full) info of inputs from tally. 
-**Format: Number[]**
-
----
-
-## Xml Api Data Parser
-Parses the raw XML data from vMix into parsed and structured XML that can be more easily manipulated in JavaScript.
-All full XML responses from the API needs to be used to convert the content to a proper XML DOM object.
-
-`XmlApiDataParser.parse(xmlStringRaw)` *(static)*: Parse raw XML string content to XML document.
-
----
-
-## Xml Audio
-Audio info from master and busses from the vMix instance state.
-
-`XmlAudio.all(xmlDocument)` *(static)*: Extract info for all audio channels (master + busses) from XML content.
-
-`XmlAudio.busses(xmlDocument)` *(static)*: Extract all audioBusses from XML content.
-
-`XmlAudio.master(xmlDocument)` *(static)*: Extract audio master channel info from XML content.
-
----
-
-## Xml General State
-Get general state info from the vMix instance.
-
-Constructor inputting complete xmlDocument from vMix API
-```javascript
-const vMixGeneralState = new vMixGeneralState(xmlDocument)
-```
-
-Update with new data
-
-```.update(xmlDocument)```
-
-`.softwareVersion()` - `string` - Software version of vMix instance
-
-`.softwareEdition()` - `string` - Software edition of vMix instance
-
-`.recording()` - `boolean` - Is vMix instance recording?
-
-`.multiCoder()` - `boolean` - Is multiCorder module recording in vMix instance
-
-`.playList()` - `boolean` - Is playlist module active in vMix instance
-
-`.fullscreen()` - `boolean` - Is fullscreen active in vMix instance
-
----
-
-## Xml Input Mapper
-Maps the inputs from the vMix instance state to JSON objects.
-
-`XmlInputMapper.extractInputsFromXML(xmlDocument)` *(static)*: Extract all inputs from raw XML data using XPath.
-
-`XmlInputMapper.mapInput(xmlDocument, wantedAttributes?)` *(static)*: Map single input from XML content to JSON object.
-
-`XmlInputMapper.mapInputs(xmlDocument, wantedAttributes?)` *(static)*: Map all inputs from XML content to JSON objects.
-
-`XmlInputMapper.mapTallyInfo(xmlDocument, wantedAttributes?)` *(static)*: Map all (extracted) inputs to JSON objects.
-
----
-
-
-## Xml Overlay Channels State
-`XmlOverlayChannels.extract(xmlDocument)` *(static)* - 
-Returns a object of overlay channels state read from XML data. 
-
-**Format:**
-```javascript
-// Overlay channels state
-{
-	1: { inputNumber: Number|null, inPreview: Boolean },
-	2: { inputNumber: Number|null, inPreview: Boolean },
-	3: { inputNumber: Number|null, inPreview: Boolean },
-	4: { inputNumber: Number|null, inPreview: Boolean },
-	5: { inputNumber: Number|null, inPreview: Boolean },
-	6: { inputNumber: Number|null, inPreview: Boolean },
-}
-```
-
----
-
-## Xml Transitions
-`XmlTransitions.extract(xmlDocument)` *(static)* - Returns a object of transitions state read from XML data. 
-**Format:**
-```javascript
-// Transitions
-{
-	1: { effect: String, duration: Number },
-	2: { effect: String, duration: Number },
-	3: { effect: String, duration: Number },
-	4: { effect: String, duration: Number },
-}
-```
-
----
+# Documentation
+Please read the documentation under: https://jensstigaard.github.io/vmix-js-utils/.
 
 
 # Installation and use
@@ -162,22 +35,24 @@ Returns a object of overlay channels state read from XML data.
 The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your frontend project.
 Found here: https://www.npmjs.com/package/vmix-js-utils
 ```sh
-npm install vmix-js-utils --save # or 'yarn add vmix-js-utils'
+npm install vmix-js-utils --save
+# or 'yarn add vmix-js-utils -d'
 ```
 
 In your code the simplest way to import the modules is the following:
 
 ```javascript
-const { XmlApiDataParser, XmlGeneralState } = require('vmix-js-utils')
-
+const { DataParser, GeneralState } = require('vmix-js-utils/modules/xml-api')
 // ...
 ```
 
 You are also able to import all of the modules as a gathered variable, less elegant way:
 
 ```javascript
+// Import all vMix utils
 const vMixUtils = require('vmix-js-utils')
-
+// Import XML API functions
+const { DataParser, GeneralState } = vMixUtils.XmlApi
 // ...
 ```
 
@@ -191,14 +66,17 @@ The code can be cloned and tested as needed from the source code.
 git clone https://github.com/jensstigaard/vmix-js-utils.git
 cd vmix-js-utils
 ```
+
 Install dependencies
 ```sh
 npm install # or 'yarn'
 ```
+
 Compile TypeScript source code to JavaScript code
 ```sh
 npm build # or 'yarn build'
 ```
+
 Run tests
 ```sh
 npm test # or 'yarn test'
@@ -209,9 +87,10 @@ npm test # or 'yarn test'
 
 *Work in progress.*
 
-### XML Input mapper
-- [XML input mapper (all attributes)](./examples/xml-input-mapper.js)
-- [XML input mapper (attribute selection)](./examples/xml-input-mapper-selective.js)
+## XML API
+### Input mapping
+- [All attributes](./examples/xml-api/input-mapping.js)
+- [Selected attributes](./examples/xml-api/input-mapping-selective.js)
 
 
 # Authors

@@ -1,18 +1,18 @@
 {
   "name": "vmix-js-utils",
-  "version": "3.8.3",
+  "version": "4.0.0",
   "description": "vMix utilities for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": false,
   "scripts": {
     "build": "tsc",
     "build-test": "yarn build && yarn test",
-    "clean": "rm -irf ./dist/*",
+    "clean": "rm -ifr ./dist",
     "clean-build": "yarn clean && yarn build",
+    "docs": "yarn typedoc",
     "prepublish": "yarn run snyk-protect && yarn clean && yarn build",
     "snyk-protect": "snyk protect",
-    "test": "mocha"
+    "test": "mocha --recursive"
   },
   "repository": {
     "private": false,
@@ -24,7 +24,8 @@
     "vMix Live Video Switching software",
     "vMix API",
     "vMix Commands",
-    "vMix State"
+    "vMix State",
+    "vMix XML API"
   ],
   "author": "Jens Grønhøj Stigaard <jens@stigaard.info>",
   "license": "MIT",
@@ -35,14 +36,15 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "querystring": "^0.2.1",
-    "xmldom": "^0.4.0",
+    "xmldom": "^0.5.0",
     "xpath": "^0.0.32"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",
     "@types/xmldom": "^0.1.30",
-    "mocha": "^8.3.0",
+    "mocha": "^8.3.1",
     "snyk": "^1.460.0",
+    "typedoc": "^0.20.30",
     "typescript": "^4.2.2"
   },
   "snyk": true

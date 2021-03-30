@@ -1,10 +1,4 @@
-// Using assert library
-const assert = require('assert')
 
-// Import the modules
-const { XmlApiDataParser, XmlInputMapper } = require('../dist/index')
-
-const data = `
 <vmix>
 <version>20.0.0.55</version>
 <edition>Pro</edition>
@@ -95,66 +89,3 @@ file:///C:/Program Files (x86)/vMix/titles/Social/blank.png
 <busB volume="100" muted="False" meterF1="0" meterF2="0"/>
 </audio>
 </vmix>
-`
-const xmlDocument = XmlApiDataParser.parse(data)
-const inputs = XmlInputMapper.extractInputsFromXML(xmlDocument)
-
-// Manipulate to wanted format
-const inputsMap = XmlInputMapper.mapInputs(inputs)
-const inputsList = Object.values(inputsMap)
-
-describe('xml-input-mapper', function () {
-    it('should have 5 inputs from the sample data', function () {
-        // console.log(inputsList)
-
-        // Assert the inputs were found
-        assert.equal(inputsList.length, 5, 'Did not See expected number of inputs')
-    })
-
-    it('should have 2 default inputs from the sample data which is both blank', function () {
-
-        // Assert the inputs were found
-        assert.equal(inputsList[0].type, 'Blank')
-        assert.equal(inputsList[1].type, 'Blank')
-    })
-
-    it('should have input 1 as active preview', function () {
-        const preview = XmlInputMapper.extractPreviewFromXML(xmlDocument)
-
-        // Assert the preview input number
-        assert.equal(preview, 1)
-    })
-
-    it('should have input 2 as active program', function () {
-        const program = XmlInputMapper.extractProgramFromXML(xmlDocument)
-
-        // Assert the program input number
-        assert.equal(program, 2)
-    })
-
-    it('should have a GT title on input 3 with title fields extracted', function () {
-        const titleInput = inputsList[2]
-
-        // console.log(titleInput)
-
-        // Assert the input were found and with specific type
-        assert.equal(titleInput.type, 'GT')
-        // Assert all title fields loaded
-        assert.equal(titleInput.fields.length, 27)
-        // Assert all title fields loaded
-        assert.equal(titleInput.fields[0].name, 'Team Lineups.Text')
-    })
-
-    it('should have a Xaml title on input 5 with title fields extracted', function () {
-        const titleInput = inputsList[4]
-
-        // console.log(titleInput)
-
-        // Assert the input were found and with specific type
-        assert.equal(titleInput.type, 'Xaml')
-        // Assert all title fields loaded
-        assert.equal(titleInput.fields.length, 8)
-        // Assert all title fields loaded
-        assert.equal(titleInput.fields[0].name, 'FromUsername')
-    })
-})

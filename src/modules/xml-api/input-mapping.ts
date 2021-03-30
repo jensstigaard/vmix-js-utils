@@ -1,14 +1,21 @@
+
 // Imports
-import xpath, { SelectedValue } from 'xpath'
+import xpath from 'xpath'
 
 // Types
-import { TallySummary } from '../types/tcp'
+import { Input as InputType } from '../../types/input'
+import { TallySummary } from '../../types/tcp'
 
-export default class XmlInputMapper {
+/**
+ * XML API Input mapping
+ */
+export default class InputMapping {
 
     /**
      * Extract inputs XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * 
+     * @param {Document} xmlDocument
+     * @returns {Element[]}
      */
     static extractInputsFromXML(xmlDocument: Document): Element[] {
         return xpath.select("//vmix/inputs/input", xmlDocument) as Element[]
@@ -17,14 +24,15 @@ export default class XmlInputMapper {
     /**
      * Map input
      *
-     * @param input
-     * @param wantedAttributes 
+     * @param {Element} input
+     * @param {string | string[]} wantedAttributes
+     * @returns {InputType} 
      */
-    static mapInput(input: Element, wantedAttributes: string | string[] = '*') {
+    static mapInput(input: Element, wantedAttributes: string | string[] = '*'): InputType {
         const output: { [key: string]: any } = {}
 
         // Map all base attributes of input
-        for (let attrName in input.attributes) {
+        for (const attrName in input.attributes) {
             const attr: Attr = input.attributes[attrName]
 
             // Guard attribute not having name, being a function or nodeValue being a function
@@ -58,15 +66,15 @@ export default class XmlInputMapper {
 
                 output.fields = []
                 // A regular .forEach doesn't work on this somehow...
-                for (let i in input.childNodes) {
-                    const titleEl: Element = input.childNodes[i] as Element
+                for (const i in input.childNodes) {
+                    const titleFieldEl: Element = input.childNodes[i] as Element
 
                     // Guard child node does not have node name and the node is not of correct type
-                    if (!titleEl.nodeName || !['image', 'text'].includes(titleEl.nodeName)) {
+                    if (!titleFieldEl.nodeName || !['image', 'text'].includes(titleFieldEl.nodeName)) {
                         continue
                     }
 
-                    const nameAttr = titleEl.attributes.getNamedItem('name')
+                    const nameAttr = titleFieldEl.attributes.getNamedItem('name')
                     // Guard child node does not have a name attribute
                     if (!nameAttr) {
                         continue
@@ -74,9 +82,9 @@ export default class XmlInputMapper {
 
                     // Build fields of object from its attributes
                     const titleField: { [key: string]: any } = {
-                        type: titleEl.nodeName,
+                        type: titleFieldEl.nodeName,
                         name: nameAttr.nodeValue,
-                        value: (titleEl as Node).textContent?.trim()
+                        value: (titleFieldEl as Node).textContent?.trim()
                     }
 
                     output.fields.push(titleField)
@@ -134,12 +142,13 @@ export default class XmlInputMapper {
      * @param xmlInputs
      * @param wantedAttributes
      */
-    static mapInputs(xmlInputs: Element[], wantedAttributes: string | string[] = '*') {
+    static mapInputs(xmlInputs: Element[], wantedAttributes: string | string[] = '*'): InputType[] {
 
         // Map all data from raw input
-        var xmlInputsMapped = xmlInputs.map(input => XmlInputMapper.mapInput(input, wantedAttributes))
-        // Make a dictionary
-        let inputsDictionary: any = {}
+        var xmlInputsMapped = xmlInputs.map(input => InputMapping.mapInput(input, wantedAttributes))
+
+        // Make a dictionary and populate it
+        const inputsDictionary: any = {}
         xmlInputsMapped.forEach((input: any) => {
             inputsDictionary[input.key] = input
         })
@@ -147,11 +156,17 @@ export default class XmlInputMapper {
         return inputsDictionary
     }
 
+    /**
+     * Map tally info
+     * 
+     * @param {Document} xmlDocument
+     * @returns {TallySummary}
+     */
     static mapTallyInfo(xmlDocument: Document): TallySummary {
-        const inputInProgram: number = this.extractProgramFromXML(xmlDocument)
-        const inputInPreview: number = this.extractPreviewFromXML(xmlDocument)
+        const inputInProgram: number = this.extractProgramInputNumber(xmlDocument)
+        const inputInPreview: number = this.extractPreviewInputNumber(xmlDocument)
 
-        const numberOfInputs = XmlInputMapper.extractInputsFromXML(xmlDocument).length
+        const numberOfInputs = InputMapping.extractInputsFromXML(xmlDocument).length
         if (inputInPreview > numberOfInputs) {
             throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
         }
@@ -169,10 +184,10 @@ export default class XmlInputMapper {
 
 
     /**
-     * Extract active in prgoram XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * Extract active program input number from full XML document using XPath
+     * @param {Document} xmlDocument
      */
-    static extractProgramFromXML(xmlDocument: Document): number {
+    static extractProgramInputNumber(xmlDocument: Document): number {
         const node: Node = xpath.select("//vmix/active", xmlDocument, true) as Node
 
         if (!node) {
@@ -183,10 +198,10 @@ export default class XmlInputMapper {
     }
 
     /**
-     * Extract preview XML from full XML document using XPath
-     * @param {Node} xmlDocument
+     * Extract preview input number from full XML document using XPath
+     * @param {Document} xmlDocument
      */
-    static extractPreviewFromXML(xmlDocument: Document): number {
+    static extractPreviewInputNumber(xmlDocument: Document): number {
         const node: Node = xpath.select("//vmix/preview", xmlDocument, true) as Node
 
         if (!node) {
