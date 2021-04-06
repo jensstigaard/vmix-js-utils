@@ -42,10 +42,10 @@
   "devDependencies": {
     "@types/lodash": "^4.14.168",
     "@types/xmldom": "^0.1.30",
-    "mocha": "^8.3.1",
-    "snyk": "^1.460.0",
-    "typedoc": "^0.20.30",
-    "typescript": "^4.2.2"
+    "mocha": "^8.3.2",
+    "snyk": "^1.526.0",
+    "typedoc": "^0.20.35",
+    "typescript": "^4.2.3"
   },
   "snyk": true
 }
