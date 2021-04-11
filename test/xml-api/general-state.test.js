@@ -34,7 +34,11 @@ describe('xml-general-state', function () {
     })
 
     it('should state whether external is active or not', function () {
-        assert.strictEqual(vMixGeneralState.external(), false)
+        assert.strictEqual(vMixGeneralState.externalOutput(), false)
+    })
+
+    it('should state whether fullscreen is active or not', function () {
+        assert.strictEqual(vMixGeneralState.fullscreenOutput(), false)
     })
 
     it('should state whether is streaming or not', function () {
@@ -42,14 +46,10 @@ describe('xml-general-state', function () {
     })
 
     it('should state whether playlist is active or not', function () {
-        assert.strictEqual(vMixGeneralState.playlist(), false)
+        assert.strictEqual(vMixGeneralState.playlistActive(), false)
     })
 
     it('should state whether multicorder is active or not', function () {
         assert.strictEqual(vMixGeneralState.multiCorder(), false)
-    })
-
-    it('should state whether fullscreen is active or not', function () {
-        assert.strictEqual(vMixGeneralState.fullscreen(), false)
     })
 })
