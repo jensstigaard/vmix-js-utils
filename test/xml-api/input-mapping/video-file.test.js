@@ -7,19 +7,16 @@ const assert = require('assert')
 
 // Import the modules
 const { XmlApi: vMixXmlApi } = require('../../../dist/index')
-const { PlayableInput } = require('../../../dist/types/input')
 
-const TEST_DATA_FILE_PATH = './_data/video.xml'
+// Raw XML data
+const RAW_XML_DATA = `<vmix><inputs>
+<input key="28143da4-fe95-4ea8-a41d-2dd7c588cd21" number="1" type="Video" title="Grey 3D Flourish.mp4" shortTitle="Grey 3D Flourish.mp4" state="Running" position="22797" duration="30000" markIn="15320" loop="True" muted="False" volume="100" balance="0" solo="False" audiobusses="M" meterF1="0" meterF2="0" gainDb="0">Grey 3D Flourish.mp4</input>
+</inputs></vmix>`
 
-// Read XML file as utf-8
-const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
+const xmlInputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)
+const inputs = vMixXmlApi.Inputs.map(xmlInputs)
 
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
-const inputs = vMixXmlApi.Inputs.map(
-    vMixXmlApi.Inputs.extractInputsFromXML(
-        xmlDocument
-    )
-)
 const input = inputs[0]
 
 describe('xml-api-video-input-mapper', function () {
