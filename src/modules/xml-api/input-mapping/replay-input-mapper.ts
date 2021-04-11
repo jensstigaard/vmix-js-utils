@@ -34,7 +34,9 @@ export class ReplayInputMapper extends PlayableInputMapper {
 		const replayEl = xpath.select1('replay', input) as Element
 
 		if (!replayEl) {
-			throw new Error(`Input no. ${baseOutput.number} '${baseOutput.title}' did not contain required child node element 'replay'...`)
+			throw new Error(
+				`Input no. ${baseOutput.number} '${baseOutput.title}' did not contain required child node element 'replay'...`
+			)
 		}
 
 		// console.log(replayEl)
@@ -45,7 +47,9 @@ export class ReplayInputMapper extends PlayableInputMapper {
 		this.requiredReplayAttributes.forEach(attrName => {
 			const attr = replayEl.attributes.getNamedItem(attrName)
 			if (!attr) {
-				throw new Error(`Replay element under input no. ${baseOutput.number} '${baseOutput.title}' did not contain required attribute '${attrName}'...`)
+				throw new Error(
+					`Replay element under input no. ${baseOutput.number} '${baseOutput.title}' did not contain required attribute '${attrName}'...`
+				)
 			}
 		})
 
