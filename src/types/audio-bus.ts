@@ -1,4 +1,6 @@
-
+/**
+ * Audio bus type
+ */
 export type AudioBus = {
 	abbr: string
 	name: string
@@ -7,7 +9,7 @@ export type AudioBus = {
 	volume: number
 	muted: boolean
 
-	// Latest readout
+	// Latest readout of audio signal value
 	meterF1: number
 	meterF2: number
 
@@ -15,7 +17,10 @@ export type AudioBus = {
 	customName?: string
 }
 
-// Master AudioBus extends AudioBus type
+/**
+ * Master AudioBus type
+ * Extends generic AudioBus type
+ */
 export type MasterAudioBus = AudioBus & {
 	headphonesVolume: number
 }

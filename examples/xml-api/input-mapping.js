@@ -17,14 +17,13 @@ const data = `
 
 
 const xmlDocument = vMixXmlApi.DataParser.parse(data)
-const inputs = vMixXmlApi.InputMapping.extractInputsFromXML(xmlDocument)
+const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)
 
 // Manipulate to wanted format
-const inputsMap = vMixXmlApi.InputMapping.mapInputs(inputs)
-const inputsList = Object.values(inputsMap)
+const inputs = vMixXmlApi.Inputs.map(inputs)
 
 console.log('Number of inputs in vMix')
-console.log(inputsList.length)
+console.log(inputs.length)
 
 console.log('Title of first input')
-console.log(inputsList[0].title)
+console.log(inputs[0].title)

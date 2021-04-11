@@ -28,7 +28,7 @@ export default class OverlayChannels {
 					throw new Error('Overlay channel did not contain channel number')
 				}
 
-				const channelNumber: number = Number(overlayChannelNumberAttr.nodeValue)
+				const channelNumber: number = Number(overlayChannelNumberAttr.value)
 
 				// // Guard channel number
 				// if (channelNumber < 1 || channelNumber > 8) {
@@ -38,7 +38,7 @@ export default class OverlayChannels {
 				return {
 					channelNumber,
 					inputNumber: overlayNode.textContent ? Number(overlayNode.textContent) : null,
-					inPreview: previewAttr?.nodeValue === 'True'
+					inPreview: previewAttr?.value === 'True'
 				}
 			}),
 			'channelNumber'

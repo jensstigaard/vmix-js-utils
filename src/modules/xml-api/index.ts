@@ -4,7 +4,7 @@ import DataParser from './data-parser'
 import DynamicInputs from './dynamic-inputs'
 import DynamicValues from './dynamic-values'
 import GeneralState from './general-state'
-import InputMapping from './input-mapping'
+import Inputs from './inputs'
 import OverlayChannels from './overlay-channels'
 import Transitions from './transitions'
 
@@ -15,7 +15,7 @@ export {
 	DynamicInputs,
 	DynamicValues,
 	GeneralState,
-	InputMapping,
+	Inputs,
 	OverlayChannels,
 	Transitions
 }

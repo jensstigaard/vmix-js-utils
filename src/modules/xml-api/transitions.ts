@@ -25,7 +25,7 @@ export default class XmlTransitions {
 					throw new Error('Necessary attributes not found in transition')
 				}
 
-				const transitionNumber: number = Number(transitionNumberAttr.nodeValue)
+				const transitionNumber: number = Number(transitionNumberAttr.value)
 
 				if (!([1, 2, 3, 4].includes(transitionNumber))) {
 					throw new Error('Transition number not valid...')
@@ -35,8 +35,8 @@ export default class XmlTransitions {
 
 				return {
 					number: transitionNumber,
-					effect: String(effectAttr.nodeValue),
-					duration: Number(durationAttr.nodeValue)
+					effect: String(effectAttr.value),
+					duration: Number(durationAttr.value)
 				}
 			}),
 			'number'

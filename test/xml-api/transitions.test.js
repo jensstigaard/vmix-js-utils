@@ -8,7 +8,7 @@ const assert = require('assert')
 // Import the modules
 const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
-const TEST_DATA_FILE_PATH = './data/transitions.xml'
+const TEST_DATA_FILE_PATH = './_data/transitions.xml'
 
 // Read XML file as utf-8
 const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')

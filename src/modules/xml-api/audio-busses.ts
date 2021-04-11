@@ -39,15 +39,15 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 	const bus = {
 		name,
 		abbr,
-		muted: String(mutedAttr.nodeValue) === 'True',
-		volume: Number(volumeAttr.nodeValue),
-		meterF1: Number(meterF1attr.nodeValue),
-		meterF2: Number(meterF2attr.nodeValue),
+		muted: String(mutedAttr.value) === 'True',
+		volume: Number(volumeAttr.value),
+		meterF1: Number(meterF1attr.value),
+		meterF2: Number(meterF2attr.value),
 	} as AudioBus
 
 	// Parse custom audio bus name
-	if (customName && customName.nodeValue && customName.nodeValue.length > 0) {
-		bus.customName = customName.nodeValue
+	if (customName && customName.value && customName.value.length > 0) {
+		bus.customName = customName.value
 	}
 
 	// For master bus only - Append headphones volume
@@ -57,7 +57,7 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 		if (headphonesVolumeAttr) {
 			return {
 				...bus,
-				headphonesVolume: Number(headphonesVolumeAttr.nodeValue)
+				headphonesVolume: Number(headphonesVolumeAttr.value)
 			} as MasterAudioBus
 		}
 	}
