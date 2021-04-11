@@ -41,8 +41,10 @@ function mapSingleAudioBus(audioBusNode: Element): AudioBus | MasterAudioBus {
 		abbr,
 		muted: String(mutedAttr.value) === 'True',
 		volume: Number(volumeAttr.value),
-		meterF1: Number(meterF1attr.value),
-		meterF2: Number(meterF2attr.value),
+		audioMeter: {
+			left: Number(meterF1attr.value),
+			right: Number(meterF2attr.value),
+		}
 	} as AudioBus
 
 	// Parse custom audio bus name

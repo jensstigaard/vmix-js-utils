@@ -60,11 +60,13 @@ export type VideoListInput = PlayableInput & {
 export type GenericAudioInput = BaseInput & {
 	muted: boolean
 	volume: number
-	balance: number
+	balance: number // -1=left, 0=center, 1=right
 	solo: boolean
 	audiobusses: string[]
-	meterF1: number
-	meterF2?: number // Channel two is optional (can be mono)
+	audioMeter: {
+		left: number
+		right: number
+	},
 	gainDb?: number // Introduced in vMix 24
 }
 

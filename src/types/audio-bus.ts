@@ -9,9 +9,11 @@ export type AudioBus = {
 	volume: number
 	muted: boolean
 
-	// Latest readout of audio signal value
-	meterF1: number
-	meterF2: number
+	// Latest readout of audio meter (signal) value
+	audioMeter: {
+		left: number
+		right: number
+	}
 
 	// Custom name (since vMix 24.0.0.46)
 	customName?: string
