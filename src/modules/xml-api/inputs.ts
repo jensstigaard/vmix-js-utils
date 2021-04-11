@@ -26,11 +26,22 @@ export default class Inputs {
      * @param {Document} xmlDocument
      * @returns {Element[]}
      */
-    static extractInputsFromXML(xmlDocument: Document, options: { filters?: { number?: number[], type?: string[], hasAttrs?: string[] } } = {}): Element[] {
+    static extractInputsFromXML(
+        xmlDocument: Document,
+        options: {
+            filters?: { number?: number[], type?: string[], hasAttrs?: string[] }
+        } = {}
+    ): Element[] {
         // console.log('Options', options)
         let xpathQuery = '//vmix/inputs/input'
 
+
         if (options.filters) {
+            // XPath filtering
+            // Attribute existance:https://stackoverflow.com/questions/3737906/xpath-how-to-check-if-an-attribute-exists
+            // Attribute value(s) query: https://stackoverflow.com/questions/46503195/xpath-one-of-multiple-attribute-values-with-condition
+            // Multiple attributes and/or query: https://stackoverflow.com/questions/2009268/how-to-write-an-xpath-query-to-match-two-attributes
+
             const filters = options.filters
             // Inject 'specific input-numbers'-filter into XPath query
             // Inclusive filter
@@ -69,7 +80,7 @@ export default class Inputs {
             }
         }
 
-        console.log('XPATH QUERY', xpathQuery)
+        // console.log('XPATH QUERY', xpathQuery)
         // process.exit()
 
         return xpath.select(xpathQuery, xmlDocument) as Element[]
