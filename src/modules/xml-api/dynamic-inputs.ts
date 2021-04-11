@@ -13,7 +13,10 @@ export default class DynamicInputs {
 	 * @returns { [key: number]: number | null }
 	 */
 	static extract(xmlDocument: Document): { [key: number]: number | null } {
-		const dynamicValuesElsFound: Element[] = xpath.select("//vmix/dynamic/*[starts-with(name(), 'input')]", xmlDocument) as Element[]
+		const dynamicValuesElsFound: Element[] = xpath.select(
+			"//vmix/dynamic/*[starts-with(name(), 'input')]",
+			xmlDocument,
+		) as Element[]
 
 		// console.log('dynamic input elements found', dynamicValuesElsFound.length)
 

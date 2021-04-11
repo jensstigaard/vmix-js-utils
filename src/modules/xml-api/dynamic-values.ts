@@ -13,7 +13,10 @@ export default class DynamicValues {
 	 * @returns { [key: number]: string | null }
 	 */
 	static extract(xmlDocument: Document): { [key: number]: string | null } {
-		const dynamicValuesElsFound: Element[] = xpath.select("//vmix/dynamic/*[starts-with(name(), 'value')]", xmlDocument) as Element[]
+		const dynamicValuesElsFound: Element[] = xpath.select(
+			"//vmix/dynamic/*[starts-with(name(), 'value')]",
+			xmlDocument,
+		) as Element[]
 
 		// console.log('dynamic value elements found', dynamicValuesElsFound.length)
 

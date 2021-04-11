@@ -35,7 +35,9 @@ export abstract class BaseInputMapper implements MapperInterface {
 		this.requiredAttributes.forEach(attrName => {
 			const attr = input.attributes.getNamedItem(attrName)
 			if (!attr) {
-				throw new Error(`Input no. ${output.number} '${output.title}' did not contain required attribute '${attrName}'...`)
+				throw new Error(
+					`Input no. ${output.number} '${output.title}' did not contain required attribute '${attrName}'...`
+				)
 			}
 		})
 
