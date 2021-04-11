@@ -8,6 +8,7 @@ import { SrtStreamInputMapper } from './srt-stream-input-mapper'
 import { StreamInputMapper } from './stream-input-mapper'
 import { TitleInputMapper } from './title-input-mapper'
 import { VideoInputMapper } from './video-input-mapper'
+import { VirtualSetInputMapper } from './virtual-set-input-mapper'
 
 export const InputMappers: { [key: string]: BaseInputMapper } = {
 	Audio: new AudioInputMapper,
@@ -18,5 +19,6 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	SRT: new SrtStreamInputMapper,
 	Stream: new StreamInputMapper,
 	Title: new TitleInputMapper,
-	Video: new VideoInputMapper
+	Video: new VideoInputMapper,
+	VirtualSet: new VirtualSetInputMapper,
 }

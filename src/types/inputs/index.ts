@@ -57,27 +57,6 @@ export type PhotosInput = PlayableInput & {
 }
 
 /**
- * Virtual Set input type
- */
-export type VirtualSetInput = PlayableInput & {
-	layers: {
-		index: number
-		key: string
-
-		position: {
-			pan: {
-				x: number
-				y: number
-			}
-			zoom: {
-				x: number
-				y: number
-			}
-		} | undefined
-	}[]
-}
-
-/**
  * Input type
  */
 export type InputType = 'Audio' // Microphone or other live audio source
