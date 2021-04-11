@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "build-test": "yarn build && yarn test",
-    "clean": "rm -fir ./dist",
+    "clean": "rm -ifr ./dist",
     "clean-build": "yarn clean && yarn build",
     "docs": "yarn typedoc",
     "prepublish": "yarn run snyk-protect && yarn clean && yarn build",
