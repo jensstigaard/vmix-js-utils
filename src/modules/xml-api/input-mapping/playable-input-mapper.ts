@@ -1,5 +1,7 @@
+// Types
+import { PlayableInput } from '../../../types/inputs'
+// Mappers
 import { BaseInputMapper } from './base-input-mapper'
-import { PlayableInput } from '../../../types/input'
 
 export abstract class PlayableInputMapper extends BaseInputMapper {
 	requiredAttributes = ['shortTitle', 'state', 'position', 'duration']

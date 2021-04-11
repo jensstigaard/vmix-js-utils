@@ -1,5 +1,7 @@
+// Types
+import { GenericAudioInput } from '../../../types/inputs/audio'
+// Mappers
 import { BaseInputMapper } from './base-input-mapper'
-import { GenericAudioInput } from '../../../types/input'
 
 export class GenericAudioInputMapper extends BaseInputMapper {
 	requiredAttributes = [

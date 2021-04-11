@@ -1,3 +1,5 @@
+import { GenericAudioInput } from './audio'
+
 /**
  * Generic input
  * NOTE! Should not be used!
@@ -35,45 +37,45 @@ export type PlayableInput = BaseInput & {
 /**
  * Video input
  */
-export type VideoInput = PlayableInput
+export type VideoInput = PlayableInput & GenericAudioInput
 
 /**
  * Video list input type
  * (extends playable input)
  */
-export type VideoListInput = PlayableInput & {
+export type VideoListInput = VideoInput & {
 	selectedIndex: number
 	list?: string[]
 }
 
 /**
- * Generic audio input type
- * Can be any input containing audio channels, i.e.
- *  - Microphone
- *  - Camera
- *  - vMix Call
- *  - Audio file
- *  - Video file
- *  - NDI source
- *  - SRT input
+ * Photos input type
  */
-export type GenericAudioInput = BaseInput & {
-	muted: boolean
-	volume: number
-	balance: number // -1=left, 0=center, 1=right
-	solo: boolean
-	audiobusses: string[]
-	audioMeter: {
-		left: number
-		right: number
-	},
-	gainDb?: number // Introduced in vMix 24
+export type PhotosInput = PlayableInput & {
+	numberOfPhotos: number
+	currentPhotoIndex: number
 }
 
 /**
- * Audio File input type
+ * Virtual Set input type
  */
-export type AudioFileInput = BaseInput & GenericAudioInput & PlayableInput
+export type VirtualSetInput = PlayableInput & {
+	layers: {
+		index: number
+		key: string
+
+		position: {
+			pan: {
+				x: number
+				y: number
+			}
+			zoom: {
+				x: number
+				y: number
+			}
+		} | undefined
+	}[]
+}
 
 /**
  * Input type
@@ -88,12 +90,14 @@ export type InputType = 'Audio' // Microphone or other live audio source
 	| 'Image'
 	| 'ImageSequence'
 	| 'Photos' // Photos slideshow
-	| 'Srt' // SRT stream
+	| 'Stream' // RTSP stream
+	| 'SRT' // SRT stream
 	| 'Xaml' // XAML title
 	| 'Video' // Video or audio file
 	| 'VideoDelay' // Video delay
 	| 'VideoList' // List of video or audio files
 	| 'VirtualSet'
+	| 'VLC' // VLC stream
 	| string // Allow arbitary string value to allow non-listed input types
 
 /**

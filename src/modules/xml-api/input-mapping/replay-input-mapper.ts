@@ -1,8 +1,8 @@
 import xpath from 'xpath'
-
+// Types
+import { ReplayInput, ChannelMode, ReplayChannelVariables, CameraNumber } from '../../../types/inputs/replay'
+// Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
-import { ReplayInput, ChannelMode, ReplayChannelVariables, CameraNumber } from '../../../types/input/replay'
-
 
 export class ReplayInputMapper extends PlayableInputMapper {
 	// Required replay attributes (in sub element)
@@ -14,16 +14,13 @@ export class ReplayInputMapper extends PlayableInputMapper {
 	]
 
 	private mapChannel(replayEl: Element, channel: 'A' | 'B'): ReplayChannelVariables {
-
-		const timecodeNode = replayEl.childNodes
-
-		console.log('replay el keys:', Object.keys(replayEl.childNodes))
+		const timecodeEl = xpath.select1(`timecode${channel}`, replayEl) as Element
 
 		return {
 			eventBank: Number(replayEl.attributes.getNamedItem(`events${channel}`)!.value),
 			camera: Number(replayEl.attributes.getNamedItem(`camera${channel}`)!.value) as CameraNumber,
 			speed: Number(replayEl.attributes.getNamedItem(`speed${channel}`)!.value),
-			timecode: new Date,
+			timecode: new Date(String(timecodeEl.textContent)),
 		}
 	}
 
@@ -53,6 +50,7 @@ export class ReplayInputMapper extends PlayableInputMapper {
 			}
 		})
 
+		const timecodeEl = xpath.select1('timecode', replayEl) as Element
 
 		const replay = {
 			live: replayEl.attributes.getNamedItem('live') ? Boolean(replayEl.attributes.getNamedItem('live')!.value === 'True') : false,
@@ -62,7 +60,7 @@ export class ReplayInputMapper extends PlayableInputMapper {
 
 			eventBank: Number(replayEl.attributes.getNamedItem('events')!.value),
 			speed: Number(replayEl.attributes.getNamedItem('speed')!.value),
-			timecode: new Date,
+			timecode: new Date(String(timecodeEl.textContent)),
 
 			// Replay channel specific variables
 			channelA: this.mapChannel(replayEl, 'A'),

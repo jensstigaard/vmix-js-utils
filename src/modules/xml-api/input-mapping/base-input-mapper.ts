@@ -1,5 +1,7 @@
+// Types
+import { BaseInput } from '../../../types/inputs'
+// Mappers
 import { MapperInterface } from './mapper-interface'
-import { BaseInput } from '../../../types/input'
 
 export abstract class BaseInputMapper implements MapperInterface {
 

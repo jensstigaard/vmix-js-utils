@@ -1,9 +1,9 @@
 
 import { PlayableInputMapper } from './playable-input-mapper'
-import { VideoInput } from '../../../types/input'
+import { PlayableInput } from '../../../types/inputs'
 
 export class ReplayPreviewInputMapper extends PlayableInputMapper {
-	map(input: Element): VideoInput {
+	map(input: Element): PlayableInput {
 		// Map base output attributes
 		const output = {
 			...super.map(input),
