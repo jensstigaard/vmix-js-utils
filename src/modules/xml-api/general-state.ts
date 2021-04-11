@@ -5,9 +5,14 @@ import xpath from 'xpath'
 // Types
 // import { AudioBus, MasterAudioBus } from '../types/audio-bus'
 
-//
+/**
+ * Read out of General state of vMix instance
+ */
 export default class XmlState {
-	_data: Node
+	/**
+	 * Raw data from last known state of vmix instance
+	 */
+	_data: Document
 
 	constructor(xmlDocument: Document) {
 		this._data = xmlDocument
@@ -19,93 +24,113 @@ export default class XmlState {
 
 	/**
 	 * Software version
-	 * @returns
+	 * @returns I.e. 24.0.0.50
 	 */
-	softwareVersion(): string {
-		const node: Element = xpath.select('//vmix/version', this._data, true) as Element
+	softwareVersion(xmlDocument?: Document): string {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/version', this._data) as Element
 
-		return node.textContent!
+		return el.textContent!
 	}
 
 	/**
 	 * Software edition
-	 * Value one of following: Free, Basic, HD, 4K, Pro
-	 * @returns 
+	 * 
+	 * @returns One of following values: Free, Basic, HD, 4K, Pro
 	 */
-	softwareEdition(): string {
-		const node: Element = xpath.select('//vmix/edition', this._data, true) as Element
+	softwareEdition(xmlDocument?: Document): string {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/edition', this._data) as Element
 
-		return node.textContent!
+		return el.textContent!
 	}
 
 	/**
 	 * Is currently faded to black?
-	 * @returns
 	 */
-	fadedToBlack(): boolean {
-		const node: Element = xpath.select('//vmix/fadeToBlack', this._data, true) as Element
+	fadedToBlack(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/fadeToBlack', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
-	 * Is recording currently
-	 * @returns
+	 * Is currently recording?
 	 */
-	recording(): boolean {
-		const node: Element = xpath.select('//vmix/recording', this._data, true) as Element
+	recording(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/recording', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
 	 * Is external output enabled?
-	 * @returns
 	 */
-	external(): boolean {
-		const node: Element = xpath.select('//vmix/recording', this._data, true) as Element
+	externalOutput(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/recording', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
 	 * Is currently streaming?
-	 * @returns
 	 */
-	streaming(): boolean {
-		const node: Element = xpath.select('//vmix/streaming', this._data, true) as Element
+	streaming(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/streaming', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
 	 * Is currently playing back using the playlist module?
-	 * @returns
 	 */
-	playlist(): boolean {
-		const node: Element = xpath.select('//vmix/playList', this._data, true) as Element
+	playlistActive(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/playList', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
-	 * Is multicorder currently enabled?
-	 * @returns
+	 * Is the multicorder module currently recording?
 	 */
-	multiCorder(): boolean {
-		const node: Element = xpath.select('//vmix/multiCorder', this._data, true) as Element
+	multiCorder(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/multiCorder', this._data) as Element
 
-		return node.textContent! === 'True'
+		return el.textContent! === 'True'
 	}
 
 	/**
-	 * Is fullscreen mode currently enabled?
-	 * 
-	 * @returns 
+	 * Is fullscreen output currently enabled?
 	 */
-	fullscreen(): boolean {
-		const node: Element = xpath.select('//vmix/fullscreen', this._data, true) as Element
+	fullscreenOutput(xmlDocument?: Document): boolean {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
 
-		return node.textContent! === 'True'
+		const el: Element = xpath.select1('//vmix/fullscreen', this._data) as Element
+
+		return el.textContent! === 'True'
 	}
 }
