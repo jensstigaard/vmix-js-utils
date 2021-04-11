@@ -39,7 +39,7 @@ export abstract class BaseInputMapper implements MapperInterface {
 			}
 		})
 
-		console.log('YES', output)
+		// console.log('YES', output)
 		// Map required attributes
 		return output
 	}
