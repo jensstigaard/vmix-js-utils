@@ -1,7 +1,7 @@
-import { BaseInputMapper } from './base-input-mapper'
+import { PlayableInputMapper } from './playable-input-mapper'
 import { TitleInput, TitleField, TitleFieldType } from '../../../types/input/title'
 
-export class TitleInputMapper extends BaseInputMapper {
+export class TitleInputMapper extends PlayableInputMapper {
 	map(input: Element): TitleInput {
 		// Map base output attributes
 		const output = {
