@@ -5,10 +5,11 @@ import DynamicInputs from './dynamic-inputs'
 import DynamicValues from './dynamic-values'
 import GeneralState from './general-state'
 import Inputs from './inputs'
+import InstantReplay from './instant-replay'
 import OverlayChannels from './overlay-channels'
 import Transitions from './transitions'
 
-// Re-export
+// Re-export modules
 export {
 	AudioBusses,
 	DataParser,
@@ -16,6 +17,7 @@ export {
 	DynamicValues,
 	GeneralState,
 	Inputs,
+	InstantReplay,
 	OverlayChannels,
 	Transitions
 }
