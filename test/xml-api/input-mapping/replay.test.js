@@ -33,7 +33,7 @@ const replayPreviewInput = inputs.find(input => input.type === 'ReplayPreview')
 // Check replay attributes
 const replay = replayInput.replay
 
-describe('xml-replay', function () {
+describe('xml-api-replay-input-mapper', function () {
 
     it('should have a replay input and replay preview from the sample data', function () {
         // console.log(replayInput)

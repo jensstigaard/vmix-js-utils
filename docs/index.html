@@ -65,12 +65,15 @@
 					<a href="https://www.npmjs.com/package/vmix-js-utils"><img src="https://badge.fury.io/js/vmix-js-utils.svg" alt="npm version"></a>
 				<a href="https://www.npmjs.com/package/vmix-js-utils"><img src="https://img.shields.io/npm/dm/vmix-js-utils" alt="npm downloads"></a></p>
 				<p><a href="https://npmjs.com/package/vmix-js-utils"><img src="https://nodei.co/npm/vmix-js-utils.png" alt="NPM Badge"></a></p>
-				<p>vMix API utility for Javascript can be used in either front or backend applications.</p>
-				<p>It is recommended to import the package as a NPM package. Alternatively you can download the source code and included it as a library manually.</p>
+				<p>vMix API utility library for Javascript can be used in either frontend or backend applications (NodeJS).</p>
+				<p>It is recommended to import the package as a NPM package.
+				Alternatively you can download the source code and included it as a library manually.</p>
 				<a href="#obs---nodejs-utility-for-vmix" id="obs---nodejs-utility-for-vmix" style="color: inherit; text-decoration: none;">
 					<h2>OBS - NodeJS utility for vMix</h2>
 				</a>
-				<p><strong>Note</strong>: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See <a href="https://github.com/jensstigaard/node-vmix">node-vmix</a> for more info. The node-vmix package is only for NodeJS applications, used for easy connection to vMix instances.</p>
+				<p><strong>Note</strong>: The NodeJS utility for communicating with vMix is branched out in its own repository/package - See <a href="https://github.com/jensstigaard/node-vmix">node-vmix</a> for more info.
+				The node-vmix package is only for NodeJS applications, used for easy connection to vMix instances.</p>
+				<p>This library can be used both in front-end and NodeJS projects.</p>
 				<hr>
 				<p>Simple use</p>
 				<pre><code class="language-javascript"><span style="color: #008000">// Import XML API functionality</span>
@@ -79,19 +82,23 @@
 				<a href="#purpose" id="purpose" style="color: inherit; text-decoration: none;">
 					<h1>Purpose</h1>
 				</a>
-				<p>The utilities consists of several modules. Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.</p>
-				<p>The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. </p>
+				<p>This library is a set of utilities consisting of several modules.
+					Each can be used on its own, but usually it makes more sense to make it interplay with some of the other modules.
+				This is demonstrated in <a href="#examples">the examples</a>.</p>
+				<p>The modules are coded as classes, meaning that they are constructed with specific parameters.</p>
+				<p>The source code is written in TypeScript, and compiled to javascript to allow it to be used as a npm package.
+				It includes type declarations for TypeScript support, meaning that you can type defer i.e. the input types.</p>
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h1>Documentation</h1>
 				</a>
-				<p>Please read the documentation under: <a href="https://jensstigaard.github.io/vmix-js-utils/">https://jensstigaard.github.io/vmix-js-utils/</a>.</p>
+				<p>Please read <a href="https://jensstigaard.github.io/vmix-js-utils/">the documentation</a>.</p>
 				<a href="#installation-and-use" id="installation-and-use" style="color: inherit; text-decoration: none;">
 					<h1>Installation and use</h1>
 				</a>
-				<a href="#as-a-dependency-using-npm" id="as-a-dependency-using-npm" style="color: inherit; text-decoration: none;">
-					<h2>As a dependency using npm</h2>
+				<a href="#as-a-dependency-using-npm-or-yarn" id="as-a-dependency-using-npm-or-yarn" style="color: inherit; text-decoration: none;">
+					<h2>As a dependency using npm (or yarn)</h2>
 				</a>
-				<p>The utilities are published at npmjs, meaning that you can easily add the utilities as a dependency in your frontend project.
+				<p>The library is published at npmjs as a package, meaning that you can easily add the utilities as a dependency in your project.
 				Found here: <a href="https://www.npmjs.com/package/vmix-js-utils">https://www.npmjs.com/package/vmix-js-utils</a></p>
 				<pre><code class="language-sh"><span style="color: #000000">npm install vmix-js-utils --save</span>
 <span style="color: #008000"># or &#039;yarn add vmix-js-utils -d&#039;</span>
@@ -100,22 +107,22 @@
 				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">DataParser</span><span style="color: #000000">, </span><span style="color: #0070C1">GeneralState</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;vmix-js-utils/modules/xml-api&#039;</span><span style="color: #000000">)</span>
 <span style="color: #008000">// ...</span>
 </code></pre>
-				<p>You are also able to import all of the modules as a gathered variable, less elegant way:</p>
+				<p>You are also able to import all of the modules as a gathered variable, but less elegant way:</p>
 				<pre><code class="language-javascript"><span style="color: #008000">// Import all vMix utils</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">vMixUtils</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;vmix-js-utils&#039;</span><span style="color: #000000">)</span>
 <span style="color: #008000">// Import XML API functions</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">DataParser</span><span style="color: #000000">, </span><span style="color: #0070C1">GeneralState</span><span style="color: #000000"> } = </span><span style="color: #001080">vMixUtils</span><span style="color: #000000">.</span><span style="color: #001080">XmlApi</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">DataParser</span><span style="color: #000000">, </span><span style="color: #0070C1">GeneralState</span><span style="color: #000000">, </span><span style="color: #0070C1">Inputs</span><span style="color: #000000"> } = </span><span style="color: #001080">vMixUtils</span><span style="color: #000000">.</span><span style="color: #001080">XmlApi</span>
 <span style="color: #008000">// ...</span>
 </code></pre>
 				<a href="#standalone-project--fork" id="standalone-project--fork" style="color: inherit; text-decoration: none;">
 					<h1>Standalone project / Fork</h1>
 				</a>
-				<p>The source code is written in TypeScript, and ported to javascript (including types for TypeScript support) to allow it to be used as a npm package.</p>
-				<p>The code can be cloned and tested as needed from the source code.</p>
+				<p>The code can be cloned and tested as needed from the source code.
+				It is especially useful when deveoping and extending the functionality.</p>
 				<pre><code class="language-sh"><span style="color: #000000">git clone https://github.com/jensstigaard/vmix-js-utils.git</span>
 <span style="color: #795E26">cd</span><span style="color: #000000"> vmix-js-utils</span>
 </code></pre>
-				<p>Install dependencies</p>
+				<p>To run the project as standalone locally, you may want to first install the dependencies</p>
 				<pre><code class="language-sh"><span style="color: #000000">npm install </span><span style="color: #008000"># or &#039;yarn&#039;</span>
 </code></pre>
 				<p>Compile TypeScript source code to JavaScript code</p>

@@ -26,7 +26,7 @@ const RAW_XML_DATA = `
 const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const transitions = vMixXmlApi.Transitions.extract(xmlDocument)
 
-describe('xml-replay', function () {
+describe('xml-transitions', function () {
     it('has a replay state when replay input is present', function () {
         assert.strictEqual(typeof transitions, 'object')
         assert.strictEqual(typeof transitions['1'], 'object')

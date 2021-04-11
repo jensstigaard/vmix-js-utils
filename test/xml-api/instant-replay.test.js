@@ -32,7 +32,7 @@ const instantReplayInput = vMixXmlApi.InstantReplay.get(xmlDocument)
 // Check replay attributes
 const replay = instantReplayInput.replay
 
-describe('xml-replay', function () {
+describe('xml-instant-replay', function () {
 
     it('should have a replay input and replay preview from the sample data', function () {
         // console.log(replayInput)

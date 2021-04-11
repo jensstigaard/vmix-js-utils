@@ -132,13 +132,13 @@
 					<a name="extractinputsfromxml" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> extract<wbr>Inputs<wbr>FromXML</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">extract<wbr>Inputs<wbr>FromXML<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span>, filters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>hasAttr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">extract<wbr>Inputs<wbr>FromXML<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>filters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>hasAttrs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>number<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L26">modules/xml-api/inputs.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L29">modules/xml-api/inputs.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -153,13 +153,21 @@
 									<h5>xmlDocument: <span class="tsd-signature-type">Document</span></h5>
 								</li>
 								<li>
-									<h5>filters: <span class="tsd-signature-symbol">{ </span>hasAttr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5>options: <span class="tsd-signature-symbol">{ </span>filters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>hasAttrs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>number<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = {}</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Attr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> filters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>hasAttrs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>number<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></h5>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter">
+													<h5><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Attrs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+												</li>
+												<li class="tsd-parameter">
+													<h5><span class="tsd-flag ts-flagOptional">Optional</span> number<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+												</li>
+												<li class="tsd-parameter">
+													<h5><span class="tsd-flag ts-flagOptional">Optional</span> type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
@@ -178,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L309">modules/xml-api/inputs.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L342">modules/xml-api/inputs.ts:342</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L293">modules/xml-api/inputs.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L326">modules/xml-api/inputs.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -240,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L109">modules/xml-api/inputs.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L142">modules/xml-api/inputs.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +278,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L246">modules/xml-api/inputs.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L279">modules/xml-api/inputs.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L62">modules/xml-api/inputs.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L95">modules/xml-api/inputs.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L132">modules/xml-api/inputs.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L165">modules/xml-api/inputs.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -362,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/1bbb9f6/src/modules/xml-api/inputs.ts#L266">modules/xml-api/inputs.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/ac55d75/src/modules/xml-api/inputs.ts#L299">modules/xml-api/inputs.ts:299</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -446,6 +454,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="xmlapi.instantreplay.html" class="tsd-kind-icon">Instant<wbr>Replay</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.overlaychannels.html" class="tsd-kind-icon">Overlay<wbr>Channels</a>
 					</li>
