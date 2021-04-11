@@ -10,14 +10,28 @@ const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
 const TEST_DATA_FILE_PATH = './_data/overlay-channels.xml'
 
-// Read XML file as utf-8
-const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')
+// Raw XML data
+const RAW_XML_DATA = `
+<vmix>
+    <version>24.0.0.56</version>
+	<overlays>
+		<overlay number="1"/>
+		<overlay number="2" preview="True">1</overlay>
+		<overlay number="3">2</overlay>
+		<overlay number="4"/>
+		<overlay number="5"/>
+		<overlay number="6"/>
+		<overlay number="7"/>
+		<overlay number="8"/>
+	</overlays>
+</vmix>
+`
 
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const overlays = vMixXmlApi.OverlayChannels.extract(xmlDocument)
 
 describe('xml-overlay-channels', function () {
-    it('should have 6 channels - 4 regular channels and 2 stinger channels', function () {
+    it('should have 8 channels - 4 regular overlay channels and 4 stinger channels', function () {
 
         assert.strictEqual(typeof overlays, 'object')
         assert.strictEqual(typeof overlays['1'], 'object')
@@ -26,6 +40,8 @@ describe('xml-overlay-channels', function () {
         assert.strictEqual(typeof overlays['4'], 'object')
         assert.strictEqual(typeof overlays['5'], 'object')
         assert.strictEqual(typeof overlays['6'], 'object')
+        assert.strictEqual(typeof overlays['7'], 'object')
+        assert.strictEqual(typeof overlays['8'], 'object')
 
         assert.strictEqual(overlays['1'].inputNumber, null)
         assert.strictEqual(overlays['1'].inPreview, false)
@@ -37,6 +53,14 @@ describe('xml-overlay-channels', function () {
 
         assert.strictEqual(overlays['2'].inputNumber, 1)
         assert.strictEqual(overlays['2'].inPreview, true)
+    })
+
+    it('should have input 2 in overlay channel 3', function () {
+        assert.strictEqual(typeof overlays, 'object')
+        assert.strictEqual(typeof overlays['3'], 'object')
+
+        assert.strictEqual(overlays['3'].inputNumber, 2)
+        assert.strictEqual(overlays['3'].inPreview, false)
     })
 
 })

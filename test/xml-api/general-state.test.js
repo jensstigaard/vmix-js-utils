@@ -8,17 +8,28 @@ const assert = require('assert')
 // Import the modules
 const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
-const TEST_DATA_FILE_PATH = './_data/general-state.xml'
+// Raw XML data
+const RAW_XML_DATA = `
 
-// Read XML file as utf-8
-const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')
+<vmix>
+	<version>24.0.0.56</version>
+	<edition>Pro</edition>
+	<fadeToBlack>False</fadeToBlack>
+	<recording>False</recording>
+	<external>False</external>
+	<streaming>False</streaming>
+	<playList>False</playList>
+	<multiCorder>False</multiCorder>
+	<fullscreen>False</fullscreen>
+</vmix>
+`
 
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const vMixGeneralState = new vMixXmlApi.GeneralState(xmlDocument)
 
 describe('xml-general-state', function () {
     it('should have software version number', function () {
-        assert.strictEqual(vMixGeneralState.softwareVersion(), '24.0.0.22', 'Did not see expected version')
+        assert.strictEqual(vMixGeneralState.softwareVersion(), '24.0.0.56', 'Did not see expected version')
     })
 
     it('should have a software edition', function () {

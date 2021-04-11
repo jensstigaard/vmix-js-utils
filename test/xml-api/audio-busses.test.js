@@ -9,12 +9,19 @@ const assert = require('assert')
 const { XmlApi: vMixXmlApi } = require('../../dist/index')
 const { AudioBusses } = vMixXmlApi
 
-const TEST_DATA_FILE_PATH = './_data/audio-busses.xml'
+// Raw XML data
+const RAW_XML_DATA = `
+<vmix>
+    <version>24.0.0.56</version>
+    <audio>
+        <master volume="100" muted="False" meterF1="0.01" meterF2="0.02" headphonesVolume="100"/>
+        <busA volume="100" muted="False" meterF1="0" meterF2="0"/>
+        <busB volume="100" muted="False" meterF1="0" meterF2="0" name="MyBus"/>
+    </audio>
+</vmix>
+`
 
-// Read XML file as utf-8
-const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')
-
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 
 describe('audio-busses', function () {
     it('should have a master bus from the sample data', function () {

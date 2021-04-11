@@ -13,5 +13,4 @@ describe('xml-api', function () {
     it('it can be imported directly in main module and in submodule', function () {
         assert.strictEqual(vMixApi, XmlApi)
     })
-
 })

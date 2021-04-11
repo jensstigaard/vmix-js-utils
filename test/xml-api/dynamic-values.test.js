@@ -8,12 +8,19 @@ const assert = require('assert')
 // Import the modules
 const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
-const TEST_DATA_FILE_PATH = './_data/dynamic-values.xml'
+// Raw XML data
+const RAW_XML_DATA = `
+<vmix>
+    <version>24.0.0.51</version>
+    <dynamic>
+        <value1>ABC</value1>
+        <value2/>
+        <value3/>
+        <value4/>
+    </dynamic>
+</vmix>`
 
-// Read XML file as utf-8
-const rawXmlData = fs.readFileSync(path.resolve(__dirname, TEST_DATA_FILE_PATH), 'utf-8')
-
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const dynamicValues = vMixXmlApi.DynamicValues.extract(xmlDocument)
 
 describe('xml-api-dynamic-values', function () {
