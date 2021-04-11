@@ -1,8 +1,3 @@
-
-// File system
-const fs = require('fs')
-const path = require('path')
-
 // Using assert library as test-library
 const assert = require('assert')
 

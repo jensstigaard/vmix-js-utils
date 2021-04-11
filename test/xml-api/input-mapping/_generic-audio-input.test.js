@@ -1,22 +1,20 @@
-// File system
-const fs = require('fs')
-const path = require('path')
-
 // Using assert library as test-library
 const assert = require('assert')
 
 // Import the modules
 const { XmlApi: vMixXmlApi } = require('../../../dist/index')
 
+// Raw XML data
+const RAW_XML_DATA = `
+<vmix>
+    <version>24.0.0.56</version>
+    <inputs>
+        <input key="38cc6e59-9877-4982-bc43-f3a34bcb3a79" number="2" type="Audio" title="Audio Microphone" shortTitle="Audio Microphone" state="Running" position="0" duration="0" loop="False" muted="False" volume="100" balance="0" solo="False" audiobusses="MA" meterF1="0.03915471" meterF2="0.0791242" gainDb="0">Audio Microphone</input>
+    </inputs>
+</vmix>
+`
 
-// Read XML file as utf-8
-const rawXmlData = `<vmix>
-<inputs>
-<input key="38cc6e59-9877-4982-bc43-f3a34bcb3a79" number="2" type="Audio" title="Audio Microphone" shortTitle="Audio Microphone" state="Running" position="0" duration="0" loop="False" muted="False" volume="100" balance="0" solo="False" audiobusses="MA" meterF1="0.03915471" meterF2="0.0791242" gainDb="0">Audio Microphone</input>
-</inputs>
-</vmix>`
-
-const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const xmlInputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)
 const inputs = vMixXmlApi.Inputs.map(xmlInputs)
 const input = inputs[0]

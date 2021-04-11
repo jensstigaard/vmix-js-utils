@@ -1,5 +1,5 @@
 // Types
-import { VideoInput } from '../../../types/inputs'
+import { VideoInput } from '../../../types/inputs/video'
 // Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
 import { GenericAudioInputMapper } from './generic-audio-input-mapper'

@@ -44,8 +44,8 @@ describe('xml-api-inputs-extraction', function () {
         assert.strictEqual(inputs.length, 3)
     })
 
-    it('should have 4 inputs having state-attribute', function () {
-        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: 'state' } })
+    it('should have 4 inputs having loop-attribute', function () {
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: 'loop' } })
         assert.strictEqual(inputs.length, 4)
     })
 
@@ -54,8 +54,8 @@ describe('xml-api-inputs-extraction', function () {
         assert.strictEqual(inputs.length, 3)
     })
 
-    it('should have 2 inputs having state and selectedIndex attribute', function () {
-        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: ['state', 'selectedIndex'] } })
+    it('should have 2 inputs having loop and selectedIndex attribute', function () {
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: ['loop', 'selectedIndex'] } })
         assert.strictEqual(inputs.length, 2)
     })
 })

@@ -1,7 +1,3 @@
-// File system
-const fs = require('fs')
-const path = require('path')
-
 // Using assert library as test-library
 const assert = require('assert')
 
@@ -9,9 +5,14 @@ const assert = require('assert')
 const { XmlApi: vMixXmlApi } = require('../../../dist/index')
 
 // Read XML data
-const RAW_XML_DATA = `<vmix><inputs>
-<input key="28143da4-fe95-4ea8-a41d-2dd7c588cd21" number="1" type="Blank" title="MyInputTitle" shortTitle="MyInputTitle">MyInputTitle</input>
-</inputs></vmix>`
+const RAW_XML_DATA = `
+<vmix>
+    <version>24.0.0.56</version>
+    <inputs>
+        <input key="28143da4-fe95-4ea8-a41d-2dd7c588cd21" number="1" type="Blank" title="MyInputTitle" shortTitle="MyInputTitle">MyInputTitle</input>
+    </inputs>
+</vmix>
+`
 
 const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const xmlInputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)

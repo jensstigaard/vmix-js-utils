@@ -1,7 +1,3 @@
-// File system
-const fs = require('fs')
-const path = require('path')
-
 // Using assert library as test-library
 const assert = require('assert')
 
@@ -10,7 +6,6 @@ const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
 // Raw XML data
 const RAW_XML_DATA = `
-
 <vmix>
 	<version>24.0.0.56</version>
 	<edition>Pro</edition>

@@ -35,28 +35,6 @@ export type PlayableInput = BaseInput & {
 }
 
 /**
- * Video input
- */
-export type VideoInput = PlayableInput & GenericAudioInput
-
-/**
- * Video list input type
- * (extends playable input)
- */
-export type VideoListInput = VideoInput & {
-	selectedIndex: number
-	list?: string[]
-}
-
-/**
- * Photos input type
- */
-export type PhotosInput = PlayableInput & {
-	numberOfPhotos: number
-	currentPhotoIndex: number
-}
-
-/**
  * Input type
  */
 export type InputType = 'Audio' // Microphone or other live audio source
@@ -68,6 +46,7 @@ export type InputType = 'Audio' // Microphone or other live audio source
 	| 'GT'
 	| 'Image'
 	| 'ImageSequence'
+	| 'NDI'
 	| 'Photos' // Photos slideshow
 	| 'Stream' // RTSP stream
 	| 'SRT' // SRT stream
@@ -84,4 +63,5 @@ export type InputType = 'Audio' // Microphone or other live audio source
  */
 export type InputState = 'Paused'
 	| 'Running'
+	| 'Completed'
 	| string // Allow arbitary string value to allow non-listed input state
