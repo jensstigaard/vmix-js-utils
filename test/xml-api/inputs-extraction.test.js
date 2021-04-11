@@ -17,7 +17,14 @@ const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
 
 
 describe('xml-api-inputs-extraction', function () {
-    it('should have 2 inputs of type blank', function () {
+
+    it('should have 2 inputs having input number 5, 6 or 7', function () {
+        // Input number 7 does not exist
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { number: [5, 6, 7] } })
+        assert.strictEqual(inputs.length, 2)
+    })
+
+    it('should have 2 inputs of type Blank', function () {
         const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { type: 'Blank' } })
         assert.strictEqual(inputs.length, 2)
     })
@@ -37,19 +44,18 @@ describe('xml-api-inputs-extraction', function () {
         assert.strictEqual(inputs.length, 3)
     })
 
-    it('should have 5 inputs having state-attribute', function () {
-        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttr: 'state' } })
-        assert.strictEqual(inputs.length, 5)
+    it('should have 4 inputs having state-attribute', function () {
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: 'state' } })
+        assert.strictEqual(inputs.length, 4)
     })
 
-    it('should have 5 inputs having selectedIndex-attribute', function () {
-        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttr: 'selectedIndex' } })
+    it('should have 3 inputs having selectedIndex-attribute', function () {
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: 'selectedIndex' } })
         assert.strictEqual(inputs.length, 3)
     })
 
-    it('should have 2 inputs having input number 5, 6 or 7', function () {
-        // Input number 7 does not exist
-        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { number: [5, 6, 7] } })
+    it('should have 2 inputs having state and selectedIndex attribute', function () {
+        const inputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument, { filters: { hasAttrs: ['state', 'selectedIndex'] } })
         assert.strictEqual(inputs.length, 2)
     })
 })

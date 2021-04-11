@@ -26,13 +26,14 @@ export default class Inputs {
      * @param {Document} xmlDocument
      * @returns {Element[]}
      */
-    static extractInputsFromXML(xmlDocument: Document, options: { filters?: { number?: number[], type?: string[], hasAttr?: string[] } } = {}): Element[] {
+    static extractInputsFromXML(xmlDocument: Document, options: { filters?: { number?: number[], type?: string[], hasAttrs?: string[] } } = {}): Element[] {
         // console.log('Options', options)
         let xpathQuery = '//vmix/inputs/input'
 
         if (options.filters) {
             const filters = options.filters
             // Inject 'specific input-numbers'-filter into XPath query
+            // Inclusive filter
             if (filters.number) {
                 xpathQuery += [
                     '[',
@@ -44,6 +45,7 @@ export default class Inputs {
             }
 
             // Inject 'specific input-types'-filter into XPath query
+            // Inclusive filter
             if (filters.type) {
                 xpathQuery += [
                     '[',
@@ -55,10 +57,11 @@ export default class Inputs {
             }
 
             // Inject attributes-filter into XPath query
-            if (filters.hasAttr) {
+            // Exclusive filter
+            if (filters.hasAttrs) {
                 xpathQuery += [
                     '[',
-                    arrayWrap(filters.hasAttr).map(attr => {
+                    arrayWrap(filters.hasAttrs).map(attr => {
                         return `@${attr}`
                     }).join(' and '),
                     ']'

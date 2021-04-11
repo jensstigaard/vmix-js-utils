@@ -3,7 +3,7 @@
 <inputs>
 <input key="69aa648d-3984-41bf-bd62-7255edff9a6d" number="1" type="Blank" title="Blank" state="Paused" position="0" duration="0" loop="False">Blank</input>
 <input key="6723ec7c-6c15-409c-a838-0bf51a05711e" number="2" type="Blank" title="Blank" state="Paused" position="0" duration="0" loop="False">Blank</input>
-<input key="c652efa9-edce-4d34-b4e2-bc49b092a290" number="4" type="GT" title="Scoreboard 3- Lineup 12.gtzip" shortTitle="Scoreboard 3- Lineup 12.gtzip" state="Paused" position="0" duration="0" loop="False" selectedIndex="0">
+<input key="c652efa9-edce-4d34-b4e2-bc49b092a290" number="4" type="GT" title="Scoreboard 3- Lineup 12.gtzip" shortTitle="Scoreboard 3- Lineup 12.gtzip" position="0" duration="0" loop="False" selectedIndex="0">
 Scoreboard 3- Lineup 12.gtzip
 <text index="0" name="Team Lineups.Text">team lineups</text>
 <text index="1" name="Home Team.Text">HOME TEAM</text>
