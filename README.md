@@ -26,7 +26,7 @@ The utilities consists of several modules. Each can be used on its own, but usua
 The modules are coded as classes, meaning that they are constructed with specific parameters, e.g. that the instanciation of a connection needs a host and a port. 
 
 # Documentation
-Please read the documentation under: https://jensstigaard.github.io/vmix-js-utils/.
+Please read [the documentation](https://jensstigaard.github.io/vmix-js-utils/).
 
 
 # Installation and use
@@ -88,9 +88,9 @@ npm test # or 'yarn test'
 *Work in progress.*
 
 ## XML API
-### Input mapping
-- [All attributes](./examples/xml-api/input-mapping.js)
-- [Selected attributes](./examples/xml-api/input-mapping-selective.js)
+### Inputs
+- [Map all attributes](./examples/xml-api/input-mapping.js)
+- [Map only selected attributes](./examples/xml-api/input-mapping-selective.js)
 
 
 # Authors
