@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AudioBusses | vmix-js-utils</title>
+	<title>DynamicInputs | vmix-js-utils</title>
 	<meta name="description" content="Documentation for vmix-js-utils">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/xmlapi.html">XmlApi</a>
 				</li>
 				<li>
-					<a href="xmlapi.audiobusses.html">AudioBusses</a>
+					<a href="xmlapi.dynamicinputs.html">DynamicInputs</a>
 				</li>
 			</ul>
-			<h1>Class AudioBusses</h1>
+			<h1>Class DynamicInputs</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Audio busses class</p>
+						<p>Dynamic inputs from XML API</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AudioBusses</span>
+						<span class="target">DynamicInputs</span>
 					</li>
 				</ul>
 			</section>
@@ -90,15 +90,13 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="xmlapi.audiobusses.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="xmlapi.dynamicinputs.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.audiobusses.html#all" class="tsd-kind-icon">all</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.audiobusses.html#busses" class="tsd-kind-icon">busses</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.audiobusses.html#master" class="tsd-kind-icon">master</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.dynamicinputs.html#extract" class="tsd-kind-icon">extract</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,13 +108,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Audio<wbr>Busses<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="xmlapi.audiobusses.html" class="tsd-signature-type" data-tsd-kind="Class">AudioBusses</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dynamic<wbr>Inputs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="xmlapi.dynamicinputs.html" class="tsd-signature-type" data-tsd-kind="Class">DynamicInputs</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="xmlapi.audiobusses.html" class="tsd-signature-type" data-tsd-kind="Class">AudioBusses</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="xmlapi.dynamicinputs.html" class="tsd-signature-type" data-tsd-kind="Class">DynamicInputs</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -124,102 +122,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="all" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> all</h3>
+					<a name="extract" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> extract</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">all<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
+						<li class="tsd-signature tsd-kind-icon">extract<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/636e3ca/src/modules/xml-api/audio-busses.ts#L80">modules/xml-api/audio-busses.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/636e3ca/src/modules/xml-api/dynamic-inputs.ts#L15">modules/xml-api/dynamic-inputs.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extract info for all audio channels (master + busses) from XML document</p>
+									<p>Returns the four dynamic inputs as an object</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>xmlDocument: <span class="tsd-signature-type">Document</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-index-signature">
-									<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">AudioBus</span></h5>
+									<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 								</li>
 							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="busses" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> busses</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">busses<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/636e3ca/src/modules/xml-api/audio-busses.ts#L100">modules/xml-api/audio-busses.ts:100</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Extract all audio-busses from XML document (excluding master)</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>xmlDocument: <span class="tsd-signature-type">Document</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-index-signature">
-									<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">AudioBus</span></h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="master" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> master</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">master<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MasterAudioBus</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/636e3ca/src/modules/xml-api/audio-busses.ts#L122">modules/xml-api/audio-busses.ts:122</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Extract master audio bus info from XML document</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>xmlDocument: <span class="tsd-signature-type">Document</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MasterAudioBus</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -238,33 +169,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="xmlapi.audiobusses.html" class="tsd-kind-icon">Audio<wbr>Busses</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="xmlapi.dataparser.html" class="tsd-kind-icon">Data<wbr>Parser</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-namespace">
-						<a href="xmlapi.audiobusses.html" class="tsd-kind-icon">Audio<wbr>Busses</a>
+						<a href="xmlapi.dynamicinputs.html" class="tsd-kind-icon">Dynamic<wbr>Inputs</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="xmlapi.audiobusses.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="xmlapi.dynamicinputs.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="xmlapi.audiobusses.html#all" class="tsd-kind-icon">all</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="xmlapi.audiobusses.html#busses" class="tsd-kind-icon">busses</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="xmlapi.audiobusses.html#master" class="tsd-kind-icon">master</a>
+								<a href="xmlapi.dynamicinputs.html#extract" class="tsd-kind-icon">extract</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="xmlapi.dataparser.html" class="tsd-kind-icon">Data<wbr>Parser</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="xmlapi.dynamicinputs.html" class="tsd-kind-icon">Dynamic<wbr>Inputs</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.dynamicvalues.html" class="tsd-kind-icon">Dynamic<wbr>Values</a>
 					</li>
