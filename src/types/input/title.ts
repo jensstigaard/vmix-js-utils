@@ -1,10 +1,10 @@
-import { BaseInput } from '.'
+import { PlayableInput } from '.'
 
 /**
  * Title input type
  * (GT or XAML) specific attributes
  */
-export type TitleInput = BaseInput & {
+export type TitleInput = PlayableInput & {
 	// selectedIndex: number // Select index (if title preset is selected)
 
 	fields: TitleField[]
@@ -20,4 +20,7 @@ export type TitleField = {
 	value: string
 }
 
+/**
+ * Title field type
+ */
 export type TitleFieldType = 'image' | 'text'

@@ -84,10 +84,16 @@ describe('xml-api-title-input-mapper', function () {
         // Assert the input were found and with specific type
         assert.strictEqual(titleInput.title, 'Scoreboard 3- Lineup 12.gtzip')
         assert.strictEqual(titleInput.type, 'GT')
+
         // Assert all title fields loaded
         assert.strictEqual(titleInput.fields.length, 27)
-        // Assert all title fields loaded
+        // Assert title first field has specific name
         assert.strictEqual(titleInput.fields[0].name, 'Team Lineups.Text')
+
+        // Assert title has state paused
+        assert.strictEqual(titleInput.state, 'Paused')
+        // Assert title is not looping
+        assert.strictEqual(titleInput.loop, false)
     })
 
     it('should have a XAML title on input 2 with title fields extracted', function () {
@@ -112,9 +118,13 @@ describe('xml-api-title-input-mapper', function () {
         assert.strictEqual(titleInput.type, 'Xaml')
         // Assert all title fields loaded
         assert.strictEqual(titleInput.fields.length, 8)
-        // Assert 4 image fields in title
-        assert.strictEqual(titleInput.fields.filter(f => f.type === 'image').length, 4)
         // Assert all title fields loaded
         assert.strictEqual(titleInput.fields[0].name, 'FromUsername')
+    })
+
+    it('should have 4 image field on input 3', function () {
+        // Assert 4 image fields in title
+        assert.strictEqual(inputs[2].fields.filter(f => f.type === 'image').length, 4)
+
     })
 })
