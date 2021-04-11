@@ -1,8 +1,18 @@
+// File system
+const fs = require('fs')
+const path = require('path')
 
+// Using assert library as test-library
+const assert = require('assert')
+
+// Import the modules
+const { XmlApi: vMixXmlApi } = require('../../../dist/index')
+const { PlayableInput } = require('../../../dist/types/input')
+
+// Read XML file as utf-8
+const rawXmlData = `
 <vmix>
 <inputs>
-<input key="69aa648d-3984-41bf-bd62-7255edff9a6d" number="1" type="Blank" title="Blank" state="Paused" position="0" duration="0" loop="False">Blank</input>
-<input key="6723ec7c-6c15-409c-a838-0bf51a05711e" number="2" type="Blank" title="Blank" state="Paused" position="0" duration="0" loop="False">Blank</input>
 <input key="c652efa9-edce-4d34-b4e2-bc49b092a290" number="4" type="GT" title="Scoreboard 3- Lineup 12.gtzip" shortTitle="Scoreboard 3- Lineup 12.gtzip" state="Paused" position="0" duration="0" loop="False" selectedIndex="0">
 Scoreboard 3- Lineup 12.gtzip
 <text index="0" name="Team Lineups.Text">team lineups</text>
@@ -58,14 +68,53 @@ file:///C:/Program Files (x86)/vMix/titles/Social/blank.png
 </image>
 </input>
 </inputs>
-<overlays>
-<overlay number="1"/>
-<overlay number="2"/>
-<overlay number="3"/>
-<overlay number="4"/>
-<overlay number="5"/>
-<overlay number="6"/>
-</overlays>
-<preview>1</preview>
-<active>2</active>
-</vmix>
+</vmix>`
+
+const xmlDocument = vMixXmlApi.DataParser.parse(rawXmlData)
+const xmlInputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)
+const inputs = vMixXmlApi.Inputs.map(xmlInputs)
+const input = inputs[0]
+
+describe('xml-api-title-input-mapper', function () {
+    it('should have a GT title on input 1 with title fields extracted', function () {
+        const titleInput = inputs[0]
+
+        // console.log(titleInput)
+
+        // Assert the input were found and with specific type
+        assert.strictEqual(titleInput.title, 'Scoreboard 3- Lineup 12.gtzip')
+        assert.strictEqual(titleInput.type, 'GT')
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields.length, 27)
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields[0].name, 'Team Lineups.Text')
+    })
+
+    it('should have a XAML title on input 2 with title fields extracted', function () {
+        const titleInput = inputs[1]
+
+        // console.log(titleInput)
+
+        // Assert the input were found and with specific type
+        assert.strictEqual(titleInput.type, 'Xaml')
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields.length, 2)
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields[0].name, 'Message')
+    })
+
+    it('should have a XAML title on input 3 with title fields extracted', function () {
+        const titleInput = inputs[2]
+
+        // console.log(titleInput)
+
+        // Assert the input were found and with specific type
+        assert.strictEqual(titleInput.type, 'Xaml')
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields.length, 8)
+        // Assert 4 image fields in title
+        assert.strictEqual(titleInput.fields.filter(f => f.type === 'image').length, 4)
+        // Assert all title fields loaded
+        assert.strictEqual(titleInput.fields[0].name, 'FromUsername')
+    })
+})
