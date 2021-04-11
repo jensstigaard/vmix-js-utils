@@ -19,6 +19,7 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	DesktopCapture: new VideoInputMapper,
 	Image: new ImageInputMapper,
 	ImageSequence: new ImageInputMapper,
+	Mix: new VideoInputMapper,
 	NDI: new VideoInputMapper,
 	Photos: new PhotosInputMapper,
 	Replay: new ReplayInputMapper,

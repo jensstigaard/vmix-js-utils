@@ -6,6 +6,7 @@ import DynamicValues from './dynamic-values'
 import GeneralState from './general-state'
 import Inputs from './inputs'
 import InstantReplay from './instant-replay'
+import Mixes from './mixes'
 import OverlayChannels from './overlay-channels'
 import Transitions from './transitions'
 
@@ -18,6 +19,7 @@ export {
 	GeneralState,
 	Inputs,
 	InstantReplay,
+	Mixes,
 	OverlayChannels,
 	Transitions
 }
