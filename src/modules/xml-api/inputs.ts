@@ -11,6 +11,9 @@ import { BaseInput } from '../../types/inputs'
 // Input mappers
 import { InputMappers } from './input-mapping/index'
 
+// Utility
+import { arrayWrap } from '../../utility'
+
 /**
  * XML API Inputs
  */
@@ -23,32 +26,48 @@ export default class Inputs {
      * @param {Document} xmlDocument
      * @returns {Element[]}
      */
-    static extractInputsFromXML(xmlDocument: Document, filters: { type?: string[], hasAttr?: string[] } = {}): Element[] {
+    static extractInputsFromXML(xmlDocument: Document, options: { filters?: { number?: number[], type?: string[], hasAttr?: string[] } } = {}): Element[] {
+        // console.log('Options', options)
         let xpathQuery = '//vmix/inputs/input'
 
-        // Inject attributes-filter into XPath query
-        if (filters.hasAttr) {
-            xpathQuery += [
-                '[',
-                filters.hasAttr.map(attr => {
-                    return `@${attr}`
-                }).join(' and '),
-                ']'
-            ].join('')
+        if (options.filters) {
+            const filters = options.filters
+            // Inject 'specific input-numbers'-filter into XPath query
+            if (filters.number) {
+                xpathQuery += [
+                    '[',
+                    arrayWrap(filters.number).map(inputNumber => {
+                        return `@number="${inputNumber}"`
+                    }).join(' or '),
+                    ']'
+                ].join('')
+            }
+
+            // Inject 'specific input-types'-filter into XPath query
+            if (filters.type) {
+                xpathQuery += [
+                    '[',
+                    arrayWrap(filters.type).map(type => {
+                        return `@type="${type}"`
+                    }).join(' or '),
+                    ']'
+                ].join('')
+            }
+
+            // Inject attributes-filter into XPath query
+            if (filters.hasAttr) {
+                xpathQuery += [
+                    '[',
+                    arrayWrap(filters.hasAttr).map(attr => {
+                        return `@${attr}`
+                    }).join(' and '),
+                    ']'
+                ].join('')
+            }
         }
 
-        // Inject 'specific input-types'-filter into XPath query
-        if (filters.type) {
-            xpathQuery += [
-                '[',
-                '@type=(',
-                filters.type.map(type => {
-                    return `"${type}"`
-                }).join(','),
-                ')',
-                ']'
-            ].join('')
-        }
+        console.log('XPATH QUERY', xpathQuery)
+        // process.exit()
 
         return xpath.select(xpathQuery, xmlDocument) as Element[]
     }
