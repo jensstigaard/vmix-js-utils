@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Transitions | vmix-js-utils</title>
+	<title>InputsLegacy | vmix-js-utils</title>
 	<meta name="description" content="Documentation for vmix-js-utils">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,21 +58,28 @@
 					<a href="../modules/xmlapi.html">XmlApi</a>
 				</li>
 				<li>
-					<a href="xmlapi.transitions.html">Transitions</a>
+					<a href="xmlapi.inputslegacy.html">InputsLegacy</a>
 				</li>
 			</ul>
-			<h1>Class Transitions</h1>
+			<h1>Class InputsLegacy</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>XML API Inputs - Legacy!</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Transitions</span>
+						<span class="target">InputsLegacy</span>
 					</li>
 				</ul>
 			</section>
@@ -83,13 +90,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="xmlapi.transitions.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="xmlapi.inputslegacy.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.transitions.html#extract" class="tsd-kind-icon">extract</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.inputslegacy.html#mapgeneric" class="tsd-kind-icon">map<wbr>Generic</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="xmlapi.inputslegacy.html#mapsingle" class="tsd-kind-icon">map<wbr>Single</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,13 +109,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Transitions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="xmlapi.transitions.html" class="tsd-signature-type" data-tsd-kind="Class">Transitions</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Inputs<wbr>Legacy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="xmlapi.inputslegacy.html" class="tsd-signature-type" data-tsd-kind="Class">InputsLegacy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="xmlapi.transitions.html" class="tsd-signature-type" data-tsd-kind="Class">Transitions</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="xmlapi.inputslegacy.html" class="tsd-signature-type" data-tsd-kind="Class">InputsLegacy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -115,30 +123,66 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="extract" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> extract</h3>
+					<a name="mapgeneric" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> map<wbr>Generic</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">extract<span class="tsd-signature-symbol">(</span>xmlDocument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Generic<span class="tsd-signature-symbol">(</span>xmlInputs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">[]</span>, wantedAttributes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GenericInput</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/d8e4121/src/modules/xml-api/transitions.ts#L9">modules/xml-api/transitions.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/d8e4121/src/modules/xml-api/inputs-legacy.ts#L131">modules/xml-api/inputs-legacy.ts:131</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Map inputs (generic)
+									Legacy method</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>xmlDocument: <span class="tsd-signature-type">Document</span></h5>
+									<h5>xmlInputs: <span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>wantedAttributes: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = &#x27;*&#x27;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GenericInput</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="mapsingle" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> map<wbr>Single</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Single<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, wantedAttributes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GenericInput</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jensstigaard/vmix-js-utils/blob/d8e4121/src/modules/xml-api/inputs-legacy.ts#L17">modules/xml-api/inputs-legacy.ts:17</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Map single input (generic)
+									Legacy method</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li class="tsd-parameter-index-signature">
-									<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">Transition</span></h5>
+								<li>
+									<h5>input: <span class="tsd-signature-type">Element</span></h5>
+								</li>
+								<li>
+									<h5>wantedAttributes: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = &#x27;*&#x27;</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GenericInput</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -175,9 +219,24 @@
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.inputs.html" class="tsd-kind-icon">Inputs</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.inputslegacy.html" class="tsd-kind-icon">Inputs<wbr>Legacy</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="xmlapi.inputslegacy.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="xmlapi.inputslegacy.html#mapgeneric" class="tsd-kind-icon">map<wbr>Generic</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="xmlapi.inputslegacy.html#mapsingle" class="tsd-kind-icon">map<wbr>Single</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.instantreplay.html" class="tsd-kind-icon">Instant<wbr>Replay</a>
 					</li>
@@ -187,21 +246,9 @@
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.overlaychannels.html" class="tsd-kind-icon">Overlay<wbr>Channels</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-namespace">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="xmlapi.transitions.html" class="tsd-kind-icon">Transitions</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="xmlapi.transitions.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="xmlapi.transitions.html#extract" class="tsd-kind-icon">extract</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
