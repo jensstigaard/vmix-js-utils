@@ -50,6 +50,22 @@ export default class XmlState {
 	}
 
 	/**
+	 * Preset file path (if present)
+	 */
+	preset(xmlDocument?: Document): string | undefined {
+		if (xmlDocument) {
+			this.update(xmlDocument)
+		}
+		const el: Element = xpath.select1('//vmix/preset', this._data) as Element
+
+		if (!el) {
+			return undefined
+		}
+
+		return el.textContent!.trim()
+	}
+
+	/**
 	 * Is currently faded to black?
 	 */
 	fadedToBlack(xmlDocument?: Document): boolean {
