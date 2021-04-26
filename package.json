@@ -4,16 +4,6 @@
   "description": "vMix utilities for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "build-test": "yarn build && yarn test",
-    "clean": "rm -ifr ./dist",
-    "clean-build": "yarn clean && yarn build",
-    "docs": "yarn typedoc",
-    "prepublish": "yarn run snyk-protect && yarn clean && yarn build",
-    "snyk-protect": "snyk protect",
-    "test": "mocha --recursive"
-  },
   "repository": {
     "private": false,
     "type": "git",
@@ -32,6 +22,16 @@
   "homepage": "https://github.com/jensstigaard/vmix-js-utils#readme",
   "bugs": {
     "url": "https://github.com/jensstigaard/vmix-js-utils/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build-test": "yarn build && yarn test",
+    "clean": "rm -ifr ./dist",
+    "clean-build": "yarn clean && yarn build",
+    "docs": "yarn typedoc",
+    "prepublish": "yarn run snyk-protect && yarn clean && yarn build",
+    "snyk-protect": "snyk protect",
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "lodash": "^4.17.21",
