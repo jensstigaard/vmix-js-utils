@@ -5,10 +5,11 @@ const assert = require('assert')
 const { XmlApi: vMixXmlApi } = require('../../dist/index')
 
 // Raw XML data
-const RAW_XML_DATA = `
+const RAW_XML_DATA = String.raw`
 <vmix>
 	<version>24.0.0.56</version>
 	<edition>Pro</edition>
+    <preset>C:\Users\jens\AppData\Roaming\last.vmix</preset>
 	<fadeToBlack>False</fadeToBlack>
 	<recording>False</recording>
 	<external>False</external>
@@ -29,6 +30,10 @@ describe('xml-general-state', function () {
 
     it('should have a software edition', function () {
         assert.strictEqual(vMixGeneralState.softwareEdition(), 'Pro')
+    })
+    
+    it('should have a preset file path', function () {
+        assert.strictEqual(vMixGeneralState.preset(), String.raw`C:\Users\jens\AppData\Roaming\last.vmix`)
     })
 
     it('should state whether is faded to black or not', function () {
