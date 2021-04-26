@@ -24,7 +24,6 @@ const RAW_XML_DATA = `
 const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const xmlInputs = vMixXmlApi.Inputs.extractInputsFromXML(xmlDocument)
 
-// Manipulate to wanted format
 const inputs = vMixXmlApi.Inputs.map(xmlInputs)
 
 const replayInput = inputs.find(input => input.type === 'Replay')
@@ -44,47 +43,4 @@ describe('xml-api-replay-input-mapper', function () {
         assert.strictEqual(replayPreviewInput.type, 'ReplayPreview', 'Did not see expected replay preview input')
 
     })
-
-    it('should have a replay input which has states whether in live mode or not', function () {
-        assert.strictEqual(typeof replay.live, 'boolean')
-        assert.strictEqual(replay.live, false)
-    })
-
-    it('should have a replay input which has states whether recording or not', function () {
-        assert.strictEqual(typeof replay.recording, 'boolean')
-        assert.strictEqual(replay.live, false)
-    })
-
-    it('should have a replay input which has states whether channelMode is AB, A or B', function () {
-        assert.strictEqual(typeof replay.channelMode, 'string')
-        assert.strictEqual(replay.channelMode, 'B')
-    })
-
-    it('should have a replay input which has timecode date', function () {
-        assert.strictEqual(typeof replay.timecode, 'object')
-        assert.strictEqual(replay.timecode.toISOString(), '2020-04-26T08:50:22.720Z')
-    })
-
-    it('should have a replay input which has replay channel A state', function () {
-        assert.strictEqual(typeof replay.channelA, 'object')
-
-        assert.strictEqual(replay.channelA.eventBank, 1)
-        assert.strictEqual(replay.channelA.camera, 1)
-        assert.strictEqual(replay.channelA.speed, 1)
-
-        assert.strictEqual(typeof replay.channelA.timecode, 'object')
-        assert.strictEqual(replay.channelA.timecode.toISOString(), '2020-04-26T08:50:51.740Z')
-    })
-
-    it('should have a replay input which has replay channel A state', function () {
-        assert.strictEqual(typeof replay.channelB, 'object')
-
-        assert.strictEqual(replay.channelB.eventBank, 1)
-        assert.strictEqual(replay.channelB.camera, 1)
-        assert.strictEqual(replay.channelB.speed, 1)
-
-        assert.strictEqual(typeof replay.channelB.timecode, 'object')
-        assert.strictEqual(replay.channelB.timecode.toISOString(), '2020-04-26T08:50:22.720Z')
-    })
-
 })

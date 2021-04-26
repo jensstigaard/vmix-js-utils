@@ -29,18 +29,16 @@ const RAW_XML_DATA = `
 const xmlDocument = vMixXmlApi.DataParser.parse(RAW_XML_DATA)
 const instantReplayInput = vMixXmlApi.InstantReplay.get(xmlDocument)
 
-// Check replay attributes
+// Check replay attribute
 const replay = instantReplayInput.replay
 
 describe('xml-instant-replay', function () {
-
     it('should have a replay input and replay preview from the sample data', function () {
         // console.log(replayInput)
         // console.log(replayPreviewInput)
 
         // Assert the replay input
         assert.strictEqual(instantReplayInput.type, 'Replay', 'Did not see expected replay input')
-
     })
 
     it('should have a replay input which has states whether in live mode or not', function () {
