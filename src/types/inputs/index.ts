@@ -35,6 +35,11 @@ export type PlayableInput = BaseInput & {
 }
 
 /**
+ * Mix input type
+ */
+export type MixInput = PlayableInput
+
+/**
  * Input type
  */
 export type InputType = 'Audio' // Microphone or other live audio source
@@ -46,8 +51,9 @@ export type InputType = 'Audio' // Microphone or other live audio source
 	| 'GT'
 	| 'Image'
 	| 'ImageSequence'
+	| 'Mix'
 	| 'NDI'
-	| 'Photos' // Photos slideshow
+	| 'Photos' // Photos slideshow/folder
 	| 'Stream' // RTSP stream
 	| 'SRT' // SRT stream
 	| 'Xaml' // XAML title
