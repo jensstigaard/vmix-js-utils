@@ -1,11 +1,11 @@
-import { PlayableInput } from '.'
-import { InputLayer } from './index'
+import { PlayableInput, InputLayer, InputLayerPosition } from '.'
 
 /**
  * Virtual Set input type
  */
 export type VirtualSetInput = PlayableInput & {
-	layers: InputLayer[]
+	layers: InputLayer[], // Layers in virtual set
+	currentPosition?: InputLayerPosition // Current Pan and zoom of virtual set
 }
 
 export type VirtualSetLayer = InputLayer

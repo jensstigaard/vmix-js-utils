@@ -24,13 +24,13 @@ export type BaseInput = {
 export type PlayableInput = BaseInput & {
 	shortTitle: string
 	state: InputState
-	position: number
-	duration: number
+	position: number // Playback position (ms)
+	duration: number // Playback duration (ms)
 	loop: boolean
 
 	// Mark in / out points (optional)
-	markIn?: number
-	markOut?: number
+	markIn?: number // (ms)
+	markOut?: number // (ms)
 }
 
 /**
