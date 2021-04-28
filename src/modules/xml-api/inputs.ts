@@ -28,7 +28,7 @@ export default class Inputs {
     static extractInputsFromXML(
         xmlDocument: Document,
         options: {
-            filters?: { number?: number[], type?: string[], hasAttrs?: string[] }
+            filters?: { key?: string[], number?: number[], type?: string[], hasAttrs?: string[] }
         } = {}
     ): Element[] {
         // console.log('Options', options)
@@ -41,6 +41,19 @@ export default class Inputs {
             // Multiple attributes and/or query: https://stackoverflow.com/questions/2009268/how-to-write-an-xpath-query-to-match-two-attributes
 
             const filters = options.filters
+
+            // Inject 'specific input-key'-filter into XPath query
+            // Inclusive filter
+            if (filters.key) {
+                xpathQuery += [
+                    '[',
+                    arrayWrap(filters.key).map(key => {
+                        return `@key="${key}"`
+                    }).join(' or '),
+                    ']'
+                ].join('')
+            }
+
             // Inject 'specific input-numbers'-filter into XPath query
             // Inclusive filter
             if (filters.number) {
@@ -156,25 +169,45 @@ export default class Inputs {
 
     /**
      * Map tally info
+     * including layers
      * 
      * @param {Document} xmlDocument
      * @returns {TallySummary}
      */
     static mapTallyInfo(xmlDocument: Document): TallySummary {
-        const inputInProgram: number = this.extractProgramInputNumber(xmlDocument)
-        const inputInPreview: number = this.extractPreviewInputNumber(xmlDocument)
+        const inputNumberInProgram: number = this.extractProgramInputNumber(xmlDocument)
+        const inputNumberInPreview: number = this.extractPreviewInputNumber(xmlDocument)
 
         const numberOfInputs = Inputs.extractInputsFromXML(xmlDocument).length
-        if (inputInPreview > numberOfInputs) {
-            throw new Error(`Invalid preview input number... ${inputInPreview} of ${numberOfInputs} inputs`)
+        if (inputNumberInPreview > numberOfInputs) {
+            throw new Error(`Invalid preview input number... ${inputNumberInPreview} of ${numberOfInputs} inputs`)
         }
-        if (inputInProgram > numberOfInputs) {
-            throw new Error(`Invalid program input number... ${inputInProgram} of ${numberOfInputs} inputs`)
+        if (inputNumberInProgram > numberOfInputs) {
+            throw new Error(`Invalid program input number... ${inputNumberInProgram} of ${numberOfInputs} inputs`)
         }
 
+        const programInputs = this.extractInputsFromXML(xmlDocument, { filters: { number: [inputNumberInProgram] } })
+        const previewInputs = this.extractInputsFromXML(xmlDocument, { filters: { number: [inputNumberInPreview] } })
+
+        const programInput = programInputs.length ? programInputs[0] : undefined
+        const previewInput = previewInputs.length ? previewInputs[0] : undefined
+
+        const programInputLayers = programInput ? this.mapSingle(programInput, true).layers : []
+        const previewInputLayers = previewInput ? this.mapSingle(previewInput, true).layers : []
+
+        console.log('PROGRAM INPUT LAYERS', programInputLayers)
+        console.log('PREVIEW INPUT LAYERS', programInputLayers)
+
+        const programInputLayersInputNumbers = programInputLayers && programInputLayers.length ? this.map(
+            this.extractInputsFromXML(xmlDocument, { filters: { key: programInputLayers?.map(i => i.key) } })
+        ).map(i => i.number) : []
+        const previewInputLayersInputNumbers = previewInputLayers && previewInputLayers.length ? this.map(
+            this.extractInputsFromXML(xmlDocument, { filters: { key: previewInputLayers?.map(i => i.key) } })
+        ).map(i => i.number) : []
+
         return {
-            program: [inputInProgram],
-            preview: [inputInPreview],
+            program: [inputNumberInProgram, ...programInputLayersInputNumbers],
+            preview: [inputNumberInPreview, ...previewInputLayersInputNumbers],
 
             numberOfInputs
         }

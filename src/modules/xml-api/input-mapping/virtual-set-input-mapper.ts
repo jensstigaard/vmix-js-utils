@@ -8,9 +8,17 @@ export class VirtualSetInputMapper extends PlayableInputMapper {
 		// Map base output attributes
 		const baseOutput = super.map(input, includeLayers)
 
-		return {
+		const output = {
 			...baseOutput,
 			layers: this.mapLayers(input)
+		} as VirtualSetInput
+
+		const position = this.mapLayerPosition(input)
+
+		if (position) {
+			output.currentPosition = position
 		}
+
+		return output
 	}
 }
