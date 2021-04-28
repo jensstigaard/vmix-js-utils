@@ -4,10 +4,10 @@ import { MixInput } from '../../../types/inputs/index'
 import { PlayableInputMapper } from './playable-input-mapper'
 
 export class MixInputMapper extends PlayableInputMapper {
-	map(input: Element): MixInput {
+	map(input: Element, includeLayers: boolean = true): MixInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 		}
 
 		return output

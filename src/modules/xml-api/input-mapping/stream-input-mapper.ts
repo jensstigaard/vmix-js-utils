@@ -4,9 +4,9 @@ import { StreamInput } from '../../../types/inputs/streams'
 
 export class StreamInputMapper extends GenericPlayableWithAudioInputMapper {
 
-	map(input: Element): StreamInput {
+	map(input: Element, includeLayers: boolean = true): StreamInput {
 		return {
-			...super.map(input)
+			...super.map(input, includeLayers)
 		}
 	}
 }

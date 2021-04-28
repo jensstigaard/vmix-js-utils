@@ -24,9 +24,9 @@ export class ReplayInputMapper extends PlayableInputMapper {
 		}
 	}
 
-	map(input: Element): ReplayInput {
+	map(input: Element, includeLayers: boolean = true): ReplayInput {
 		// Map base output attributes
-		const baseOutput = super.map(input)
+		const baseOutput = super.map(input, includeLayers)
 
 		const replayEl = xpath.select1('replay', input) as Element
 

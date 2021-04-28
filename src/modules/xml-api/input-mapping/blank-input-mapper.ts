@@ -4,10 +4,10 @@ import { BaseInput } from '../../../types/inputs'
 import { BaseInputMapper } from './base-input-mapper'
 
 export class BlankInputMapper extends BaseInputMapper {
-	map(input: Element): BaseInput {
+	map(input: Element, includeLayers: boolean = true): BaseInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 		}
 
 		return output

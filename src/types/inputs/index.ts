@@ -1,5 +1,3 @@
-import { GenericAudioInput } from './audio'
-
 /**
  * Generic input
  * NOTE! Should not be used!
@@ -16,6 +14,7 @@ export type BaseInput = {
 	number: number
 	type: InputType
 	title: string
+	layers?: InputLayer[]
 }
 
 /**
@@ -38,6 +37,28 @@ export type PlayableInput = BaseInput & {
  * Mix input type
  */
 export type MixInput = PlayableInput
+
+
+/**
+ * Input Layer
+ * Used by Virtuel Set and "multi view"-inputs
+ */
+export type InputLayer = {
+	index: number
+	key: string
+
+	position?: InputLayerPosition
+}
+
+/**
+ * Input layer position
+ */
+export type InputLayerPosition = {
+	panX?: number
+	panY?: number
+	zoomX?: number
+	zoomY?: number
+}
 
 /**
  * Input type

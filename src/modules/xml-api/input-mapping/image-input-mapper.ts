@@ -4,10 +4,10 @@ import { ImageInput } from '../../../types/inputs/image'
 import { PlayableInputMapper } from './playable-input-mapper'
 
 export class ImageInputMapper extends PlayableInputMapper {
-	map(input: Element): ImageInput {
+	map(input: Element, includeLayers: boolean = true): ImageInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 		}
 
 		return output

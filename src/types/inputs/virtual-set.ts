@@ -1,33 +1,11 @@
-import { PlayableInput } from ".";
+import { PlayableInput } from '.'
+import { InputLayer } from './index'
 
 /**
  * Virtual Set input type
  */
 export type VirtualSetInput = PlayableInput & {
-	layers: VirtualSetLayer[]
+	layers: InputLayer[]
 }
 
-/**
- * Virtual set layer
- */
-export type VirtualSetLayer = {
-	index: number
-	key: string
-
-	position?: VirtualSetLayerPosition
-}
-
-/**
- * Virtual set layer position
- */
-export type VirtualSetLayerPosition = {
-	pan: {
-		x: number
-		y: number
-	}
-
-	zoom: {
-		x: number
-		y: number
-	}
-}
+export type VirtualSetLayer = InputLayer

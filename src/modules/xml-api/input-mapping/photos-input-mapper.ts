@@ -4,10 +4,10 @@ import { PhotosInput } from '../../../types/inputs/image'
 import { PlayableInputMapper } from './playable-input-mapper'
 
 export class PhotosInputMapper extends PlayableInputMapper {
-	map(input: Element): PhotosInput {
+	map(input: Element, includeLayers: boolean = true): PhotosInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 
 			// Number of photos (from duration)
 			numberOfPhotos: Number(input.attributes.getNamedItem('duration')!.value),

@@ -58,14 +58,6 @@ file:///C:/Program Files (x86)/vMix/titles/Social/blank.png
 </image>
 </input>
 </inputs>
-<overlays>
-<overlay number="1"/>
-<overlay number="2"/>
-<overlay number="3"/>
-<overlay number="4"/>
-<overlay number="5"/>
-<overlay number="6"/>
-</overlays>
 <preview>1</preview>
 <active>2</active>
 </vmix>

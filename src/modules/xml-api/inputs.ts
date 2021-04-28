@@ -34,7 +34,6 @@ export default class Inputs {
         // console.log('Options', options)
         let xpathQuery = '//vmix/inputs/input'
 
-
         if (options.filters) {
             // XPath filtering
             // Attribute existance:https://stackoverflow.com/questions/3737906/xpath-how-to-check-if-an-attribute-exists
@@ -91,7 +90,7 @@ export default class Inputs {
      * @param {Element} input
      * @returns {BaseInput}
      */
-    static mapSingle(input: Element): BaseInput {
+    static mapSingle(input: Element, includeLayers: boolean = true): BaseInput {
         // Guard no attributes in xml dom element
         if (!input.attributes) {
             console.error('FAILING INPUT', input)
@@ -117,7 +116,7 @@ export default class Inputs {
         // Attempt to find mapper based on name of input type
         // And use it to map input
         if (InputMappers.hasOwnProperty(inputType)) {
-            return InputMappers[inputType].map(input)
+            return InputMappers[inputType].map(input, includeLayers)
         }
 
         // Additional custom mapping of types of mappers
@@ -125,7 +124,7 @@ export default class Inputs {
             // If input is a title
             case 'GT':
             case 'Xaml':
-                return InputMappers.Title.map(input)
+                return InputMappers.Title.map(input, includeLayers)
             default:
                 throw new Error(`Not implemented yet. There was not found an Input mapper for input type... ${inputType}`)
         }
@@ -138,10 +137,10 @@ export default class Inputs {
      *
      * @param {Element[]} xmlInputs
      */
-    static map(xmlInputs: Element[]): BaseInput[] {
+    static map(xmlInputs: Element[], includeLayers: boolean = true): BaseInput[] {
 
         // Map all data from raw input
-        const xmlInputsMapped = xmlInputs.map(input => Inputs.mapSingle(input))
+        const xmlInputsMapped = xmlInputs.map(input => Inputs.mapSingle(input, includeLayers))
 
         // // Make a dictionary and populate it
         // const inputsDictionary: any = {}

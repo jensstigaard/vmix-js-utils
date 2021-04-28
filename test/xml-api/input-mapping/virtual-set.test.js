@@ -60,22 +60,20 @@ describe('xml-api-virtual-set-input-mapper', function () {
         const position = layer.position
 
         assert.strictEqual(typeof position, 'object')
-        assert.strictEqual(typeof position.pan, 'object')
-        assert.strictEqual(typeof position.zoom, 'object')
 
-        assert.strictEqual(typeof position.pan.x, 'number')
-        assert.strictEqual(typeof position.pan.y, 'number')
+        assert.strictEqual(typeof position.panX, 'number')
+        assert.strictEqual(typeof position.panY, 'number')
         
-        assert.strictEqual(typeof position.zoom.x, 'number')
-        assert.strictEqual(typeof position.zoom.y, 'number')
+        assert.strictEqual(typeof position.zoomX, 'number')
+        assert.strictEqual(typeof position.zoomY, 'number')
         
         // console.log(position)
         // <position panX="-0.49" panY="0.056" zoomX="0.70375" zoomY="0.70375"/>
-        assert.strictEqual(position.pan.x, -0.49)
-        assert.strictEqual(position.pan.y, 0.056)
+        assert.strictEqual(position.panX, -0.49)
+        assert.strictEqual(position.panY, 0.056)
 
-        assert.strictEqual(position.zoom.x, 0.70375)
-        assert.strictEqual(position.zoom.y, 0.70375)
+        assert.strictEqual(position.zoomX, 0.70375)
+        assert.strictEqual(position.zoomY, 0.70375)
 
     })
 })

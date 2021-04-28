@@ -14,10 +14,10 @@ export class GenericAudioInputMapper extends BaseInputMapper {
 		'meterF2'
 	]
 
-	map(input: Element): GenericAudioInput {
+	map(input: Element, includeLayers: boolean = true): GenericAudioInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 
 			audiobusses: input.attributes.getNamedItem('audiobusses')!.value.split(''),
 			muted: input.attributes.getNamedItem('muted') ? Boolean(input.attributes.getNamedItem('muted')!.value === 'True') : false,

@@ -6,9 +6,9 @@ import { GenericAudioInputMapper } from './generic-audio-input-mapper'
 
 export class AudioInputMapper extends GenericAudioInputMapper {
 
-	map(input: Element): GenericAudioInput {
+	map(input: Element, includeLayers: boolean = true): GenericAudioInput {
 		return {
-			...super.map(input),
+			...super.map(input, includeLayers),
 		}
 	}
 }

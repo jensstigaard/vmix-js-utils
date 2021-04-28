@@ -2,10 +2,10 @@ import { PlayableInputMapper } from './playable-input-mapper'
 import { TitleInput, TitleField, TitleFieldType } from '../../../types/inputs/title'
 
 export class TitleInputMapper extends PlayableInputMapper {
-	map(input: Element): TitleInput {
+	map(input: Element, includeLayers: boolean = true): TitleInput {
 		// Map base output attributes
 		const output = {
-			...super.map(input),
+			...super.map(input, includeLayers),
 		} as TitleInput
 
 		const fields: TitleField[] = []
