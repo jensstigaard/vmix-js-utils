@@ -2,7 +2,7 @@
 const assert = require('assert')
 
 // Import the modules
-const vMixApi = require('../../dist/modules/xml-api')
+const vMixApi = require('../../dist/xml-api')
 const { XmlApi } = require('../../dist')
 
 describe('xml-api', function () {

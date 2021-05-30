@@ -2,8 +2,8 @@
 import xpath from 'xpath'
 
 // Types
-import { BaseInput } from '../../../types/inputs'
-import { InputLayer as InputLayer, InputLayerPosition } from '../../../types/inputs/'
+import { BaseInput } from '../../types/inputs'
+import { InputLayer as InputLayer, InputLayerPosition } from '../../types/inputs'
 
 // Mappers
 import { MapperInterface } from './mapper-interface'

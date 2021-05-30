@@ -1,5 +1,5 @@
 // Types
-import { VirtualSetInput } from '../../../types/inputs/virtual-set'
+import { VirtualSetInput } from '../../types/inputs/virtual-set'
 // Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
 

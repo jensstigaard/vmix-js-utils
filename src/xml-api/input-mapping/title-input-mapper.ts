@@ -1,5 +1,5 @@
 import { PlayableInputMapper } from './playable-input-mapper'
-import { TitleInput, TitleField, TitleFieldType } from '../../../types/inputs/title'
+import { TitleInput, TitleField, TitleFieldType } from '../../types/inputs/title'
 
 export class TitleInputMapper extends PlayableInputMapper {
 	map(input: Element, includeLayers: boolean = true): TitleInput {

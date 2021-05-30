@@ -1,6 +1,6 @@
-import TcpTally from './modules/tcp-tally'
-import AudioUtility from './modules/audio-utility'
-import * as XmlApi from './modules/xml-api'
+import TcpTally from './tcp-tally'
+import AudioUtility from './audio-utility'
+import * as XmlApi from './xml-api'
 
 // Exposing the modules classes - used by npm
 export {

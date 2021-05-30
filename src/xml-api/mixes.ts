@@ -2,7 +2,7 @@
 import xpath from 'xpath'
 
 // Types
-import { Mix as MixType } from '../../types/mix'
+import { Mix as MixType } from '../types/mix'
 
 
 /**

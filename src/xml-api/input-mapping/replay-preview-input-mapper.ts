@@ -1,6 +1,6 @@
 
 import { PlayableInputMapper } from './playable-input-mapper'
-import { PlayableInput } from '../../../types/inputs'
+import { PlayableInput } from '../../types/inputs'
 
 export class ReplayPreviewInputMapper extends PlayableInputMapper {
 	map(input: Element, includeLayers: boolean = true): PlayableInput {

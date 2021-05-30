@@ -1,4 +1,4 @@
-import { TALLY_STATE, TallySummary } from '../types/tcp'
+import { TALLY_STATE, TallySummary } from './types/tcp'
 
 /**
  * Map integer (wrapped as string) to tally state enum

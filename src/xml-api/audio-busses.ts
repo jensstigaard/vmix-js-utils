@@ -3,7 +3,7 @@ import _ from 'lodash'
 import xpath from 'xpath'
 
 // Types
-import { AudioBus, MasterAudioBus } from '../../types/audio-bus'
+import { AudioBus, MasterAudioBus } from '../types/audio-bus'
 
 /**
  * Helper function: Map single audio bus info from XML

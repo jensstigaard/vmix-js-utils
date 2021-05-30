@@ -1,5 +1,5 @@
 // Types
-import { GenericAudioInput } from '../../../types/inputs/audio'
+import { GenericAudioInput } from '../../types/inputs/audio'
 // Mappers
 import { BaseInputMapper } from './base-input-mapper'
 

@@ -1,6 +1,6 @@
 import xpath from 'xpath'
 // Types
-import { ReplayInput, ChannelMode, ReplayChannelVariables, CameraNumber } from '../../../types/inputs/replay'
+import { ReplayInput, ChannelMode, ReplayChannelVariables, CameraNumber } from '../../types/inputs/replay'
 // Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
 

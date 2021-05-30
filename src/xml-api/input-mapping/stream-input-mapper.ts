@@ -1,6 +1,6 @@
 
 import { GenericPlayableWithAudioInputMapper } from './generic-av-input-mapper'
-import { StreamInput } from '../../../types/inputs/streams'
+import { StreamInput } from '../../types/inputs/streams'
 
 export class StreamInputMapper extends GenericPlayableWithAudioInputMapper {
 

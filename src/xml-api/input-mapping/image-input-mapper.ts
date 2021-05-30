@@ -1,5 +1,5 @@
 // Types
-import { ImageInput } from '../../../types/inputs/image'
+import { ImageInput } from '../../types/inputs/image'
 // Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
 

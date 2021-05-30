@@ -3,15 +3,15 @@
 import xpath from 'xpath'
 
 // Types
-import { TallySummary } from '../../types/tcp'
+import { TallySummary } from '../types/tcp'
 
-import { BaseInput } from '../../types/inputs'
+import { BaseInput } from '../types/inputs'
 
 // Input mappers
 import { InputMappers } from './input-mapping/index'
 
 // Utility
-import { arrayWrap } from '../../utility'
+import { arrayWrap } from '../utility'
 
 /**
  * XML API Inputs

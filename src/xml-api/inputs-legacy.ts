@@ -1,5 +1,5 @@
 
-import { GenericInput } from '../../types/inputs'
+import { GenericInput } from '../types/inputs'
 
 /**
  * XML API Inputs - Legacy!

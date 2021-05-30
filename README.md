@@ -20,8 +20,11 @@ This library can be used both in front-end and NodeJS projects.
 ---
 Simple use
 ```javascript
-// Import XML API functionality
-import { DataParser, InputMapping } from 'vmix-js-utils/modules/xml-api'
+// Import all XML API functionality
+import { XmlApi as vMixXmlApi } from 'vmix-js-utils'
+
+// Import specific XML API functionality from the (sub)module
+import { DataParser, Inputs } from 'vmix-js-utils/xml-api'
 ```
 
 # Purpose
@@ -50,17 +53,11 @@ npm install vmix-js-utils --save
 In your code the simplest way to import the modules is the following:
 
 ```javascript
-const { DataParser, GeneralState } = require('vmix-js-utils/modules/xml-api')
-// ...
-```
+// ES6
+import { DataParser, GeneralState } from 'vmix-js-utils/xml-api'
 
-You are also able to import all of the modules as a gathered variable, but less elegant way:
-
-```javascript
-// Import all vMix utils
-const vMixUtils = require('vmix-js-utils')
-// Import XML API functions
-const { DataParser, GeneralState, Inputs } = vMixUtils.XmlApi
+// or commonjs
+const { DataParser, GeneralState } = require('vmix-js-utils/xml-api')
 // ...
 ```
 

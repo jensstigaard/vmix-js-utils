@@ -3,7 +3,7 @@ import xpath from 'xpath'
 import _ from 'lodash'
 
 // Types
-import { OverlayChannel } from '../../types/overlay-channel'
+import { OverlayChannel } from '../types/overlay-channel'
 
 /**
  * Overlay channels from XML API

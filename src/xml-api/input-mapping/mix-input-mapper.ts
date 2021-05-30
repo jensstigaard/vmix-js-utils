@@ -1,5 +1,5 @@
 // Types
-import { MixInput } from '../../../types/inputs/index'
+import { MixInput } from '../../types/inputs/index'
 // Mappers
 import { PlayableInputMapper } from './playable-input-mapper'
 

@@ -3,7 +3,7 @@ import xpath from 'xpath'
 import _ from 'lodash'
 
 // Types
-import { Transition } from '../../types/transition'
+import { Transition } from '../types/transition'
 
 export default class XmlTransitions {
 	static extract(xmlDocument: Document): { [key: number]: Transition } {

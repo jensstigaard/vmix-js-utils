@@ -1,5 +1,5 @@
 // Types
-import { PlayableInput } from '../../../types/inputs'
+import { PlayableInput } from '../../types/inputs'
 // Mappers
 import { BaseInputMapper } from './base-input-mapper'
 

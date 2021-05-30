@@ -2,7 +2,7 @@
 import xpath from 'xpath'
 
 // Types
-import { ReplayInput } from './../../types/inputs/replay'
+import { ReplayInput } from '../types/inputs/replay'
 
 // Mappers
 import { ReplayInputMapper } from './input-mapping/replay-input-mapper'
