@@ -36,7 +36,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "querystring": "^0.2.1",
-    "xmldom": "https://github.com/xmldom/xmldom#v0.7.0",
+    "xmldom": "github:xmldom/xmldom#v0.7.0",
     "xpath": "^0.0.32"
   },
   "devDependencies": {
