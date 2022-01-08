@@ -34,9 +34,9 @@
     "test": "mocha --recursive"
   },
   "dependencies": {
+    "@xmldom/xmldom": "0.8.0",
     "lodash": "^4.17.21",
     "querystring": "^0.2.1",
-    "@xmldom/xmldom": "0.8.0",
     "xpath": "^0.0.32"
   },
   "devDependencies": {
