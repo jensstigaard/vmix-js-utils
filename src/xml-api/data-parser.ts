@@ -1,5 +1,5 @@
 
-import xmldom from 'xmldom'
+import xmldom from '@xmldom/xmldom'
 
 const DOMParser = xmldom.DOMParser
 
