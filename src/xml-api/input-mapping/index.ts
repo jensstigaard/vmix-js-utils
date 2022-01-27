@@ -9,6 +9,7 @@ import { ReplayPreviewInputMapper } from './replay-preview-input-mapper'
 import { StreamInputMapper } from './stream-input-mapper'
 import { TitleInputMapper } from './title-input-mapper'
 import { VideoInputMapper } from './video-input-mapper'
+import { VideoCallInputMapper } from './video-call-input-mapper'
 import { VirtualSetInputMapper } from './virtual-set-input-mapper'
 
 export const InputMappers: { [key: string]: BaseInputMapper } = {
@@ -29,6 +30,7 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	Stream: new StreamInputMapper,
 	Title: new TitleInputMapper,
 	Video: new VideoInputMapper,
+	VideoCall: new VideoCallInputMapper,
 	VideoDelay: new VideoInputMapper,
 	VirtualSet: new VirtualSetInputMapper,
 	VLC: new StreamInputMapper,
