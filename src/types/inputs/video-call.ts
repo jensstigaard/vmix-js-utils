@@ -7,7 +7,7 @@ type AudioBus = 'BusA' | 'BusB' | 'BusC' | 'BusD' | 'BusE' | 'BusF' | 'BusG' | '
  * Video call input (vMix call)
  */
 export type VideoCallInput = PlayableInput & GenericAudioInput & {
-	call: {
+	videoCall: {
 		password: string
 		isConnected: boolean
 		videoSource: 'Output1' | 'Output2' | 'Output3' | 'Output4' | string

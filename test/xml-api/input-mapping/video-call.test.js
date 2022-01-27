@@ -25,5 +25,6 @@ describe('xml-api-video-call-input-mapper', function () {
         assert.strictEqual(input.shortTitle, 'Call XYZ')
         assert.strictEqual(input.state, 'Running')
         assert.strictEqual(input.position, 0)
+        assert.strictEqual(input.videoCall.isConnected, false)
     })
 })
