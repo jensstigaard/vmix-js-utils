@@ -103,7 +103,7 @@ export default class Inputs {
      * @param {Element} input
      * @returns {BaseInput}
      */
-    static mapSingle(input: Element, includeLayers: boolean = true): BaseInput {
+    static mapSingle(input: Element, includeLayers: boolean = true): BaseInput | null {
         // Guard no attributes in xml dom element
         if (!input.attributes) {
             console.error('FAILING INPUT', input)
@@ -139,7 +139,7 @@ export default class Inputs {
             case 'Xaml':
                 return InputMappers.Title.map(input, includeLayers)
             default:
-                throw new Error(`Not implemented yet. There was not found an Input mapper for input type... ${inputType}`)
+                return null;
         }
     }
 
@@ -153,7 +153,7 @@ export default class Inputs {
     static map(xmlInputs: Element[], includeLayers: boolean = true): BaseInput[] {
 
         // Map all data from raw input
-        const xmlInputsMapped = xmlInputs.map(input => Inputs.mapSingle(input, includeLayers))
+        const xmlInputsMapped = xmlInputs.map(input => Inputs.mapSingle(input, includeLayers)).filter(Boolean) as BaseInput[];
 
         // // Make a dictionary and populate it
         // const inputsDictionary: any = {}
@@ -192,8 +192,8 @@ export default class Inputs {
         const programInput = programInputs.length ? programInputs[0] : undefined
         const previewInput = previewInputs.length ? previewInputs[0] : undefined
 
-        const programInputLayers = programInput ? this.mapSingle(programInput, true).layers : []
-        const previewInputLayers = previewInput ? this.mapSingle(previewInput, true).layers : []
+        const programInputLayers = programInput ? this.mapSingle(programInput, true)?.layers || [] : []
+        const previewInputLayers = previewInput ? this.mapSingle(previewInput, true)?.layers || [] : []
 
         console.log('PROGRAM INPUT LAYERS', programInputLayers)
         console.log('PREVIEW INPUT LAYERS', programInputLayers)
