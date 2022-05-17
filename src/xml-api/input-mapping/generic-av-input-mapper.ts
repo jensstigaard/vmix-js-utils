@@ -1,8 +1,8 @@
 // Types
-import {VideoInput} from '../../types/inputs/video'
+import { VideoInput } from '../../types/inputs/video'
 // Mappers
-import {PlayableInputMapper} from './playable-input-mapper'
-import {GenericAudioInputMapper} from './generic-audio-input-mapper'
+import { PlayableInputMapper } from './playable-input-mapper'
+import { GenericAudioInputMapper } from './generic-audio-input-mapper'
 
 export abstract class GenericPlayableWithAudioInputMapper extends PlayableInputMapper {
 
@@ -20,7 +20,7 @@ export abstract class GenericPlayableWithAudioInputMapper extends PlayableInputM
         solo: false,
         volume: -1,
         balance: 0,
-        audioMeter: {left: 0, right: 0},
+        audioMeter: { left: 0, right: 0 },
         gainDb: 0
       }
     }
