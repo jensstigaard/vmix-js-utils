@@ -23,6 +23,7 @@ describe('xml-api-video-input-mapper', function () {
 
         // Assert the input were with correct playable data
         assert.strictEqual(input.shortTitle, 'Grey 3D Flourish.mp4')
+        assert.strictEqual(input.title, 'Grey 3D Flourish.mp4')
         assert.strictEqual(input.state, 'Running')
         assert.strictEqual(input.position, 22797)
     })
