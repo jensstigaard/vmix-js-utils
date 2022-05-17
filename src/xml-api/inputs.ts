@@ -1,17 +1,28 @@
 
-// Imports
+// Libraries
 import xpath from 'xpath'
 
 // Types
 import { TallySummary } from '../types/tcp'
-
 import { BaseInput } from '../types/inputs'
 
 // Input mappers
 import { InputMappers } from './input-mapping/index'
+import { BaseInputMapper } from './input-mapping/base-input-mapper'
 
 // Utility
 import { arrayWrap } from '../utility'
+
+// Exceptions
+import InputMissingAttributesError from '../exceptions/input-missing-attributes.error'
+import UnknownInputTypeError from '../exceptions/unknown-input-type-error'
+
+type OptionsFilter = {
+    key?: string[] // Filter on key
+    number?: number[] // Filter on number
+    type?: string[] // Filter on input type
+    hasAttrs?: string[] // Filter on inputs having specific attribute(s)
+}
 
 /**
  * XML API Inputs
@@ -27,14 +38,14 @@ export default class Inputs {
      */
     static extractInputsFromXML(
         xmlDocument: Document,
-        options: {
-            filters?: { key?: string[], number?: number[], type?: string[], hasAttrs?: string[] }
-        } = {}
+        options?: {
+            filters?: OptionsFilter
+        }
     ): Element[] {
         // console.log('Options', options)
         let xpathQuery = '//vmix/inputs/input'
 
-        if (options.filters) {
+        if (options && options.filters) {
             // XPath filtering
             // Attribute existance:https://stackoverflow.com/questions/3737906/xpath-how-to-check-if-an-attribute-exists
             // Attribute value(s) query: https://stackoverflow.com/questions/46503195/xpath-one-of-multiple-attribute-values-with-condition
@@ -101,13 +112,19 @@ export default class Inputs {
      * Map single input
      *
      * @param {Element} input
+     * @param {boolean} includeLayers
+     * @param {boolean} failOnUnknownInputType
      * @returns {BaseInput}
      */
-    static mapSingle(input: Element, includeLayers: boolean = true): BaseInput {
+    static mapSingle(
+        input: Element,
+        includeLayers: boolean = true,
+        failOnUnknownInputType: boolean = false
+    ): BaseInput {
         // Guard no attributes in xml dom element
         if (!input.attributes) {
-            console.error('FAILING INPUT', input)
-            throw new Error(`Input did not have any attributes...`)
+            // console.error('FAILING INPUT', input)
+            throw new InputMissingAttributesError(`Input did not have any attributes...`)
         }
 
         // Read input type-attribute
@@ -116,7 +133,7 @@ export default class Inputs {
         // Guard attribute was not found
         if (!inputTypeAttribute) {
             console.error('FAILING INPUT', input)
-            throw new Error(`Input did not have type attribute...`)
+            throw new InputMissingAttributesError(`Input did not have type attribute...`)
         }
 
         const inputType = inputTypeAttribute.value
@@ -128,7 +145,7 @@ export default class Inputs {
 
         // Attempt to find mapper based on name of input type
         // And use it to map input
-        if (InputMappers.hasOwnProperty(inputType)) {
+        if (inputType in InputMappers) {
             return InputMappers[inputType].map(input, includeLayers)
         }
 
@@ -139,21 +156,38 @@ export default class Inputs {
             case 'Xaml':
                 return InputMappers.Title.map(input, includeLayers)
             default:
-                throw new Error(`Not implemented yet. There was not found an Input mapper for input type... ${inputType}`)
+                // Check if should fail on unknown input type
+                if (failOnUnknownInputType) {
+                    throw new UnknownInputTypeError(
+                        `Unknown input type '${inputType}'. There was not found an input mapper for this input type...`
+                    )
+                }
+
+                // Attempt map the input using the base/master input mapper
+                return (new BaseInputMapper).map(input, includeLayers)
         }
     }
 
 
 
     /**
-     * Map inputs
+     * Map (multiple) inputs
      *
      * @param {Element[]} xmlInputs
+     * @param {boolean} includeLayers
+     * @param {boolean} failOnUnknownInputType
+     * 
+     * @returns {BaseInput[]} inputs
      */
-    static map(xmlInputs: Element[], includeLayers: boolean = true): BaseInput[] {
-
+    static map(
+        xmlInputs: Element[],
+        includeLayers: boolean = true,
+        failOnUnknownInputType: boolean = false,
+    ): BaseInput[] {
         // Map all data from raw input
-        const xmlInputsMapped = xmlInputs.map(input => Inputs.mapSingle(input, includeLayers))
+        const xmlInputsMapped = xmlInputs.map(
+            input => Inputs.mapSingle(input, includeLayers, failOnUnknownInputType)
+        )
 
         // // Make a dictionary and populate it
         // const inputsDictionary: any = {}
@@ -164,6 +198,27 @@ export default class Inputs {
         // return inputsDictionary
 
         return xmlInputsMapped
+    }
+
+    /**
+     * Map (multiple) inputs with allowing nullable
+     * @param xmlInputs
+     * @param includeLayers
+     * @param failOnUnknownInputType
+     * @returns 
+     */
+    static mapAllowNullable(
+        xmlInputs: Element[],
+        includeLayers: boolean = true,
+        failOnUnknownInputType: boolean = false
+    ): (BaseInput | null)[] {
+        return xmlInputs.map(input => {
+            try {
+                return Inputs.mapSingle(input, includeLayers, failOnUnknownInputType)
+            } catch (e) {
+                return null
+            }
+        })
     }
 
 
@@ -195,13 +250,13 @@ export default class Inputs {
         const programInputLayers = programInput ? this.mapSingle(programInput, true).layers : []
         const previewInputLayers = previewInput ? this.mapSingle(previewInput, true).layers : []
 
-        console.log('PROGRAM INPUT LAYERS', programInputLayers)
-        console.log('PREVIEW INPUT LAYERS', programInputLayers)
+        // console.log('PROGRAM INPUT LAYERS', programInputLayers)
+        // console.log('PREVIEW INPUT LAYERS', programInputLayers)
 
-        const programInputLayersInputNumbers = programInputLayers && programInputLayers.length ? this.map(
+        const programInputLayersInputNumbers = programInputLayers && programInputLayers.length > 0 ? this.map(
             this.extractInputsFromXML(xmlDocument, { filters: { key: programInputLayers?.map(i => i.key) } })
         ).map(i => i.number) : []
-        const previewInputLayersInputNumbers = previewInputLayers && previewInputLayers.length ? this.map(
+        const previewInputLayersInputNumbers = previewInputLayers && previewInputLayers.length > 0 ? this.map(
             this.extractInputsFromXML(xmlDocument, { filters: { key: previewInputLayers?.map(i => i.key) } })
         ).map(i => i.number) : []
 
