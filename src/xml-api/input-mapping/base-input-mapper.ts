@@ -5,10 +5,20 @@ import xpath from 'xpath'
 import { BaseInput } from '../../types/inputs'
 import { InputLayer as InputLayer, InputLayerPosition } from '../../types/inputs'
 
+// Errors
+import MissingRequiredAttributeError from '../../exceptions/missing-required-attribute-error'
+
 // Mappers
 import { MapperInterface } from './mapper-interface'
 
-export abstract class BaseInputMapper implements MapperInterface {
+/**
+ * Base input mapper
+ * 
+ * Acts as base/master class to be extended by other types of inputs
+ * Previously this was an abstract class...
+ * 
+ */
+export class BaseInputMapper implements MapperInterface {
 
 	/**
 	 * Required attributes
@@ -21,21 +31,49 @@ export abstract class BaseInputMapper implements MapperInterface {
 	 */
 	private requiredBaseAttributes: string[] = ['key', 'type', 'title']
 
+	/**
+	 * Map the input
+	 *
+	 * @param {Element} input (XML element)
+	 * @param {boolean} includeLayers
+	 * @returns {BaseInput}
+	 */
 	map(input: Element, includeLayers: boolean = true): BaseInput {
+		const notFoundRequiredBaseAttributes: string[] = []
+
+		const attrs = input.attributes
+
 		// Guard check required base attributes
 		this.requiredBaseAttributes.forEach(attrName => {
-			const attr = input.attributes.getNamedItem(attrName)
+			const attr = attrs.getNamedItem(attrName)
+
+			// Required attribute not found
 			if (!attr) {
-				console.error(input)
-				throw new Error(`Input did not contain required base attribute '${attrName}'...`)
+				notFoundRequiredBaseAttributes.push(attrName)
 			}
 		})
 
+		// Throw error if one or more required base attributes were not found
+		if (notFoundRequiredBaseAttributes.length > 0) {
+			console.error(input)
+			throw new MissingRequiredAttributeError([
+				'Input',
+				!notFoundRequiredBaseAttributes.includes('number') ?
+					`with no. ${attrs.getNamedItem('number')!.value}`
+					: null,
+				'did not contain required base',
+				`attribute${notFoundRequiredBaseAttributes.length === 1 ? '' : 's'}:`,
+				notFoundRequiredBaseAttributes.join(', '),
+				'...'
+			].join(' '))
+		}
+
+		// Construct/prepare output object
 		const output = {
-			key: input.attributes.getNamedItem('key')!.value,
-			type: input.attributes.getNamedItem('type')!.value,
-			number: Number(input.attributes.getNamedItem('number')!.value),
-			title: input.attributes.getNamedItem('title')!.value,
+			key: attrs.getNamedItem('key')!.value,
+			type: attrs.getNamedItem('type')!.value,
+			number: Number(attrs.getNamedItem('number')!.value),
+			title: attrs.getNamedItem('title')!.value,
 		} as BaseInput
 
 		// console.log(includeLayers ? 'INCLUDE LAYERS' : 'DO NOT INCLUDE LAYERS')
@@ -44,15 +82,30 @@ export abstract class BaseInputMapper implements MapperInterface {
 			output.layers = this.mapLayers(input)
 		}
 
+		const notFoundRequiredAttributes: string[] = []
 		// Guard check required attributes (on specific input type implementation)
 		this.requiredAttributes.forEach(attrName => {
-			const attr = input.attributes.getNamedItem(attrName)
+			const attr = attrs.getNamedItem(attrName)
+
+			// Required attribute not found
 			if (!attr) {
-				throw new Error(
-					`Input no. ${output.number} '${output.title}' did not contain required attribute '${attrName}'...`
-				)
+				notFoundRequiredAttributes.push(attrName)
 			}
 		})
+
+		// Throw error if one or more required attributes were not found
+		if (notFoundRequiredAttributes.length > 0) {
+			throw new Error(
+				[
+					'Input no.',
+					output.number,
+					'with title',
+					`'${output.title}'`,
+					`did not contain required attribute${notFoundRequiredAttributes.length === 1 ? '' : 's'}:`,
+					notFoundRequiredAttributes.join(', ')
+				].join(' ')
+			)
+		}
 
 		// console.log('YES', output)
 		// Map required attributes
@@ -91,11 +144,13 @@ export abstract class BaseInputMapper implements MapperInterface {
 			return
 		}
 
-		const panX = position.attributes.getNamedItem('panX')
-		const panY = position.attributes.getNamedItem('panY')
+		const attrs = position.attributes
 
-		const zoomX = position.attributes.getNamedItem('zoomX')
-		const zoomY = position.attributes.getNamedItem('zoomY')
+		const panX = attrs.getNamedItem('panX')
+		const panY = attrs.getNamedItem('panY')
+
+		const zoomX = attrs.getNamedItem('zoomX')
+		const zoomY = attrs.getNamedItem('zoomY')
 
 		return {
 			panX: panX ? Number(panX.value) : undefined,
