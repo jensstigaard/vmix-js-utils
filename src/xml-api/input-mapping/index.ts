@@ -4,6 +4,7 @@ import { BlankInputMapper } from './blank-input-mapper'
 import { ImageInputMapper } from './image-input-mapper'
 import { MixInputMapper } from './mix-input-mapper'
 import { PhotosInputMapper } from './photos-input-mapper'
+import { PowerpointInputMapper } from './powerpoint-input-mapper'
 import { ReplayInputMapper } from './replay-input-mapper'
 import { ReplayPreviewInputMapper } from './replay-preview-input-mapper'
 import { StreamInputMapper } from './stream-input-mapper'
@@ -25,6 +26,7 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	Mix: new MixInputMapper,
 	NDI: new VideoInputMapper,
 	Photos: new PhotosInputMapper,
+	PowerPoint: new PowerpointInputMapper,
 	Replay: new ReplayInputMapper,
 	ReplayPreview: new ReplayPreviewInputMapper,
 	SRT: new StreamInputMapper,
