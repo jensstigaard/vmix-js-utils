@@ -31,7 +31,7 @@
     "clean-build": "yarn clean && yarn build",
     "docs": "yarn typedoc",
     "prepare": "yarn snyk-protect",
-    "prepublish": "yarn prepare && yarn clean && yarn build",
+    "prepublish": "yarn clean && yarn build",
     "snyk-protect": "snyk-protect",
     "test": "mocha --recursive"
   },
