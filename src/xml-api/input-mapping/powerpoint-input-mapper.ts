@@ -13,6 +13,7 @@ export class PowerpointInputMapper extends VideoInputMapper {
 			// Current slide number - starting at 1
 			// (The position field also seems to show the current slide, but starting with 0)
 			currentSlideNumber: Number(input.attributes.getNamedItem('selectedIndex')!.value),
+
 			// Total number of slides in Powerpoint file
 			totalNumberOfSlides: Number(input.attributes.getNamedItem('duration')!.value),
 		}
