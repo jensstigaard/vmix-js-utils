@@ -36,6 +36,7 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	VideoCall: new VideoCallInputMapper,
 	VideoList: new VideoListInputMapper,
 	VideoDelay: new VideoInputMapper,
+	Virtual: new VideoInputMapper,
 	VirtualSet: new VirtualSetInputMapper,
 	VLC: new StreamInputMapper,
 }
