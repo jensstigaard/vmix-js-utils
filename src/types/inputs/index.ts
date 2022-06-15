@@ -83,6 +83,7 @@ export type InputType = 'Audio' // Microphone or other live audio source
 	| 'Video' // Video or audio file
 	| 'VideoDelay' // Video delay
 	| 'VideoList' // List of video or audio files
+	| 'Virtual'
 	| 'VirtualSet'
 	| 'VLC' // VLC stream
 	| string // Allow arbitary string value to allow non-listed input types
