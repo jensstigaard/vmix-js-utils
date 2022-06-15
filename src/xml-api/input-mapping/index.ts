@@ -25,7 +25,6 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	ImageSequence: new ImageInputMapper,
 	Mix: new MixInputMapper,
 	NDI: new VideoInputMapper,
-	Virtual: new VideoInputMapper,
 	Photos: new PhotosInputMapper,
 	PowerPoint: new PowerpointInputMapper,
 	Replay: new ReplayInputMapper,
@@ -37,6 +36,7 @@ export const InputMappers: { [key: string]: BaseInputMapper } = {
 	VideoCall: new VideoCallInputMapper,
 	VideoList: new VideoListInputMapper,
 	VideoDelay: new VideoInputMapper,
+	Virtual: new VideoInputMapper,
 	VirtualSet: new VirtualSetInputMapper,
 	VLC: new StreamInputMapper,
 }
