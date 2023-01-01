@@ -98,7 +98,7 @@ npm test # or 'yarn test'
 
 
 # Authors
-Jens Grønhøj Stigaard - <jens@stigaard.info> (http://jens.stigaard.info)
+(Jens Grønhøj Stigaard)[github.com/jensstigaard]
 
 
 # Contribution
