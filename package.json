@@ -36,19 +36,19 @@
     "test": "mocha --recursive"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.6",
+    "@xmldom/xmldom": "^0.8.10",
     "lodash": "^4.17.21",
     "querystring": "^0.2.1",
-    "xpath": "^0.0.32"
+    "xpath": "^0.0.34"
   },
   "devDependencies": {
-    "@snyk/protect": "^1.931.0",
-    "@types/lodash": "^4.14.182",
-    "@types/xmldom": "^0.1.31",
-    "mocha": "^10.0.0",
+    "@snyk/protect": "^1.1292.2",
+    "@types/lodash": "^4.17.7",
+    "@types/xmldom": "^0.1.34",
+    "mocha": "^10.7.0",
     "rimraf": "^6.0.1",
-    "typedoc": "^0.22.15",
-    "typescript": "^4.6.0"
+    "typedoc": "^0.26.5",
+    "typescript": "^5.5.4"
   },
   "snyk": true
 }
