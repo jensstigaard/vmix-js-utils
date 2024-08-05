@@ -1,6 +1,6 @@
 {
   "name": "vmix-js-utils",
-  "version": "4.0.17",
+  "version": "4.0.18",
   "description": "vMix utilities for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
