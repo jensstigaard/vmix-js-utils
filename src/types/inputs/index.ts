@@ -3,7 +3,7 @@
  * NOTE! Should not be used!
  */
 export type GenericInput = {
-	[key: string]: any
+	[key: string]: unknown
 }
 
 /**
@@ -14,6 +14,10 @@ export type BaseInput = {
 	number: number
 	type: InputType
 	title: string
+
+	/**
+	 * Layers - when input are using (multi-)layers, i.e. as a multiview
+	 */
 	layers?: InputLayer[]
 }
 
@@ -86,7 +90,7 @@ export type InputType = 'Audio' // Microphone or other live audio source
 	| 'Virtual'
 	| 'VirtualSet'
 	| 'VLC' // VLC stream
-	| string // Allow arbitary string value to allow non-listed input types
+	| string & {} // Allow arbitary string value to allow non-listed input types. {} to keep autocomplete
 
 /**
  * Input state
@@ -94,4 +98,4 @@ export type InputType = 'Audio' // Microphone or other live audio source
 export type InputState = 'Paused'
 	| 'Running'
 	| 'Completed'
-	| string // Allow arbitary string value to allow non-listed input state
+	| string & {} // Allow arbitary string value to allow non-listed input state. {} to keep autocomplete
