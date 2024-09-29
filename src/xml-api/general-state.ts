@@ -96,7 +96,7 @@ export default class XmlState {
 		if (xmlDocument) {
 			this.update(xmlDocument)
 		}
-		const el: Element = xpath.select1('//vmix/recording', this._data) as Element
+		const el: Element = xpath.select1('//vmix/external', this._data) as Element
 
 		return el.textContent! === 'True'
 	}
